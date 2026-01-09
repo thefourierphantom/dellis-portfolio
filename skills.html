@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills & Development - Dontavious Ellis | Cybercrime Investigation & Digital Forensics</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .card { transition: all .25s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
+    .pill { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .tag { border: 1px solid rgba(0,0,0,.08); }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <span class="mono text-lg font-semibold text-gray-900">DE</span>
+          <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+          <a href="case-files.html" class="text-gray-600 hover:text-gray-900 transition-colors">Case Files</a>
+          <a href="skills.html" class="text-gray-900 font-medium border-b-2 border-amber-500 pb-1">Skills</a>
+          <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
+          <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
+          <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+        <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
+        <a href="case-files.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Case Files</a>
+        <a href="skills.html" class="block px-3 py-2 text-gray-900 font-medium">Skills</a>
+        <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
+        <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
+        <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Skills & Development</h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+          A transparent view of what I’m building: foundational security competencies, investigative methods, and hands-on practice
+          aligned to digital forensics, incident response, and defense-oriented cybersecurity.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold pill text-white">Security+ Certified</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-200 tag">Cybersecurity Student</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-200 tag">EE Foundation</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-200 tag">Academic / Simulated Work</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What This Page Represents -->
+  
+  <!-- Skills by Domain (No percentages, no inflated claims) -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">Development Domains</h2>
+     
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Investigative Method -->
+        <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h2M7 7h.01M7 11h.01M7 15h.01M11 7h6m-6 4h6m-6 4h6"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">Investigative Method</h3>
+              <p class="text-xs text-gray-500">Practicing</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Evidence inventory & documentation discipline</li>
+            <li>• Hypothesis-driven analysis (prove / disprove)</li>
+            <li>• Timeline-first reconstruction mindset</li>
+            <li>• Clear limitations and next steps</li>
+          </ul>
+        </div>
+
+        <!-- Linux & Systems -->
+        <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">Linux & Systems</h3>
+              <p class="text-xs text-gray-500">Practicing</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Ubuntu/Kali VM administration</li>
+            <li>• User/group permissions & basic hardening</li>
+            <li>• Command-line fluency (Bash fundamentals)</li>
+            <li>• Environment setup for labs and tooling</li>
+          </ul>
+        </div>
+
+        <!-- Networking Fundamentals -->
+        <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">Networking & Packet Analysis</h3>
+              <p class="text-xs text-gray-500">Practicing</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• TCP/IP, DNS, DHCP behavior observation</li>
+            <li>• PCAP triage and basic protocol interpretation</li>
+            <li>• Scanning fundamentals and documentation (e.g., Nmap)</li>
+            <li>• Noting anomalies without premature attribution</li>
+          </ul>
+        </div>
+
+        <!-- Scripting -->
+        <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">Programming & Scripting</h3>
+              <p class="text-xs text-gray-500">Foundational → Practicing</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Python fundamentals for automation and parsing</li>
+            <li>• Bash scripting basics for workflow support</li>
+            <li>• C exposure from engineering background</li>
+            <li>• Git/GitHub for version control and traceability</li>
+          </ul>
+        </div>
+
+        <!-- Forensics Foundations -->
+        <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m2 9H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">Forensics Foundations</h3>
+              <p class="text-xs text-gray-500">Foundational</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Evidence handling concepts and documentation habits</li>
+            <li>• Artifact awareness (files, logs, timestamps)</li>
+            <li>• “What can be proven” vs. speculation discipline</li>
+            <li>• Structured reporting practice (redacted)</li>
+          </ul>
+        </div>
+
+        <!-- Embedded / Cyber-Physical -->
+        <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-teal-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M4 7h16M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">Embedded & Cyber-Physical Context</h3>
+              <p class="text-xs text-gray-500">Foundational</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Microcontroller exposure (ESP32/Arduino)</li>
+            <li>• Serial comms and telemetry behavior observation</li>
+            <li>• Reliability mindset (failure modes, traceability)</li>
+            <li>• Security interest: resilient comms & secure autonomy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-xs text-gray-500">
+        Domain choices reflect current training priorities and documented experience.
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools (framed as exposure / practice) -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">Tools & Platforms</h2>
+        <p class="text-gray-600 mt-3 max-w-3xl mx-auto">
+          Listed as tools used in labs or environments I’m actively learning        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Networking</h3>
+          <div class="space-y-2 text-sm text-gray-700">
+            <div class="flex items-center justify-between"><span>Wireshark</span><span class="text-xs text-gray-500">lab use</span></div>
+            <div class="flex items-center justify-between"><span>Nmap</span><span class="text-xs text-gray-500">lab use</span></div>
+            <div class="flex items-center justify-between"><span>tcpdump</span><span class="text-xs text-gray-500">learning</span></div>
+            <div class="flex items-center justify-between"><span>TCP/IP, DNS, DHCP</span><span class="text-xs text-gray-500">fundamentals</span></div>
+          </div>
+        </div>
+
+        <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Systems</h3>
+          <div class="space-y-2 text-sm text-gray-700">
+            <div class="flex items-center justify-between"><span>Ubuntu</span><span class="text-xs text-gray-500">VM</span></div>
+            <div class="flex items-center justify-between"><span>Kali</span><span class="text-xs text-gray-500">VM</span></div>
+            <div class="flex items-center justify-between"><span>Bash</span><span class="text-xs text-gray-500">practice</span></div>
+            <div class="flex items-center justify-between"><span>Basic hardening</span><span class="text-xs text-gray-500">lab</span></div>
+          </div>
+        </div>
+
+        <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Dev Workflow</h3>
+          <div class="space-y-2 text-sm text-gray-700">
+            <div class="flex items-center justify-between"><span>Git / GitHub</span><span class="text-xs text-gray-500">active</span></div>
+            <div class="flex items-center justify-between"><span>Python</span><span class="text-xs text-gray-500">fundamentals</span></div>
+            <div class="flex items-center justify-between"><span>C</span><span class="text-xs text-gray-500">exposure</span></div>
+            <div class="flex items-center justify-between"><span>Documentation</span><span class="text-xs text-gray-500">habit</span></div>
+          </div>
+        </div>
+
+        <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Embedded Context</h3>
+          <div class="space-y-2 text-sm text-gray-700">
+            <div class="flex items-center justify-between"><span>ESP32</span><span class="text-xs text-gray-500">lab</span></div>
+            <div class="flex items-center justify-between"><span>Arduino IDE</span><span class="text-xs text-gray-500">practice</span></div>
+            <div class="flex items-center justify-between"><span>Serial tools</span><span class="text-xs text-gray-500">practice</span></div>
+            <div class="flex items-center justify-between"><span>Telemetry validation</span><span class="text-xs text-gray-500">learning</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center text-xs text-gray-500">
+        Tooling and domain interests reflect documented lab practice and project context.
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Commitments / Next Up -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900">Near-Term Build Plan</h2>
+        <p class="text-gray-600 mt-3 max-w-3xl mx-auto">
+          A realistic roadmap for turning “interest” into repeatable capability
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="card bg-white border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">1) Networking Discipline</h3>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Daily packet-reading reps (DNS/DHCP/TCP)</li>
+            <li>• PCAP triage checklists and notes</li>
+            <li>• Small weekly writeups (what/why/how proven)</li>
+          </ul>
+        </div>
+
+        <div class="card bg-white border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">2) Linux + Automation</h3>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• One lab per week: users/permissions/hardening</li>
+            <li>• Python scripts: parsing logs, summarizing artifacts</li>
+            <li>• Git commits as proof of iteration</li>
+          </ul>
+        </div>
+
+        <div class="card bg-white border border-gray-200 rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">3) Forensics Foundation</h3>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li>• Build “evidence register” habit for every lab</li>
+            <li>• Draft redacted reports from simulations</li>
+            <li>• Complete Case-001 → then start Case-002</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
+        <div class="text-sm text-gray-400 mb-4">Cybercrime Investigation &amp; Digital Forensics</div>
+
+        <div class="text-xs text-gray-500 max-w-3xl mx-auto">
+          <p class="mb-2">
+            <strong>Disclaimer:</strong> This site documents learning progression and simulated/academic exercises.
+            Tools and domains are presented as development areas and practice contexts, not claims of professional mastery.
+          </p>
+          <p>
+            Content is intended for prospective employers, academic evaluation, and professional development in cybersecurity and investigative analysis.
+          </p>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
+          © 2026 Dontavious Ellis Digital Forensics Portfolio. All rights reserved.
+        </div>
+
+        <div class="mt-3 text-[11px] text-gray-500">
+          Reference files used to remodel this page: Skills page source and CV. :contentReference[oaicite:3]{index=3} :contentReference[oaicite:4]{index=4}
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+ </body>
+</html>

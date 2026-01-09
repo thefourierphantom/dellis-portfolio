@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 003 - Memory Forensics Challenge | Dontavious Ellis Digital Forensics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .timeline-item { cursor: pointer; transition: all 0.3s ease; }
+        .timeline-item:hover { background-color: #f9fafb; }
+        .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .timeline-details.expanded { max-height: 500px; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
+                    <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                    <a href="case-files.html" class="text-gray-900 font-medium">Case Files</a>
+                    <a href="skills.html" class="text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
+                    <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
+                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
+                <a href="case-files.html" class="block px-3 py-2 text-gray-900 font-medium">Case Files</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
+                <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
+                <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <section class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="mono text-sm text-amber-400 mb-2">CASE FILE 001</div>
+                    <h1 class="text-3xl lg:text-4xl font-bold mb-4">Memory Forensics Challenge</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl">
+                        Investigation of suspicious network activity involving potential data exfiltration attempts 
+                        and unauthorized access detection through comprehensive traffic analysis.
+                    </p>
+                </div>
+                <div class="hidden lg:block">
+                    <img src="resources/case-evidence/network-evidence.jpg" alt="Network Evidence" class="w-64 h-48 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Overview -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Scenario Summary</h2>
+                    <div class="prose prose-lg text-gray-600 mb-8">
+                        <p class="mb-4">
+                            On January 15, 2024, network monitoring systems detected unusual outbound traffic patterns 
+                            from a corporate workstation during non-business hours. Initial analysis indicated potential 
+                            unauthorized access and possible data exfiltration attempts targeting sensitive business information.
+                        </p>
+                        <p class="mb-4">
+                            The investigation focused on identifying the source of the intrusion, analyzing the scope of 
+                            data access, and reconstructing the timeline of events. Network traffic captures, firewall logs, 
+                            and system logs were collected and preserved following standard forensic procedures.
+                        </p>
+                        <p>
+                            This case demonstrates proper network forensics methodology including evidence preservation, 
+                            traffic analysis, timeline reconstruction, and incident documentation suitable for legal proceedings.
+                        </p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Evidence Examined</h2>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Network Traffic Data</h3>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                    <span>Packet capture files (PCAP) - 2.3GB</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                    <span>Firewall logs - 48-hour period</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                    <span>NetFlow data - connection tracking</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">System Logs</h3>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                    <span>Windows Event Logs - Security</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                    <span>Web proxy logs - HTTP/HTTPS</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                    <span>DNS query logs - resolution tracking</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Case Details</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Case ID:</span>
+                                <span class="mono font-medium">CASE-001</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Date Opened:</span>
+                                <span class="font-medium">2024-01-15</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Date Closed:</span>
+                                <span class="font-medium">2024-01-22</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Status:</span>
+                                <span class="text-green-600 font-medium">Completed</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Investigator:</span>
+                                <span class="font-medium">Alex Morgan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Tools Used</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Wireshark - Packet Analysis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>NetworkMiner - File Extraction</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Splunk - Log Analysis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Volatility - Memory Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investigative Questions -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investigative Questions</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Source Identification</h3>
+                    <p class="text-gray-600 text-sm">
+                        What was the source of unauthorized network access and how did the intrusion occur?
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Access Assessment</h3>
+                    <p class="text-gray-600 text-sm">
+                        What specific data was accessed, transferred, or compromised during the incident?
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Timeline Reconstruction</h3>
+                    <p class="text-gray-600 text-sm">
+                        When did the intrusion occur and what was the duration of unauthorized access?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investigation Timeline -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investigation Timeline</h2>
+            <div class="max-w-4xl">
+                
+                <div class="timeline-item border-l-4 border-amber-500 pl-8 pb-8 relative">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-gray-900">Initial Detection</h3>
+                            <span class="mono text-sm text-gray-500">2024-01-15 02:30 UTC</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Network monitoring system detected unusual outbound traffic from workstation WS-1847. 
+                            Traffic volume exceeded baseline by 340% during non-business hours.
+                        </p>
+                        <div class="timeline-details">
+                            <div class="border-t border-gray-200 pt-3 mt-3">
+                                <h4 class="font-semibold text-gray-900 mb-2">Technical Details:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Source IP: 192.168.1.147 (Workstation WS-1847)</li>
+                                    <li>• Destination IP: 203.0.113.45 (Unknown external host)</li>
+                                    <li>• Protocol: HTTPS (TCP/443)</li>
+                                    <li>• Data transferred: 2.7GB over 3-hour period</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item border-l-4 border-blue-500 pl-8 pb-8 relative">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-gray-900">Evidence Collection</h3>
+                            <span class="mono text-sm text-gray-500">2024-01-15 03:15 UTC</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Network packet capture initiated, firewall logs preserved, and system memory dump 
+                            created from affected workstation following proper forensic procedures.
+                        </p>
+                        <div class="timeline-details">
+                            <div class="border-t border-gray-200 pt-3 mt-3">
+                                <h4 class="font-semibold text-gray-900 mb-2">Collection Methods:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Full packet capture using Wireshark</li>
+                                    <li>• Firewall log export with checksum verification</li>
+                                    <li>• Memory dump using FTK Imager</li>
+                                    <li>• Chain of custody documentation initiated</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item border-l-4 border-green-500 pl-8 pb-8 relative">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-gray-900">Traffic Analysis</h3>
+                            <span class="mono text-sm text-gray-500">2024-01-16 14:00 UTC</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Packet analysis revealed encrypted data exfiltration attempts to command-and-control server. 
+                            Initial compromise vector identified as phishing email with malicious attachment.
+                        </p>
+                        <div class="timeline-details">
+                            <div class="border-t border-gray-200 pt-3 mt-3">
+                                <h4 class="font-semibold text-gray-900 mb-2">Key Findings:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Encrypted file uploads to C2 server</li>
+                                    <li>• Credential harvesting tool deployment</li>
+                                    <li>• Lateral movement attempts detected</li>
+                                    <li>• Data staging in temporary directories</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item border-l-4 border-purple-500 pl-8 relative">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-lg font-semibold text-gray-900">Case Resolution</h3>
+                            <span class="mono text-sm text-gray-500">2024-01-22 16:30 UTC</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Investigation completed with comprehensive report documenting attack timeline, 
+                            evidence of data access, and recommendations for security improvements.
+                        </p>
+                        <div class="timeline-details">
+                            <div class="border-t border-gray-200 pt-3 mt-3">
+                                <h4 class="font-semibold text-gray-900 mb-2">Final Results:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• 127 files accessed, 23 files exfiltrated</li>
+                                    <li>• 4 user accounts compromised</li>
+                                    <li>• 3-day persistence before detection</li>
+                                    <li>• Security recommendations implemented</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Findings and Analysis -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Key Findings</h2>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Attack Vector</h3>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Initial compromise occurred through phishing email containing malicious Microsoft Office 
+                                document with embedded macros. User executed macro, installing remote access trojan.
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                Evidence: Email headers, attachment analysis, macro code examination
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Exfiltration</h3>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Attackers staged sensitive documents in temporary directory before encrypted 
+                                transmission to external command-and-control server using HTTPS protocol.
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                Evidence: File system artifacts, network traffic analysis, encryption key recovery
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Persistence Mechanisms</h3>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Multiple persistence methods established including scheduled tasks, registry modifications, 
+                                and legitimate service impersonation for long-term access.
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                Evidence: Registry analysis, scheduled task examination, service configuration review
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Methodology</h2>
+                    <div class="bg-white rounded-lg p-6 shadow-sm mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Network Forensics Process</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">1</div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Identification</div>
+                                    <div class="text-gray-600">Network monitoring systems detected anomalous traffic patterns</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">2</div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Preservation</div>
+                                    <div class="text-gray-600">Evidence collected and secured following chain of custody procedures</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">3</div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Collection</div>
+                                    <div class="text-gray-600">Packet captures, logs, and system artifacts acquired for analysis</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">4</div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Examination</div>
+                                    <div class="text-gray-600">Traffic analysis, log correlation, and artifact examination</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">5</div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Analysis</div>
+                                    <div class="text-gray-600">Timeline reconstruction and attack vector identification</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">6</div>
+                                <div>
+                                    <div class="font-medium text-gray-900">Presentation</div>
+                                    <div class="text-gray-600">Comprehensive report with findings and recommendations</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Technical Tools</h3>
+                        <div class="grid grid-cols-2 gap-3 text-sm">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Wireshark</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>NetworkMiner</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Splunk</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Volatility</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion and Limitations -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                    <div class="prose prose-lg text-gray-600">
+                        <p class="mb-4">
+                            The investigation successfully identified a sophisticated cyber intrusion involving 
+                            data exfiltration through encrypted channels. Evidence indicates the attack began 
+                            with a phishing email and resulted in unauthorized access to sensitive business documents.
+                        </p>
+                        <p class="mb-4">
+                            Timeline analysis reveals the intrusion persisted for approximately 72 hours before 
+                            detection, with active data exfiltration occurring during the final 24 hours. The 
+                            attack demonstrated advanced persistent threat characteristics including multiple 
+                            persistence mechanisms and sophisticated evasion techniques.
+                        </p>
+                        <p>
+                            This case demonstrates the critical importance of network monitoring, rapid incident 
+                            response, and comprehensive forensic analysis in cybersecurity investigations. 
+                            Recommendations include enhanced email security, improved user training, and 
+                            implementation of additional network segmentation.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Limitations & Confidence</h2>
+                    <div class="space-y-4">
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="text-sm font-semibold text-yellow-800 mb-2">Data Limitations</h3>
+                            <p class="text-yellow-700 text-sm">
+                                Some network traffic was encrypted using strong cryptography, limiting analysis 
+                                of specific data content. Analysis focused on metadata and traffic patterns.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                            <h3 class="text-sm font-semibold text-blue-800 mb-2">Investigation Confidence</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-blue-700">Attack Vector Identification:</span>
+                                    <span class="font-medium text-blue-800">95%</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-blue-700">Timeline Reconstruction:</span>
+                                    <span class="font-medium text-blue-800">90%</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-blue-700">Data Exfiltration Assessment:</span>
+                                    <span class="font-medium text-blue-800">85%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                            <h3 class="text-sm font-semibold text-green-800 mb-2">Next Steps</h3>
+                            <ul class="text-green-700 text-sm space-y-1">
+                                <li>• Implement enhanced email filtering</li>
+                                <li>• Conduct security awareness training</li>
+                                <li>• Deploy additional network monitoring</li>
+                                <li>• Review and update incident response procedures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Case Documentation</h2>
+            <p class="text-gray-600 mb-8">
+                Complete forensic report available for academic and professional review purposes.
+            </p>
+            <button class="pdf-download bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                Download Redacted Report (PDF)
+            </button>
+            <p class="text-xs text-gray-500 mt-4">
+                * Report contains sanitized information suitable for educational demonstration
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
+                <div class="text-sm text-gray-400 mb-4">Cybercrime Investigation & Digital Forensics</div>
+                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
+                    <p class="mb-2">
+                        <strong>Disclaimer:</strong> This case study is a simulated investigation conducted for educational 
+                        and professional demonstration purposes only. All scenarios, data, and findings are fictional 
+                        and appropriately sanitized for training purposes.
+                    </p>
+                    <p>
+                        This investigation demonstrates proper network forensics methodology, evidence analysis techniques, 
+                        and incident response procedures consistent with professional digital forensics standards.
+                    </p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
+                    © 2024 Dontavious Ellis Digital Forensics Portfolio. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</

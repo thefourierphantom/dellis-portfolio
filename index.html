@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dontavious Ellis - Cybercrime Investigation & Digital Forensics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .hero-bg { background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%); }
+        .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
+                    <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-900 font-medium border-b-2 border-amber-500 pb-1">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                    <a href="case-files.html" class="text-gray-600 hover:text-gray-900 transition-colors">Case Files</a>
+                    <a href="skills.html" class="text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
+                    <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
+                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-900 font-medium">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
+                <a href="case-files.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Case Files</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
+                <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
+                <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-60">
+            <img src="resources/hero-forensic.png" alt="Digital Forensics Laboratory" class="w-full h-full object-cover">
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+                        <span class="block">Dontavious Ellis</span>
+                        <span class="block text-3xl lg:text-4xl font-normal mt-2 text-amber-400">Cybercrime Investigation & Digital Forensics</span>
+                    </h1>
+
+                    <div class="text-xl lg:text-2xl mb-8 text-gray-200 h-16">
+                        <span id="typed-mission"></span>
+                    </div>
+
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        This site documents my ongoing development in digital forensics and cybercrime investigation. Through structured academic training and simulated casework, I am building the technical discipline required to analyze digital evidence, reconstruct cyber incidents, and document findings with forensic rigor.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="case-files.html" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors text-center">
+                            View Case Files
+                        </a>
+                        <a href="about.html" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors text-center">
+                            About the Investigator
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right rail: headshot + focus card (shows who you are) -->
+                <div class="block">
+  <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 max-w-3md mx-auto lg:mx-0">
+
+
+                        <div class="flex items-start gap-4 mb-6">
+                            <img
+  src="resources/profile.jpg"
+  alt="Dontavious Ellis"
+  class="w-50 h-50 sm:w-56 sm:h-56 md:w-30 md:h-30 object-cover rounded-xl ring-1 ring-white/30 shadow-md flex-shrink-0"
+
+/>
+
+                            <div class="flex-1">
+                                <div class="mono text-xs tracking-widest text-gray-300">PROFILE</div>
+                                <div class="text-white font-semibold text-lg leading-tight">Dontavious Ellis</div>
+                                <div class="text-sm text-gray-200 mt-1">
+                                    Cybersecurity student pursuing investigative roles in digital forensics, with demonstrated experience leading technical organizations, executing multidisciplinary projects, and developing evidence-driven analysis workflows in academic and simulated environments.
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-white mb-4">Investigative Focus Areas</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center text-white">
+                                <div class="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                                <span>Network Traffic Analysis</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <div class="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                                <span>Endpoint Artifact Analysis</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <div class="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                                <span>Timeline Reconstruction & Reporting</span>
+                            </div>
+                            <div class="flex items-center text-white">
+                                <div class="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                                <span>Introductory Memory Forensics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Professional Approach</h2>
+                    <div class="prose prose-lg text-gray-600">
+                        <p class="mb-6">
+                            I am a cybersecurity student at the University of South Florida with prior electrical engineering training, approaching digital forensics as a system-level investigative discipline rather than a tool-driven exercise. This portfolio reflects preparatory study, structured learning, and simulated casework.
+                        </p>
+                        <p class="mb-6">
+                            I have earned the CompTIA Security+ certification, establishing a foundational understanding of security principles, risk, and incident response concepts. Building on this baseline, my academic focus will center on cyber forensics, network security, cryptography, malware analysis, and hands-on incident response, supported by structured programming and networking coursework.
+                        </p>
+                        <p>
+                            I am preparing for early-career roles and internships aligned with digital forensics, incident response, and investigative cybersecurity, with long-term interest in forensic laboratories and public-sector or federal investigative pathways.
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Certifications</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                                <span>CompTIA Security+</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <div class="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
+                                <span>BS Cybersecurity (In Progress)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Learning Domains</h3>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <div>• Digital Evidence Handling & Preservation</div>
+                            <div>• Network Forensics Fundamentals</div>
+                            <div>• Endpoint Artifact Identification</div>
+                            <div>• Introductory Memory Analysis</div>
+                            <div>• Incident Timeline Reconstruction</div>
+                            <div>• Technical Documentation & Reporting</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Case Highlights -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Case Portfolio</h2>
+                <p class="text-lg text-gray-600">Simulated investigations demonstrating forensic methodology and evidence analysis</p>
+            </div>
+
+            <!-- UPDATED: 2 cases only -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                    <div class="mono text-sm text-amber-600 mb-2">CASE-001</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Network Intrusion Analysis</h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Investigation of suspicious network activity using controlled datasets and documented timeline reconstruction.
+                    </p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                        <span>In Progress</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                    <div class="mono text-sm text-amber-600 mb-2">CASE-002</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Endpoint Malware Detection</h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Endpoint-focused casework emphasizing artifact awareness, persistence indicators, and reporting discipline.
+                    </p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <div class="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
+                        <span>Planned</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="case-files.html" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                    View All Case Files
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-4">Professional Inquiry</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Available for internships and entry-level roles aligned with digital forensics, incident response foundations, and investigative cybersecurity
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Professional Contact
+                </a>
+                <a href="resume.html" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors">
+                    View Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
+                <div class="text-sm text-gray-400 mb-4">Cybercrime Investigation & Digital Forensics</div>
+                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
+                    <p class="mb-2">
+                        <strong>Disclaimer:</strong> All investigations and case studies presented are simulated, academic exercises
+                        conducted for educational and professional demonstration purposes only. No real individuals were investigated,
+                        and all scenarios are fictional or appropriately sanitized for training purposes.
+                    </p>
+                    <p>
+                        This portfolio demonstrates forensic methodology, evidence analysis techniques, and investigative procedures
+                        consistent with professional digital forensics standards. Content is intended for prospective employers,
+                        academic evaluation, and professional development in cybersecurity and digital forensics fields.
+                    </p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
+                    © 2026 Dontavious Ellis Digital Forensics Portfolio. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

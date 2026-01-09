@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case-002 - Endpoint Malware Detection | Dontavious Ellis</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .timeline-item { cursor: pointer; transition: all 0.3s ease; }
+        .timeline-item:hover { background-color: #f9fafb; }
+        .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .timeline-details.expanded { max-height: 500px; }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
+                    <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                    <a href="case-files.html" class="text-gray-900 font-medium">Case Files</a>
+                    <a href="skills.html" class="text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
+                    <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
+                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
+                <a href="case-files.html" class="block px-3 py-2 text-gray-900 font-medium">Case Files</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
+                <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
+                <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Header -->
+    <section class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <div class="mono text-sm text-amber-400 mb-2">CASE FILE 002</div>
+                    <h1 class="text-3xl lg:text-4xl font-bold mb-4">Endpoint Malware Detection</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl">
+                        A planned simulated endpoint investigation designed to build forensic workflow:
+                        artifact discovery, persistence hunting, and disciplined documentation. Details will be populated as work is completed.
+                    </p>
+                </div>
+                <div class="hidden lg:block">
+                    <a href="case-files.html" class="inline-flex items-center text-amber-400 hover:text-amber-300 font-medium">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to Case Files
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Overview -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+
+                <!-- Primary Content -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Scenario Summary</h2>
+                    <div class="prose prose-lg text-gray-600 mb-8">
+                        <p class="mb-4">
+                            This case file is a <strong>planned, academic simulation</strong> focused on endpoint artifact analysis and basic malware triage workflows.
+                            The objective is to practice repeatable procedures: evidence handling, artifact discovery, persistence checks, and clear documentation.
+                        </p>
+                        <p class="mb-4">
+                            The scenario involves an endpoint exhibiting suspicious behavior (e.g., unusual startup entries, unexpected processes, or anomalous file activity).
+                            The investigation is designed to answer: <em>what changed</em>, <em>what indicates compromise vs. benign behavior</em>, and <em>what evidence supports the conclusion</em>.
+                        </p>
+                        <p>
+                            Status: <strong>Planned</strong>. This page will be updated as the investigation is executed and validated, culminating in a redacted academic report.
+                        </p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Evidence Examined</h2>
+                    <p class="text-sm text-gray-600 mb-6">
+                        Evidence types below reflect the intended dataset for this simulated case. Specific validated artifacts will be added after analysis is completed.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-10">
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Disk Image / File System Artifacts</h3>
+                            <p class="text-sm text-gray-600">
+                                Used to examine file creation/modification patterns, suspicious binaries, and persistence-related files.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Registry / Startup Persistence</h3>
+                            <p class="text-sm text-gray-600">
+                                Used to identify common persistence mechanisms (Run keys, scheduled tasks, services) and correlate changes over time.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Event Logs / Execution Traces</h3>
+                            <p class="text-sm text-gray-600">
+                                Used to correlate process launches, installation events, and security-relevant activities.
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Optional: Volatile Artifacts</h3>
+                            <p class="text-sm text-gray-600">
+                                If a memory image is available in the dataset, it can support process and network context validation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-8">
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Case Details</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Case ID:</span>
+                                <span class="mono font-medium">CASE-002</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Target Window:</span>
+                                <span class="font-medium">Spring 2026</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Current Phase:</span>
+                                <span class="font-medium">Scoping &amp; dataset selection</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Status:</span>
+                                <span class="text-gray-600 font-medium">Planned (Academic)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Investigator:</span>
+                                <span class="font-medium">Dontavious Ellis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Planned Tooling (Subject to Change)</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Autopsy / similar — File system &amp; artifact review</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Sysinternals suite (where applicable) — Persistence triage</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>Windows event log tooling (TBD) — Correlation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                                <span>YARA / basic hashing — Indicator checks (optional)</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4">
+                            Tools are listed as targets for the workflow. Only tools actually used will be reflected in the final report.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Investigation Phases -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investigation Phases (Planned)</h2>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 1 — Scope &amp; Evidence Inventory</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Define dataset scope (image type, logs, host context)</li>
+                        <li>• Establish “expected normal” vs. suspicious signals</li>
+                        <li>• Create an evidence register and working notebook</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 2 — Artifact Discovery</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Identify suspicious files, directories, and execution traces</li>
+                        <li>• Triage obvious persistence indicators</li>
+                        <li>• Capture initial observations + alternative hypotheses</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 3 — Persistence &amp; Behavior Validation</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Validate persistence claims against multiple sources</li>
+                        <li>• Correlate event logs, registry, and file system changes</li>
+                        <li>• Identify what can be proven vs. what is speculative</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 4 — Reporting (Redacted)</h3>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Summarize validated observations and limitations</li>
+                        <li>• Document methodology, tooling decisions, and repeatability</li>
+                        <li>• Provide next steps for containment/remediation (academic)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 bg-white rounded-lg p-6 border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Working Hypotheses (To Be Tested)</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            <span class="font-semibold text-gray-900">H1:</span> Observed artifacts indicate malicious persistence on the endpoint.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Evidence needed: corroboration across registry/startup locations, timestamps, execution traces, and event logs.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            <span class="font-semibold text-gray-900">H2:</span> Observed artifacts may be benign software behavior or administrative tooling.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Evidence needed: baseline comparisons, known-good validation, and elimination of expected application behavior.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-500 mt-6">
+                Confidence will be assessed after cross-validation of artifacts and timeline consistency.
+            </p>
+        </div>
+    </section>
+
+    <!-- Documentation -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Case Documentation</h2>
+            <p class="text-gray-600 mb-8">
+                Redacted report will be published after this academic case is executed and validated.
+            </p>
+            <button disabled class="bg-gray-300 text-gray-600 px-8 py-3 rounded-lg font-semibold cursor-not-allowed">
+                Redacted Report (Coming Soon)
+            </button>
+            <p class="text-xs text-gray-500 mt-4">
+                * This page represents planned simulated work; no professional case details are included.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
+                <div class="text-sm text-gray-400 mb-4">Cybercrime Investigation &amp; Digital Forensics</div>
+                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
+                    <p class="mb-2">
+                        <strong>Disclaimer:</strong> This case study is a simulated, academic exercise conducted for educational purposes only.
+                        All scenarios and datasets are fictional, sanitized, or purpose-built for training. No real individuals or live systems are involved.
+                    </p>
+                    <p>
+                        This page documents learning progression, forensic methodology, and evidence analysis workflows in controlled environments.
+                        Content is intended for prospective employers, academic evaluation, and professional development.
+                    </p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
+                    © 2026 Dontavious Ellis Digital Forensics Portfolio. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
