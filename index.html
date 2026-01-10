@@ -24,10 +24,11 @@
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
-                    <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
-                </div>
+<a href="index.html" class="flex items-center hover:opacity-80 transition">
+  <span class="mono text-lg font-semibold text-gray-900">DE</span>
+  <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
+</a>
+
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="text-gray-900 font-medium border-b-2 border-amber-500 pb-1">Home</a>
                     <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
@@ -38,7 +39,8 @@
                     <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900" aria-label="Open menu" aria-expanded="false">
+
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -97,22 +99,22 @@
   <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-8 border border-white border-opacity-20 max-w-3md mx-auto lg:mx-0">
 
 
-                        <div class="flex items-start gap-4 mb-6">
-                            <img
-  src="resources/profile.jpg"
-  alt="Dontavious Ellis"
-  class="w-50 h-50 sm:w-56 sm:h-56 md:w-30 md:h-30 object-cover rounded-xl ring-1 ring-white/30 shadow-md flex-shrink-0"
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-5 mb-6">
+  <img
+    src="resources/profile.jpg"
+    alt="Dontavious Ellis"
+    class="w-48 h-48 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-52 lg:h-52 object-cover rounded-xl ring-2 ring-white/40 shadow-lg flex-shrink-0 mx-auto sm:mx-0"
+  />
 
-/>
+  <div class="w-full sm:flex-1 min-w-0">
+    <div class="mono text-xs tracking-widest text-gray-300">PROFILE</div>
+    <div class="text-white font-semibold text-xl leading-tight">Dontavious Ellis</div>
+    <div class="text-sm text-gray-200 mt-2 leading-relaxed">
+      Cybersecurity student pursuing digital forensics and cybercrime investigation, with proven capability in leading technical initiatives, building systems-oriented projects, and developing structured investigative workflows through academic and simulated work.
+    </div>
+  </div>
+</div>
 
-                            <div class="flex-1">
-                                <div class="mono text-xs tracking-widest text-gray-300">PROFILE</div>
-                                <div class="text-white font-semibold text-lg leading-tight">Dontavious Ellis</div>
-                                <div class="text-sm text-gray-200 mt-1">
-                                    Cybersecurity student pursuing investigative roles in digital forensics, with demonstrated experience leading technical organizations, executing multidisciplinary projects, and developing evidence-driven analysis workflows in academic and simulated environments.
-                                </div>
-                            </div>
-                        </div>
 
                         <h3 class="text-xl font-semibold text-white mb-4">Investigative Focus Areas</h3>
                         <div class="space-y-3">
@@ -140,53 +142,273 @@
         </div>
     </section>
 
-    <!-- Professional Summary -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Professional Approach</h2>
-                    <div class="prose prose-lg text-gray-600">
-                        <p class="mb-6">
-                            I am a cybersecurity student at the University of South Florida with prior electrical engineering training, approaching digital forensics as a system-level investigative discipline rather than a tool-driven exercise. This portfolio reflects preparatory study, structured learning, and simulated casework.
-                        </p>
-                        <p class="mb-6">
-                            I have earned the CompTIA Security+ certification, establishing a foundational understanding of security principles, risk, and incident response concepts. Building on this baseline, my academic focus will center on cyber forensics, network security, cryptography, malware analysis, and hands-on incident response, supported by structured programming and networking coursework.
-                        </p>
-                        <p>
-                            I am preparing for early-career roles and internships aligned with digital forensics, incident response, and investigative cybersecurity, with long-term interest in forensic laboratories and public-sector or federal investigative pathways.
-                        </p>
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Certifications</h3>
-                        <div class="space-y-2">
-                            <div class="flex items-center text-sm text-gray-600">
-                                <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
-                                <span>CompTIA Security+</span>
-                            </div>
-                            <div class="flex items-center text-sm text-gray-600">
-                                <div class="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
-                                <span>BS Cybersecurity (In Progress)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Learning Domains</h3>
-                        <div class="space-y-2 text-sm text-gray-600">
-                            <div>• Digital Evidence Handling & Preservation</div>
-                            <div>• Network Forensics Fundamentals</div>
-                            <div>• Endpoint Artifact Identification</div>
-                            <div>• Introductory Memory Analysis</div>
-                            <div>• Incident Timeline Reconstruction</div>
-                            <div>• Technical Documentation & Reporting</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- Professional Activity Gallery -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold text-gray-900">Field Notes</h2>
+        <p class="text-lg text-gray-600 mt-3">
+          A concise activity gallery of what I’ve been building, leading, and learning.
+        </p>
+      </div>
+
+      <div class="flex gap-3">
+        <a href="about.html"
+           class="inline-flex items-center justify-center border border-gray-200 hover:bg-gray-50 text-gray-900 px-5 py-2.5 rounded-lg font-semibold transition-colors">
+          About
+        </a>
+        <a href="resume.html"
+           class="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white px-5 py-2.5 rounded-lg font-semibold transition-colors">
+          Resume
+        </a>
+      </div>
+    </div>
+
+ <div class="flex flex-wrap gap-2 mb-8" id="filters">
+  <span class="mono text-xs tracking-widest text-gray-500 mr-2">FILTER</span>
+
+  <button data-filter="all" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50 bg-gray-900 text-white">
+    All
+  </button>
+  <button data-filter="leadership" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+    Leadership
+  </button>
+  <button data-filter="projects" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+    Projects
+  </button>
+  <button data-filter="cyber" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+    Cyber
+  </button>
+  <button data-filter="conferences" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+    Conferences
+  </button>
+</div>
+
+
+    <!-- Gallery Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+<!-- Card 6: Security+ (no link yet) -->
+<div
+  data-category="cyber"
+  class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+>
+  <div class="relative">
+    <img
+      src="resources/Security+.jpg"
+      alt="CompTIA Security+ Certification"
+      class="w-full h-48 object-cover"
+    />
+    <div class="absolute top-3 left-3">
+      <span
+        class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white"
+      >
+        Cyber
+      </span>
+    </div>
+  </div>
+
+  <div class="p-5">
+    <div class="mono text-xs text-gray-500 mb-2">OCT 2025</div>
+
+    <h3 class="text-lg font-semibold text-gray-900">
+      Certification Milestone
+    </h3>
+
+    <p class="text-sm text-gray-600 mt-2">
+      Security+ earned and baseline competencies established; focusing next on
+      casework and investigative fundamentals.
+    </p>
+
+    <div class="mt-4 text-sm font-semibold text-gray-500">
+      Notes coming soon
+    </div>
+  </div>
+</div>
+
+
+      <!-- Card 1 -->
+      <a href="https://www.linkedin.com/posts/the-scopeusf_engineering-drones-innovation-activity-7387560274280595456-XBUZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
+ data-category="projects"
+         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/bullsaid.jfif" alt="Bullsaid Drone"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Projects
+            </span>
+          </div>
         </div>
-    </section>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">JAN 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800">
+Project BullsAID: Progress in Motion.
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Over the past few weeks, we’ve accomplished key milestones, including...
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://www.linkedin.com/posts/the-scopeusf_usf-engineering-scope-activity-7387555992974147584-5HpQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
+ data-category="leadership"
+         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/scope.jfif" alt="Scope trifold"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Leadership
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">DEC 2025</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800">
+            LGSO Diversity In Professionalism Showcase
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            We met amazing student leaders and alumni, and shared our mission...
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_usf-nsbe-stemeducation-ugcPost-7384259472468176896-5bRR?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
+ data-category="leadership"
+         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/lomax.png" alt="Cyber practice"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Leadership
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">JAN 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800">
+            Lomax Magnet STEM Series
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Over the past few weeks, we’ve introduced 4th and 5th graders to the exciting world of STEM through hands-on activities in...
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_upwardbound-college-highereducation-ugcPost-7380057400189276160-78Ca?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" rel="noopener noreferrer"
+ data-category="leadership"
+         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/trio.jfif" alt="Trio speaking"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Leadership
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">NOV 2025</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800">
+TRIO Upward Bound Program Student Tour
+         </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            The perfect opportunity to highlight the importance of STEM and to share the impact NSBE...
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 5 -->
+      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_service-community-engineersserve-ugcPost-7370923017196998656-yQcs?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" rel="noopener noreferrer"
+ data-category="leadership"
+         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/hotb.jfif" alt="Hope on The Block"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Leadership
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">JAN 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800">
+            Gaines Hope Tampa Bay Inc.'s 'Hope on the Block'
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Initiative to distribute school supplies, food, personal care products, clothes, and more to the Tampa Bay community..
+
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <p class="text-sm text-gray-600">
+        Want the full activity stream? I post concise updates and supporting media on LinkedIn.
+      </p>
+      <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center justify-center bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+        View LinkedIn →
+      </a>
+    </div>
+  </div>
+</section>
+<section class="py-14 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-xl border border-gray-200 p-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Certifications</h3>
+        <div class="space-y-2 text-gray-700">
+          <div class="flex items-center">
+            <div class="w-2 h-2 bg-amber-600 rounded-full mr-3"></div>
+            <span>CompTIA Security+</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
+            <span>BS Cybersecurity (In Progress)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">Learning Domains</h3>
+        <div class="space-y-2 text-gray-700">
+          <div>• Digital Evidence Handling &amp; Preservation</div>
+          <div>• Network Forensics Fundamentals</div>
+          <div>• Endpoint Artifact Identification</div>
+          <div>• Introductory Memory Analysis</div>
+          <div>• Incident Timeline Reconstruction</div>
+          <div>• Technical Documentation &amp; Reporting</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Recent Case Highlights -->
     <section class="py-20 bg-gray-100">

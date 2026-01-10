@@ -313,3 +313,62 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%cProfessional investigative methodology and evidence-based analysis.', 'color: #6b7280; font-size: 12px;');
     console.log('%cAll case studies are simulated for educational purposes.', 'color: #6b7280; font-size: 10px;');
 });
+// Open external links in a new tab + secure rel.
+// Keeps internal navigation in the same tab.
+document.querySelectorAll('a[href]').forEach((a) => {
+  const href = a.getAttribute('href');
+  if (!href) return;
+
+  // Skip anchors, mailto, tel, javascript
+  if (
+    href.startsWith('#') ||
+    href.startsWith('mailto:') ||
+    href.startsWith('tel:') ||
+    href.startsWith('javascript:')
+  ) return;
+
+  // Skip if explicitly opted-out
+  if (a.hasAttribute('data-same-tab')) return;
+
+  // Treat http(s) as external; relative paths as internal
+  const isExternal = /^https?:\/\//i.test(href);
+  if (isExternal) {
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  }
+});
+(function () {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('[data-category]');
+
+  if (!buttons.length || !cards.length) return;
+
+  function setActiveButton(activeBtn) {
+    buttons.forEach((b) => {
+      b.classList.remove('bg-gray-900', 'text-white');
+      b.classList.add('text-gray-900');
+    });
+    activeBtn.classList.add('bg-gray-900', 'text-white');
+    activeBtn.classList.remove('text-gray-900');
+  }
+
+  function applyFilter(filter) {
+    cards.forEach((card) => {
+      const cat = (card.getAttribute('data-category') || '').toLowerCase();
+      const show = filter === 'all' || cat === filter;
+      card.classList.toggle('hidden', !show);
+    });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = (btn.getAttribute('data-filter') || 'all').toLowerCase();
+      setActiveButton(btn);
+      applyFilter(filter);
+    });
+  });
+
+  // default
+  applyFilter('all');
+})();
+
