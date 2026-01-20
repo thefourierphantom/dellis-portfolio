@@ -99,19 +99,17 @@
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Scenario Summary</h2>
                     <div class="prose prose-lg text-gray-600 mb-8">
                         <p class="mb-4">
-                            This case file is an <strong>academic, simulated investigation</strong> built as a structured learning exercise
-                            in network forensics and incident reconstruction. The objective is to practice methodical evidence handling,
-                            analytic restraint, and repeatable documentation.
+                            This case represents a <strong>simulated academic investigation</strong> conducted within the context of a mid-sized professional services organization operating a Windows-based enterprise network. The environment uses centralized internet egress through firewall and proxy infrastructure, with defined business hours between 08:00 and 18:00. The investigation focuses on a single employee workstation assigned to a non-technical user and expected to remain idle during overnight hours.
                         </p>
                         <p class="mb-4">
-                            The scenario involves anomalous outbound network activity from a workstation during non-business hours.
-                            The investigation is designed to answer three questions: <em>what happened</em>, <em>when it happened</em>,
-                            and <em>what evidence supports those conclusions</em>.
+                           The investigation was initiated after routine after-hours network monitoring identified <strong>repeated outbound connections originating from the workstation between approximately 01:30 and 04:00 across multiple nights.</strong> The activity occurred outside normal operating hours and involved external destinations not previously observed in established baseline traffic. Session timing and connection patterns appeared consistent rather than sporadic, warranting further examination despite the absence of endpoint alerts or user-reported issues.
                         </p>
-                        <p>
-                            Status: <strong>In Progress</strong>. As analysis is completed, this page will be updated with validated observations,
-                            supporting artifacts, and a final redacted report suitable for portfolio review.
+                        <p class="mb-4">
+                            The purpose of this investigation is to determine whether the observed outbound activity represents <strong>unauthorized or malicious behavior</strong> or can be reasonably explained by benign system activity, such as scheduled services or misconfigured automation. The analysis is conducted using only network-based artifacts, including packet capture data, firewall or proxy logs, and network flow summaries. No endpoint telemetry, memory artifacts, or disk images are available, reflecting realistic investigative constraints.
                         </p>
+<p>
+The investigation seeks to answer three core questions: <strong>what activity occurred, when it occurred, and what evidence supports any conclusions drawn.</strong> Findings are documented with analytic restraint, emphasizing repeatability, corroboration across artifacts, and explicit consideration of alternative explanations. Conclusions are limited strictly to what can be supported by the available evidence, with uncertainties and limitations clearly identified.
+</p>
                     </div>
 
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Evidence Examined</h2>
