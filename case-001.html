@@ -72,6 +72,78 @@
                 <li>Task Scheduler artifact review (Windows endpoint)</li>
                 <li>Manual timeline reconstruction documentation</li>
             </ul>
+<h2 class="text-2xl font-bold mt-12 mb-6">Evidence Gallery</h2>
+
+<p class="text-gray-600 mb-6">
+  Selected screenshots from the controlled lab environment used during investigation.
+  All artifacts are purpose-built for academic simulation.
+</p>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+  <!-- FIG 01 -->
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+    <img
+      src="resources/fig01-afterhours-conversations.png"
+      alt="Wireshark TCP Conversations showing repeated outbound HTTPS sessions"
+      class="w-full object-cover"
+    />
+    <figcaption class="p-4 text-sm text-gray-700">
+      <span class="mono text-xs text-gray-500">FIG 01</span><br />
+      <strong>After-Hours TCP Conversations (86 sessions).</strong>
+      Concentrated outbound HTTPS traffic to limited external destinations,
+      inconsistent with baseline diversity.
+    </figcaption>
+  </figure>
+
+  <!-- FIG 02 -->
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+    <img
+      src="resources/fig02-afterhours-packetview.png"
+      alt="Wireshark packet view filtered on tcp.port 443"
+      class="w-full object-cover"
+    />
+    <figcaption class="p-4 text-sm text-gray-700">
+      <span class="mono text-xs text-gray-500">FIG 02</span><br />
+      <strong>Packet-Level View (tcp.port == 443).</strong>
+      Repeated TLS handshake and session establishment patterns
+      suggest automated execution rather than user interaction.
+    </figcaption>
+  </figure>
+
+  <!-- FIG 03 -->
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+    <img
+      src="resources/fig03-baseline-packetview.png"
+      alt="Baseline Wireshark packet capture"
+      class="w-full object-cover"
+    />
+    <figcaption class="p-4 text-sm text-gray-700">
+      <span class="mono text-xs text-gray-500">FIG 03</span><br />
+      <strong>Baseline Traffic Capture.</strong>
+      Normal browsing behavior shows irregular session timing and diverse
+      destinations compared to after-hours activity.
+    </figcaption>
+  </figure>
+
+
+  <!-- FIG 05 -->
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden md:col-span-2">
+    <img
+      src="resources/fig05-task-scheduler.png"
+      alt="Windows Task Scheduler showing UpdaterService persistence"
+      class="w-full object-cover"
+    />
+    <figcaption class="p-4 text-sm text-gray-700">
+      <span class="mono text-xs text-gray-500">FIG 04</span><br />
+      <strong>Scheduled Task Persistence (UpdaterService).</strong>
+      Task configured to execute PowerShell script at logon,
+      directly correlating to recurring after-hours network behavior.
+    </figcaption>
+  </figure>
+
+</div>
+
 
             <h2 class="text-2xl font-bold mt-12 mb-6">Key Findings</h2>
 
