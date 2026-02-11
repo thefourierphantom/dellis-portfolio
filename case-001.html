@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case-001 - Network Intrusion Analysis | Dontavious Ellis</title>
+    <title>Case-001 - After-Hours Network Activity Investigation | Dontavious Ellis</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,283 +14,172 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .timeline-item { cursor: pointer; transition: all 0.3s ease; }
-        .timeline-item:hover { background-color: #f9fafb; }
-        .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-        .timeline-details.expanded { max-height: 500px; }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
-                    <span class="ml-2 text-sm text-gray-600">Digital Forensics</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
-                    <a href="case-files.html" class="text-gray-900 font-medium">Case Files</a>
-                    <a href="skills.html" class="text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
-                    <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
-                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
-                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
-                <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
-                <a href="case-files.html" class="block px-3 py-2 text-gray-900 font-medium">Case Files</a>
-                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
-                <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
-                <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
-                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
-            </div>
-        </div>
-    </nav>
+<!-- Header -->
+<section class="bg-gray-900 text-white py-14">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="mono text-sm text-amber-400 mb-2">CASE FILE 001</div>
+        <h1 class="text-3xl lg:text-4xl font-bold mb-4">
+            After-Hours Network Activity Investigation
+        </h1>
+        <p class="text-lg text-gray-300 max-w-3xl">
+            Completed simulated digital forensics investigation analyzing repeated outbound HTTPS activity
+            occurring during defined non-business hours. This case demonstrates structured evidence handling,
+            baseline comparison, packet-level analysis, persistence identification, timeline reconstruction,
+            and defensible reporting methodology.
+        </p>
+    </div>
+</section>
 
-    <!-- Case Header -->
-    <section class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between">
-                <div>
-                    <div class="mono text-sm text-amber-400 mb-2">CASE FILE 001</div>
-                    <h1 class="text-3xl lg:text-4xl font-bold mb-4">Network Intrusion Analysis</h1>
-                    <p class="text-xl text-gray-300 max-w-3xl">
-                        An in-progress simulated case study used to build network forensics workflow: evidence handling, traffic analysis,
-                        timeline reconstruction, and disciplined documentation. Details will be populated as analysis is completed.
-                    </p>
-                </div>
-                <div class="hidden lg:block">
-                    <a href="case-files.html" class="inline-flex items-center text-amber-400 hover:text-amber-300 font-medium">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                        Back to Case Files
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Overview -->
+<section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-3 gap-12">
 
-    <!-- Main Content -->
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
 
-                <!-- Primary Content -->
-                <div class="lg:col-span-2">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Scenario Summary</h2>
-                    <div class="prose prose-lg text-gray-600 mb-8">
-                        <p class="mb-4">
-                            This case represents a <strong>simulated academic investigation</strong> conducted within the context of a mid-sized professional services organization operating a Windows-based enterprise network. The environment uses centralized internet egress through firewall and proxy infrastructure, with defined business hours between 08:00 and 18:00. The investigation focuses on a single employee workstation assigned to a non-technical user and expected to remain idle during overnight hours.
-                        </p>
-                        <p class="mb-4">
-                           The investigation was initiated after routine after-hours network monitoring identified <strong>repeated outbound connections originating from the workstation between approximately 01:30 and 04:00 across multiple nights.</strong> The activity occurred outside normal operating hours and involved external destinations not previously observed in established baseline traffic. Session timing and connection patterns appeared consistent rather than sporadic, warranting further examination despite the absence of endpoint alerts or user-reported issues.
-                        </p>
-                        <p class="mb-4">
-                            The purpose of this investigation is to determine whether the observed outbound activity represents <strong>unauthorized or malicious behavior</strong> or can be reasonably explained by benign system activity, such as scheduled services or misconfigured automation. The analysis is conducted using only network-based artifacts, including packet capture data, firewall or proxy logs, and network flow summaries. No endpoint telemetry, memory artifacts, or disk images are available, reflecting realistic investigative constraints.
-                        </p>
-<p>
-The investigation seeks to answer three core questions: <strong>what activity occurred, when it occurred, and what evidence supports any conclusions drawn.</strong> Findings are documented with analytic restraint, emphasizing repeatability, corroboration across artifacts, and explicit consideration of alternative explanations. Conclusions are limited strictly to what can be supported by the available evidence, with uncertainties and limitations clearly identified.
-</p>
-                    </div>
+            <h2 class="text-2xl font-bold mb-6">Scenario Summary</h2>
 
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Evidence Examined</h2>
-                    <p class="text-sm text-gray-600 mb-6">
-                        Evidence types below reflect the dataset used for this simulated case. Specific artifacts and validated excerpts will be added as analysis progresses.
-                    </p>
+            <div class="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                    Routine monitoring identified repeated outbound HTTPS connections originating from a Windows workstation
+                    between approximately 01:30 and 04:00 local time. The system was assigned to a non-technical user and
+                    expected to remain idle during overnight hours.
+                </p>
 
-                    <div class="grid md:grid-cols-2 gap-6 mb-10">
-                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Packet Captures (PCAP)</h3>
-                            <p class="text-sm text-gray-600">Used to triage sessions, identify anomalies, and validate indicators with repeatable filters.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Firewall / Proxy Logs</h3>
-                            <p class="text-sm text-gray-600">Used to correlate connection attempts, policy interactions, and timing consistency.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Network Flow Data</h3>
-                            <p class="text-sm text-gray-600">Used to quantify volumes and timing patterns to support timeline drafting.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Timestamps &amp; Metadata</h3>
-                            <p class="text-sm text-gray-600">Used to reconcile ordering and identify gaps or conflicts across artifacts.</p>
-                        </div>
-                    </div>
-                </div>
+                <p>
+                    Baseline traffic analysis was conducted to establish expected behavior during normal business operations.
+                    After-hours captures were then compared against this baseline to determine whether the activity represented
+                    benign system behavior or automated execution.
+                </p>
 
-                <!-- Sidebar -->
-                <div class="space-y-8">
-                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Case Details</h3>
-                        <div class="space-y-3 text-sm">
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Case ID:</span>
-                                <span class="mono font-medium">CASE-001</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Opened:</span>
-                                <span class="font-medium">Spring 2026</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Current Phase:</span>
-                                <span class="font-medium">Evidence review &amp; traffic triage</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Status:</span>
-                                <span class="text-yellow-600 font-medium">In Progress (Academic)</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-gray-600">Investigator:</span>
-                                <span class="font-medium">Dontavious Ellis</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Planned Tooling (Subject to Change)</h3>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                                <span>Wireshark (or equivalent) — Packet review</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                                <span>Zeek / Suricata logs (if available) — Event context</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                                <span>SIEM-style log search (tool TBD) — Correlation</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-4">
-                            Tools are listed as targets for this case workflow. Only tools actually used will be reflected in the final report.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Investigation Phases -->
-    <section class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investigation Phases (In Progress)</h2>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 1 — Scope &amp; Evidence Inventory</h3>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Confirm dataset sources (PCAP, logs, flow data)</li>
-                        <li>• Establish baseline traffic expectations</li>
-                        <li>• Create an evidence register and working notebook</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 2 — Traffic Triage &amp; Indicators</h3>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Identify unusual destinations, volumes, and timing</li>
-                        <li>• Extract candidate IOCs (IPs, domains, TLS fingerprints if available)</li>
-                        <li>• Record alternative explanations to test</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 3 — Timeline Draft &amp; Validation</h3>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Construct event sequence with timestamps and sources</li>
-                        <li>• Flag gaps and conflicting evidence</li>
-                        <li>• Re-run analysis to verify repeatability</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 4 — Reporting (Redacted)</h3>
-                    <ul class="text-sm text-gray-600 space-y-1">
-                        <li>• Summarize validated observations</li>
-                        <li>• Document methodology and tooling decisions</li>
-                        <li>• Provide limitations and next steps</li>
-                    </ul>
-                </div>
+                <p>
+                    Investigation scope included packet capture analysis, session timing review, and host-based artifact
+                    validation within a controlled lab environment.
+                </p>
             </div>
 
-            <div class="mt-10 bg-white rounded-lg p-6 border border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Working Hypotheses (To Be Tested)</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-sm text-gray-600 mb-2"><span class="font-semibold text-gray-900">H1:</span> Outbound traffic patterns indicate potential unauthorized access or misuse.</p>
-                        <p class="text-xs text-gray-500">Evidence needed: consistent indicators across multiple artifacts, reproducible filters/queries, and timeline coherence.</p>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-600 mb-2"><span class="font-semibold text-gray-900">H2:</span> Observed traffic could be explained by benign scheduled activity or normal system behavior.</p>
-                        <p class="text-xs text-gray-500">Evidence needed: baseline comparison, corroborating logs, and elimination of expected services/updates.</p>
-                    </div>
-                </div>
+            <h2 class="text-2xl font-bold mt-12 mb-6">Evidence Reviewed</h2>
+
+            <ul class="list-disc ml-6 space-y-2 text-gray-600">
+                <li>Baseline packet capture (normal user browsing behavior)</li>
+                <li>After-hours packet capture (~30 minutes)</li>
+                <li>TCP conversation statistics (86 distinct conversations)</li>
+                <li>Task Scheduler artifact review (Windows endpoint)</li>
+                <li>Manual timeline reconstruction documentation</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold mt-12 mb-6">Key Findings</h2>
+
+            <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                    During the after-hours capture window, the workstation (10.0.2.15) initiated repeated outbound HTTPS
+                    connections to a limited set of external IP addresses. Traffic exhibited consistent timing intervals,
+                    suggesting automated rather than interactive behavior.
+                </p>
+
+                <p>
+                    Baseline traffic included normal HTTPS activity to diverse destinations; however, those connections were
+                    irregular, short-lived, and user-driven. The after-hours traffic demonstrated repetitive patterns not
+                    present in baseline data.
+                </p>
+
+                <p>
+                    Endpoint analysis identified a scheduled task named
+                    <span class="mono">UpdaterService</span> configured to execute a PowerShell script at user logon.
+                    The script performed recurring outbound web requests at fixed intervals.
+                </p>
+
+                <p>
+                    Correlation of network and endpoint artifacts supports the conclusion that the observed after-hours
+                    activity was automated and enabled by a persistent scheduled execution mechanism.
+                </p>
             </div>
 
-            <p class="text-xs text-gray-500 mt-6">
-                Confidence will be assessed after cross-validation of artifacts and timeline consistency.
+            <h2 class="text-2xl font-bold mt-12 mb-6">Timeline Correlation</h2>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-gray-700 space-y-3">
+                <p><strong>Event 1:</strong> Scheduled task configured to execute PowerShell script at logon.</p>
+                <p><strong>Event 2:</strong> Logon trigger enabled automated script execution.</p>
+                <p><strong>Event 3:</strong> Repeated outbound HTTPS sessions observed during non-business hours.</p>
+                <p><strong>Correlation:</strong> Persistence mechanism directly explains recurring network behavior.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mt-12 mb-6">Conclusion</h2>
+
+            <p class="text-gray-700 leading-relaxed">
+                The investigation identified automated outbound network activity inconsistent with baseline user behavior.
+                A scheduled task persistence mechanism was validated as the execution vector responsible for the observed
+                traffic. Conclusions are limited to evidence available within the lab environment, with no attribution or
+                external threat classification made beyond supported artifacts.
             </p>
-        </div>
-    </section>
 
-    <!-- Documentation -->
-    <section class="py-12 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Case Documentation</h2>
-            <p class="text-gray-600 mb-8">
-                Redacted report will be published after this academic case is completed and validated.
-            </p>
-            <button disabled class="bg-gray-300 text-gray-600 px-8 py-3 rounded-lg font-semibold cursor-not-allowed">
-                Redacted Report (Coming Soon)
-            </button>
-            <p class="text-xs text-gray-500 mt-4">
-                * This page represents in-progress simulated work; no professional case details are included.
-            </p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
-                <div class="text-sm text-gray-400 mb-4">Cybercrime Investigation &amp; Digital Forensics</div>
-                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
-                    <p class="mb-2">
-                        <strong>Disclaimer:</strong> This case study is a simulated, academic exercise conducted for educational purposes only.
-                        All scenarios and datasets are fictional, sanitized, or purpose-built for training. No real individuals or live systems are involved.
-                    </p>
-                    <p>
-                        This page documents learning progression, forensic methodology, and evidence analysis workflows in controlled environments.
-                        Content is intended for prospective employers, academic evaluation, and professional development.
-                    </p>
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
-                    © 2026 Dontavious Ellis Digital Forensics Portfolio. All rights reserved.
+        <!-- Sidebar -->
+        <div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8">
+                <h3 class="font-semibold mb-4">Case Details</h3>
+
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between">
+                        <span>Case ID:</span>
+                        <span class="mono">CASE-001</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Status:</span>
+                        <span class="text-green-600 font-semibold">Completed</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Scope:</span>
+                        <span>Network + Endpoint</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Environment:</span>
+                        <span>Controlled Lab (VirtualBox)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Primary Tools:</span>
+                        <span>Wireshark, PowerShell</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
 
-    <script src="main.js"></script>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 class="font-semibold mb-4">Skills Demonstrated</h3>
+                <ul class="text-sm space-y-2 text-gray-600">
+                    <li>• Packet-level traffic analysis</li>
+                    <li>• Baseline vs anomaly comparison</li>
+                    <li>• TCP conversation review</li>
+                    <li>• Scheduled task persistence identification</li>
+                    <li>• Timeline reconstruction</li>
+                    <li>• Evidence-based reporting</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-10 mt-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
+        <p class="text-sm text-gray-400 max-w-3xl mx-auto">
+            This case study represents a simulated academic investigation conducted in a controlled lab environment.
+            All scenarios and artifacts were purpose-built for educational and professional development purposes.
+        </p>
+        <div class="mt-6 text-xs text-gray-500">
+            © 2026 Dontavious Ellis. All rights reserved.
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
