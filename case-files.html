@@ -98,7 +98,7 @@ structured forensic methodology, disciplined evidence handling, and analytical r
                     <button class="case-filter filter-btn px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium transition-colors"
                             data-filter="network">Network</button>
                     <button class="case-filter filter-btn px-4 py-2 rounded-lg border border-gray-300 text-sm font-medium transition-colors"
-                            data-filter="endpoint">Endpoint</button>
+                            data-filter="linux">Linux</button>
                 </div>
             </div>
         </div>
@@ -157,8 +157,8 @@ After-Hours Network Activity Investigation
                     </a>
                 </div>
 
-                <!-- Case 002: Endpoint Investigation -->
-                <div class="case-card bg-white rounded-lg shadow-sm border border-gray-200 p-6" data-category="endpoint">
+                <!-- Case 002: Linux Web Server Compromise -->
+                <div class="case-card bg-white rounded-lg shadow-sm border border-gray-200 p-6" data-category="linux">
                     <div class="flex items-start justify-between mb-4">
                         <div class="mono text-sm text-amber-600 font-semibold">CASE-002</div>
                         <div class="flex items-center text-xs text-gray-500">
@@ -167,27 +167,28 @@ After-Hours Network Activity Investigation
                         </div>
                     </div>
 
-                                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Endpoint Malware Detection</h3>
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Linux Web Server Compromise Investigation</h3>
                     <p class="text-gray-600 text-sm mb-4">
-                        A planned simulated endpoint investigation designed to practice artifact discovery, persistence hunting, and documentation.
-                        The goal is to build repeatable workflow and analytical discipline as coursework progresses.
+                        Planned DFIR simulation on an isolated lab network: deterministic web exploit (DVWA) → foothold shell → root via misconfiguration → persistence (SSH authorized_keys + systemd service) → staged data exfiltration (scp/curl) with evidence-backed timeline reconstruction.
                     </p>
 
                     <div class="mb-4">
                         <h4 class="text-sm font-semibold text-gray-900 mb-2">Evidence Examined:</h4>
                         <div class="flex flex-wrap gap-2">
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Disk Images</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Registry Analysis</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">File System Artifacts</span>
+                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Web Server Logs (Apache)</span>
+                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Auth & System Logs</span>
+                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Persistence Artifacts (SSH + systemd)</span>
                         </div>
                     </div>
 
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-2">Investigative Questions:</h4>
                         <ul class="text-xs text-gray-600 space-y-1">
-                            <li>• What artifacts indicate initial access or execution?</li>
-                            <li>• What persistence mechanisms could be present?</li>
-                            <li>• What evidence supports or refutes suspected behavior?</li>
+                            <li>• What exploit traffic and host artifacts prove initial access via the web application?</li>
+                            <li>• What evidence supports privilege escalation via misconfiguration (sudoers/SUID/cron)?</li>
+                            <li>• What persistence mechanisms exist (authorized_keys + systemd), and when were they established?</li>
+                            <li>• What artifacts/logs confirm staged data exfiltration (scp/curl) and its timing?</li>
+                            <li>• What is the reconstructed timeline (exploit → shell → root → persistence → exfil)?</li>
                         </ul>
                     </div>
 
