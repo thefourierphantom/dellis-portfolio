@@ -417,7 +417,65 @@ TRIO Upward Bound Program Student Tour
   </div>
 </section>
 
-    <!-- Recent Case Highlights -->
+    
+<!-- Skills Snapshot -->
+<section class="py-14 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold text-gray-900">Skills Snapshot</h2>
+        <p class="text-lg text-gray-600 mt-3">
+          The capabilities I’m actively practicing and proving through simulated casework.
+        </p>
+      </div>
+      <a href="skills.html"
+         class="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+        View Skills →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+        <div class="mono text-xs tracking-widest text-gray-500 mb-2">NETWORK FORENSICS</div>
+        <div class="font-semibold text-gray-900">PCAP triage & protocol interpretation</div>
+        <p class="text-sm text-gray-600 mt-2">Wireshark-based analysis, baseline vs anomalous behavior, and evidence notes.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+        <div class="mono text-xs tracking-widest text-gray-500 mb-2">INVESTIGATIVE METHOD</div>
+        <div class="font-semibold text-gray-900">Hypothesis-driven analysis</div>
+        <p class="text-sm text-gray-600 mt-2">What can be proven, what is unknown, and what evidence would close gaps.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+        <div class="mono text-xs tracking-widest text-gray-500 mb-2">TIMELINE</div>
+        <div class="font-semibold text-gray-900">Timeline reconstruction & reporting</div>
+        <p class="text-sm text-gray-600 mt-2">Event sequencing across artifacts + logs with clear documentation discipline.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+        <div class="mono text-xs tracking-widest text-gray-500 mb-2">LINUX FORENSICS</div>
+        <div class="font-semibold text-gray-900">Log + artifact correlation (in progress)</div>
+        <p class="text-sm text-gray-600 mt-2">Auth/system/web logs, persistence checks, and disk evidence handling (Case‑002).</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+        <div class="mono text-xs tracking-widest text-gray-500 mb-2">TOOLS</div>
+        <div class="font-semibold text-gray-900">Wireshark, Nmap, Ubuntu/Kali, Git</div>
+        <p class="text-sm text-gray-600 mt-2">Core lab tooling used for analysis, validation, and reproducibility.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-xl border border-gray-200 p-6">
+        <div class="mono text-xs tracking-widest text-gray-500 mb-2">CREDENTIAL</div>
+        <div class="font-semibold text-gray-900">CompTIA Security+</div>
+        <p class="text-sm text-gray-600 mt-2">Baseline security concepts supporting investigative practice and lab work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Recent Case Highlights -->
     <section class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -427,7 +485,7 @@ TRIO Upward Bound Program Student Tour
 
             <!-- UPDATED: 2 cases only -->
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                <a href="case-001.html" class="bg-white rounded-lg shadow-sm p-6 card-hover block">
                     <div class="mono text-sm text-amber-600 mb-2">CASE-001</div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">After-Hours Network Activity Investigation</h3>
                     <p class="text-sm text-gray-600 mb-4">
@@ -438,19 +496,19 @@ TRIO Upward Bound Program Student Tour
                         <div class="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
                         <span>Completed</span>
                     </div>
-                </div>
+                </a>
 
-                <div class="bg-white rounded-lg shadow-sm p-6 card-hover">
+                <a href="case-002.html" class="bg-white rounded-lg shadow-sm p-6 card-hover block">
                     <div class="mono text-sm text-amber-600 mb-2">CASE-002</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Endpoint Malware Detection</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Linux Web Server Compromise Investigation</h3>
                     <p class="text-sm text-gray-600 mb-4">
-                        Endpoint-focused casework emphasizing artifact awareness, persistence indicators, and reporting discipline.
+                        Planned DFIR simulation on an isolated lab network: deterministic web exploit (DVWA) → foothold shell → root via misconfiguration → persistence (SSH keys + systemd) → staged data exfil (scp/curl).
                     </p>
                     <div class="flex items-center text-xs text-gray-500">
                         <div class="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
                         <span>Planned</span>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="text-center mt-12">
