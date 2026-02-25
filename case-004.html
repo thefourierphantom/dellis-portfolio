@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case 004 - OSINT-Assisted Investigation | Dontavious Ellis Digital Forensics</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+<meta name="description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<link rel="canonical" href="https://dontaviousellis.com/case-004.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b1220">
+
+<meta property="og:site_name" content="Dontavious Ellis | DFIR Portfolio">
+<meta property="og:title" content="Case 004 - OSINT-Assisted Investigation | Dontavious Ellis Digital Forensics">
+<meta property="og:description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dontaviousellis.com/case-004.html">
+<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case 004 - OSINT-Assisted Investigation | Dontavious Ellis Digital Forensics">
+<meta name="twitter:description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
+<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +36,13 @@
         .timeline-details { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
         .timeline-details.expanded { max-height: 500px; }
     </style>
+    <link rel="stylesheet" href="css/reveal.css" />
+  <link rel="stylesheet" href="css/scroll.css" />
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 reveal">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" reveal reveal>
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <span class="mono text-lg font-semibold text-gray-900">DE</span>
@@ -61,12 +81,12 @@
     </nav>
 
     <!-- Case Header -->
-    <section class="bg-gray-900 text-white py-12">
+    <section class="bg-gray-900 text-white py-12" reveal data-reveal="fast" reveal data-reveal="fast">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between">
                 <div>
                     <div class="mono text-sm text-amber-400 mb-2">CASE FILE 001</div>
-                    <h1 class="text-3xl lg:text-4xl font-bold mb-4">OSINT-Assisted Investigation</h1>
+                    <h1 class="text-3xl lg:text-4xl font-bold mb-4" reveal>OSINT-Assisted Investigation</h1>
                     <p class="text-xl text-gray-300 max-w-3xl">
                         Investigation of suspicious network activity involving potential data exfiltration attempts 
                         and unauthorized access detection through comprehensive traffic analysis.
@@ -84,7 +104,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Scenario Summary</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Scenario Summary</h2>
                     <div class="prose prose-lg text-gray-600 mb-8">
                         <p class="mb-4">
                             On January 15, 2024, network monitoring systems detected unusual outbound traffic patterns 
@@ -102,10 +122,10 @@
                         </p>
                     </div>
 
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Evidence Examined</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Evidence Examined</h2>
                     <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Network Traffic Data</h3>
+                        <div class="bg-gray-50 rounded-lg p-6" class="reveal">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Network Traffic Data</h3>
                             <ul class="text-sm text-gray-600 space-y-2">
                                 <li class="flex items-center">
                                     <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
@@ -121,8 +141,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-3">System Logs</h3>
+                        <div class="bg-gray-50 rounded-lg p-6" class="reveal">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>System Logs</h3>
                             <ul class="text-sm text-gray-600 space-y-2">
                                 <li class="flex items-center">
                                     <div class="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
@@ -142,8 +162,8 @@
                 </div>
 
                 <div>
-                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Case Details</h3>
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6" class="reveal">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Case Details</h3>
                         <div class="space-y-3 text-sm">
                             <div class="flex justify-between">
                                 <span class="text-gray-600">Case ID:</span>
@@ -168,8 +188,8 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Tools Used</h3>
+                    <div class="bg-gray-50 rounded-lg p-6" class="reveal">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Tools Used</h3>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
@@ -197,22 +217,22 @@
     <!-- Investigative Questions -->
     <section class="py-12 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investigative Questions</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-8" reveal reveal>Investigative Questions</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Source Identification</h3>
+                <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Source Identification</h3>
                     <p class="text-gray-600 text-sm">
                         What was the source of unauthorized network access and how did the intrusion occur?
                     </p>
                 </div>
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Access Assessment</h3>
+                <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Data Access Assessment</h3>
                     <p class="text-gray-600 text-sm">
                         What specific data was accessed, transferred, or compromised during the incident?
                     </p>
                 </div>
-                <div class="bg-white rounded-lg p-6 shadow-sm">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Timeline Reconstruction</h3>
+                <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Timeline Reconstruction</h3>
                     <p class="text-gray-600 text-sm">
                         When did the intrusion occur and what was the duration of unauthorized access?
                     </p>
@@ -224,14 +244,14 @@
     <!-- Investigation Timeline -->
     <section class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investigation Timeline</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-8" reveal reveal>Investigation Timeline</h2>
             <div class="max-w-4xl">
                 
                 <div class="timeline-item border-l-4 border-amber-500 pl-8 pb-8 relative">
                     <div class="absolute -left-3 top-0 w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
-                    <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="bg-gray-50 rounded-lg p-6" class="reveal">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-semibold text-gray-900">Initial Detection</h3>
+                            <h3 class="text-lg font-semibold text-gray-900" reveal>Initial Detection</h3>
                             <span class="mono text-sm text-gray-500">2024-01-15 02:30 UTC</span>
                         </div>
                         <p class="text-gray-600 text-sm mb-3">
@@ -254,9 +274,9 @@
 
                 <div class="timeline-item border-l-4 border-blue-500 pl-8 pb-8 relative">
                     <div class="absolute -left-3 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-white"></div>
-                    <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="bg-gray-50 rounded-lg p-6" class="reveal">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-semibold text-gray-900">Evidence Collection</h3>
+                            <h3 class="text-lg font-semibold text-gray-900" reveal>Evidence Collection</h3>
                             <span class="mono text-sm text-gray-500">2024-01-15 03:15 UTC</span>
                         </div>
                         <p class="text-gray-600 text-sm mb-3">
@@ -279,9 +299,9 @@
 
                 <div class="timeline-item border-l-4 border-green-500 pl-8 pb-8 relative">
                     <div class="absolute -left-3 top-0 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
-                    <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="bg-gray-50 rounded-lg p-6" class="reveal">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-semibold text-gray-900">Traffic Analysis</h3>
+                            <h3 class="text-lg font-semibold text-gray-900" reveal>Traffic Analysis</h3>
                             <span class="mono text-sm text-gray-500">2024-01-16 14:00 UTC</span>
                         </div>
                         <p class="text-gray-600 text-sm mb-3">
@@ -304,9 +324,9 @@
 
                 <div class="timeline-item border-l-4 border-purple-500 pl-8 relative">
                     <div class="absolute -left-3 top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
-                    <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="bg-gray-50 rounded-lg p-6" class="reveal">
                         <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-lg font-semibold text-gray-900">Case Resolution</h3>
+                            <h3 class="text-lg font-semibold text-gray-900" reveal>Case Resolution</h3>
                             <span class="mono text-sm text-gray-500">2024-01-22 16:30 UTC</span>
                         </div>
                         <p class="text-gray-600 text-sm mb-3">
@@ -335,10 +355,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Key Findings</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Key Findings</h2>
                     <div class="space-y-4">
-                        <div class="bg-white rounded-lg p-6 shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Attack Vector</h3>
+                        <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Attack Vector</h3>
                             <p class="text-gray-600 text-sm mb-3">
                                 Initial compromise occurred through phishing email containing malicious Microsoft Office 
                                 document with embedded macros. User executed macro, installing remote access trojan.
@@ -348,8 +368,8 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-lg p-6 shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Data Exfiltration</h3>
+                        <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Data Exfiltration</h3>
                             <p class="text-gray-600 text-sm mb-3">
                                 Attackers staged sensitive documents in temporary directory before encrypted 
                                 transmission to external command-and-control server using HTTPS protocol.
@@ -359,8 +379,8 @@
                             </div>
                         </div>
                         
-                        <div class="bg-white rounded-lg p-6 shadow-sm">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-3">Persistence Mechanisms</h3>
+                        <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Persistence Mechanisms</h3>
                             <p class="text-gray-600 text-sm mb-3">
                                 Multiple persistence methods established including scheduled tasks, registry modifications, 
                                 and legitimate service impersonation for long-term access.
@@ -373,9 +393,9 @@
                 </div>
 
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Methodology</h2>
-                    <div class="bg-white rounded-lg p-6 shadow-sm mb-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Network Forensics Process</h3>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Methodology</h2>
+                    <div class="bg-white rounded-lg p-6 shadow-sm mb-6" class="reveal">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Network Forensics Process</h3>
                         <div class="space-y-3 text-sm">
                             <div class="flex items-start">
                                 <div class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-1">1</div>
@@ -422,8 +442,8 @@
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-lg p-6 shadow-sm">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Technical Tools</h3>
+                    <div class="bg-white rounded-lg p-6 shadow-sm" class="reveal">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Technical Tools</h3>
                         <div class="grid grid-cols-2 gap-3 text-sm">
                             <div class="flex items-center">
                                 <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
@@ -453,7 +473,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Conclusion</h2>
                     <div class="prose prose-lg text-gray-600">
                         <p class="mb-4">
                             The investigation successfully identified a sophisticated cyber intrusion involving 
@@ -476,10 +496,10 @@
                 </div>
 
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Limitations & Confidence</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Limitations & Confidence</h2>
                     <div class="space-y-4">
                         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                            <h3 class="text-sm font-semibold text-yellow-800 mb-2">Data Limitations</h3>
+                            <h3 class="text-sm font-semibold text-yellow-800 mb-2" reveal>Data Limitations</h3>
                             <p class="text-yellow-700 text-sm">
                                 Some network traffic was encrypted using strong cryptography, limiting analysis 
                                 of specific data content. Analysis focused on metadata and traffic patterns.
@@ -487,7 +507,7 @@
                         </div>
                         
                         <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
-                            <h3 class="text-sm font-semibold text-blue-800 mb-2">Investigation Confidence</h3>
+                            <h3 class="text-sm font-semibold text-blue-800 mb-2" reveal>Investigation Confidence</h3>
                             <div class="space-y-2">
                                 <div class="flex justify-between text-sm">
                                     <span class="text-blue-700">Attack Vector Identification:</span>
@@ -505,7 +525,7 @@
                         </div>
                         
                         <div class="bg-green-50 border-l-4 border-green-400 p-4">
-                            <h3 class="text-sm font-semibold text-green-800 mb-2">Next Steps</h3>
+                            <h3 class="text-sm font-semibold text-green-800 mb-2" reveal>Next Steps</h3>
                             <ul class="text-green-700 text-sm space-y-1">
                                 <li>• Implement enhanced email filtering</li>
                                 <li>• Conduct security awareness training</li>
@@ -522,7 +542,7 @@
     <!-- Download Section -->
     <section class="py-12 bg-gray-50">
         <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Case Documentation</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4" reveal reveal>Case Documentation</h2>
             <p class="text-gray-600 mb-8">
                 Complete forensic report available for academic and professional review purposes.
             </p>
@@ -559,6 +579,12 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="js/page-anim.js" defer></script>
+  <script src="main.js"></script>
+<script data-global-fade>
+  // Backup fade-in in case reveal observer doesn't attach
+  requestAnimationFrame(() => document.body.classList.add('reveal-in'));
+</script>
 </body>
+
 </

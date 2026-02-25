@@ -1,0 +1,111 @@
+/* Case UI enhancements (framework-agnostic) */
+.case-section { scroll-margin-top: 96px; }
+.case-kicker { letter-spacing: .08em; text-transform: uppercase; }
+
+.timeline {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:.25rem;
+  top:.25rem;
+  bottom:.25rem;
+  width:2px;
+  background: rgba(17,24,39,.15); /* gray-900/15 */
+}
+.timeline-item{
+  position:relative;
+  padding-left: 1.25rem;
+  margin: 0 0 1rem 0;
+}
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-.05rem;
+  top:.35rem;
+  width:.75rem;
+  height:.75rem;
+  border-radius:999px;
+  background:#111827; /* gray-900 */
+  box-shadow:0 0 0 4px rgba(17,24,39,.08);
+}
+.timeline-item details{
+  border:1px solid rgba(17,24,39,.10);
+  background: rgba(249,250,251,1);
+  border-radius:.75rem;
+  padding:.75rem .9rem;
+}
+.timeline-item summary{
+  cursor:pointer;
+  font-weight:600;
+  list-style:none;
+}
+.timeline-item summary::-webkit-details-marker{ display:none; }
+
+.finding{
+  border:1px solid rgba(17,24,39,.10);
+  background: rgba(249,250,251,1);
+  border-radius: .75rem;
+  padding: 1rem;
+}
+.finding .meta{
+  display:flex; flex-wrap:wrap; gap:.5rem;
+  margin-top:.75rem;
+  color: rgba(55,65,81,1);
+  font-size:.875rem;
+}
+.finding .pill{
+  border:1px solid rgba(17,24,39,.12);
+  border-radius:999px;
+  padding:.15rem .6rem;
+  background: rgba(255,255,255,1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size:.75rem;
+}
+
+.evidence-item { cursor: zoom-in; }
+.lightbox{
+  position:fixed; inset:0; z-index:9999;
+  display:none;
+}
+.lightbox.open{ display:block; }
+.lightbox .backdrop{
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.70);
+}
+.lightbox .panel{
+  position:absolute; left:50%; top:50%;
+  transform: translate(-50%,-50%);
+  max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  background:#0b0f19;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  overflow:hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+}
+.lightbox img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height: 72vh;
+  object-fit: contain;
+  background:#000;
+}
+.lightbox .caption{
+  padding: .9rem 1rem;
+  color: rgba(226,232,240,1);
+  font-size: .9rem;
+  line-height: 1.35rem;
+}
+.lightbox .close{
+  position:absolute; right:.75rem; top:.6rem;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color:#fff;
+  border-radius: 10px;
+  padding: .3rem .6rem;
+  cursor:pointer;
+}

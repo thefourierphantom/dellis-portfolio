@@ -1,0 +1,14 @@
+/* Reveal animation utilities (global) */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--reveal-dur, 650ms) ease,
+    transform var(--reveal-dur, 650ms) ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}

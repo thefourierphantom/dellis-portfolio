@@ -5,7 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Case-002 - Linux Web Server Compromise Investigation | Dontavious Ellis</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+<meta name="description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<link rel="canonical" href="https://dontaviousellis.com/case-002.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b1220">
+
+<meta property="og:site_name" content="Dontavious Ellis | DFIR Portfolio">
+<meta property="og:title" content="Case-002 - Linux Web Server Compromise Investigation | Dontavious Ellis">
+<meta property="og:description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dontaviousellis.com/case-002.html">
+<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case-002 - Linux Web Server Compromise Investigation | Dontavious Ellis">
+<meta name="twitter:description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
+<script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,12 +37,14 @@
     .card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,.06); }
     .badge { letter-spacing: .08em; }
   </style>
+    <link rel="stylesheet" href="css/reveal.css" />
+  <link rel="stylesheet" href="css/scroll.css" />
 </head>
 
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 reveal">
   <!-- Navigation -->
   <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" reveal reveal>
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <span class="mono text-lg font-semibold text-gray-900">DE</span>
@@ -66,12 +86,12 @@
   </nav>
 
   <!-- Case Header -->
-  <section class="bg-gray-900 text-white py-12">
+  <section class="bg-gray-900 text-white py-12" reveal data-reveal="fast" reveal data-reveal="fast">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-start justify-between gap-6">
         <div>
           <div class="mono text-sm text-amber-400 mb-2 badge">CASE FILE 002</div>
-          <h1 class="text-3xl lg:text-4xl font-bold mb-4">Linux Web Server Compromise Investigation</h1>
+          <h1 class="text-3xl lg:text-4xl font-bold mb-4" reveal>Linux Web Server Compromise Investigation</h1>
           <p class="text-xl text-gray-300 max-w-3xl">
             Controlled DFIR simulation: <span class="text-gray-100 font-medium">Web exploit → shell → root → persistence → exfil</span>.
             Built to practice evidence handling, log correlation, artifact validation, and timeline reconstruction using SIFT.
@@ -111,7 +131,7 @@
       <div class="grid lg:grid-cols-3 gap-8">
         <!-- Primary -->
         <div class="lg:col-span-2">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Scenario Summary</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Scenario Summary</h2>
 
           <div class="prose prose-lg text-gray-600 mb-10 max-w-none">
             <p class="mb-4">
@@ -129,60 +149,60 @@
             </p>
           </div>
 
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">What This Case Demonstrates</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>What This Case Demonstrates</h2>
           <div class="grid md:grid-cols-2 gap-6 mb-10">
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Log Correlation</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Log Correlation</h3>
               <p class="text-sm text-gray-600">
                 Correlate Apache access/error logs with auth/syslog (or journald) to prove initial access, lateral actions, and exfil.
               </p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Host Artifact Validation</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Host Artifact Validation</h3>
               <p class="text-sm text-gray-600">
                 Identify dropped files (webshell, tooling), validate persistence artifacts, and record hashes + metadata.
               </p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Privilege Escalation Proof</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Privilege Escalation Proof</h3>
               <p class="text-sm text-gray-600">
                 Demonstrate root access via a provable configuration weakness (sudoers/SUID/cron), not “magic kernel exploits.”
               </p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Timeline Reconstruction</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Timeline Reconstruction</h3>
               <p class="text-sm text-gray-600">
                 Build a single timeline (Plaso/log2timeline) mapping: exploit → shell → root → persistence → exfil.
               </p>
             </div>
           </div>
 
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Evidence Examined</h2>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6" reveal reveal>Evidence Examined</h2>
           <p class="text-sm text-gray-600 mb-6">
             Evidence types below reflect the intended dataset. Only validated artifacts will appear in the final redacted report.
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 mb-10">
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Disk / File System Artifacts</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Disk / File System Artifacts</h3>
               <p class="text-sm text-gray-600">
                 Webroot uploads, suspicious binaries/scripts, permission changes, timestamps, hashes, and persistence files.
               </p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Web Server Logs</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Web Server Logs</h3>
               <p class="text-sm text-gray-600">
                 Apache access/error logs used to prove exploit traffic and subsequent attacker interactions.
               </p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Auth & System Logs</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Auth & System Logs</h3>
               <p class="text-sm text-gray-600">
                 SSH logins, sudo events, service changes, and transfer activity (auth.log + syslog/journald).
               </p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">Optional: Memory Artifacts</h3>
+            <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Optional: Memory Artifacts</h3>
               <p class="text-sm text-gray-600">
                 If collected, memory can validate processes and network connections at time of compromise (advanced).
               </p>
@@ -192,8 +212,8 @@
 
         <!-- Sidebar -->
         <div class="space-y-8">
-          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Case Details</h3>
+          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200" class="reveal">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Case Details</h3>
             <div class="space-y-3 text-sm">
               <div class="flex justify-between">
                 <span class="text-gray-600">Case ID:</span>
@@ -218,8 +238,8 @@
             </div>
           </div>
 
-          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Lab Architecture</h3>
+          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200" class="reveal">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Lab Architecture</h3>
             <div class="space-y-3 text-sm text-gray-700">
               <div>
                 <div class="mono text-xs text-gray-500 mb-1">VM 1 — Victim</div>
@@ -244,8 +264,8 @@
             </div>
           </div>
 
-          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Planned Tooling (Subject to Change)</h3>
+          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200" class="reveal">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4" reveal>Planned Tooling (Subject to Change)</h3>
             <div class="space-y-2 text-sm">
               <div class="flex items-center">
                 <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
@@ -276,11 +296,11 @@
   <!-- Phases -->
   <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-8">Build Phases (Planned)</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-8" reveal reveal>Build Phases (Planned)</h2>
 
       <div class="grid lg:grid-cols-2 gap-8">
-        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 1 — Infrastructure Setup</h3>
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Phase 1 — Infrastructure Setup</h3>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• Create Victim VM (Ubuntu Server + Apache + DVWA + SSH)</li>
             <li>• Create Attacker VM (Kali) + Forensics VM (SIFT)</li>
@@ -289,8 +309,8 @@
           </ul>
         </div>
 
-        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 2 — Attack Simulation</h3>
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Phase 2 — Attack Simulation</h3>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• Deterministic web exploit (DVWA) → foothold shell</li>
             <li>• Privilege escalation via provable misconfiguration</li>
@@ -299,8 +319,8 @@
           </ul>
         </div>
 
-        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 3 — Forensic Investigation</h3>
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Phase 3 — Forensic Investigation</h3>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• Acquire disk image + hash integrity (original + working copy)</li>
             <li>• Artifact hunting: webshell, privesc, persistence, exfil traces</li>
@@ -309,8 +329,8 @@
           </ul>
         </div>
 
-        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Phase 4 — Reporting & Publication</h3>
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 card" class="reveal">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2" reveal>Phase 4 — Reporting & Publication</h3>
           <ul class="text-sm text-gray-600 space-y-1">
             <li>• Executive summary + scope + methodology</li>
             <li>• Findings (Initial Access / PrivEsc / Persistence / Exfil)</li>
@@ -320,8 +340,8 @@
         </div>
       </div>
 
-      <div class="mt-10 bg-white rounded-lg p-6 border border-gray-200">
-        <h3 class="text-lg font-semibold text-gray-900 mb-3">Working Hypotheses (To Be Tested)</h3>
+      <div class="mt-10 bg-white rounded-lg p-6 border border-gray-200" class="reveal">
+        <h3 class="text-lg font-semibold text-gray-900 mb-3" reveal>Working Hypotheses (To Be Tested)</h3>
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <p class="text-sm text-gray-600 mb-2">
@@ -351,7 +371,7 @@
   <!-- Documentation -->
   <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Case Documentation</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-4" reveal reveal>Case Documentation</h2>
       <p class="text-gray-600 mb-8">
         Redacted report will be published after the lab is executed and findings are validated.
       </p>
@@ -407,6 +427,12 @@
     });
   </script>
 
+  <script src="js/page-anim.js" defer></script>
   <script src="main.js"></script>
+<script data-global-fade>
+  // Backup fade-in in case reveal observer doesn't attach
+  requestAnimationFrame(() => document.body.classList.add('reveal-in'));
+</script>
 </body>
+
 </html>

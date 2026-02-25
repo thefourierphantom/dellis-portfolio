@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case-001 - After-Hours Network Activity Investigation | Dontavious Ellis</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+<meta name="description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<link rel="canonical" href="https://dontaviousellis.com/case-001.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b1220">
+
+<meta property="og:site_name" content="Dontavious Ellis | DFIR Portfolio">
+<meta property="og:title" content="Case-001 - After-Hours Network Activity Investigation | Dontavious Ellis">
+<meta property="og:description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dontaviousellis.com/case-001.html">
+<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case-001 - After-Hours Network Activity Investigation | Dontavious Ellis">
+<meta name="twitter:description" content="Detailed DFIR case file with executive summary, evidence locker, findings, timeline reconstruction, and detection notes.">
+<meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
+<script src="https://cdn.tailwindcss.com"></script>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,14 +34,17 @@
         body { font-family: 'Inter', sans-serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
     </style>
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/case-ui.css" />
+  <link rel="stylesheet" href="css/scroll.css" />
 </head>
 
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 reveal">
 
 
   <!-- Navigation -->
   <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" reveal reveal>
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <span class="mono text-lg font-semibold text-gray-900">DE</span>
@@ -65,10 +86,10 @@
   </nav>
 
 <!-- Header -->
-<section class="bg-gray-900 text-white py-14">
-    <div class="max-w-6xl mx-auto px-6">
+<section class="bg-gray-900 text-white py-14" reveal data-reveal="fast" reveal data-reveal="fast">
+    <div class="max-w-6xl mx-auto px-6" class="reveal">
         <div class="mono text-sm text-amber-400 mb-2">CASE FILE 001</div>
-        <h1 class="text-3xl lg:text-4xl font-bold mb-4">
+        <h1 class="text-3xl lg:text-4xl font-bold mb-4" reveal>
             After-Hours Network Activity Investigation
         </h1>
         <p class="text-lg text-gray-300 max-w-3xl">
@@ -87,7 +108,7 @@
         <!-- Main Content -->
         <div class="lg:col-span-2">
 
-            <h2 class="text-2xl font-bold mb-6">Scenario Summary</h2>
+            <h2 class="text-2xl font-bold mb-6" reveal reveal>Executive Summary</h2>
 
             <div class="space-y-4 text-gray-600 leading-relaxed">
                 <p>
@@ -108,7 +129,7 @@
                 </p>
             </div>
 
-            <h2 class="text-2xl font-bold mt-12 mb-6">Evidence Reviewed</h2>
+            <h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>Scope & Environment</h2>
 
             <ul class="list-disc ml-6 space-y-2 text-gray-600">
                 <li>Baseline packet capture (normal user browsing behavior)</li>
@@ -117,7 +138,7 @@
                 <li>Task Scheduler artifact review (Windows endpoint)</li>
                 <li>Manual timeline reconstruction documentation</li>
             </ul>
-<h2 class="text-2xl font-bold mt-12 mb-6">Evidence Gallery</h2>
+<h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>Evidence Locker</h2>
 
 <p class="text-gray-600 mb-6">
   Selected screenshots from the controlled lab environment used during investigation.
@@ -127,7 +148,7 @@
 <div class="grid md:grid-cols-2 gap-6">
 
   <!-- FIG 01 -->
-  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden evidence-item" reveal reveal>
     <img
       src="resources/fig01-afterhours-conversations.png"
       alt="Wireshark TCP Conversations showing repeated outbound HTTPS sessions"
@@ -142,7 +163,7 @@
   </figure>
 
   <!-- FIG 02 -->
-  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden evidence-item" reveal reveal>
     <img
       src="resources/fig02-afterhours-packetview.png"
       alt="Wireshark packet view filtered on tcp.port 443"
@@ -157,7 +178,7 @@
   </figure>
 
   <!-- FIG 03 -->
-  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden evidence-item" reveal reveal>
     <img
       src="resources/fig03-baseline-packetview.png"
       alt="Baseline Wireshark packet capture"
@@ -173,7 +194,7 @@
 
 
   <!-- FIG 05 -->
-  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden md:col-span-2">
+  <figure class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden md:col-span-2 evidence-item" reveal reveal>
     <img
       src="resources/fig05-task-scheduler.png"
       alt="Windows Task Scheduler showing UpdaterService persistence"
@@ -190,7 +211,7 @@
 </div>
 
 
-            <h2 class="text-2xl font-bold mt-12 mb-6">Key Findings</h2>
+            <h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>Findings</h2>
 
             <div class="space-y-4 text-gray-700 leading-relaxed">
                 <p>
@@ -217,16 +238,68 @@
                 </p>
             </div>
 
-            <h2 class="text-2xl font-bold mt-12 mb-6">Timeline Correlation</h2>
+            
+<h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>MITRE ATT&CK Mapping</h2>
+<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-gray-700" reveal reveal>
+  <ul class="list-disc pl-5 space-y-2">
+    <li><strong>TA0003 — Persistence</strong>: Logon-triggered execution (Scheduled Task / script).</li>
+    <li><strong>TA0011 — Command and Control</strong>: Repeated outbound HTTPS sessions (behavioral).</li>
+  </ul>
+  <p class="mt-3 text-sm text-gray-600">
+    Mapping is evidence-driven: each technique is tied to an observed artifact in the evidence locker and findings.
+  </p>
+</div>
 
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-gray-700 space-y-3">
-                <p><strong>Event 1:</strong> Scheduled task configured to execute PowerShell script at logon.</p>
-                <p><strong>Event 2:</strong> Logon trigger enabled automated script execution.</p>
-                <p><strong>Event 3:</strong> Repeated outbound HTTPS sessions observed during non-business hours.</p>
-                <p><strong>Correlation:</strong> Persistence mechanism directly explains recurring network behavior.</p>
-            </div>
+<h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>IOCs / Detection Notes</h2>
+<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-gray-700" reveal reveal>
+  <ul class="list-disc pl-5 space-y-2">
+    <li><strong>Behavioral IOC:</strong> After-hours outbound TLS sessions clustered to limited destinations.</li>
+    <li><strong>Host IOC:</strong> Logon-triggered task invoking PowerShell with non-interactive flags.</li>
+    <li><strong>Detection idea:</strong> Alert when scheduled tasks trigger PowerShell + outbound TLS burst within X minutes.</li>
+  </ul>
+</div>
 
-            <h2 class="text-2xl font-bold mt-12 mb-6">Conclusion</h2>
+            <h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>Timeline</h2>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-gray-700" reveal reveal>
+  <ol class="timeline" data-timeline>
+    <li class="timeline-item">
+      <details open>
+        <summary>Event 1 — Persistence trigger configured</summary>
+        <div class="mt-2 text-sm">
+          Scheduled task configured to execute a PowerShell script at logon.
+        </div>
+      </details>
+    </li>
+    <li class="timeline-item">
+      <details>
+        <summary>Event 2 — Trigger fires on logon</summary>
+        <div class="mt-2 text-sm">
+          Logon event enables automated script execution without user interaction.
+        </div>
+      </details>
+    </li>
+    <li class="timeline-item">
+      <details>
+        <summary>Event 3 — Recurring after-hours outbound HTTPS</summary>
+        <div class="mt-2 text-sm">
+          Repeated outbound HTTPS sessions observed during non-business hours.
+        </div>
+      </details>
+    </li>
+    <li class="timeline-item">
+      <details>
+        <summary>Correlation — Mechanism explains observed traffic</summary>
+        <div class="mt-2 text-sm">
+          Persistence mechanism directly accounts for recurring network behavior.
+        </div>
+      </details>
+    </li>
+  </ol>
+</div>
+
+
+            <h2 class="text-2xl font-bold mt-12 mb-6" reveal reveal>Conclusion</h2>
 
             <p class="text-gray-700 leading-relaxed">
                 The investigation identified automated outbound network activity inconsistent with baseline user behavior.
@@ -240,8 +313,8 @@
         <!-- Sidebar -->
         <div>
 
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8">
-                <h3 class="font-semibold mb-4">Case Details</h3>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8" reveal reveal>
+                <h3 class="font-semibold mb-4" reveal>Case Details</h3>
 
                 <div class="space-y-3 text-sm">
                     <div class="flex justify-between">
@@ -267,8 +340,8 @@
                 </div>
             </div>
 
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 class="font-semibold mb-4">Skills Demonstrated</h3>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200" reveal reveal>
+                <h3 class="font-semibold mb-4" reveal>Skills Demonstrated</h3>
                 <ul class="text-sm space-y-2 text-gray-600">
                     <li>• Packet-level traffic analysis</li>
                     <li>• Baseline vs anomaly comparison</li>
@@ -332,7 +405,16 @@
     }
   </script>
 
+  <script src="js/evidence-locker.js" defer></script>
+  <script src="js/timeline.js" defer></script>
+  <script src="js/page-anim.js" defer></script>
   <script src="main.js"></script>
 
+  <div class="lightbox" aria-hidden="true"></div>
+<script data-global-fade>
+  // Backup fade-in in case reveal observer doesn't attach
+  requestAnimationFrame(() => document.body.classList.add('reveal-in'));
+</script>
 </body>
+
 </html>

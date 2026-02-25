@@ -1,0 +1,41 @@
+/* Cleaner scroll (global) */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Optional: nicer scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148,163,184,.55) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,.45);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(148,163,184,.65);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Subtle page fade-in (visible even if JS is blocked) */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+body {
+  animation: pageFadeIn 520ms ease both;
+}
