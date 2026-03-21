@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typedElement) {
         new Typed('#typed-mission', {
             strings: [
-                'Digital Evidence Analysis',
-                'Criminal Investigation Support',
-                'Forensic Event Reconstruction',
-                'Cybercrime Documentation'
+                'DFIR & Cybercrime Investigation',
+                'OSINT as Applied Human Intelligence',
+                'Signals at the Physical-Digital Boundary',
+                'Building Toward National Security'
             ],
             typeSpeed: 60,
             backSpeed: 40,
