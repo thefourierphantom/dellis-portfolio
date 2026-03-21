@@ -203,36 +203,64 @@
       </div>
     </div>
 
- <div class="flex flex-wrap gap-2 mb-8" id="filters">
-  <span class="mono text-xs tracking-widest text-gray-500 mr-2">FILTER</span>
+    <div class="flex flex-wrap gap-2 mb-8" id="filters">
+      <span class="mono text-xs tracking-widest text-gray-500 mr-2">FILTER</span>
 
-  <button data-filter="all" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50 bg-gray-900 text-white">
-    All
-  </button>
-  <button data-filter="leadership" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
-    Leadership
-  </button>
-  <button data-filter="projects" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
-    Projects
-  </button>
-  <button data-filter="cyber" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
-    Cyber
-  </button>
-  <button data-filter="conferences" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
-    Conferences
-  </button>
-</div>
-
+      <button data-filter="highlighted" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50 bg-gray-900 text-white">
+        Highlighted
+      </button>
+      <button data-filter="leadership" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+        Leadership
+      </button>
+      <button data-filter="projects" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+        Projects
+      </button>
+      <button data-filter="cyber" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+        Cyber
+      </button>
+      <button data-filter="conferences" class="filter-btn px-3 py-1.5 rounded-full text-sm border border-gray-200 hover:bg-gray-50">
+        Conferences
+      </button>
+    </div>
 
     <!-- Gallery Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="field-notes-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-<!-- Card 6: Security+ (no link yet) -->
-     <a href="https://www.linkedin.com/posts/dontavious-ellis_officially-security-certified-this-certification-activity-7416177088119943169-YSBU?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
- data-category="cyber"
-         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+      <!-- Highlighted: CIBR Lab -->
+      <a href="https://www.linkedin.com/posts/dontavious-ellis_cybersecurity-dfir-research-activity-7439410338007175169-rL02" target="_blank" rel="noopener noreferrer"
+         data-category="cyber"
+         data-highlighted="true"
+         class="field-note-card group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
         <div class="relative">
-          <img src="resources/Security+.jpg" alt="Security + Certification"
+          <img src="resources/cibr.png" alt="CIBR Lab acceptance post"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Cyber
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">MAR 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
+            Accepted into CIBR Lab
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Joined USF’s Cybercrime Interdisciplinary Behavioral Research Laboratory, expanding my exposure to cybercrime-focused research and investigative work.
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Hidden from Highlighted: Security+ -->
+      <a href="https://www.linkedin.com/posts/dontavious-ellis_officially-security-certified-this-certification-activity-7416177088119943169-YSBU?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
+         data-category="cyber"
+         data-highlighted="false"
+         class="field-note-card hidden group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/Security+.jpg" alt="Security+ certification post"
                class="w-full h-48 object-cover">
           <div class="absolute top-3 left-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
@@ -243,10 +271,10 @@
         <div class="p-5">
           <div class="mono text-xs text-gray-500 mb-2">JAN 2026</div>
           <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
-Certification Milestone
+            Certification Milestone
           </h3>
           <p class="text-sm text-gray-600 mt-2">
-           Security+ earned and baseline competencies established; focusing next on casework and investigative fundamentals.
+            Security+ earned and baseline competencies established; focusing next on casework and investigative fundamentals.
           </p>
           <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
             Open post →
@@ -254,13 +282,13 @@ Certification Milestone
         </div>
       </a>
 
-
-      <!-- Card 1 -->
+      <!-- Hidden from Highlighted: BullsAID -->
       <a href="https://www.linkedin.com/posts/the-scopeusf_engineering-drones-innovation-activity-7387560274280595456-XBUZ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
- data-category="projects"
-         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+         data-category="projects"
+         data-highlighted="false"
+         class="field-note-card hidden group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
         <div class="relative">
-          <img src="resources/bullsaid.jfif" alt="Bullsaid Drone"
+          <img src="resources/bullsaid.jfif" alt="Project BullsAID post"
                class="w-full h-48 object-cover">
           <div class="absolute top-3 left-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
@@ -271,10 +299,10 @@ Certification Milestone
         <div class="p-5">
           <div class="mono text-xs text-gray-500 mb-2">NOV 2025</div>
           <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
-Project BullsAID: Progress in Motion.
+            Project BullsAID: Progress in Motion
           </h3>
           <p class="text-sm text-gray-600 mt-2">
-            Over the past few weeks, we’ve accomplished key milestones, including...
+            Over the past few weeks, we accomplished key milestones across the drone build and supporting technical workflow.
           </p>
           <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
             Open post →
@@ -282,12 +310,13 @@ Project BullsAID: Progress in Motion.
         </div>
       </a>
 
-      <!-- Card 2 -->
+      <!-- Hidden from Highlighted: LGSO -->
       <a href="https://www.linkedin.com/posts/the-scopeusf_usf-engineering-scope-activity-7387555992974147584-5HpQ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
- data-category="leadership"
-         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+         data-category="leadership"
+         data-highlighted="false"
+         class="field-note-card hidden group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
         <div class="relative">
-          <img src="resources/scope.jfif" alt="Scope trifold"
+          <img src="resources/scope.jfif" alt="LGSO Diversity in Professionalism Showcase post"
                class="w-full h-48 object-cover">
           <div class="absolute top-3 left-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
@@ -301,7 +330,7 @@ Project BullsAID: Progress in Motion.
             LGSO Diversity In Professionalism Showcase
           </h3>
           <p class="text-sm text-gray-600 mt-2">
-            We met amazing student leaders and alumni, and shared our mission...
+            Shared SCOPE’s mission, met student leaders and alumni, and represented our work in a professional campus showcase setting.
           </p>
           <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
             Open post →
@@ -309,12 +338,13 @@ Project BullsAID: Progress in Motion.
         </div>
       </a>
 
-      <!-- Card 3 -->
+      <!-- Highlighted: Lomax -->
       <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_usf-nsbe-stemeducation-ugcPost-7384259472468176896-5bRR?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
- data-category="leadership"
-         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+         data-category="leadership"
+         data-highlighted="true"
+         class="field-note-card group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
         <div class="relative">
-          <img src="resources/lomax.png" alt="Cyber practice"
+          <img src="resources/lomax.png" alt="Lomax Magnet STEM Series post"
                class="w-full h-48 object-cover">
           <div class="absolute top-3 left-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
@@ -328,7 +358,7 @@ Project BullsAID: Progress in Motion.
             Lomax Magnet STEM Series
           </h3>
           <p class="text-sm text-gray-600 mt-2">
-            Over the past few weeks, we’ve introduced 4th and 5th graders to the exciting world of STEM through hands-on activities in...
+            Helped introduce 4th and 5th graders to STEM through hands-on activities and technical exposure built to make engineering feel accessible.
           </p>
           <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
             Open post →
@@ -336,12 +366,13 @@ Project BullsAID: Progress in Motion.
         </div>
       </a>
 
-      <!-- Card 4 -->
-      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_upwardbound-college-highereducation-ugcPost-7380057400189276160-78Ca?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" rel="noopener noreferrer"
- data-category="leadership"
-         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+      <!-- Highlighted: TRIO -->
+      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_upwardbound-college-highereducation-ugcPost-7380057400189276160-78Ca?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
+         data-category="leadership"
+         data-highlighted="true"
+         class="field-note-card group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
         <div class="relative">
-          <img src="resources/trio.jfif" alt="Trio speaking"
+          <img src="resources/trio.jfif" alt="TRIO Upward Bound Program Student Tour post"
                class="w-full h-48 object-cover">
           <div class="absolute top-3 left-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
@@ -352,10 +383,10 @@ Project BullsAID: Progress in Motion.
         <div class="p-5">
           <div class="mono text-xs text-gray-500 mb-2">OCT 2025</div>
           <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
-TRIO Upward Bound Program Student Tour
-         </h3>
+            TRIO Upward Bound Program Student Tour
+          </h3>
           <p class="text-sm text-gray-600 mt-2">
-            The perfect opportunity to highlight the importance of STEM and to share the impact NSBE...
+            Spoke with students about STEM pathways, campus exposure, and the value of technical ambition early in the pipeline.
           </p>
           <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
             Open post →
@@ -363,12 +394,13 @@ TRIO Upward Bound Program Student Tour
         </div>
       </a>
 
-      <!-- Card 5 -->
-      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_service-community-engineersserve-ugcPost-7370923017196998656-yQcs?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" rel="noopener noreferrer"
- data-category="leadership"
-         class="group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+      <!-- Highlighted: Hope on the Block -->
+      <a href="https://www.linkedin.com/posts/nsbe-usf-chapter_service-community-engineersserve-ugcPost-7370923017196998656-yQcs?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFEPW_wB2PXi20D74EnUxPbsQd5InEw7lJ4" target="_blank" rel="noopener noreferrer"
+         data-category="leadership"
+         data-highlighted="true"
+         class="field-note-card group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
         <div class="relative">
-          <img src="resources/hotb.jfif" alt="Hope on The Block"
+          <img src="resources/hotb.jfif" alt="Hope on the Block post"
                class="w-full h-48 object-cover">
           <div class="absolute top-3 left-3">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
@@ -379,11 +411,10 @@ TRIO Upward Bound Program Student Tour
         <div class="p-5">
           <div class="mono text-xs text-gray-500 mb-2">SEP 2025</div>
           <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
-            Gaines Hope Tampa Bay Inc.'s 'Hope on the Block'
+            Hope on the Block
           </h3>
           <p class="text-sm text-gray-600 mt-2">
-            Initiative to distribute school supplies, food, personal care products, clothes, and more to the Tampa Bay community..
-
+            Supported a community-centered service initiative focused on distributing essential supplies to families across the Tampa Bay area.
           </p>
           <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
             Open post →
@@ -391,6 +422,89 @@ TRIO Upward Bound Program Student Tour
         </div>
       </a>
 
+      <!-- Highlighted: CyberBay -->
+      <a href="https://www.linkedin.com/posts/dontavious-ellis_cyberbay2026-cybersecurity-dfir-activity-7439717196290854912-05UQ" target="_blank" rel="noopener noreferrer"
+         data-category="conferences"
+         data-highlighted="true"
+         class="field-note-card group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/cyberbay2026.jpg" alt="CyberBay 2026 post"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Conferences
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">MAR 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
+            CyberBay 2026
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Reflected on CyberBay as a checkpoint in my growth, especially around DFIR, data volatility, mission impact, and real-world defensive work.
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Highlighted: Tampa Summit 6 -->
+      <a href="https://www.linkedin.com/posts/dontavious-ellis_nationalsecurity-cybersecurity-gnsi-activity-7439717212371771393-xBlm" target="_blank" rel="noopener noreferrer"
+         data-category="conferences"
+         data-highlighted="true"
+         class="field-note-card group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/gnsi-summit.png" alt="Tampa Summit 6 post"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Conferences
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">MAR 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
+            Tampa Summit 6
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Shared my intent heading into GNISI’s Tampa Summit 6, connecting cybersecurity, threat intelligence, and national security into a clearer long-term path.
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
+
+      <!-- Hidden from Highlighted: Pathways to Priorities -->
+      <a href="https://www.linkedin.com/posts/dontavious-ellis_nsbe-engineeringstudents-studentleadership-activity-7439414519203893248-G9q5" target="_blank" rel="noopener noreferrer"
+         data-category="leadership"
+         data-highlighted="false"
+         class="field-note-card hidden group bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+        <div class="relative">
+          <img src="resources/ptp.jpg" alt="Pathways to Priorities post"
+               class="w-full h-48 object-cover">
+          <div class="absolute top-3 left-3">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-900/80 text-white">
+              Leadership
+            </span>
+          </div>
+        </div>
+        <div class="p-5">
+          <div class="mono text-xs text-gray-500 mb-2">MAR 2026</div>
+          <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-800" reveal>
+            Pathways to Priorities
+          </h3>
+          <p class="text-sm text-gray-600 mt-2">
+            Hosted a hands-on NSBE session focused on turning long-term career direction into weekly priorities, planning habits, and execution.
+          </p>
+          <div class="mt-4 text-sm font-semibold text-amber-700 group-hover:text-amber-800">
+            Open post →
+          </div>
+        </div>
+      </a>
 
     </div>
 
@@ -583,6 +697,57 @@ TRIO Upward Bound Program Student Tour
     </footer>
 
     <script src="js/page-anim.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.field-note-card');
+    const DEFAULT_FILTER = 'highlighted';
+
+    function setActiveButton(filter) {
+      buttons.forEach((btn) => {
+        const isActive = (btn.dataset.filter || '').trim().toLowerCase() === filter;
+
+        btn.classList.remove('bg-gray-900', 'text-white');
+        btn.classList.add('border', 'border-gray-200', 'hover:bg-gray-50');
+
+        if (isActive) {
+          btn.classList.add('bg-gray-900', 'text-white');
+          btn.classList.remove('hover:bg-gray-50');
+        }
+      });
+    }
+
+    function applyFilter(filter) {
+      const normalizedFilter = (filter || '').trim().toLowerCase();
+
+      cards.forEach((card) => {
+        const category = (card.dataset.category || '').trim().toLowerCase();
+        const highlighted = (card.dataset.highlighted || '').trim().toLowerCase() === 'true';
+
+        let shouldShow = false;
+
+        if (normalizedFilter === 'highlighted') {
+          shouldShow = highlighted;
+        } else {
+          shouldShow = category === normalizedFilter;
+        }
+
+        card.classList.toggle('hidden', !shouldShow);
+      });
+
+      setActiveButton(normalizedFilter);
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', function () {
+        applyFilter(button.dataset.filter);
+      });
+    });
+
+    applyFilter(DEFAULT_FILTER);
+  });
+</script>
+
   <script src="main.js"></script>
 <script data-global-fade>
   // Backup fade-in in case reveal observer doesn't attach
