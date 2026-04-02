@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typedElement) {
         new Typed('#typed-mission', {
             strings: [
-                'DFIR & Cybercrime Investigation',
-                'OSINT as Applied Human Intelligence',
-                'Signals at the Physical-Digital Boundary',
-                'Building Toward National Security'
+                'Power Systems Engineering',
+                'Embedded Firmware & Hardware Design',
+                'Infrastructure Modeling & Simulation',
+                'Resilient Systems by Design'
             ],
             typeSpeed: 60,
             backSpeed: 40,
@@ -309,9 +309,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Console welcome message
-    console.log('%cDigital Forensics Portfolio', 'color: #d97706; font-size: 18px; font-weight: bold;');
-    console.log('%cProfessional investigative methodology and evidence-based analysis.', 'color: #6b7280; font-size: 12px;');
-    console.log('%cAll case studies are simulated for educational purposes.', 'color: #6b7280; font-size: 10px;');
+    console.log('%cDontavious Ellis — Engineering Portfolio', 'color: #d97706; font-size: 18px; font-weight: bold;');
+    console.log('%cElectrical Engineering · Power Systems · Embedded · Infrastructure', 'color: #6b7280; font-size: 12px;');
+    console.log('%cAll lab exercises and simulations are academic and for professional development.', 'color: #6b7280; font-size: 10px;');
 });
 // Open external links in a new tab + secure rel.
 // Keeps internal navigation in the same tab.
