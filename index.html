@@ -75,7 +75,7 @@
         /* project card */
         .proj-card {
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            background: #fff;
+            background: #1a2e4a;
         }
         .proj-card:hover {
             transform: translateY(-5px);
@@ -151,7 +151,7 @@
     </script>
     <link rel="stylesheet" href="css/scroll.css" />
 </head>
-<body class="bg-gray-50 text-gray-900 reveal">
+<body class="reveal">
 
     <!-- ── Navigation ── -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -196,6 +196,11 @@
          HERO — Hardening the Physical Layer
     ════════════════════════════════════════════════════ -->
     <section class="hero-bg min-h-screen flex items-center relative">
+
+        <!-- Globe / forensic hero image layer -->
+        <div class="absolute inset-0 z-0" style="opacity:0.28;">
+            <img src="resources/hero-forensic.png" alt="" class="w-full h-full object-cover" aria-hidden="true">
+        </div>
 
         <!-- Animated grid + waveform background -->
         <svg class="hero-grid-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
