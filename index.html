@@ -32,7 +32,7 @@
 
         /* ── Hero ── */
         .hero-bg {
-            background: linear-gradient(160deg, #070d1a 0%, #0d1b2e 55%, #0f2239 100%);
+            background: linear-gradient(160deg, #110404 0%, #1c0707 45%, #270b0b 100%);
             position: relative;
             overflow: hidden;
         }
@@ -40,13 +40,13 @@
             position: absolute; inset: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 0;
         }
-        .grid-line { stroke: rgba(245,158,11,0.08); stroke-width: 1; }
-        .grid-line-bright { stroke: rgba(245,158,11,0.18); stroke-width: 1.5; }
+        .grid-line { stroke: rgba(220,38,38,0.09); stroke-width: 1; }
+        .grid-line-bright { stroke: rgba(220,38,38,0.20); stroke-width: 1.5; }
         .circuit-node {
-            fill: none; stroke: rgba(245,158,11,0.22);
+            fill: none; stroke: rgba(220,38,38,0.25);
             stroke-width: 1.5; r: 3;
         }
-        .circuit-node-fill { fill: rgba(245,158,11,0.4); r: 2; }
+        .circuit-node-fill { fill: rgba(239,68,68,0.45); r: 2; }
 
         /* sine wave path animation */
         @keyframes sine-march {
@@ -58,12 +58,12 @@
             to   { stroke-dashoffset: 0; }
         }
         .wave-path {
-            fill: none; stroke: rgba(245,158,11,0.55); stroke-width: 2;
+            fill: none; stroke: rgba(239,68,68,0.60); stroke-width: 2;
             stroke-dasharray: 800;
             animation: sine-march 4s linear infinite;
         }
         .wave-path-dim {
-            fill: none; stroke: rgba(245,158,11,0.20); stroke-width: 1.5;
+            fill: none; stroke: rgba(220,38,38,0.22); stroke-width: 1.5;
             stroke-dasharray: 1200;
             animation: sine-march-slow 6s linear infinite;
         }
@@ -75,7 +75,7 @@
         /* project card */
         .proj-card {
             transition: transform 0.25s ease, box-shadow 0.25s ease;
-            background: #1a2e4a;
+            background: #fff;
         }
         .proj-card:hover {
             transform: translateY(-5px);
@@ -83,34 +83,64 @@
         }
         .proj-card-dark {
             background: #0f1f35;
-            border-color: rgba(245,158,11,0.18);
+            border-color: rgba(220,38,38,0.18);
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
         .proj-card-dark:hover {
             transform: translateY(-5px);
-            border-color: rgba(245,158,11,0.55);
+            border-color: rgba(220,38,38,0.55);
             box-shadow: 0 22px 44px rgba(0,0,0,0.35);
         }
 
+        /* field notes card */
+        .field-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .field-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(0,0,0,0.09);
+        }
+        .duration-400 { transition-duration: 400ms; }
+
+        /* project card photo slot */
+        .proj-card .proj-photo-slot {
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+        .photo-slot-hint {
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            opacity: 0.28;
+            transition: opacity 0.25s;
+        }
+        .proj-card:hover .photo-slot-hint { opacity: 0.50; }
+
         /* spec table */
-        .spec-row:nth-child(even) { background: rgba(245,158,11,0.04); }
+        .spec-row:nth-child(even) { background: rgba(220,38,38,0.04); }
         .spec-row { border-bottom: 1px solid rgba(0,0,0,0.06); }
 
         /* resilience badge */
         .hardening-badge {
             display: inline-block;
             padding: 2px 10px;
-            background: rgba(245,158,11,0.12);
-            border: 1px solid rgba(245,158,11,0.35);
+            background: rgba(220,38,38,0.10);
+            border: 1px solid rgba(220,38,38,0.32);
             border-radius: 4px;
-            color: #d97706;
+            color: #dc2626;
             font-size: 0.65rem;
             letter-spacing: 0.12em;
             font-family: 'JetBrains Mono', monospace;
         }
         /* status dot */
         .dot-active { background:#22c55e; box-shadow:0 0 5px rgba(34,197,94,0.6); }
-        .dot-complete { background:#f59e0b; }
+        .dot-complete { background:#ef4444; }
 
         /* section overline */
         .overline {
@@ -118,7 +148,7 @@
             font-size: 0.65rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #d97706;
+            color: #dc2626;
         }
 
         /* skill bar */
@@ -126,9 +156,81 @@
             height: 4px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden;
         }
         .skill-bar-fill {
-            height: 100%; background: linear-gradient(90deg, #f59e0b, #d97706);
+            height: 100%; background: linear-gradient(90deg, #ef4444, #dc2626);
             border-radius: 2px;
             transition: width 1.2s cubic-bezier(.4,0,.2,1);
+        }
+
+        /* ── Global red accent overrides (replaces amber Tailwind classes) ── */
+        .text-amber-300, .text-amber-300 { color: #fca5a5 !important; }
+        .text-amber-400 { color: #f87171 !important; }
+        .text-amber-500 { color: #ef4444 !important; }
+        .text-amber-600 { color: #dc2626 !important; }
+        .text-amber-700 { color: #b91c1c !important; }
+        .bg-amber-50  { background-color: #fff5f5 !important; }
+        .bg-amber-600 { background-color: #dc2626 !important; }
+        .hover\:bg-amber-500:hover { background-color: #ef4444 !important; }
+        .border-amber-500 { border-color: #ef4444 !important; }
+        .border-amber-400 { border-color: #f87171 !important; }
+        .hover\:border-amber-400:hover { border-color: #f87171 !important; }
+        .hover\:text-amber-700:hover { color: #b91c1c !important; }
+        .hover\:text-amber-200:hover { color: #fecaca !important; }
+        .hover\:bg-amber-50:hover { background-color: #fff5f5 !important; }
+        .border-amber-500\/40 { border-color: rgba(239,68,68,0.40) !important; }
+        .border-amber-400\/40 { border-color: rgba(248,113,113,0.40) !important; }
+
+        /* competency photo grid cell */
+        .comp-cell {
+            background: rgba(15,5,5,0.85);
+            border: 1px solid rgba(220,38,38,0.15);
+            transition: border-color 0.25s ease, transform 0.25s ease;
+            cursor: default;
+        }
+        .comp-cell:hover {
+            border-color: rgba(220,38,38,0.45);
+            transform: scale(1.02);
+        }
+
+        /* ── Body background: scroll-driven white to red flame ── */
+        /* JS will update this dynamically; fallback static gradient */
+        body {
+            background: #ffffff !important;
+        }
+        /* let white/gray sections be transparent so flame gradient shows through */
+        section.bg-white, section.bg-gray-50 { background: transparent !important; }
+
+        /* ── Diamond project layout ── */
+        .proj-diamond {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 22px;
+        }
+        .proj-diamond-top {
+            width: 62%;
+            max-width: 640px;
+        }
+        .proj-diamond-middle {
+            display: flex;
+            gap: 22px;
+            width: 100%;
+        }
+        .proj-diamond-middle > * {
+            flex: 1;
+            min-width: 0;
+        }
+        .proj-card-flat {
+            display: block;
+            background: #fff;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+        .proj-card-flat:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(220,38,38,0.10), 0 4px 12px rgba(0,0,0,0.06);
+        }
+        @media (max-width: 768px) {
+            .proj-diamond-top  { width: 100%; max-width: 100%; }
+            .proj-diamond-middle { flex-direction: column; }
         }
     </style>
     <link rel="stylesheet" href="css/reveal.css" />
@@ -151,7 +253,7 @@
     </script>
     <link rel="stylesheet" href="css/scroll.css" />
 </head>
-<body class="reveal">
+<body class="bg-gray-50 text-gray-900 reveal">
 
     <!-- ── Navigation ── -->
     <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -198,7 +300,7 @@
     <section class="hero-bg min-h-screen flex items-center relative">
 
         <!-- Globe / forensic hero image layer -->
-        <div class="absolute inset-0 z-0" style="opacity:0.28;">
+        <div class="absolute inset-0 z-0" style="opacity:0.32;">
             <img src="resources/hero-forensic.png" alt="" class="w-full h-full object-cover" aria-hidden="true">
         </div>
 
@@ -247,8 +349,8 @@
             <path class="wave-path-dim"
                 d="M0,630 C40,630 70,550 110,550 S180,710 220,710 S310,550 350,550 S440,710 480,710 S570,550 610,550 S700,710 740,710 S830,550 870,550 S960,710 1000,710 S1090,550 1130,550 S1220,710 1260,710 S1350,630 1440,630"/>
             <!-- power bus traces -->
-            <line stroke="rgba(245,158,11,0.12)" stroke-width="2" x1="0" y1="270" x2="1440" y2="270"/>
-            <line stroke="rgba(245,158,11,0.12)" stroke-width="2" x1="0" y1="630" x2="1440" y2="630"/>
+            <line stroke="rgba(220,38,38,0.13)" stroke-width="2" x1="0" y1="270" x2="1440" y2="270"/>
+            <line stroke="rgba(220,38,38,0.13)" stroke-width="2" x1="0" y1="630" x2="1440" y2="630"/>
         </svg>
 
         <!-- Hero content -->
@@ -257,19 +359,19 @@
 
                 <!-- Left: headline + mission -->
                 <div class="text-white">
-                    <div class="overline mb-4" style="color:#f59e0b;">SPEC REV 2026-A &nbsp;·&nbsp; USF ELECTRICAL ENGINEERING</div>
+                    <div class="overline mb-4" style="color:#ef4444;">USF ELECTRICAL ENGINEERING &nbsp;·&nbsp; POWER &amp; DEFENSE INFRASTRUCTURE</div>
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6" style="text-shadow:0 2px 8px rgba(0,0,0,0.4);">
                         Hardening the<br>
-                        <span style="color:#f59e0b;">Physical Layer</span>
+                        <span style="color:#ef4444;">Physical Layer</span>
                     </h1>
                     <p class="text-xl lg:text-2xl text-gray-300 font-light mb-3">
                         Electrical Engineering for Critical Infrastructure.
                     </p>
-                    <div class="text-lg text-amber-300 h-10 mb-8 mono">
-                        <span id="typed-mission"></span><span class="blink text-amber-400">█</span>
+                    <div class="text-lg h-10 mb-8 mono" style="color:#f87171;">
+                        <span id="typed-mission"></span><span class="blink" style="color:#ef4444;">█</span>
                     </div>
                     <p class="text-base text-gray-400 mb-10 leading-relaxed max-w-xl">
-                        I design power distribution hardware, write embedded firmware for industrial sensors, and model cascading failure in critical systems — then harden the physical layer against the threat vectors that matter. Research Assistant at USF CIBR Lab. NSBE Technical Development Chair. Targeting defense and power sector roles.
+                        Engineering resilient power systems and mission-critical infrastructure to safeguard national security and aerospace assets. This portfolio documents the hardware I build, firmware I write, and infrastructure models I run. My work sits at the intersection of grid-scale resilience, hardware-level security, and automated power distribution. Research Assistant at USF CIBR Lab. NSBE Technical Development Chair. Incoming EE Intern at Orbital Corp.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="case-files.html" class="inline-flex items-center justify-center bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
@@ -281,65 +383,179 @@
                     </div>
                 </div>
 
-                <!-- Right: profile + status panel -->
+                <!-- Right: profile card -->
                 <div>
-                    <div class="rounded-xl p-7 border" style="background:rgba(15,31,53,0.75);backdrop-filter:blur(12px);border-color:rgba(245,158,11,0.22);">
-                        <!-- profile row -->
-                        <div class="flex flex-col sm:flex-row sm:items-center gap-5 mb-7">
-                            <img src="resources/profile.jpg" alt="Dontavious Ellis"
-                                 class="w-44 h-44 object-cover rounded-xl flex-shrink-0 mx-auto sm:mx-0"
-                                 style="ring:2px solid rgba(245,158,11,0.4);box-shadow:0 0 0 2px rgba(245,158,11,0.35);" />
-                            <div>
-                                <div class="mono text-xs tracking-widest text-gray-400 mb-1">ENGINEER · PROFILE</div>
-                                <div class="text-white font-bold text-xl">Dontavious Ellis</div>
-                                <div class="text-sm text-amber-300 mt-1">Hardware Architect · Power Systems</div>
-                                <div class="text-xs text-gray-400 mt-2 leading-relaxed">
-                                    USF Electrical Engineering &nbsp;·&nbsp; CompTIA Security+ &nbsp;·&nbsp; CIBR Lab &nbsp;·&nbsp; NSBE Technical Development Chair
-                                </div>
+                    <div class="rounded-xl overflow-hidden" style="background:rgba(20,8,8,0.82);backdrop-filter:blur(14px);border:1px solid rgba(220,38,38,0.55);box-shadow:0 0 0 1px rgba(220,38,38,0.12), 0 0 24px rgba(220,38,38,0.18), 0 0 60px rgba(220,38,38,0.08), inset 0 1px 0 rgba(255,100,100,0.12);">
+
+                        <!-- Side-by-side: photo left, info right -->
+                        <div class="flex" style="min-height:280px;">
+                            <!-- Photo -->
+                            <div style="width:260px;min-width:260px;overflow:hidden;">
+                                <img src="resources/profile.jpg" alt="Dontavious Ellis"
+                                     class="w-full h-full object-cover"
+                                     style="object-position: center 18%;" />
+                            </div>
+                            <!-- Info -->
+                            <div class="flex flex-col justify-center px-6 py-5" style="flex:1;">
+                                <div class="mono text-xs tracking-widest mb-2" style="color:rgba(239,68,68,0.55);">ENGINEER · PROFILE</div>
+                                <div class="text-white font-bold text-xl leading-tight mb-1">Dontavious Ellis</div>
+                                <div class="text-sm font-semibold mb-3" style="color:#f87171;">Incoming EE Intern @ Orbital Corp</div>
+                                <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.45);">
+                                    USF Electrical Engineering &nbsp;·&nbsp; Power &amp; Communication Systems &nbsp;·&nbsp; CIBR Researcher &nbsp;·&nbsp; AI Threat Intelligence &nbsp;·&nbsp; CompTIA Security+ &nbsp;·&nbsp; NSBE Tech Dev
+                                </p>
                             </div>
                         </div>
 
-                        <!-- status console -->
-                        <div class="mono text-xs text-gray-500 mb-3 tracking-widest">SYSTEM STATUS</div>
-                        <div class="space-y-2.5">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full dot-active inline-block"></span>
-                                    <span class="text-sm text-gray-200">TARS Electromechanical System</span>
-                                </div>
-                                <span class="hardening-badge">ACTIVE BUILD</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full dot-active inline-block"></span>
-                                    <span class="text-sm text-gray-200">Infrastructure Homelab / PulseGrid AI</span>
-                                </div>
-                                <span class="hardening-badge">ACTIVE</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full dot-complete inline-block"></span>
-                                    <span class="text-sm text-gray-200">Secure IIoT Smart Grid Edge Monitor</span>
-                                </div>
-                                <span class="hardening-badge" style="color:#22c55e;border-color:rgba(34,197,94,0.35);background:rgba(34,197,94,0.07);">COMPLETE</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full dot-complete inline-block"></span>
-                                    <span class="text-sm text-gray-200">Smart Load-Shedding Controller</span>
-                                </div>
-                                <span class="hardening-badge" style="color:#22c55e;border-color:rgba(34,197,94,0.35);background:rgba(34,197,94,0.07);">COMPLETE</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full dot-complete inline-block"></span>
-                                    <span class="text-sm text-gray-200">CIBR Lab — Human-AI Interaction Research</span>
-                                </div>
-                                <span class="hardening-badge">ONGOING</span>
-                            </div>
+                        <!-- CTAs -->
+                        <div class="flex gap-2.5 p-4" style="border-top:1px solid rgba(220,38,38,0.14);">
+                            <a href="contact.html" class="flex-1 text-center py-2.5 rounded-lg text-white text-sm font-semibold transition-colors" style="background:#dc2626;">
+                                Get in Touch
+                            </a>
+                            <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer"
+                               class="flex-1 text-center py-2.5 rounded-lg text-white text-sm font-semibold transition-colors" style="background:#0a66c2;">
+                                LinkedIn
+                            </a>
                         </div>
+
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         FIELD NOTES (LinkedIn) — moved above Systems & Hardware
+    ════════════════════════════════════════════════════ -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <div class="overline mb-2">IN THE FIELD</div>
+                <h2 class="text-3xl font-bold text-gray-900">Field Notes</h2>
+                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Live dispatches from conferences, research, and engineering work. Follow on LinkedIn for real-time updates.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1: Always-on LinkedIn Profile (FIRST) -->
+                <a href="https://www.linkedin.com/in/dontavious-ellis/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="field-card rounded-xl border overflow-hidden flex flex-col bg-white group" style="border-color:rgba(10,102,194,0.30);">
+                    <div class="relative overflow-hidden" style="height:210px;">
+                        <img src="resources/linkedin-card.png" alt="Dontavious Ellis on LinkedIn"
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-400">
+                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,28,64,0.65) 0%,transparent 55%);"></div>
+                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(10,102,194,0.20);color:#0a66c2;border:1px solid rgba(10,102,194,0.35);">LinkedIn · Live Feed</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-xs text-gray-400 mono mb-2">Updated regularly · 500+ connections</p>
+                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Connect on LinkedIn</h3>
+                        <p class="text-sm text-gray-500 flex-1">All field notes, conference dispatches, research updates, and engineering milestones post here first. Connect for real-time updates.</p>
+                        <div class="mt-4 flex items-center text-sm font-semibold" style="color:#0a66c2;">
+                            View profile <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2: GNSI DC Experience 2026 -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450640869579395072/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
+                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
+                        <img src="resources/gnsi-summit.png" alt="GNSI DC Experience 2026"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
+                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
+                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">GNSI · National Security</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-xs text-gray-400 mono mb-2">2026 · Washington D.C.</p>
+                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">GNSI DC Experience 2026</h3>
+                        <p class="text-sm text-gray-500 flex-1">Selected for the Government-National Security Institute DC cohort. Covered policy, defense contracting, and intelligence community operations in a two-week immersion program.</p>
+                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
+                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3: ISE 2026 -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449895517582409729/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
+                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
+                        <img src="resources/ise-2026.png" alt="ISE 2026"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
+                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
+                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">ISE · Conference</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-xs text-gray-400 mono mb-2">2026 · Tampa, FL</p>
+                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">ISE 2026 International Security Experience</h3>
+                        <p class="text-sm text-gray-500 flex-1">Attended the International Security Experience 2026. Connected with industry leaders across cybersecurity, defense, and technology sectors while representing USF.</p>
+                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
+                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4: USF Engineering Expo -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449479028035653633/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
+                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
+                        <img src="resources/expo-2026.png" alt="USF Engineering Expo 2026"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
+                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
+                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">NSBE · Expo</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-xs text-gray-400 mono mb-2">2026 · USF Tampa</p>
+                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">USF Engineering Expo with NSBE</h3>
+                        <p class="text-sm text-gray-500 flex-1">Represented USF NSBE at the Engineering Expo! Showcased engineering pathways and chapter initiatives to prospective students and industry partners.</p>
+                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
+                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 5: Cyberbay 2026 -->
+                <a href="https://www.linkedin.com/posts/dontavious-ellis_cyberbay2026-cybersecurity-dfir-activity-7439717196290854912-05UQ/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
+                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
+                        <img src="resources/cyberbay2026.jpg" alt="Cyberbay 2026"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
+                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
+                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">DFIR · Cybersecurity</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-xs text-gray-400 mono mb-2">2026 · Tampa, FL</p>
+                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Cyberbay 2026</h3>
+                        <p class="text-sm text-gray-500 flex-1">Attended Cyberbay 2026, a Tampa-area cybersecurity event bringing together DFIR professionals, students, and industry practitioners for networking and knowledge sharing.</p>
+                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
+                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 6: Pathways to Priorities -->
+                <a href="https://www.linkedin.com/posts/dontavious-ellis_nsbe-engineeringstudents-studentleadership-activity-7439414519203893248-G9q5/"
+                   target="_blank" rel="noopener noreferrer"
+                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
+                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
+                        <img src="resources/ptp.JPG" alt="Pathways to Priorities"
+                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
+                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
+                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">NSBE · Leadership</span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <p class="text-xs text-gray-400 mono mb-2">2026 · USF Tampa</p>
+                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Pathways to Priorities</h3>
+                        <p class="text-sm text-gray-500 flex-1">NSBE USF chapter event on engineering career strategy. Brought together Black engineers at USF to align early-career planning with long-term professional impact.</p>
+                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
+                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </a>
 
             </div>
         </div>
@@ -351,166 +567,129 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12">
-                <div class="overline mb-2">PRIMARY SYSTEMS WORK — 90%</div>
+                <div class="overline mb-2">PRIMARY SYSTEMS WORK · 90%</div>
                 <h2 class="text-3xl font-bold text-gray-900">Systems &amp; Hardware</h2>
-                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Power distribution, embedded firmware, electromechanical design, and infrastructure simulation — built from components, validated on the bench.</p>
+                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Power distribution, embedded firmware, electromechanical design, and infrastructure simulation. Built from components, validated on the bench.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
+            <!-- Diamond layout: 1 top · 2 middle · 1 bottom -->
+            <div class="proj-diamond">
 
-                <!-- Card 1: Smart Grid Edge Monitor -->
-                <a href="case-files.html" class="proj-card rounded-xl border border-gray-100 overflow-hidden block group">
-                    <div class="bg-gray-900 px-6 pt-8 pb-6 relative overflow-hidden">
-                        <!-- inline oscilloscope icon -->
-                        <svg class="absolute right-6 top-6 opacity-20 group-hover:opacity-35 transition-opacity" width="72" height="56" viewBox="0 0 72 56" fill="none" aria-hidden="true">
-                            <rect x="1" y="1" width="70" height="54" rx="4" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="8" y1="28" x2="14" y2="28" stroke="#f59e0b" stroke-width="1.5"/>
-                            <path d="M14 28 L20 12 L26 44 L32 12 L38 44 L44 28 L50 28" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
-                            <line x1="50" y1="28" x2="64" y2="28" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="8" y1="16" x2="64" y2="16" stroke="rgba(245,158,11,0.3)" stroke-width="0.8"/>
-                            <line x1="8" y1="40" x2="64" y2="40" stroke="rgba(245,158,11,0.3)" stroke-width="0.8"/>
-                        </svg>
-                        <div class="mono text-xs text-amber-400 mb-2 tracking-widest">POWER SYSTEMS · EMBEDDED · COMPLETED</div>
-                        <h3 class="text-xl font-bold text-white leading-snug">Secure IIoT Smart Grid<br>Edge Monitor</h3>
-                    </div>
-                    <div class="p-6 border-t border-gray-100">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-4">ESP32 firmware computing RMS Voltage, Current, and Power Factor with &lt;3% error margin. FFT-based THD detection in sub-100ms sample intervals. AES-128 encryption + MQTT TLS 1.2 for NERC CIP-compliant telemetry pipeline.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">ESP32</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">FFT · THD</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">MQTT TLS</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">NERC CIP</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">AES-128</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center text-xs text-gray-400">
-                                <span class="w-2 h-2 bg-amber-500 rounded-full mr-2 inline-block"></span>
-                                Aug 2025 – Mar 2026
+                <!-- TOP: Card 1 — Secure IIoT Smart Grid Edge Monitor -->
+                <div class="proj-diamond-top">
+                    <a href="case-files.html" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
+                        <div class="p-7">
+                            <div class="flex items-start justify-between mb-4">
+                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 01</span>
+                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,197,94,0.08);color:#16a34a;border:1px solid rgba(34,197,94,0.22);">COMPLETE</span>
                             </div>
-                            <span class="text-sm font-semibold text-amber-700 group-hover:text-amber-600">View details →</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">Secure IIoT Smart Grid Edge Monitor</h3>
+                            <div class="flex items-baseline gap-3 mb-5 pl-4" style="border-left:3px solid #dc2626;">
+                                <span class="text-3xl font-bold" style="color:#dc2626;">&lt;3%</span>
+                                <span class="text-sm text-gray-500">error margin on live RMS voltage, current, and power factor</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-5">ESP32 firmware with FFT-based THD detection in sub-100ms intervals. AES-128 encryption and MQTT TLS 1.2 for a NERC CIP-compliant telemetry pipeline validated end-to-end.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">ESP32</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">FFT · THD</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">MQTT TLS</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">NERC CIP</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">AES-128</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-400 mono">Aug 2025 · Mar 2026</span>
+                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
 
-                <!-- Card 2: Smart Load-Shedding -->
-                <a href="case-files.html" class="proj-card rounded-xl border border-gray-100 overflow-hidden block group">
-                    <div class="bg-gray-900 px-6 pt-8 pb-6 relative overflow-hidden">
-                        <!-- inline transformer/inductor icon -->
-                        <svg class="absolute right-6 top-6 opacity-20 group-hover:opacity-35 transition-opacity" width="72" height="56" viewBox="0 0 72 56" fill="none" aria-hidden="true">
-                            <!-- transformer symbol -->
-                            <circle cx="24" cy="28" r="12" stroke="#f59e0b" stroke-width="1.5"/>
-                            <circle cx="48" cy="28" r="12" stroke="#f59e0b" stroke-width="1.5"/>
-                            <!-- winding lines left -->
-                            <path d="M16 22 Q18 18 20 22 Q22 26 24 22 Q26 18 28 22" stroke="#f59e0b" stroke-width="1" fill="none"/>
-                            <path d="M16 28 Q18 24 20 28 Q22 32 24 28 Q26 24 28 28" stroke="#f59e0b" stroke-width="1" fill="none"/>
-                            <!-- winding lines right -->
-                            <path d="M40 22 Q42 18 44 22 Q46 26 48 22 Q50 18 52 22" stroke="#f59e0b" stroke-width="1" fill="none"/>
-                            <path d="M40 28 Q42 24 44 28 Q46 32 48 28 Q50 24 52 28" stroke="#f59e0b" stroke-width="1" fill="none"/>
-                            <line x1="4" y1="28" x2="12" y2="28" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="60" y1="28" x2="68" y2="28" stroke="#f59e0b" stroke-width="1.5"/>
-                        </svg>
-                        <div class="mono text-xs text-amber-400 mb-2 tracking-widest">POWER DISTRIBUTION · HARDWARE · COMPLETED</div>
-                        <h3 class="text-xl font-bold text-white leading-snug">Smart Load-Shedding &amp;<br>Power Distribution Controller</h3>
-                    </div>
-                    <div class="p-6 border-t border-gray-100">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-4">ESP32 distribution unit with ±0.5% current sensing. PWM trip-logic preventing overcurrent and maintaining system stability within 10% of peak rated capacity. Active RC filtering reduced noise (Vpp) by 35%, bench-validated with digital oscilloscopes.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">PWM Trip</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">RC Filter</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">±0.5% Sensing</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">Oscilloscope</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center text-xs text-gray-400">
-                                <span class="w-2 h-2 bg-amber-500 rounded-full mr-2 inline-block"></span>
-                                Dec 2025 – Jan 2026
-                            </div>
-                            <span class="text-sm font-semibold text-amber-700 group-hover:text-amber-600">View details →</span>
-                        </div>
-                    </div>
-                </a>
+                <!-- MIDDLE: Cards 2 & 3 -->
+                <div class="proj-diamond-middle">
 
-                <!-- Card 3: TARS -->
-                <a href="case-files.html" class="proj-card rounded-xl border border-gray-100 overflow-hidden block group">
-                    <div class="bg-gray-900 px-6 pt-8 pb-6 relative overflow-hidden">
-                        <!-- inline servo/motor icon -->
-                        <svg class="absolute right-6 top-6 opacity-20 group-hover:opacity-35 transition-opacity" width="72" height="56" viewBox="0 0 72 56" fill="none" aria-hidden="true">
-                            <!-- DC-DC converter symbol -->
-                            <rect x="20" y="10" width="32" height="36" rx="3" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="4" y1="20" x2="20" y2="20" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="4" y1="36" x2="20" y2="36" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="52" y1="20" x2="68" y2="20" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="52" y1="36" x2="68" y2="36" stroke="#f59e0b" stroke-width="1.5"/>
-                            <!-- 12V label -->
-                            <text x="8" y="18" fill="#f59e0b" font-size="6" font-family="monospace">12V</text>
-                            <text x="54" y="18" fill="#f59e0b" font-size="6" font-family="monospace">6V</text>
-                            <!-- step-down arrow -->
-                            <path d="M32 22 L40 28 L32 34" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
-                        </svg>
-                        <div class="mono text-xs text-amber-400 mb-2 tracking-widest">ELECTROMECHANICAL · ROBOTICS · ACTIVE</div>
-                        <h3 class="text-xl font-bold text-white leading-snug">TARS — Electromechanical<br>Walking System</h3>
-                    </div>
-                    <div class="p-6 border-t border-gray-100">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-4">Multi-articulated walking robot on Raspberry Pi 3 + Adafruit 16-Ch PWM Servo Driver. 12V-to-6V DC-DC power regulation designed in SOLIDWORKS Electrical, managing 11.1V 1300mAh LiPo discharge profile. Python bipedal gait automation across 9 metal-gear servos.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">DC-DC Reg</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">SOLIDWORKS</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">LiPo Mgmt</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">16-Ch PWM</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center text-xs text-gray-400">
-                                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 inline-block" style="box-shadow:0 0 5px rgba(34,197,94,0.6);"></span>
-                                Mar 2026 – Present
+                    <!-- Card 2 — Smart Load-Shedding -->
+                    <a href="case-files.html" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
+                        <div class="p-7">
+                            <div class="flex items-start justify-between mb-4">
+                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 02</span>
+                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,197,94,0.08);color:#16a34a;border:1px solid rgba(34,197,94,0.22);">COMPLETE</span>
                             </div>
-                            <span class="text-sm font-semibold text-amber-700 group-hover:text-amber-600">View details →</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">Smart Load-Shedding &amp; Power Distribution Controller</h3>
+                            <div class="flex items-baseline gap-3 mb-4 pl-4" style="border-left:3px solid #dc2626;">
+                                <span class="text-2xl font-bold" style="color:#dc2626;">±0.5%</span>
+                                <span class="text-sm text-gray-500">current sensing accuracy</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">PWM trip-logic maintaining stability within 10% of peak capacity. Active RC filtering cut noise (Vpp) by 35%, bench-validated with digital oscilloscopes.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">PWM Trip</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">RC Filter</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Oscilloscope</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-400 mono">Dec 2025 · Jan 2026</span>
+                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-                <!-- Card 4: Infrastructure Homelab -->
-                <a href="case-files.html" class="proj-card rounded-xl border border-gray-100 overflow-hidden block group">
-                    <div class="bg-gray-900 px-6 pt-8 pb-6 relative overflow-hidden">
-                        <!-- inline power grid / bus icon -->
-                        <svg class="absolute right-6 top-6 opacity-20 group-hover:opacity-35 transition-opacity" width="72" height="56" viewBox="0 0 72 56" fill="none" aria-hidden="true">
-                            <!-- power bus bar -->
-                            <line x1="8" y1="12" x2="64" y2="12" stroke="#f59e0b" stroke-width="2.5"/>
-                            <!-- feeder lines -->
-                            <line x1="18" y1="12" x2="18" y2="26" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="36" y1="12" x2="36" y2="26" stroke="#f59e0b" stroke-width="1.5"/>
-                            <line x1="54" y1="12" x2="54" y2="26" stroke="#f59e0b" stroke-width="1.5"/>
-                            <!-- load symbols -->
-                            <rect x="12" y="26" width="12" height="8" rx="1" stroke="#f59e0b" stroke-width="1.2"/>
-                            <rect x="30" y="26" width="12" height="8" rx="1" stroke="#f59e0b" stroke-width="1.2"/>
-                            <rect x="48" y="26" width="12" height="8" rx="1" stroke="#f59e0b" stroke-width="1.2"/>
-                            <!-- ground lines -->
-                            <line x1="18" y1="34" x2="18" y2="44" stroke="#f59e0b" stroke-width="1.2"/>
-                            <line x1="36" y1="34" x2="36" y2="44" stroke="#f59e0b" stroke-width="1.2"/>
-                            <line x1="54" y1="34" x2="54" y2="44" stroke="#f59e0b" stroke-width="1.2"/>
-                            <line x1="12" y1="44" x2="24" y2="44" stroke="#f59e0b" stroke-width="1.2"/>
-                            <line x1="30" y1="44" x2="42" y2="44" stroke="#f59e0b" stroke-width="1.2"/>
-                            <line x1="48" y1="44" x2="60" y2="44" stroke="#f59e0b" stroke-width="1.2"/>
-                        </svg>
-                        <div class="mono text-xs text-amber-400 mb-2 tracking-widest">INFRASTRUCTURE · SIMULATION · ACTIVE</div>
-                        <h3 class="text-xl font-bold text-white leading-snug">Enterprise Infrastructure<br>Home Lab + PulseGrid AI</h3>
-                    </div>
-                    <div class="p-6 border-t border-gray-100">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-4">MATLAB load-flow simulations identifying service recovery strategies and reducing grid restoration time by 22%. PulseGrid AI models cascading failure propagation across 7 infrastructure layers, covering 500+ unique outage scenarios. Proxmox + pfSense lab environment.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">MATLAB</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">Load-Flow</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">Cascading Failure</span>
-                            <span class="text-xs px-2.5 py-1 bg-gray-100 rounded text-gray-600 mono">Proxmox</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center text-xs text-gray-400">
-                                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 inline-block" style="box-shadow:0 0 5px rgba(34,197,94,0.6);"></span>
-                                Jan 2026 – Present
+                    <!-- Card 3 — TARS -->
+                    <a href="case-files.html" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
+                        <div class="p-7">
+                            <div class="flex items-start justify-between mb-4">
+                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 03</span>
+                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(239,68,68,0.08);color:#dc2626;border:1px solid rgba(220,38,38,0.22);">ACTIVE</span>
                             </div>
-                            <span class="text-sm font-semibold text-amber-700 group-hover:text-amber-600">View details →</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">TARS Electromechanical Walking System</h3>
+                            <div class="flex items-baseline gap-3 mb-4 pl-4" style="border-left:3px solid #dc2626;">
+                                <span class="text-2xl font-bold" style="color:#dc2626;">9</span>
+                                <span class="text-sm text-gray-500">metal-gear servos with bipedal gait automation</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">Raspberry Pi 3 + 16-Ch PWM driver. 12V-to-6V DC-DC regulation in SOLIDWORKS Electrical managing an 11.1V LiPo discharge profile.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">DC-DC Reg</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">SOLIDWORKS</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">LiPo Mgmt</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-400 mono">Mar 2026 · Present</span>
+                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+
+                </div>
+
+                <!-- BOTTOM: Card 4 — Infrastructure Homelab -->
+                <div class="proj-diamond-top">
+                    <a href="case-files.html" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
+                        <div class="p-7">
+                            <div class="flex items-start justify-between mb-4">
+                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 04</span>
+                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(239,68,68,0.08);color:#dc2626;border:1px solid rgba(220,38,38,0.22);">ACTIVE</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">Enterprise Infrastructure Home Lab + PulseGrid AI</h3>
+                            <div class="flex items-baseline gap-3 mb-5 pl-4" style="border-left:3px solid #dc2626;">
+                                <span class="text-3xl font-bold" style="color:#dc2626;">22%</span>
+                                <span class="text-sm text-gray-500">reduction in grid restoration time via MATLAB load-flow simulation</span>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-5">PulseGrid AI models cascading failure propagation across 7 infrastructure layers, covering 500+ unique outage scenarios. Proxmox and pfSense lab environment.</p>
+                            <div class="flex flex-wrap gap-2 mb-5">
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">MATLAB</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Load-Flow</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Cascading Failure</span>
+                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Proxmox</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-400 mono">Jan 2026 · Present</span>
+                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
             </div>
 
@@ -531,41 +710,41 @@
 
                 <!-- Left: spec table -->
                 <div>
-                    <div class="overline mb-2" style="color:#f59e0b;">TECHNICAL SPECIFICATION</div>
+                    <div class="overline mb-2" style="color:#ef4444;">TECHNICAL SPECIFICATION</div>
                     <h2 class="text-3xl font-bold text-white mb-8">System Requirements</h2>
 
-                    <div class="rounded-xl overflow-hidden border" style="border-color:rgba(245,158,11,0.18);">
+                    <div class="rounded-xl overflow-hidden border" style="border-color:rgba(220,38,38,0.18);">
                         <!-- table header -->
-                        <div class="grid grid-cols-2 px-5 py-3 mono text-xs tracking-widest" style="background:rgba(245,158,11,0.10);color:#f59e0b;">
+                        <div class="grid grid-cols-2 px-5 py-3 mono text-xs tracking-widest" style="background:rgba(220,38,38,0.10);color:#f59e0b;">
                             <span>PARAMETER</span>
                             <span>SPECIFICATION</span>
                         </div>
                         <!-- rows -->
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">Simulation</span>
                             <span class="text-sm text-white">MATLAB / Simulink · LTspice · PSpice</span>
                         </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">CAD / Design</span>
                             <span class="text-sm text-white">SOLIDWORKS Electrical · KiCad · AutoCAD</span>
                         </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">Measurement</span>
                             <span class="text-sm text-white">Digital Oscilloscopes · DMM · Spectrum Analyzer</span>
                         </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">Embedded</span>
                             <span class="text-sm text-white">ESP32 · Raspberry Pi · Arduino · C / Python</span>
                         </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">Power Domain</span>
                             <span class="text-sm text-white">AC/DC Analysis · 3-Phase · Load Flow · THD</span>
                         </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">Protocols</span>
                             <span class="text-sm text-white">MQTT TLS 1.2 · AES-128 · I²C · SPI · UART</span>
                         </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(245,158,11,0.08);">
+                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
                             <span class="mono text-xs text-gray-400 uppercase tracking-wider">Compliance</span>
                             <span class="text-sm text-white">NERC CIP · CompTIA Security+ · IEEE 1459</span>
                         </div>
@@ -580,65 +759,72 @@
                     </div>
                 </div>
 
-                <!-- Right: skill bars -->
+                <!-- Right: photo-forward competency grid -->
                 <div>
-                    <div class="overline mb-2" style="color:#f59e0b;">CAPABILITY MATRIX</div>
+                    <div class="overline mb-2" style="color:#ef4444;">CAPABILITY MATRIX</div>
                     <h2 class="text-3xl font-bold text-white mb-8">Core Competencies</h2>
 
-                    <div class="space-y-6" id="skill-bars">
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">Power Systems &amp; AC/DC Analysis</span>
-                                <span class="mono text-xs text-amber-400">88%</span>
+                    <div class="grid grid-cols-2 gap-3" id="competency-grid">
+
+                        <!-- Cell 1: Power Systems -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                <span class="text-white text-xs font-semibold text-center leading-tight">Power Systems &amp; AC/DC Analysis</span>
+                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
                             </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88" style="width:0%"></div></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">Embedded Firmware (ESP32 / Raspberry Pi)</span>
-                                <span class="mono text-xs text-amber-400">85%</span>
+
+                        <!-- Cell 2: Embedded Firmware -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h6M9 11h6"/></svg>
+                                <span class="text-white text-xs font-semibold text-center leading-tight">Embedded Firmware (ESP32 / RPi)</span>
+                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
                             </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85" style="width:0%"></div></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">MATLAB / Simulink</span>
-                                <span class="mono text-xs text-amber-400">82%</span>
+
+                        <!-- Cell 3: MATLAB / Simulink -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                <span class="text-white text-xs font-semibold text-center leading-tight">MATLAB / Simulink</span>
+                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
                             </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82" style="width:0%"></div></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">SOLIDWORKS Electrical &amp; KiCad</span>
-                                <span class="mono text-xs text-amber-400">78%</span>
+
+                        <!-- Cell 4: CAD / Schematic -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                                <span class="text-white text-xs font-semibold text-center leading-tight">SOLIDWORKS Electrical &amp; KiCad</span>
+                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
                             </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78" style="width:0%"></div></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">Electromechanical Design</span>
-                                <span class="mono text-xs text-amber-400">80%</span>
+
+                        <!-- Cell 5: Electromechanical -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                                <span class="text-white text-xs font-semibold text-center leading-tight">Electromechanical Design</span>
+                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
                             </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80" style="width:0%"></div></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">Infrastructure Modeling &amp; Simulation</span>
-                                <span class="mono text-xs text-amber-400">75%</span>
+
+                        <!-- Cell 6: Infrastructure Modeling -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
+                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="4" height="4" rx="1"/><rect x="10" y="3" width="4" height="4" rx="1"/><rect x="18" y="3" width="4" height="4" rx="1"/><rect x="6" y="17" width="4" height="4" rx="1"/><rect x="14" y="17" width="4" height="4" rx="1"/><line x1="4" y1="7" x2="4" y2="10"/><line x1="12" y1="7" x2="12" y2="10"/><line x1="20" y1="7" x2="20" y2="10"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="8" y1="10" x2="8" y2="17"/><line x1="16" y1="10" x2="16" y2="17"/></svg>
+                                <span class="text-white text-xs font-semibold text-center leading-tight">Infrastructure Modeling &amp; Simulation</span>
+                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
                             </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75" style="width:0%"></div></div>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-1.5">
-                                <span class="text-sm text-gray-300 font-medium">Secure Protocol Integration (NERC CIP)</span>
-                                <span class="mono text-xs text-amber-400">70%</span>
-                            </div>
-                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70" style="width:0%"></div></div>
-                        </div>
+
                     </div>
 
-                    <div class="mt-8 pt-8" style="border-top:1px solid rgba(245,158,11,0.12);">
-                        <a href="skills.html" class="inline-flex items-center text-amber-400 hover:text-amber-300 font-semibold transition-colors text-sm">
+                    <div class="mt-6 pt-6" style="border-top:1px solid rgba(220,38,38,0.12);">
+                        <p class="text-xs text-gray-600 mono mb-3">Drop project photos into resources/ to activate each cell</p>
+                        <a href="skills.html" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold transition-colors text-sm">
                             Full capability profile →
                         </a>
                     </div>
@@ -653,29 +839,29 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10">
-                <div class="overline mb-2">RESILIENCE LAYER — 10%</div>
+                <div class="overline mb-2">RESILIENCE LAYER · 10%</div>
                 <h2 class="text-3xl font-bold text-gray-900">Infrastructure Hardening &amp; Resilience</h2>
-                <p class="text-lg text-gray-500 mt-3 max-w-2xl">The physical hardware I build has to survive adversarial conditions. This is the safety layer — security knowledge applied where it matters: at the firmware and infrastructure boundary.</p>
+                <p class="text-lg text-gray-500 mt-3 max-w-2xl">The physical hardware I build has to survive adversarial conditions. This is the safety layer: security knowledge applied where it matters most, at the firmware and infrastructure boundary.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
 
                 <!-- Hardening item 1 -->
                 <div class="rounded-xl border border-gray-100 p-7 bg-gray-50">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(245,158,11,0.10);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(220,38,38,0.10);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
                     <div class="mono text-xs text-amber-600 tracking-widest mb-2">FIRMWARE LAYER</div>
                     <h3 class="text-lg font-bold text-gray-900 mb-3">Embedded Security Integration</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">AES-128 encryption and MQTT TLS 1.2 implemented directly on ESP32 telemetry pipelines. NERC CIP-compliant data handling architecture validated end-to-end — not bolted on after the fact.</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">AES-128 encryption and MQTT TLS 1.2 implemented directly on ESP32 telemetry pipelines. NERC CIP-compliant data handling architecture validated end-to-end, not bolted on after the fact.</p>
                 </div>
 
                 <!-- Hardening item 2 -->
                 <div class="rounded-xl border border-gray-100 p-7 bg-gray-50">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(245,158,11,0.10);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(220,38,38,0.10);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                         </svg>
                     </div>
@@ -686,8 +872,8 @@
 
                 <!-- Hardening item 3 -->
                 <div class="rounded-xl border border-gray-100 p-7 bg-gray-50">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(245,158,11,0.10);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(220,38,38,0.10);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="12" cy="12" r="10"/>
                             <line x1="12" y1="8" x2="12" y2="12"/>
                             <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -701,11 +887,11 @@
             </div>
 
             <!-- Hardening footnote -->
-            <div class="mt-10 p-6 rounded-xl border" style="background:rgba(7,13,26,0.03);border-color:rgba(245,158,11,0.18);">
+            <div class="mt-10 p-6 rounded-xl border" style="background:rgba(7,13,26,0.03);border-color:rgba(220,38,38,0.18);">
                 <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                     <div class="flex-1">
                         <div class="mono text-xs text-amber-600 tracking-widest mb-1">OPERATIONAL CONTEXT</div>
-                        <p class="text-sm text-gray-700 leading-relaxed">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. The security knowledge is a force-multiplier for the hardware work — not a parallel track. CompTIA Security+ (Jan 2026) · GNSI Tampa Summit 6 · CIBR Lab (2025–present).</p>
+                        <p class="text-sm text-gray-700 leading-relaxed">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. The security knowledge is a force-multiplier for the hardware work, not a parallel track. CompTIA Security+ (Jan 2026) · GNSI Tampa Summit 6 · CIBR Lab (2025 to present).</p>
                     </div>
                     <a href="credentials.html" class="flex-shrink-0 inline-flex items-center justify-center border border-amber-500/40 text-amber-700 hover:bg-amber-50 px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors">
                         Credentials →
@@ -720,7 +906,7 @@
     ════════════════════════════════════════════════════ -->
     <section class="py-20" style="background:#070d1a;">
         <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <div class="overline mb-4" style="color:#f59e0b;">TARGETING SUMMER 2027</div>
+            <div class="overline mb-4" style="color:#ef4444;">TARGETING SUMMER 2027</div>
             <h2 class="text-3xl lg:text-4xl font-bold text-white mb-5">
                 Open to Defense &amp; Power Sector Opportunities
             </h2>
@@ -751,6 +937,72 @@
         </div>
     </footer>
 
+    <!-- Scroll-driven white → red flame gradient + reveal class wiring -->
+    <script>
+    (function () {
+        /* ── Flame gradient ── */
+        function updateFlame() {
+            var maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+            var p = Math.min(window.scrollY / maxScroll, 1);
+            var eased = p * p * (3 - 2 * p);
+            var sat  = Math.round(eased * 88);
+            var midL = Math.round(100 - eased * 7);
+            var endL = Math.round(100 - eased * 16);
+            var midH = Math.round(eased * 6);
+            var endH = Math.round(eased * 10);
+            document.body.style.background =
+                'linear-gradient(180deg,#ffffff 0%,' +
+                'hsl(' + midH + ',' + sat + '%,' + midL + '%) 45%,' +
+                'hsl(' + endH + ',' + sat + '%,' + endL + '%) 100%)';
+            document.body.style.backgroundAttachment = 'fixed';
+        }
+        window.addEventListener('scroll', updateFlame, { passive: true });
+        updateFlame();
+
+        /* ── Wire up reveal classes for scroll fade-in ──
+           page-anim.js runs after (it's deferred), so it will pick up
+           all elements we tag here with .reveal                        */
+        function tag(el, delay) {
+            el.classList.add('reveal');
+            if (delay) el.setAttribute('data-reveal-delay', String(delay));
+        }
+
+        // Section headings and overlines
+        document.querySelectorAll('section:not(.hero-bg) h2').forEach(function(el) { tag(el, 0); });
+        document.querySelectorAll('section:not(.hero-bg) .overline').forEach(function(el) { tag(el, 0); });
+        document.querySelectorAll('section:not(.hero-bg) p.text-lg').forEach(function(el) { tag(el, 80); });
+
+        // Field Notes cards — staggered by column
+        document.querySelectorAll('.field-card').forEach(function(el, i) {
+            tag(el, (i % 3) * 90);
+        });
+
+        // Project cards
+        document.querySelectorAll('.proj-card').forEach(function(el, i) {
+            tag(el, i * 100);
+        });
+
+        // Competency grid cells
+        document.querySelectorAll('.comp-cell').forEach(function(el, i) {
+            tag(el, (i % 2) * 90);
+        });
+
+        // Infrastructure hardening cards
+        document.querySelectorAll('.rounded-xl.border.p-7').forEach(function(el, i) {
+            tag(el, i * 80);
+        });
+
+        // Spec table rows
+        document.querySelectorAll('.spec-row').forEach(function(el, i) {
+            tag(el, i * 40);
+        });
+
+        // CTA section content
+        document.querySelectorAll('section > div > div.overline, section > div > h2.text-white').forEach(function(el) {
+            tag(el, 0);
+        });
+    })();
+    </script>
     <script src="js/page-anim.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -803,3 +1055,4 @@
     </script>
 </body>
 </html>
+                               
