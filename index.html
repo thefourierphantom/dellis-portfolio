@@ -31,6 +31,7 @@
         .mono { font-family: 'JetBrains Mono', monospace; }
 
         /* ── Hero ── */
+        body { overflow-x: hidden; }
         .hero-bg {
             background: linear-gradient(160deg, #110404 0%, #1c0707 45%, #270b0b 100%);
             position: relative;
@@ -354,8 +355,8 @@
         </svg>
 
         <!-- Hero content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-            <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+            <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
 
                 <!-- Left: headline + mission -->
                 <div class="text-white">
@@ -370,9 +371,15 @@
                     <div class="text-lg h-10 mb-8 mono" style="color:#f87171;">
                         <span id="typed-mission"></span><span class="blink" style="color:#ef4444;">█</span>
                     </div>
-                    <p class="text-base text-gray-400 mb-10 leading-relaxed max-w-xl">
-                        Engineering resilient power systems and mission-critical infrastructure to safeguard national security and aerospace assets. This portfolio documents the hardware I build, firmware I write, and infrastructure models I run. My work sits at the intersection of grid-scale resilience, hardware-level security, and automated power distribution. Research Assistant at USF CIBR Lab. NSBE Technical Development Chair. Incoming EE Intern at Orbital Corp.
+                    <p class="text-base text-gray-400 mb-6 leading-relaxed max-w-xl">
+                        Building power distribution hardware, embedded firmware, and infrastructure simulation models for defense and critical infrastructure. Research Assistant at USF CIBR Lab. Incoming EE Intern at Orbital Corp.
                     </p>
+                    <!-- Clearance eligibility badge -->
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="mono text-xs px-3 py-1.5 rounded-full" style="background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.30);color:#f87171;">U.S. CITIZEN</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full" style="background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.30);color:#f87171;">CLEARANCE ELIGIBLE</span>
+                        <span class="mono text-xs px-3 py-1.5 rounded-full" style="background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.30);color:#f87171;">COMPTIA SECURITY+</span>
+                    </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="case-files.html" class="inline-flex items-center justify-center bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                             Systems &amp; Hardware →
@@ -387,16 +394,16 @@
                 <div>
                     <div class="rounded-xl overflow-hidden" style="background:rgba(20,8,8,0.82);backdrop-filter:blur(14px);border:1px solid rgba(220,38,38,0.55);box-shadow:0 0 0 1px rgba(220,38,38,0.12), 0 0 24px rgba(220,38,38,0.18), 0 0 60px rgba(220,38,38,0.08), inset 0 1px 0 rgba(255,100,100,0.12);">
 
-                        <!-- Side-by-side: photo left, info right -->
-                        <div class="flex" style="min-height:280px;">
+                        <!-- Side-by-side: photo left, info right (stacks on mobile) -->
+                        <div class="flex flex-col sm:flex-row" style="min-height:240px;">
                             <!-- Photo -->
-                            <div style="width:260px;min-width:260px;overflow:hidden;">
+                            <div class="w-full sm:w-auto overflow-hidden" style="height:220px;flex-shrink:0;" class="sm:w-56 sm:h-auto">
                                 <img src="resources/profile.jpg" alt="Dontavious Ellis"
                                      class="w-full h-full object-cover"
-                                     style="object-position: center 18%;" />
+                                     style="object-position: center 18%; min-width:0;" />
                             </div>
                             <!-- Info -->
-                            <div class="flex flex-col justify-center px-6 py-5" style="flex:1;">
+                            <div class="flex flex-col justify-center px-5 py-5" style="flex:1;min-width:0;">
                                 <div class="mono text-xs tracking-widest mb-2" style="color:rgba(239,68,68,0.55);">ENGINEER · PROFILE</div>
                                 <div class="text-white font-bold text-xl leading-tight mb-1">Dontavious Ellis</div>
                                 <div class="text-sm font-semibold mb-3" style="color:#f87171;">Incoming EE Intern @ Orbital Corp</div>
@@ -432,7 +439,7 @@
             <div class="mb-12">
                 <div class="overline mb-2">IN THE FIELD</div>
                 <h2 class="text-3xl font-bold text-gray-900">Field Notes</h2>
-                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Live dispatches from conferences, research, and engineering work. Follow on LinkedIn for real-time updates.</p>
+                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Documented engagements — industry summits, research briefings, and engineering showcases. Where the technical work meets the field.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -767,63 +774,62 @@
                     <div class="grid grid-cols-2 gap-3" id="competency-grid">
 
                         <!-- Cell 1: Power Systems -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                <span class="text-white text-xs font-semibold text-center leading-tight">Power Systems &amp; AC/DC Analysis</span>
-                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
+                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                <span class="text-white text-xs font-bold leading-tight mb-1">Power Systems</span>
+                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">AC/DC Analysis · 3-Phase · Power Factor Correction · Load Flow · THD</span>
                             </div>
                         </div>
 
                         <!-- Cell 2: Embedded Firmware -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h6M9 11h6"/></svg>
-                                <span class="text-white text-xs font-semibold text-center leading-tight">Embedded Firmware (ESP32 / RPi)</span>
-                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
+                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h6M9 11h6"/></svg>
+                                <span class="text-white text-xs font-bold leading-tight mb-1">Embedded Firmware</span>
+                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">ESP32 · Raspberry Pi · Arduino · C/C++ · PWM · AES-128 · MQTT TLS</span>
                             </div>
                         </div>
 
-                        <!-- Cell 3: MATLAB / Simulink -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                <span class="text-white text-xs font-semibold text-center leading-tight">MATLAB / Simulink</span>
-                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
+                        <!-- Cell 3: Simulation -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
+                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                <span class="text-white text-xs font-bold leading-tight mb-1">Simulation &amp; Analysis</span>
+                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">MATLAB/Simulink · LTspice · PSpice · Load-Flow · FFT · Signal Conditioning</span>
                             </div>
                         </div>
 
                         <!-- Cell 4: CAD / Schematic -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-                                <span class="text-white text-xs font-semibold text-center leading-tight">SOLIDWORKS Electrical &amp; KiCad</span>
-                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
+                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                                <span class="text-white text-xs font-bold leading-tight mb-1">Hardware Design &amp; CAD</span>
+                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">SOLIDWORKS Electrical · KiCad · AutoCAD · Revit · Schematic Capture</span>
                             </div>
                         </div>
 
-                        <!-- Cell 5: Electromechanical -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-                                <span class="text-white text-xs font-semibold text-center leading-tight">Electromechanical Design</span>
-                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
+                        <!-- Cell 5: Lab Instrumentation -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
+                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                                <span class="text-white text-xs font-bold leading-tight mb-1">Lab &amp; Bench Validation</span>
+                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">Oscilloscopes · DMM · Function Generators · Soldering · RC Filtering · Signal Integrity</span>
                             </div>
                         </div>
 
-                        <!-- Cell 6: Infrastructure Modeling -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:130px;">
-                            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 z-10 p-3">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="4" height="4" rx="1"/><rect x="10" y="3" width="4" height="4" rx="1"/><rect x="18" y="3" width="4" height="4" rx="1"/><rect x="6" y="17" width="4" height="4" rx="1"/><rect x="14" y="17" width="4" height="4" rx="1"/><line x1="4" y1="7" x2="4" y2="10"/><line x1="12" y1="7" x2="12" y2="10"/><line x1="20" y1="7" x2="20" y2="10"/><line x1="4" y1="10" x2="20" y2="10"/><line x1="8" y1="10" x2="8" y2="17"/><line x1="16" y1="10" x2="16" y2="17"/></svg>
-                                <span class="text-white text-xs font-semibold text-center leading-tight">Infrastructure Modeling &amp; Simulation</span>
-                                <span class="mono text-xs" style="color:rgba(239,68,68,0.60);">+ add photo</span>
+                        <!-- Cell 6: Infrastructure & Security -->
+                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
+                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                <span class="text-white text-xs font-bold leading-tight mb-1">Security &amp; Infrastructure</span>
+                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">NERC CIP · CompTIA Security+ · Proxmox · Bash Automation · Threat Modeling</span>
                             </div>
                         </div>
 
                     </div>
 
                     <div class="mt-6 pt-6" style="border-top:1px solid rgba(220,38,38,0.12);">
-                        <p class="text-xs text-gray-600 mono mb-3">Drop project photos into resources/ to activate each cell</p>
                         <a href="skills.html" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold transition-colors text-sm">
                             Full capability profile →
                         </a>
@@ -880,8 +886,8 @@
                         </svg>
                     </div>
                     <div class="mono text-xs text-amber-600 tracking-widest mb-2">RESEARCH · CIBR LAB</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Human-AI Interaction &amp; OSINT</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Research Assistant at USF CIBR Lab studying AI-assisted threat interfaces and digital footprint exposure. Security+ certified. The threat model informs hardware design decisions, not the other way around.</p>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">AI Threat Intelligence Research</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Classified and analyzed 100+ hardware and software scam cases to support AI model training at USF CIBR Lab. Mapped deterministic logic flows for hardware-software interaction reports with 100% traceability. Security knowledge built from the ground up, not as an afterthought.</p>
                 </div>
 
             </div>
@@ -891,7 +897,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center gap-4">
                     <div class="flex-1">
                         <div class="mono text-xs text-amber-600 tracking-widest mb-1">OPERATIONAL CONTEXT</div>
-                        <p class="text-sm text-gray-700 leading-relaxed">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. The security knowledge is a force-multiplier for the hardware work, not a parallel track. CompTIA Security+ (Jan 2026) · GNSI Tampa Summit 6 · CIBR Lab (2025 to present).</p>
+                        <p class="text-sm text-gray-700 leading-relaxed">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. The security knowledge is a force-multiplier for the hardware work, not a parallel track. CompTIA Security+ (Jan 2026) · GNSI Tampa Summit 6 · CIBR Lab (Mar 2026 to present) · President, USF SCOPE (Society for Critical Operations and Preparedness Engineering).</p>
                     </div>
                     <a href="credentials.html" class="flex-shrink-0 inline-flex items-center justify-center border border-amber-500/40 text-amber-700 hover:bg-amber-50 px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors">
                         Credentials →
@@ -910,9 +916,16 @@
             <h2 class="text-3xl lg:text-4xl font-bold text-white mb-5">
                 Open to Defense &amp; Power Sector Opportunities
             </h2>
-            <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                EE internships in power distribution, embedded systems, and defense infrastructure. I bring hardware architecture skills with a built-in understanding of the physical threat surface. Primary window: Summer 2027. Open to conversations now.
+            <p class="text-lg text-gray-400 mb-6 max-w-2xl mx-auto leading-relaxed">
+                Seeking EE internships in power distribution, embedded systems, and defense infrastructure. Hardware architecture skills with a built-in understanding of the physical-digital threat boundary. Primary window: Summer 2027. Open to conversations now.
             </p>
+            <!-- Eligibility signals -->
+            <div class="flex flex-wrap gap-3 justify-center mb-10">
+                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">U.S. CITIZEN</span>
+                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">CLEARANCE ELIGIBLE</span>
+                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">COMPTIA SECURITY+</span>
+                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">B.S. EE · USF · 2028</span>
+            </div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="contact.html" class="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors">Get in Touch</a>
                 <a href="resume.html" class="border border-white/20 text-white hover:border-white/50 px-8 py-3 rounded-lg font-semibold transition-colors">Engineering Resume</a>
