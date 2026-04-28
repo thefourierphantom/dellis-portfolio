@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
     switch(currentPage) {
-        case 'case-files.html':
+        case 'projects.html':
             initCaseFilesPage();
             break;
         case 'skills.html':

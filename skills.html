@@ -29,7 +29,7 @@
     .mono { font-family: 'JetBrains Mono', monospace; }
     .card { transition: all .25s ease; }
     .card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
-    .pill { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .pill { background: linear-gradient(135deg, #dc2626, #b91c1c); }
     .tag { border: 1px solid rgba(0,0,0,.08); }
   </style>
   <link rel="stylesheet" href="css/reveal.css" />
@@ -49,11 +49,10 @@
         <div class="hidden md:flex space-x-8">
           <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
           <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
-          <a href="case-files.html" class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
-          <a href="skills.html" class="text-gray-900 font-medium border-b-2 border-amber-500 pb-1">Skills</a>
+          <a href="projects.html" class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
+          <a href="skills.html" class="text-gray-900 font-medium border-b-2 border-red-500 pb-1">Skills</a>
           <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
           <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
-          <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
         </div>
         <div class="md:hidden">
           <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
@@ -68,11 +67,10 @@
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
         <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
-        <a href="case-files.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
+        <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
         <a href="skills.html" class="block px-3 py-2 text-gray-900 font-medium">Skills</a>
         <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
         <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
-        <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
       </div>
     </div>
   </nav>
@@ -84,7 +82,7 @@
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center">
-        <div class="mono text-xs tracking-widest text-amber-400 mb-4">TECHNICAL CAPABILITIES</div>
+        <div class="mono text-xs tracking-widest text-red-400 mb-4">TECHNICAL CAPABILITIES</div>
         <h1 class="text-4xl lg:text-5xl font-bold mb-4">Skills & Tools</h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto">
           Capabilities built across power systems, embedded firmware, infrastructure modeling, simulation, and systems security. Everything here is backed by active hardware projects, live builds, or ongoing research.
@@ -104,11 +102,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
         <div>
-          <div class="mono text-xs tracking-widest text-amber-600 mb-2">PROVEN IN PROJECTS</div>
+          <div class="mono text-xs tracking-widest text-red-600 mb-2">PROVEN IN PROJECTS</div>
           <h2 class="text-3xl font-bold text-gray-900">Skills Backed by Active Work</h2>
-          <p class="text-lg text-gray-600 mt-2">Applied in Smart Grid Monitor, TARS, Infrastructure Lab, or active CIBR Lab research.</p>
+          <p class="text-lg text-gray-600 mt-2">Applied in Smart Grid Monitor, Infrastructure Lab, and active CIBR Lab research.</p>
         </div>
-        <a href="case-files.html" class="inline-flex items-center justify-center border border-gray-200 hover:bg-gray-50 text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors">
+        <a href="projects.html" class="inline-flex items-center justify-center border border-gray-200 hover:bg-gray-50 text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors">
           View Projects →
         </a>
       </div>
@@ -119,42 +117,35 @@
           <div class="mono text-xs tracking-widest text-gray-500 mb-2">POWER SYSTEMS</div>
           <div class="font-semibold text-gray-900 mb-2">AC/DC analysis, load-flow & THD detection</div>
           <p class="text-sm text-gray-600">RMS Voltage/Current/Power Factor measurement with &lt;3% error margin on ESP32. FFT-based Total Harmonic Distortion detection in sub-100ms. MATLAB load-flow simulations optimizing grid restoration by 22%.</p>
-          <div class="mt-3 mono text-xs text-amber-700">Smart Grid Monitor · Infrastructure Lab</div>
+          <div class="mt-3 mono text-xs text-red-700">Smart Grid Monitor · Infrastructure Lab</div>
         </div>
 
         <div class="card bg-gray-50 border border-gray-200 rounded-xl p-6">
           <div class="mono text-xs tracking-widest text-gray-500 mb-2">EMBEDDED FIRMWARE</div>
           <div class="font-semibold text-gray-900 mb-2">ESP32/Arduino, PWM control & signal conditioning</div>
           <p class="text-sm text-gray-600">PWM trip-logic for overcurrent protection maintaining stability within 10% of peak rated capacity. Active RC filtering reducing electrical noise (Vpp) by 35%. Bench-validated with digital oscilloscopes.</p>
-          <div class="mt-3 mono text-xs text-amber-700">Load-Shedding Controller · TARS</div>
+          <div class="mt-3 mono text-xs text-red-700">Load-Shedding Controller</div>
         </div>
 
         <div class="card bg-gray-50 border border-gray-200 rounded-xl p-6">
           <div class="mono text-xs tracking-widest text-gray-500 mb-2">DESIGN & SIMULATION</div>
           <div class="font-semibold text-gray-900 mb-2">MATLAB/Simulink, LTspice, SOLIDWORKS Electrical</div>
           <p class="text-sm text-gray-600">Power regulation system designed in SOLIDWORKS Electrical for 12V-to-6V DC-DC conversion. MATLAB cascade failure modeling across 7 infrastructure layers (500+ unique scenarios). PulseGrid AI simulation.</p>
-          <div class="mt-3 mono text-xs text-amber-700">TARS · Infrastructure Lab</div>
-        </div>
-
-        <div class="card bg-gray-50 border border-gray-200 rounded-xl p-6">
-          <div class="mono text-xs tracking-widest text-gray-500 mb-2">ELECTROMECHANICAL SYSTEMS</div>
-          <div class="font-semibold text-gray-900 mb-2">Servo control, DC-DC regulation & gait automation</div>
-          <p class="text-sm text-gray-600">Multi-articulated walking robot with 9 metal-gear servos on 16-Channel PWM Driver. Python-driven gait automation. 11.1V 1300mAh LiPo power management with designed discharge rate regulation.</p>
-          <div class="mt-3 mono text-xs text-amber-700">TARS Project</div>
+          <div class="mt-3 mono text-xs text-red-700">Infrastructure Lab</div>
         </div>
 
         <div class="card bg-gray-50 border border-gray-200 rounded-xl p-6">
           <div class="mono text-xs tracking-widest text-gray-500 mb-2">SYSTEMS SECURITY</div>
           <div class="font-semibold text-gray-900 mb-2">AES-128, MQTT TLS, infrastructure hardening</div>
           <p class="text-sm text-gray-600">NERC CIP-compliant data transport with AES-128 + MQTT TLS 1.2. Network segmentation via pfSense and inter-VLAN routing. CompTIA Security+ — infrastructure security, secure protocols, identity management.</p>
-          <div class="mt-3 mono text-xs text-amber-700">Smart Grid Monitor · Infrastructure Lab</div>
+          <div class="mt-3 mono text-xs text-red-700">Smart Grid Monitor · Infrastructure Lab</div>
         </div>
 
         <div class="card bg-gray-50 border border-gray-200 rounded-xl p-6">
           <div class="mono text-xs tracking-widest text-gray-500 mb-2">RESEARCH & ANALYSIS</div>
           <div class="font-semibold text-gray-900 mb-2">Human-AI interaction & behavioral datasets</div>
           <p class="text-sm text-gray-600">Analyzing 500+ human-AI interaction datasets for cognitive bias patterns. Building conversational AI for cybercrime victim support. OSINT research design on digital footprint exposure across social and data broker platforms.</p>
-          <div class="mt-3 mono text-xs text-amber-700">USF CIBR Lab</div>
+          <div class="mt-3 mono text-xs text-red-700">USF CIBR Lab</div>
         </div>
 
       </div>
@@ -165,7 +156,7 @@
   <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10">
-        <div class="mono text-xs tracking-widest text-amber-600 mb-2">CAPABILITY AREAS</div>
+        <div class="mono text-xs tracking-widest text-red-600 mb-2">CAPABILITY AREAS</div>
         <h2 class="text-3xl font-bold text-gray-900">Technical Domains</h2>
         <p class="text-lg text-gray-600 mt-2">The full scope of the engineering lane — what's active now, what's in progress, and what's building.</p>
       </div>
@@ -174,14 +165,14 @@
 
         <div class="card bg-white rounded-lg p-6 shadow-sm border border-gray-200">
           <div class="flex items-center gap-4 mb-4">
-            <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
-              <svg class="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
               </svg>
             </div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900">Power & Circuitry</h3>
-              <p class="text-xs text-amber-700 font-medium">Active</p>
+              <p class="text-xs text-red-700 font-medium">Active</p>
             </div>
           </div>
           <ul class="text-sm text-gray-600 space-y-2">
@@ -202,7 +193,7 @@
             </div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900">Embedded Systems</h3>
-              <p class="text-xs text-amber-700 font-medium">Active</p>
+              <p class="text-xs text-red-700 font-medium">Active</p>
             </div>
           </div>
           <ul class="text-sm text-gray-600 space-y-2">
@@ -223,7 +214,7 @@
             </div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900">Modeling & Simulation</h3>
-              <p class="text-xs text-amber-700 font-medium">Active</p>
+              <p class="text-xs text-red-700 font-medium">Active</p>
             </div>
           </div>
           <ul class="text-sm text-gray-600 space-y-2">
@@ -244,7 +235,7 @@
             </div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900">Software & Automation</h3>
-              <p class="text-xs text-amber-700 font-medium">Active</p>
+              <p class="text-xs text-red-700 font-medium">Active</p>
             </div>
           </div>
           <ul class="text-sm text-gray-600 space-y-2">
@@ -265,7 +256,7 @@
             </div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900">Infrastructure & Networking</h3>
-              <p class="text-xs text-amber-700 font-medium">Active</p>
+              <p class="text-xs text-red-700 font-medium">Active</p>
             </div>
           </div>
           <ul class="text-sm text-gray-600 space-y-2">
@@ -293,8 +284,8 @@
             <li>• AES-128 + MQTT TLS 1.2 for IIoT data security</li>
             <li>• NERC CIP compliance design patterns</li>
             <li>• CompTIA Security+ — secure protocols, identity mgmt</li>
-            <li>• Network forensics via homelab DFIR exercises</li>
-            <li>• Incident response methodology (NIST SP 800-61)</li>
+            <li>• Network traffic analysis and infrastructure monitoring via homelab</li>
+            <li>• NIST SP 800-61 incident response — applied to infrastructure failure events</li>
           </ul>
         </div>
 
@@ -306,7 +297,7 @@
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10">
-        <div class="mono text-xs tracking-widest text-amber-600 mb-2">TOOLING</div>
+        <div class="mono text-xs tracking-widest text-red-600 mb-2">TOOLING</div>
         <h2 class="text-3xl font-bold text-gray-900">Tools & Platforms</h2>
         <p class="text-lg text-gray-600 mt-2">Tools used across casework, research, and active builds.</p>
       </div>
@@ -314,26 +305,26 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
         <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-gray-900 mb-4">Forensics & IR</h3>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Infrastructure & Network Analysis</h3>
           <div class="space-y-2 text-sm text-gray-700">
             <div>Wireshark</div>
-            <div>Volatility</div>
-            <div>SIFT Workstation</div>
-            <div>Velociraptor</div>
-            <div>InsightIDR</div>
+            <div>tcpdump</div>
+            <div>Nmap</div>
+            <div>pfSense</div>
             <div>NIST SP 800-61</div>
+            <div>Proxmox VE</div>
           </div>
         </div>
 
         <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
-          <h3 class="text-lg font-semibold text-gray-900 mb-4">Infrastructure Modeling & Analysis</h3>
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Compliance & Threat Framing</h3>
           <div class="space-y-2 text-sm text-gray-700">
-            <div>VirusTotal</div>
-            <div>Shodan</div>
-            <div>AbuseIPDB</div>
-            <div>WHOIS / RDAP</div>
+            <div>NERC CIP</div>
+            <div>MITRE ATT&CK (ICS)</div>
+            <div>Shodan (ICS exposure)</div>
             <div>Splunk</div>
-            <div>MITRE ATT&CK</div>
+            <div>CompTIA Security+</div>
+            <div>NIST CSF</div>
           </div>
         </div>
 
@@ -369,26 +360,26 @@
   <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10">
-        <div class="mono text-xs tracking-widest text-amber-600 mb-2">SUMMER 2026</div>
+        <div class="mono text-xs tracking-widest text-red-600 mb-2">SUMMER 2026</div>
         <h2 class="text-3xl font-bold text-gray-900">What's Next</h2>
-        <p class="text-lg text-gray-600 mt-2">The TIG Foundation Plan — building the technical depth that makes everything else credible.</p>
+        <p class="text-lg text-gray-600 mt-2">Building toward ARMS — Applied Research in Military Systems. A defense engineering org launching Spring 2027. This is what the technical stack needs to look like before that launch.</p>
       </div>
 
       <div class="grid lg:grid-cols-3 gap-8">
 
         <div class="card bg-white border border-gray-200 rounded-lg p-6">
-          <div class="mono text-xs tracking-widest text-amber-600 mb-3">HOMELAB EXERCISES</div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-3">CASE-002 — Linux Forensics</h3>
+          <div class="mono text-xs tracking-widest text-red-600 mb-3">ARMS — PROJECT 01</div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">GPS-Denied Inertial Navigation</h3>
           <ul class="text-sm text-gray-600 space-y-2">
-            <li>• Full attack chain on isolated homelab network</li>
-            <li>• DVWA exploit through root and persistence</li>
-            <li>• Log correlation, artifact documentation, SIFT tooling</li>
-            <li>• Published investigation following CASE-001 format</li>
+            <li>• IMU-based dead reckoning on ESP32 or STM32</li>
+            <li>• Drift quantification and error analysis pipeline</li>
+            <li>• Kalman filter → sensor fusion layer</li>
+            <li>• Field-validated to professional documentation standards</li>
           </ul>
         </div>
 
         <div class="card bg-white border border-gray-200 rounded-lg p-6">
-          <div class="mono text-xs tracking-widest text-amber-600 mb-3">SOFTWARE & AUTOMATION</div>
+          <div class="mono text-xs tracking-widest text-red-600 mb-3">SOFTWARE & AUTOMATION</div>
           <h3 class="text-lg font-semibold text-gray-900 mb-3">C/C++, Python & Bash</h3>
           <ul class="text-sm text-gray-600 space-y-2">
             <li>• C/C++ — embedded firmware development</li>
@@ -399,7 +390,7 @@
         </div>
 
         <div class="card bg-white border border-gray-200 rounded-lg p-6">
-          <div class="mono text-xs tracking-widest text-amber-600 mb-3">CERTIFICATIONS & RESEARCH</div>
+          <div class="mono text-xs tracking-widest text-red-600 mb-3">CERTIFICATIONS & RESEARCH</div>
           <h3 class="text-lg font-semibold text-gray-900 mb-3">Security+ & CIBR Lab</h3>
           <ul class="text-sm text-gray-600 space-y-2">
             <li>• CompTIA Security+ — infrastructure security, secure protocols, identity management (Jan 2026)</li>
@@ -420,7 +411,7 @@
         Targeting EE internships in power systems, embedded engineering, and infrastructure — with a security-hardening edge. Primary target window: Summer 2027. Open to conversations now.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="contact.html" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+        <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
           Get in Touch
         </a>
         <a href="resume.html" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-semibold transition-colors">
