@@ -3,236 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dontavious Ellis — Electrical Engineering for Critical Infrastructure</title>
-    <meta name="description" content="Electrical Engineering student at USF designing resilient power systems, embedded firmware, and defense-hardened infrastructure. Hardware Architect. NSBE Technical Development Chair. CIBR Lab Researcher.">
+    <title>Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications</title>
+    <meta name="description" content="Dontavious Ellis — USF Electrical Engineering student targeting defense industry roles. Building GPS-denied navigation systems, tactical communications hardware, resilient power infrastructure, and embedded systems for national security applications. Clearance eligible.">
     <link rel="canonical" href="https://dontaviousellis.com/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0b1220">
-    <meta property="og:site_name" content="Dontavious Ellis | Electrical Engineering & Defense Infrastructure">
-    <meta property="og:title" content="Dontavious Ellis — Electrical Engineering for Critical Infrastructure">
-    <meta property="og:description" content="Hardware Architect. Power Systems. Embedded Firmware. Defense Infrastructure.">
+    <meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
+    <meta property="og:title" content="Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications">
+    <meta property="og:description" content="Dontavious Ellis — USF Electrical Engineering student targeting defense industry roles. Building GPS-denied navigation systems, tactical communications hardware, resilient power infrastructure, and embedded systems for national security applications. Clearance eligible.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dontaviousellis.com/">
     <meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dontavious Ellis — Electrical Engineering for Critical Infrastructure">
-    <meta name="twitter:description" content="Hardware Architect. Power Systems. Embedded Firmware. Defense Infrastructure.">
+    <meta name="twitter:title" content="Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications">
+    <meta name="twitter:description" content="Dontavious Ellis — USF Electrical Engineering student targeting defense industry roles.">
     <meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
+    <meta name="keywords" content="Dontavious Ellis, defense electrical engineer, GPS-denied navigation, tactical communications, Orbital Corporation, USF electrical engineering, embedded systems, power systems, defense contractor, Lockheed Martin, Raytheon, L3Harris, Northrop Grumman, ARMS navigation">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        /* ── Design System ─────────────────────────────────── */
+        :root {
+            --bg-0:  #07080a;
+            --bg-1:  #0a0b0d;
+            --bg-2:  #0d0e11;
+            --bg-3:  #111214;
+            --bg-card: #141516;
+            --text-1: #ffffff;
+            --text-2: #b0b4bc;
+            --text-3: rgba(255,255,255,0.38);
+            --red:    #dc2626;
+            --red-lt: #ef4444;
+            --border: rgba(255,255,255,0.07);
+            --border-red: rgba(220,38,38,0.30);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0b0d;
+            color: var(--text-1);
+            overflow-x: hidden;
+            margin: 0;
+        }
         .mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* ── Hero ── */
-        body { overflow-x: hidden; }
-        .hero-bg {
-            background: linear-gradient(160deg, #110404 0%, #1c0707 45%, #270b0b 100%);
+        /* ── Overline ── */
+        .overline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            color: var(--red-lt);
+        }
+
+        /* ── NAV ────────────────────────────────────────────── */
+        .ng-nav {
+            background: rgba(7,8,10,0.78);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .ng-nav-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .ng-logo {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none;
+        }
+        .ng-logo-mark {
+            width: 28px; height: 28px;
+            flex-shrink: 0;
+        }
+        .ng-logo-text {
+            display: flex; flex-direction: column; gap: 1px;
+        }
+        .ng-logo-name {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .ng-logo-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.35);
+            text-transform: uppercase;
+        }
+        .ng-links { display: flex; gap: 2rem; align-items: center; }
+        .ng-links a {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.80rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color 0.2s;
+            text-transform: uppercase;
+        }
+        .ng-links a:hover, .ng-links a.active { color: #fff; }
+        .ng-links a.active { color: #fff; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
+        .ng-links .cta-link {
+            border: 1px solid rgba(220,38,38,0.40);
+            color: rgba(239,68,68,0.90) !important;
+            padding: 6px 16px;
+            border-radius: 3px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .ng-links .cta-link:hover {
+            background: rgba(220,38,38,0.10);
+            border-color: rgba(220,38,38,0.65);
+            color: #f87171 !important;
+        }
+
+        /* ── HERO ────────────────────────────────────────────── */
+        .ng-hero {
             position: relative;
+            min-height: 100vh;
+            display: flex; align-items: center;
+            background: var(--bg-0);
             overflow: hidden;
         }
-        .hero-grid-svg {
-            position: absolute; inset: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
+        .ng-hero-img {
+            position: absolute; inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.52;
         }
-        .grid-line { stroke: rgba(220,38,38,0.09); stroke-width: 1; }
-        .grid-line-bright { stroke: rgba(220,38,38,0.20); stroke-width: 1.5; }
-        .circuit-node {
-            fill: none; stroke: rgba(220,38,38,0.25);
-            stroke-width: 1.5; r: 3;
+        .ng-hero-img::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, var(--bg-0) 0%, rgba(7,10,15,0.55) 50%, transparent 100%);
         }
-        .circuit-node-fill { fill: rgba(239,68,68,0.45); r: 2; }
-
-        /* sine wave path animation */
-        @keyframes sine-march {
-            from { stroke-dashoffset: 800; }
-            to   { stroke-dashoffset: 0; }
+        .ng-hero-grid {
+            position: absolute; inset: 0; pointer-events: none; z-index: 1;
         }
-        @keyframes sine-march-slow {
-            from { stroke-dashoffset: 1200; }
-            to   { stroke-dashoffset: 0; }
+        .ng-hero-content {
+            position: relative; z-index: 2;
+            max-width: 1280px; margin: 0 auto;
+            padding: 5rem 1.5rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
         }
-        .wave-path {
-            fill: none; stroke: rgba(239,68,68,0.60); stroke-width: 2;
-            stroke-dasharray: 800;
-            animation: sine-march 4s linear infinite;
-        }
-        .wave-path-dim {
-            fill: none; stroke: rgba(220,38,38,0.22); stroke-width: 1.5;
-            stroke-dasharray: 1200;
-            animation: sine-march-slow 6s linear infinite;
+        @media (max-width: 900px) {
+            .ng-hero-content { grid-template-columns: 1fr; }
         }
 
-        /* blinking cursor on terminal fields */
+        /* ── SECTION ─────────────────────────────────────────── */
+        .ng-section { padding: 6rem 0; }
+        .ng-section-inner { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        .ng-section-head { margin-bottom: 3.5rem; }
+        .ng-section-head h2 {
+            font-size: 2.25rem; font-weight: 700;
+            color: #fff; margin: 0.5rem 0 0;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+        .ng-divider {
+            width: 40px; height: 2px;
+            background: var(--red);
+            margin: 1rem 0 1.2rem;
+        }
+        .ng-section-sub {
+            color: var(--text-2); font-size: 1rem;
+            max-width: 640px; line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ── BUTTONS ─────────────────────────────────────────── */
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--red); color: #fff;
+            padding: 12px 28px; font-weight: 600; font-size: 0.875rem;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            border: 1px solid var(--red);
+            border-radius: 3px; text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .btn-primary:hover { background: var(--red-lt); border-color: var(--red-lt); }
+        .btn-outline {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: transparent; color: rgba(255,255,255,0.85);
+            padding: 11px 28px; font-weight: 600; font-size: 0.875rem;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.20);
+            border-radius: 3px; text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+
+        /* ── FIELD NOTES CARDS ───────────────────────────────── */
+        .field-card {
+            background: rgba(14,15,16,0.78);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex; flex-direction: column;
+            text-decoration: none;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+        .field-card:hover {
+            border-color: rgba(220,38,38,0.35);
+            transform: translateY(-3px);
+        }
+        .field-card-img {
+            height: 200px; overflow: hidden; position: relative;
+        }
+        .field-card-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .field-card:hover .field-card-img img { transform: scale(1.04); }
+        .field-card-img-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(7,10,15,0.75) 0%, transparent 55%);
+        }
+        .field-card-badge {
+            position: absolute; top: 12px; left: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.60rem; letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 2px;
+            background: rgba(7,10,15,0.70);
+            border: 1px solid rgba(220,38,38,0.35);
+            color: rgba(248,113,113,0.90);
+        }
+        .field-card-body { padding: 1.2rem 1.25rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
+        .field-card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.60rem; color: var(--text-3); letter-spacing: 0.10em; margin-bottom: 0.5rem; }
+        .field-card-title { font-weight: 600; font-size: 0.95rem; color: #fff; margin: 0 0 0.5rem; line-height: 1.4; }
+        .field-card-desc { font-size: 0.83rem; color: var(--text-2); line-height: 1.6; flex: 1; }
+        .field-card-link { margin-top: 1rem; font-size: 0.80rem; font-weight: 600; color: var(--red-lt); display: flex; align-items: center; gap: 4px; }
+
+        /* ── PROJECT CARDS (NG photo-dominant) ───────────────── */
+        .proj-ng {
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            min-height: 340px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: border-color 0.25s, transform 0.25s;
+        }
+        .proj-ng:hover { border-color: rgba(220,38,38,0.50); transform: translateY(-4px); }
+        .proj-ng-img {
+            position: absolute; inset: 0;
+            background-size: cover; background-position: center;
+        }
+        .proj-ng-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(7,8,10,0.97) 0%, rgba(7,8,10,0.62) 45%, rgba(7,8,10,0.10) 100%);
+        }
+        .proj-ng-svg {
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 180px; overflow: hidden;
+        }
+        .proj-ng-body {
+            position: relative; z-index: 2;
+            padding: 1.5rem;
+        }
+        .proj-ng-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--red-lt); margin-bottom: 0.5rem;
+        }
+        .proj-ng-title {
+            font-size: 1.2rem; font-weight: 700; color: #fff;
+            line-height: 1.3; margin: 0 0 0.75rem;
+        }
+        .proj-ng-stat {
+            display: flex; align-items: baseline; gap: 0.5rem;
+            border-left: 2px solid var(--red);
+            padding-left: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .proj-ng-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--red); }
+        .proj-ng-stat-desc { font-size: 0.78rem; color: var(--text-2); }
+        .proj-ng-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+        .proj-ng-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.60rem; letter-spacing: 0.08em;
+            padding: 3px 9px; border-radius: 2px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.10);
+            color: rgba(255,255,255,0.60);
+        }
+        .proj-ng-footer {
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .proj-ng-date { font-family: 'JetBrains Mono', monospace; font-size: 0.60rem; color: var(--text-3); }
+        .proj-ng-cta { font-size: 0.80rem; font-weight: 600; color: var(--red-lt); letter-spacing: 0.04em; }
+        .proj-ng-status-complete {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em;
+            padding: 2px 8px; border-radius: 2px;
+            background: rgba(34,197,94,0.08); color: #4ade80; border: 1px solid rgba(34,197,94,0.20);
+        }
+        .proj-ng-status-active {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em;
+            padding: 2px 8px; border-radius: 2px;
+            background: rgba(220,38,38,0.08); color: var(--red-lt); border: 1px solid var(--border-red);
+        }
+
+        /* ── SPEC TABLE ──────────────────────────────────────── */
+        .spec-table { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+        .spec-header {
+            display: grid; grid-template-columns: 1fr 1fr;
+            padding: 0.75rem 1.25rem;
+            background: rgba(220,38,38,0.08);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.60rem; letter-spacing: 0.18em;
+            color: rgba(239,68,68,0.75);
+        }
+        .spec-row {
+            display: grid; grid-template-columns: 1fr 1fr;
+            padding: 0.85rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-row:nth-child(even) { background: rgba(255,255,255,0.02); }
+        .spec-key { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.10em; }
+        .spec-val { font-size: 0.875rem; color: var(--text-1); }
+
+        /* ── COMP CELLS ──────────────────────────────────────── */
+        .comp-cell {
+            background: rgba(14,15,16,0.78);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.25s, transform 0.25s;
+            cursor: default;
+        }
+        .comp-cell:hover { border-color: var(--border-red); transform: scale(1.02); }
+        .comp-icon { margin-bottom: 0.75rem; }
+        .comp-title { font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; }
+        .comp-desc { font-size: 0.75rem; color: var(--text-3); line-height: 1.55; }
+
+        /* ── DISCIPLINE CARDS ────────────────────────────────── */
+        .disc-card {
+            background: rgba(14,15,16,0.78);
+            border: 1px solid var(--border);
+            border-radius: 4px; padding: 2rem;
+            transition: border-color 0.25s;
+        }
+        .disc-card:hover { border-color: var(--border-red); }
+        .disc-icon-wrap {
+            width: 40px; height: 40px;
+            background: rgba(220,38,38,0.09);
+            border: 1px solid rgba(220,38,38,0.18);
+            border-radius: 3px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+        .disc-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.16em; color: var(--red-lt); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .disc-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+        .disc-desc { font-size: 0.86rem; color: var(--text-2); line-height: 1.65; }
+
+        /* ── PROFILE CARD ────────────────────────────────────── */
+        .profile-card {
+            background: rgba(13,17,25,0.92);
+            border: 1px solid rgba(220,38,38,0.45);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(220,38,38,0.10), 0 0 32px rgba(220,38,38,0.14), 0 0 80px rgba(220,38,38,0.06);
+        }
+
+        /* ── BADGE ───────────────────────────────────────────── */
+        .ng-badge {
+            display: inline-flex; align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.60rem; letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 2px;
+            background: rgba(220,38,38,0.08);
+            border: 1px solid rgba(220,38,38,0.28);
+            color: rgba(248,113,113,0.85);
+        }
+
+        /* ── BLINKING CURSOR ─────────────────────────────────── */
         @keyframes cursor-blink { 0%,49%{opacity:1}50%,100%{opacity:0} }
         .blink { animation: cursor-blink 1s step-end infinite; }
 
-        /* project card */
-        .proj-card {
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            background: #fff;
+        /* ── GLITCH HEADLINE ─────────────────────────────────── */
+        @keyframes glitch-shift {
+            0%,85%,100% { transform: translate(0); filter: none; clip-path: none; }
+            86% { transform: translate(-3px,0); filter: drop-shadow(3px 0 0 rgba(0,200,255,0.55)) drop-shadow(-3px 0 0 rgba(220,38,38,0.70)); }
+            87% { transform: translate(3px,0); clip-path: inset(15% 0 70% 0); }
+            88% { transform: translate(-1px,0); clip-path: inset(60% 0 20% 0); filter: drop-shadow(2px 0 0 rgba(220,38,38,0.90)); }
+            89% { transform: translate(0); clip-path: none; filter: none; }
         }
-        .proj-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 22px 44px rgba(0,0,0,0.10);
+        @keyframes glitch-layer {
+            0%,85%,100% { opacity: 0; transform: translate(0); }
+            86% { opacity: 0.8; transform: translate(5px,0); clip-path: inset(10% 0 75% 0); }
+            87% { opacity: 0.6; transform: translate(-5px,0); clip-path: inset(65% 0 15% 0); }
+            88% { opacity: 0; }
         }
-        .proj-card-dark {
-            background: #0f1f35;
-            border-color: rgba(220,38,38,0.18);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        @keyframes scanline-sweep {
+            0% { transform: translateY(-100%); opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
         }
-        .proj-card-dark:hover {
-            transform: translateY(-5px);
-            border-color: rgba(220,38,38,0.55);
-            box-shadow: 0 22px 44px rgba(0,0,0,0.35);
+        @keyframes hero-flicker {
+            0%,89%,100% { opacity: 1; }
+            90% { opacity: 0.92; }
+            90.3% { opacity: 1; }
+            93% { opacity: 1; }
+            93.4% { opacity: 0.80; }
+            93.7% { opacity: 1; }
         }
-
-        /* field notes card */
-        .field-card {
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .field-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 36px rgba(0,0,0,0.09);
-        }
-        .duration-400 { transition-duration: 400ms; }
-
-        /* project card photo slot */
-        .proj-card .proj-photo-slot {
-            min-height: 210px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+        .hero-glitch-wrap {
             position: relative;
-        }
-        .photo-slot-hint {
-            position: absolute;
-            top: 38%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            pointer-events: none;
-            opacity: 0.28;
-            transition: opacity 0.25s;
-        }
-        .proj-card:hover .photo-slot-hint { opacity: 0.50; }
-
-        /* spec table */
-        .spec-row:nth-child(even) { background: rgba(220,38,38,0.04); }
-        .spec-row { border-bottom: 1px solid rgba(0,0,0,0.06); }
-
-        /* resilience badge */
-        .hardening-badge {
             display: inline-block;
-            padding: 2px 10px;
-            background: rgba(220,38,38,0.10);
-            border: 1px solid rgba(220,38,38,0.32);
-            border-radius: 4px;
-            color: #dc2626;
-            font-size: 0.65rem;
-            letter-spacing: 0.12em;
-            font-family: 'JetBrains Mono', monospace;
+            animation: hero-flicker 6s ease-in-out infinite;
         }
-        /* status dot */
-        .dot-active { background:#22c55e; box-shadow:0 0 5px rgba(34,197,94,0.6); }
-        .dot-complete { background:#ef4444; }
-
-        /* section overline */
-        .overline {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #dc2626;
+        .hero-glitch-wrap .glitch-title {
+            animation: glitch-shift 6s ease-in-out infinite;
         }
-
-        /* skill bar */
-        .skill-bar-track {
-            height: 4px; background: rgba(0,0,0,0.08); border-radius: 2px; overflow: hidden;
-        }
-        .skill-bar-fill {
-            height: 100%; background: linear-gradient(90deg, #ef4444, #dc2626);
-            border-radius: 2px;
-            transition: width 1.2s cubic-bezier(.4,0,.2,1);
-        }
-
-        /* ── Global red accent overrides (replaces amber Tailwind classes) ── */
-        .text-amber-300, .text-amber-300 { color: #fca5a5 !important; }
-        .text-amber-400 { color: #f87171 !important; }
-        .text-amber-500 { color: #ef4444 !important; }
-        .text-amber-600 { color: #dc2626 !important; }
-        .text-amber-700 { color: #b91c1c !important; }
-        .bg-amber-50  { background-color: #fff5f5 !important; }
-        .bg-amber-600 { background-color: #dc2626 !important; }
-        .hover\:bg-amber-500:hover { background-color: #ef4444 !important; }
-        .border-amber-500 { border-color: #ef4444 !important; }
-        .border-amber-400 { border-color: #f87171 !important; }
-        .hover\:border-amber-400:hover { border-color: #f87171 !important; }
-        .hover\:text-amber-700:hover { color: #b91c1c !important; }
-        .hover\:text-amber-200:hover { color: #fecaca !important; }
-        .hover\:bg-amber-50:hover { background-color: #fff5f5 !important; }
-        .border-amber-500\/40 { border-color: rgba(239,68,68,0.40) !important; }
-        .border-amber-400\/40 { border-color: rgba(248,113,113,0.40) !important; }
-
-        /* competency photo grid cell */
-        .comp-cell {
-            background: rgba(15,5,5,0.85);
-            border: 1px solid rgba(220,38,38,0.15);
-            transition: border-color 0.25s ease, transform 0.25s ease;
-            cursor: default;
-        }
-        .comp-cell:hover {
-            border-color: rgba(220,38,38,0.45);
-            transform: scale(1.02);
-        }
-
-        /* ── Body background: scroll-driven white to red flame ── */
-        /* JS will update this dynamically; fallback static gradient */
-        body {
-            background: #ffffff !important;
-        }
-        /* let white/gray sections be transparent so flame gradient shows through */
-        section.bg-white, section.bg-gray-50 { background: transparent !important; }
-
-        /* ── Diamond project layout ── */
-        .proj-diamond {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 22px;
-        }
-        .proj-diamond-top {
-            width: 62%;
-            max-width: 640px;
-        }
-        .proj-diamond-middle {
-            display: flex;
-            gap: 22px;
+        .hero-glitch-wrap::after {
+            content: "DONTAVIOUS";
+            position: absolute; top: 0; left: 0;
+            color: rgba(0,210,255,0.20);
+            animation: glitch-layer 6s ease-in-out infinite;
+            pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: clamp(2.75rem,5vw,4.25rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
             width: 100%;
         }
-        .proj-diamond-middle > * {
-            flex: 1;
-            min-width: 0;
+
+        /* Scanline overlay on hero */
+        .hero-scanline {
+            position: absolute; inset: 0; z-index: 3;
+            pointer-events: none; overflow: hidden;
         }
-        .proj-card-flat {
-            display: block;
-            background: #fff;
-            transition: transform 0.28s ease, box-shadow 0.28s ease;
+        .hero-scanline::before {
+            content: '';
+            position: absolute; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent 0%, rgba(220,38,38,0.25) 25%, rgba(220,38,38,0.55) 50%, rgba(220,38,38,0.25) 75%, transparent 100%);
+            animation: scanline-sweep 7s linear infinite;
         }
-        .proj-card-flat:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(220,38,38,0.10), 0 4px 12px rgba(0,0,0,0.06);
+        .hero-scanline::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+            pointer-events: none;
         }
-        @media (max-width: 768px) {
-            .proj-diamond-top  { width: 100%; max-width: 100%; }
-            .proj-diamond-middle { flex-direction: column; }
+
+        /* ── LOGO — lightning wordmark ───────────────────────── */
+        .ng-logo-block { display: flex; flex-direction: column; gap: 1px; }
+        .ng-logo-top { display: flex; align-items: center; gap: 9px; }
+        .ng-bolt-svg { width: 11px; height: 19px; flex-shrink: 0; }
+        .ng-logo-line-wrap {
+            display: flex; align-items: center; gap: 5px;
+            margin: 2px 0 1px;
         }
+        .ng-logo-line-left  { width: 11px; height: 1px; background: var(--red); flex-shrink: 0; }
+        .ng-logo-line-dot   { width: 3px; height: 3px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+        .ng-logo-line-right { flex: 1; min-width: 40px; height: 1px; background: linear-gradient(90deg, var(--red) 0%, rgba(220,38,38,0.06) 100%); }
+
+        /* ── PARTICLE CANVAS BACKGROUND ─────────────────────── */
+        #particle-canvas {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+        }
+        body > *:not(#particle-canvas) { position: relative; z-index: 1; }
+        .ng-nav { z-index: 50 !important; }
+        #mobile-menu { z-index: 50 !important; }
+
+        /* Glassmorphism for cards */
+        .field-card {
+            background: rgba(9,10,14,0.62) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .comp-cell {
+            background: rgba(9,10,14,0.62) !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .disc-card {
+            background: rgba(9,10,14,0.62) !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .profile-card {
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        /* Orbital ring keyframes */
+        @keyframes orb-spin-slow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        @keyframes orb-spin-r-slow {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(-360deg); }
+        }
+        @keyframes orb-glow-pulse {
+            0%,100% { opacity: 0.30; }
+            50%      { opacity: 0.65; }
+        }
+        .orb-spin-60  { transform-box: fill-box; transform-origin: center; animation: orb-spin-slow   60s linear infinite; }
+        .orb-spin-45  { transform-box: fill-box; transform-origin: center; animation: orb-spin-slow   45s linear infinite; }
+        .orb-spin-30r { transform-box: fill-box; transform-origin: center; animation: orb-spin-r-slow 30s linear infinite; }
+        .orb-glow     { animation: orb-glow-pulse 3.5s ease-in-out infinite; }
+        .orb-glow2    { animation: orb-glow-pulse 5s   ease-in-out infinite 1.5s; }
+
+        /* Pulse keyframes */
+        @keyframes node-pulse {
+            0%,100% { opacity: 0.22; }
+            50%      { opacity: 0.75; }
+        }
+        @keyframes hud-ring-pulse {
+            0%,100% { opacity: 0.12; }
+            50%      { opacity: 0.30; }
+        }
+        @keyframes reticle-spin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        @keyframes reticle-spin-r {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(-360deg); }
+        }
+        @keyframes trace-glow {
+            0%,100% { opacity: 0.16; }
+            50%      { opacity: 0.38; }
+        }
+        .aero-trace  { animation: trace-glow       6s ease-in-out infinite; }
+        .aero-trace2 { animation: trace-glow       8s ease-in-out infinite 2s; }
+        .aero-trace3 { animation: trace-glow       10s ease-in-out infinite 4s; }
+        .via-pulse   { animation: node-pulse       3.5s ease-in-out infinite; }
+        .via-pulse2  { animation: node-pulse       5s ease-in-out infinite 1s; }
+        .via-pulse3  { animation: node-pulse       4s ease-in-out infinite 2.2s; }
+        .hud-pulse   { animation: hud-ring-pulse   4s ease-in-out infinite; }
+        .hud-pulse2  { animation: hud-ring-pulse   6s ease-in-out infinite 2s; }
+        .spin-cw  { transform-box: fill-box; transform-origin: center; animation: reticle-spin   24s linear infinite; }
+        .spin-ccw { transform-box: fill-box; transform-origin: center; animation: reticle-spin-r 18s linear infinite; }
+
+        /* mobile menu */
+        #mobile-menu { background: rgba(7,8,10,0.97); border-top: 1px solid var(--border); }
+        #mobile-menu a { color: rgba(255,255,255,0.70); font-size: 0.875rem; display: block; padding: 0.75rem 1rem; }
+        #mobile-menu a:hover { color: #fff; }
+    
+        /* ── LOCKHEED WORDMARK ───────────────────────────────── */
+        .hero-kicker {
+            display: flex; flex-wrap: wrap; align-items: center; gap: .7rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255,255,255,.45); font-size: .65rem;
+            text-transform: uppercase; letter-spacing: .18em;
+            margin-bottom: 1.6rem;
+        }
+        .kicker-dot {
+            width: 4px; height: 4px; border-radius: 50%;
+            background: #dc2626; box-shadow: 0 0 14px rgba(220,38,38,.80);
+        }
+        .lockheed-wordmark {
+            display: inline-block; position: relative;
+            margin-bottom: 1.25rem; padding: .35rem 0 .8rem;
+        }
+        .lockheed-wordmark h1 {
+            margin: 0; font-size: clamp(3rem,7vw,6.35rem);
+            line-height: .9; letter-spacing: -.055em;
+            font-weight: 900; color: #fff; text-transform: uppercase;
+            text-shadow: 0 0 22px rgba(255,255,255,.10);
+        }
+        .lockheed-wordmark h1 span { display: block; }
+        .lockheed-wordmark h1 span:last-child {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255,255,255,.92);
+            text-shadow: 0 0 30px rgba(220,38,38,.34);
+            letter-spacing: .02em;
+        }
+        .wordmark-rule {
+            position: relative; height: 1px;
+            background: linear-gradient(90deg, rgba(220,38,38,.95), rgba(220,38,38,.18), transparent);
+        }
+        .wordmark-rule.top  { width: 68%; margin-bottom: .75rem; }
+        .wordmark-rule.bottom { width: 88%; margin-top: .65rem; }
+        .wordmark-rule.bottom span {
+            position: absolute; left: 34%; top: -5px;
+            width: 46px; height: 10px;
+            border-top: 1px solid rgba(220,38,38,.85);
+            transform: skewX(-35deg);
+        }
+
+        /* ── HERO PROFILE CARD (research focus) ─────────────── */
+        .hero-profile-card {
+            background: rgba(5,7,12,.76);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(220,38,38,.10), 0 36px 100px rgba(0,0,0,.42);
+        }
+        .profile-visual-wrap {
+            position: relative; height: 300px; overflow: hidden; background: #07080a;
+        }
+        .profile-portrait {
+            width: 100%; height: 100%; object-fit: cover; object-position: center 16%;
+            filter: contrast(1.05) saturate(.86);
+        }
+        .profile-visual-wrap::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(5,7,12,.98) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 28%, transparent 0%, rgba(220,38,38,.10) 100%);
+        }
+        .profile-reticle {
+            position: absolute; right: 20px; top: 20px;
+            width: 68px; height: 68px;
+            border: 1px solid rgba(239,68,68,.30); border-radius: 50%;
+            box-shadow: inset 0 0 18px rgba(239,68,68,.07);
+        }
+        .profile-reticle::before, .profile-reticle::after {
+            content: ''; position: absolute; background: rgba(239,68,68,.32);
+        }
+        .profile-reticle::before { width: 100%; height: 1px; left: 0; top: 50%; }
+        .profile-reticle::after  { height: 100%; width: 1px; left: 50%; top: 0; }
+        .profile-body-clean { padding: 1.25rem 1.4rem 1.4rem; }
+        .profile-body-clean h2 {
+            font-size: 1.0rem; font-weight: 700; color: #fff; margin: .3rem 0 .2rem;
+        }
+        .profile-research-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .60rem; letter-spacing: .08em;
+            color: rgba(220,38,38,.80); margin-bottom: .75rem;
+        }
+        .profile-body-clean p {
+            color: rgba(255,255,255,.60); line-height: 1.65;
+            font-size: .84rem; margin: 0 0 1rem;
+        }
+        .profile-tags {
+            display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem;
+        }
+        .profile-tags span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .60rem; letter-spacing: .05em;
+            color: rgba(255,255,255,.68);
+            border: 1px solid rgba(255,255,255,.10);
+            background: rgba(255,255,255,.04);
+            padding: .3rem .55rem; border-radius: 999px;
+        }
+        .profile-status-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .56rem; letter-spacing: .12em;
+            color: rgba(220,38,38,.50); padding: .4rem 0 .6rem;
+        }
+        .profile-link {
+            display: flex; justify-content: center; text-decoration: none;
+            color: #fff; border: 1px solid rgba(220,38,38,.35);
+            border-radius: 999px; padding: .72rem 1rem;
+            font-weight: 700; font-size: .76rem; letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+        .profile-link:hover {
+            background: rgba(220,38,38,.10); border-color: rgba(239,68,68,.70);
+            box-shadow: 0 0 24px rgba(220,38,38,.12);
+        }
+
     </style>
     <link rel="stylesheet" href="css/reveal.css" />
     <script type="application/ld+json">
@@ -241,794 +688,794 @@
       "@type": "Person",
       "name": "Dontavious Ellis",
       "url": "https://dontaviousellis.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/dontavious-ellis/",
-        "https://github.com/thefourierphantom"
+      "image": "https://dontaviousellis.com/resources/profile.jpg",
+      "jobTitle": "Defense Electrical Engineering Student | GPS-Denied Navigation | Tactical Communications",
+      "description": "USF Electrical Engineering student building toward defense systems: GPS-denied navigation, tactical communications hardware, resilient power infrastructure, and embedded systems engineering.",
+      "sameAs": ["https://www.linkedin.com/in/dontavious-ellis/","https://github.com/thefourierphantom"],
+      "affiliation": [
+        {"@type":"CollegeOrUniversity","name":"University of South Florida","department":"Department of Electrical Engineering"},
+        {"@type":"Organization","name":"Orbital Corporation","description":"Defense electronics manufacturing"}
       ],
-      "jobTitle": "Electrical Engineering Student — Hardware & Power Systems",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of South Florida"
-      }
+      "knowsAbout": ["GPS-Denied Navigation","Tactical Communications Hardware","Power Systems Engineering","Embedded Firmware","Kalman Filtering","Defense Systems Engineering","Resilient Infrastructure","Inertial Navigation Systems"]
     }
     </script>
     <link rel="stylesheet" href="css/scroll.css" />
 </head>
-<body class="bg-gray-50 text-gray-900 reveal">
+<body>
 
-    <!-- ── Navigation ── -->
-    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center hover:opacity-80 transition">
-                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
-                    <span class="ml-2 text-sm text-gray-600">Electrical Engineering · Power &amp; Defense Infrastructure</span>
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-900 font-medium border-b-2 border-amber-500 pb-1">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About</a>
-                    <a href="projects.html" class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
-                    <a href="skills.html" class="text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
-                    <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
-                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900" aria-label="Open menu" aria-expanded="false">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    <!-- ── NAVIGATION ─────────────────────────────────────────── -->
+    <nav class="ng-nav">
+        <div class="ng-nav-inner">
+            <a href="index.html" class="ng-logo">
+                <div class="ng-logo-block">
+                    <div class="ng-logo-top">
+                        <!-- Lightning bolt mark -->
+                        <svg class="ng-bolt-svg" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/>
                         </svg>
-                    </button>
+                        <span class="ng-logo-name">Dontavious Ellis</span>
+                    </div>
+                    <!-- NG-style horizontal line framing the wordmark -->
+                    <div class="ng-logo-line-wrap">
+                        <div class="ng-logo-line-left"></div>
+                        <div class="ng-logo-line-dot"></div>
+                        <div class="ng-logo-line-right"></div>
+                    </div>
+                    <span class="ng-logo-sub">EE &nbsp;&middot;&nbsp; Defense Systems</span>
                 </div>
+            </a>
+            <div class="ng-links hidden md:flex">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="credentials.html">Credentials</a>
+                <a href="resume.html" class="cta-link">Resume</a>
             </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white opacity-70 hover:opacity-100" aria-label="Open menu" aria-expanded="false">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 text-gray-900 font-medium">Home</a>
-                <a href="about.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">About</a>
-                <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
-                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
-                <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
-                <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-4 py-3 space-y-1">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="credentials.html">Credentials</a>
+                <a href="resume.html">Resume</a>
             </div>
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════════════════════
-         HERO — Hardening the Physical Layer
-    ════════════════════════════════════════════════════ -->
-    <section class="hero-bg min-h-screen flex items-center relative">
+    <!-- ── HERO ───────────────────────────────────────────────── -->
+    <section class="ng-hero">
+        <div class="ng-hero-img"></div>
 
-        <!-- Globe / forensic hero image layer -->
-        <div class="absolute inset-0 z-0" style="opacity:0.32;">
-            <img src="resources/hero-forensic.png" alt="" class="w-full h-full object-cover" aria-hidden="true">
+        <!-- Scanline overlay -->
+        <div class="hero-scanline" aria-hidden="true"></div>
+
+        <!-- Orbital ring decoration -->
+        <div style="position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:720px;height:720px;pointer-events:none;z-index:1;" aria-hidden="true">
+            <svg viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;overflow:visible;">
+                <!-- Outer dashed ring, slow clockwise -->
+                <circle cx="360" cy="360" r="330" fill="none" stroke="rgba(220,38,38,0.10)" stroke-width="1" stroke-dasharray="5 7" class="orb-spin-60"/>
+                <!-- Tilted ellipse, medium counter -->
+                <ellipse cx="360" cy="360" rx="295" ry="105" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="1" class="orb-spin-30r"/>
+                <!-- Equatorial ellipse, clockwise -->
+                <ellipse cx="360" cy="360" rx="190" ry="295" fill="none" stroke="rgba(220,38,38,0.07)" stroke-width="1" stroke-dasharray="3 9" class="orb-spin-45"/>
+                <!-- Static inner ring -->
+                <circle cx="360" cy="360" r="200" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.8"/>
+                <!-- Glowing arc segment -->
+                <path d="M 360,62 A 298,298 0 0,1 618,360" fill="none" stroke="rgba(220,38,38,0.22)" stroke-width="1.5" class="orb-glow"/>
+                <!-- Counter arc -->
+                <path d="M 360,658 A 298,298 0 0,1 102,360" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" class="orb-glow2"/>
+                <!-- Corner brackets -->
+                <path d="M 130,130 L 130,175 M 130,130 L 175,130" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+                <path d="M 590,130 L 590,175 M 590,130 L 545,130" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+                <path d="M 130,590 L 130,545 M 130,590 L 175,590" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+                <path d="M 590,590 L 590,545 M 590,590 L 545,590" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+                <!-- Center crosshair -->
+                <line x1="320" y1="360" x2="400" y2="360" stroke="rgba(220,38,38,0.22)" stroke-width="0.8"/>
+                <line x1="360" y1="320" x2="360" y2="400" stroke="rgba(220,38,38,0.22)" stroke-width="0.8"/>
+                <circle cx="360" cy="360" r="5" fill="none" stroke="rgba(220,38,38,0.35)" stroke-width="1"/>
+                <!-- Satellite node on outer ring -->
+                <circle cx="360" cy="30" r="4.5" fill="rgba(220,38,38,0.65)" class="orb-spin-60 orb-glow"/>
+                <!-- Second node on tilted ellipse -->
+                <circle cx="655" cy="360" r="3" fill="rgba(255,255,255,0.50)" class="orb-spin-30r orb-glow2"/>
+            </svg>
         </div>
 
-        <!-- Animated grid + waveform background -->
-        <svg class="hero-grid-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- vertical grid lines -->
-            <line class="grid-line" x1="120" y1="0" x2="120" y2="900"/>
-            <line class="grid-line" x1="240" y1="0" x2="240" y2="900"/>
-            <line class="grid-line" x1="360" y1="0" x2="360" y2="900"/>
-            <line class="grid-line" x1="480" y1="0" x2="480" y2="900"/>
-            <line class="grid-line" x1="600" y1="0" x2="600" y2="900"/>
-            <line class="grid-line" x1="720" y1="0" x2="720" y2="900"/>
-            <line class="grid-line" x1="840" y1="0" x2="840" y2="900"/>
-            <line class="grid-line" x1="960" y1="0" x2="960" y2="900"/>
-            <line class="grid-line" x1="1080" y1="0" x2="1080" y2="900"/>
-            <line class="grid-line" x1="1200" y1="0" x2="1200" y2="900"/>
-            <line class="grid-line" x1="1320" y1="0" x2="1320" y2="900"/>
-            <!-- horizontal grid lines -->
-            <line class="grid-line" x1="0" y1="90"  x2="1440" y2="90"/>
-            <line class="grid-line" x1="0" y1="180" x2="1440" y2="180"/>
-            <line class="grid-line" x1="0" y1="270" x2="1440" y2="270"/>
-            <line class="grid-line" x1="0" y1="360" x2="1440" y2="360"/>
-            <line class="grid-line" x1="0" y1="450" x2="1440" y2="450"/>
-            <line class="grid-line" x1="0" y1="540" x2="1440" y2="540"/>
-            <line class="grid-line" x1="0" y1="630" x2="1440" y2="630"/>
-            <line class="grid-line" x1="0" y1="720" x2="1440" y2="720"/>
-            <line class="grid-line" x1="0" y1="810" x2="1440" y2="810"/>
-            <!-- bright accent lines -->
-            <line class="grid-line-bright" x1="720" y1="0" x2="720" y2="900"/>
-            <line class="grid-line-bright" x1="0" y1="450" x2="1440" y2="450"/>
-            <!-- circuit nodes -->
-            <circle class="circuit-node" cx="720" cy="270" r="5"/>
-            <circle class="circuit-node-fill" cx="720" cy="270" r="3"/>
-            <circle class="circuit-node" cx="360" cy="450" r="5"/>
-            <circle class="circuit-node-fill" cx="360" cy="450" r="3"/>
-            <circle class="circuit-node" cx="1080" cy="450" r="5"/>
-            <circle class="circuit-node-fill" cx="1080" cy="450" r="3"/>
-            <circle class="circuit-node" cx="480" cy="180" r="4"/>
-            <circle class="circuit-node-fill" cx="480" cy="180" r="2.5"/>
-            <circle class="circuit-node" cx="960" cy="360" r="4"/>
-            <circle class="circuit-node-fill" cx="960" cy="360" r="2.5"/>
-            <!-- power sine wave — primary -->
-            <path class="wave-path"
-                d="M0,450 C30,450 50,390 80,390 S130,510 160,510 S230,390 260,390 S330,510 360,510 S430,390 460,390 S530,510 560,510 S630,390 660,390 S730,510 760,510 S830,390 860,390 S930,510 960,510 S1030,390 1060,390 S1130,510 1160,510 S1230,390 1260,390 S1330,510 1360,510 S1410,450 1440,450"/>
-            <!-- power sine wave — secondary dim -->
-            <path class="wave-path-dim"
-                d="M0,630 C40,630 70,550 110,550 S180,710 220,710 S310,550 350,550 S440,710 480,710 S570,550 610,550 S700,710 740,710 S830,550 870,550 S960,710 1000,710 S1090,550 1130,550 S1220,710 1260,710 S1350,630 1440,630"/>
-            <!-- power bus traces -->
-            <line stroke="rgba(220,38,38,0.13)" stroke-width="2" x1="0" y1="270" x2="1440" y2="270"/>
-            <line stroke="rgba(220,38,38,0.13)" stroke-width="2" x1="0" y1="630" x2="1440" y2="630"/>
+        <!-- Animated grid overlay -->
+        <svg class="ng-hero-grid" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="180" y1="0" x2="180" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="360" y1="0" x2="360" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="540" y1="0" x2="540" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="720" y1="0" x2="720" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="900" y1="0" x2="900" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="1080" y1="0" x2="1080" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="1260" y1="0" x2="1260" y2="900"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="180" x2="1440" y2="180"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="360" x2="1440" y2="360"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="540" x2="1440" y2="540"/>
+            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="720" x2="1440" y2="720"/>
+            <line stroke="rgba(220,38,38,0.14)" stroke-width="1.5" x1="720" y1="0" x2="720" y2="900"/>
+            <line stroke="rgba(220,38,38,0.14)" stroke-width="1.5" x1="0" y1="450" x2="1440" y2="450"/>
+            <!-- animated sine wave -->
+            <path fill="none" stroke="rgba(220,38,38,0.35)" stroke-width="1.5"
+                  stroke-dasharray="800"
+                  style="animation: sine-march 5s linear infinite;"
+                  d="M0,450 C30,450 50,390 80,390 S130,510 160,510 S230,390 260,390 S330,510 360,510 S430,390 460,390 S530,510 560,510 S630,390 660,390 S730,510 760,510 S830,390 860,390 S930,510 960,510 S1030,390 1060,390 S1130,510 1160,510 S1230,390 1260,390 S1330,510 1360,510 S1410,450 1440,450"/>
         </svg>
+        <style>
+        @keyframes sine-march { from { stroke-dashoffset: 800; } to { stroke-dashoffset: 0; } }
+        </style>
 
-        <!-- Hero content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
-            <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div class="ng-hero-content">
+            <!-- Left: identity + CTAs -->
+            <div class="hero-copy-panel">
+                <!-- Discipline kicker -->
+                <div class="hero-kicker">
+                    <span>Electrical Engineering</span>
+                    <span class="kicker-dot"></span>
+                    <span>Defense Systems</span>
+                    <span class="kicker-dot"></span>
+                    <span>USF 2028</span>
+                </div>
 
-                <!-- Left: headline + mission -->
-                <div class="text-white">
-                    <div class="overline mb-4" style="color:#ef4444;">USF ELECTRICAL ENGINEERING &nbsp;·&nbsp; POWER &amp; DEFENSE INFRASTRUCTURE</div>
-                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6" style="text-shadow:0 2px 8px rgba(0,0,0,0.4);">
-                        Hardening the<br>
-                        <span style="color:#ef4444;">Physical Layer</span>
+                <!-- Lockheed wordmark — two rules, no diamond -->
+                <div class="lockheed-wordmark hero-glitch-wrap" aria-label="Dontavious Ellis">
+                    <div class="wordmark-rule top"></div>
+                    <h1 class="glitch-title">
+                        <span>DONTAVIOUS</span>
+                        <span>ELLIS</span>
                     </h1>
-                    <p class="text-xl lg:text-2xl text-gray-300 font-light mb-3">
-                        Electrical Engineering for Critical Infrastructure.
-                    </p>
-                    <div class="text-lg h-10 mb-8 mono" style="color:#f87171;">
-                        <span id="typed-mission"></span><span class="blink" style="color:#ef4444;">█</span>
-                    </div>
-                    <p class="text-base text-gray-400 mb-6 leading-relaxed max-w-xl">
-                        Building power distribution hardware, embedded firmware, and infrastructure simulation models for defense and critical infrastructure. Research Assistant at USF CIBR Lab. Incoming EE Intern at Orbital Corp.
-                    </p>
-                    <!-- Clearance eligibility badge -->
-                    <div class="flex flex-wrap gap-2 mb-8">
-                        <span class="mono text-xs px-3 py-1.5 rounded-full" style="background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.30);color:#f87171;">U.S. CITIZEN</span>
-                        <span class="mono text-xs px-3 py-1.5 rounded-full" style="background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.30);color:#f87171;">CLEARANCE ELIGIBLE</span>
-                        <span class="mono text-xs px-3 py-1.5 rounded-full" style="background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.30);color:#f87171;">COMPTIA SECURITY+</span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="projects.html" class="inline-flex items-center justify-center bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                            Projects →
-                        </a>
-                        <a href="resume.html" class="inline-flex items-center justify-center border border-amber-400/40 text-amber-300 hover:border-amber-400 hover:text-amber-200 px-8 py-3 rounded-lg font-semibold transition-colors">
-                            Engineering Resume
-                        </a>
-                        <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-white/20 text-gray-300 hover:border-white/40 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                            GitHub
-                        </a>
+                    <div class="wordmark-rule bottom">
+                        <span></span>
                     </div>
                 </div>
 
-                <!-- Right: profile card -->
-                <div>
-                    <div class="rounded-xl overflow-hidden" style="background:rgba(20,8,8,0.82);backdrop-filter:blur(14px);border:1px solid rgba(220,38,38,0.55);box-shadow:0 0 0 1px rgba(220,38,38,0.12), 0 0 24px rgba(220,38,38,0.18), 0 0 60px rgba(220,38,38,0.08), inset 0 1px 0 rgba(255,100,100,0.12);">
-
-                        <!-- Side-by-side: photo left, info right (stacks on mobile) -->
-                        <div class="flex flex-col sm:flex-row" style="min-height:240px;">
-                            <!-- Photo -->
-                            <div class="w-full sm:w-auto overflow-hidden" style="height:220px;flex-shrink:0;" class="sm:w-56 sm:h-auto">
-                                <img src="resources/profile.jpg" alt="Dontavious Ellis"
-                                     class="w-full h-full object-cover"
-                                     style="object-position: center 18%; min-width:0;" />
-                            </div>
-                            <!-- Info -->
-                            <div class="flex flex-col justify-center px-5 py-5" style="flex:1;min-width:0;">
-                                <div class="mono text-xs tracking-widest mb-2" style="color:rgba(239,68,68,0.55);">ENGINEER · PROFILE</div>
-                                <div class="text-white font-bold text-xl leading-tight mb-1">Dontavious Ellis</div>
-                                <div class="text-sm font-semibold mb-3" style="color:#f87171;">Incoming EE Intern @ Orbital Corp</div>
-                                <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.45);">
-                                    USF Electrical Engineering &nbsp;·&nbsp; Power &amp; Communication Systems &nbsp;·&nbsp; CIBR Researcher &nbsp;·&nbsp; AI Threat Intelligence &nbsp;·&nbsp; CompTIA Security+ &nbsp;·&nbsp; NSBE Tech Dev
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- CTAs -->
-                        <div class="flex gap-2.5 p-4" style="border-top:1px solid rgba(220,38,38,0.14);">
-                            <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2.5 rounded-lg text-white text-sm font-semibold transition-colors" style="background:#0a66c2;">
-                                Connect on LinkedIn
-                            </a>
-                        </div>
-
-                    </div>
+                <!-- Typing sequence -->
+                <div class="typed-line" style="font-family:'JetBrains Mono',monospace;font-size:0.875rem;color:#f87171;min-height:1.4rem;margin-bottom:1.5rem;">
+                    <span id="typed-mission"></span><span class="blink" style="color:var(--red);">&#9608;</span>
                 </div>
 
+                <!-- Bio — user's exact text -->
+                <p style="font-size:0.97rem;color:var(--text-2);font-weight:400;margin:0 0 1.75rem;max-width:560px;line-height:1.80;">
+                    A 3rd year Electrical Engineering student at the University of South Florida building toward a career in defense systems. Currently an EE intern at Orbital Corporation working on tactical communications hardware, a USF Global &amp; National Security Institute Future Strategist with direct exposure to Pentagon and Capitol Hill decision-makers, the founder of ARMS, a student research organization currently building a GPS-denied navigation validation pipeline anchored in ARL and DARPA literature, and the Technical Development Chair for NSBE USF. My work sits at the intersection of embedded systems, resilient power, and national security, bench-built and clearance eligible.
+                </p>
+
+                <!-- Badges -->
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem;">
+                    <span class="ng-badge">U.S. Citizen</span>
+                    <span class="ng-badge">Clearance Eligible</span>
+                    <span class="ng-badge">CompTIA Security+</span>
+                    <span class="ng-badge">Tampa, FL</span>
+                </div>
+
+                <!-- CTAs -->
+                <div style="display:flex;flex-wrap:wrap;gap:12px;">
+                    <a href="projects.html" class="btn-primary">View Projects</a>
+                    <a href="resume.html" class="btn-outline">Engineering Resume</a>
+                    <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener noreferrer" class="btn-outline" style="gap:8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: ARMS research focus card -->
+            <aside class="hero-profile-card">
+                <div class="profile-visual-wrap">
+                    <img src="resources/profile.jpg" alt="Dontavious Ellis" class="profile-portrait">
+                    <div class="profile-reticle" aria-hidden="true"></div>
+                </div>
+                <div class="profile-body-clean">
+                    <div class="overline" style="margin-bottom:0.3rem;">Active Research</div>
+                    <h2>ARMS &middot; Project One</h2>
+                    <div class="profile-research-tag">MEMS Inertial Drift Characterisation</div>
+                    <p>
+                        Validating GPS-denied dead reckoning using ESP32/MPU-6050 arrays. Quantifying bias, noise floor, and drift in low-cost strapdown systems before Kalman filter integration. Experimental design anchored in Woodman (2007), ARL, and DARPA INS literature.
+                    </p>
+                    <div class="profile-tags">
+                        <span>C++ &middot; ESP32</span>
+                        <span>MPU-6050 &middot; 6-DOF</span>
+                        <span>Dead Reckoning</span>
+                        <span>Kalman Filtering</span>
+                        <span>Allan Variance</span>
+                        <span>Strapdown INS</span>
+                    </div>
+                    <div class="profile-status-line">ARMS-TR-001 &nbsp;&middot;&nbsp; IN PROGRESS</div>
+                    <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="profile-link">
+                        Connect on LinkedIn &rarr;
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ── IN THE FIELD ────────────────────────────────────────── -->
+    <section class="ng-section" style="background:rgba(13,14,17,0.72);">
+        <div class="ng-section-inner">
+            <div class="ng-section-head">
+                <div class="overline">Engagements</div>
+                <div class="ng-divider"></div>
+                <h2>In the Field</h2>
+                <p class="ng-section-sub">Industry summits, research briefings, and engineering showcases. Where technical work meets operational context.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;">
+
+                <!-- LinkedIn live -->
+                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="field-card" style="border-color:rgba(10,102,194,0.28);">
+                    <div class="field-card-img">
+                        <img src="resources/linkedin-card.png" alt="Dontavious Ellis on LinkedIn">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge" style="border-color:rgba(10,102,194,0.40);color:rgba(96,165,250,0.90);">LinkedIn &middot; Live Feed</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">Updated regularly &middot; 500+ connections</div>
+                        <div class="field-card-title">Connect on LinkedIn</div>
+                        <div class="field-card-desc">All field notes, conference dispatches, research updates, and engineering milestones post here first.</div>
+                        <div class="field-card-link">View profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
+                <!-- GNSI DC -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450640869579395072/" target="_blank" rel="noopener noreferrer" class="field-card">
+                    <div class="field-card-img">
+                        <img src="resources/gnsi-summit.png" alt="GNSI DC Experience 2026">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge">GNSI &middot; National Security</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">2026 &middot; Washington D.C.</div>
+                        <div class="field-card-title">GNSI DC Experience 2026</div>
+                        <div class="field-card-desc">Selected for the Government-National Security Institute DC cohort. Defense contracting, policy, and intelligence community operations.</div>
+                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
+                <!-- ISE 2026 -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449895517582409729/" target="_blank" rel="noopener noreferrer" class="field-card">
+                    <div class="field-card-img">
+                        <img src="resources/ise-2026.png" alt="ISE 2026">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge">ISE &middot; Conference</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">2026 &middot; Tampa, FL</div>
+                        <div class="field-card-title">ISE 2026 International Security Experience</div>
+                        <div class="field-card-desc">Connected with industry leaders across defense, critical infrastructure, and technology sectors. Represented USF.</div>
+                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
+                <!-- USF Expo -->
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449479028035653633/" target="_blank" rel="noopener noreferrer" class="field-card">
+                    <div class="field-card-img">
+                        <img src="resources/expo-2026.png" alt="USF Engineering Expo 2026">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge">NSBE &middot; Expo</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">2026 &middot; USF Tampa</div>
+                        <div class="field-card-title">USF Engineering Expo with NSBE</div>
+                        <div class="field-card-desc">Represented USF NSBE at the Engineering Expo. Showcased engineering pathways and chapter initiatives to industry partners.</div>
+                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
+                <!-- Cyberbay -->
+                <a href="https://www.linkedin.com/posts/dontavious-ellis_cyberbay2026-cybersecurity-dfir-activity-7439717196290854912-05UQ/" target="_blank" rel="noopener noreferrer" class="field-card">
+                    <div class="field-card-img">
+                        <img src="resources/cyberbay2026.jpg" alt="Cyberbay 2026">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge">Security Conference</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">2026 &middot; Tampa, FL</div>
+                        <div class="field-card-title">Cyberbay 2026</div>
+                        <div class="field-card-desc">Tampa-area security engineering conference. Defense professionals, students, and practitioners across critical infrastructure sectors.</div>
+                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
+                <!-- Pathways -->
+                <a href="https://www.linkedin.com/posts/dontavious-ellis_nsbe-engineeringstudents-studentleadership-activity-7439414519203893248-G9q5/" target="_blank" rel="noopener noreferrer" class="field-card">
+                    <div class="field-card-img">
+                        <img src="resources/ptp.JPG" alt="Pathways to Priorities">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge">NSBE &middot; Leadership</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">2026 &middot; USF Tampa</div>
+                        <div class="field-card-title">Pathways to Priorities</div>
+                        <div class="field-card-desc">NSBE USF career strategy event. Aligned early-career planning with long-term professional impact for Black engineers at USF.</div>
+                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         FIELD NOTES (LinkedIn) — moved above Systems & Hardware
-    ════════════════════════════════════════════════════ -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12">
-                <div class="overline mb-2">IN THE FIELD</div>
-                <h2 class="text-3xl font-bold text-gray-900">Field Notes</h2>
-                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Documented engagements — industry summits, research briefings, and engineering showcases. Where the technical work meets the field.</p>
+    <!-- ── SYSTEMS & HARDWARE ─────────────────────────────────── -->
+    <section class="ng-section" style="background:rgba(10,11,13,0.72);">
+        <div class="ng-section-inner">
+            <div class="ng-section-head">
+                <div class="overline">Core Projects</div>
+                <div class="ng-divider"></div>
+                <h2>Systems &amp; Hardware</h2>
+                <p class="ng-section-sub">Power distribution, embedded firmware, and infrastructure simulation. Built from components, validated on the bench.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;">
 
-                <!-- Card 1: Always-on LinkedIn Profile (FIRST) -->
-                <a href="https://www.linkedin.com/in/dontavious-ellis/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="field-card rounded-xl border overflow-hidden flex flex-col bg-white group" style="border-color:rgba(10,102,194,0.30);">
-                    <div class="relative overflow-hidden" style="height:210px;">
-                        <img src="resources/linkedin-card.png" alt="Dontavious Ellis on LinkedIn"
-                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-400">
-                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,28,64,0.65) 0%,transparent 55%);"></div>
-                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(10,102,194,0.20);color:#0a66c2;border:1px solid rgba(10,102,194,0.35);">LinkedIn · Live Feed</span>
+                <!-- PROJECT 01 — Smart Grid -->
+                <a href="projects.html#project-01" class="proj-ng">
+                    <div class="proj-ng-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="proj-ng-overlay"></div>
+                    <!-- SVG oscilloscope panel on top -->
+                    <div class="proj-ng-svg">
+                        <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+                            <defs><pattern id="osc2" width="40" height="28" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 28" fill="none" stroke="rgba(220,38,38,0.10)" stroke-width="0.5"/></pattern></defs>
+                            <rect width="480" height="140" fill="url(#osc2)" opacity="0.4"/>
+                            <line x1="0" y1="70" x2="480" y2="70" stroke="rgba(220,38,38,0.18)" stroke-width="0.8"/>
+                            <polyline fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.85"
+                              points="0,70 10,44 20,22 30,10 40,12 50,28 60,52 70,70 80,88 90,110 100,128 110,130 120,118 130,98 140,70 150,44 160,22 170,10 180,12 190,28 200,52 210,70 220,88 230,110 240,128 250,130 260,118 270,98 280,70 290,44 300,22 310,10 320,12 330,28 340,52 350,70 360,88 370,110 380,128 390,130 400,118 410,98 420,70 430,44 440,22 450,10 460,12 470,28 480,52"/>
+                            <polyline fill="none" stroke="rgba(251,191,36,0.50)" stroke-width="1" opacity="0.8"
+                              points="0,70 8,58 16,48 24,42 32,42 40,48 48,58 56,70 64,82 72,92 80,98 88,98 96,92 104,82 112,70 120,58 128,48 136,42 144,42 152,48 160,58 168,70 176,82 184,92 192,98 200,98 208,92 216,82 224,70 232,58 240,48 248,42 256,42 264,48 272,58 280,70 288,82 296,92 304,98 312,98 320,92 328,82 336,70 344,58 352,48 360,42 368,42 376,48 384,58 392,70 400,82 408,92 416,98 424,98 432,92 440,82 448,70 456,58 464,48 472,42 480,42"/>
+                            <text x="8" y="14" font-family="monospace" font-size="7.5" fill="rgba(248,113,113,0.75)">RMS VOLTAGE &mdash; CH1</text>
+                            <text x="8" y="25" font-family="monospace" font-size="7" fill="rgba(251,191,36,0.55)">THD HARMONIC &mdash; CH2 &bull; 100ms/div</text>
+                        </svg>
                     </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <p class="text-xs text-gray-400 mono mb-2">Updated regularly · 500+ connections</p>
-                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Connect on LinkedIn</h3>
-                        <p class="text-sm text-gray-500 flex-1">All field notes, conference dispatches, research updates, and engineering milestones post here first. Connect for real-time updates.</p>
-                        <div class="mt-4 flex items-center text-sm font-semibold" style="color:#0a66c2;">
-                            View profile <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <div class="proj-ng-body">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
+                            <div class="proj-ng-label">Power Systems &middot; Embedded</div>
+                            <span class="proj-ng-status-complete">Complete</span>
+                        </div>
+                        <div class="proj-ng-title">Secure IIoT Smart Grid Edge Monitor</div>
+                        <div class="proj-ng-stat">
+                            <span class="proj-ng-stat-num">&lt;3%</span>
+                            <span class="proj-ng-stat-desc">error margin on live RMS voltage, current &amp; power factor</span>
+                        </div>
+                        <div class="proj-ng-tags">
+                            <span class="proj-ng-tag">ESP32</span>
+                            <span class="proj-ng-tag">FFT &middot; THD</span>
+                            <span class="proj-ng-tag">MQTT TLS</span>
+                            <span class="proj-ng-tag">NERC CIP</span>
+                            <span class="proj-ng-tag">AES-128</span>
+                        </div>
+                        <div class="proj-ng-footer">
+                            <span class="proj-ng-date">Aug 2025 &middot; Mar 2026</span>
+                            <span class="proj-ng-cta">Explore &rarr;</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- Card 2: GNSI DC Experience 2026 -->
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450640869579395072/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
-                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
-                        <img src="resources/gnsi-summit.png" alt="GNSI DC Experience 2026"
-                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
-                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
-                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">GNSI · National Security</span>
+                <!-- PROJECT 02 — Load-Shedding -->
+                <a href="projects.html#project-02" class="proj-ng">
+                    <div class="proj-ng-img" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="proj-ng-overlay"></div>
+                    <!-- SVG PWM panel -->
+                    <div class="proj-ng-svg">
+                        <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+                            <defs><pattern id="pwm2" width="40" height="28" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 28" fill="none" stroke="rgba(220,38,38,0.10)" stroke-width="0.5"/></pattern></defs>
+                            <rect width="480" height="140" fill="url(#pwm2)" opacity="0.4"/>
+                            <line x1="0" y1="42" x2="480" y2="42" stroke="rgba(251,191,36,0.30)" stroke-width="1" stroke-dasharray="6,4"/>
+                            <polyline fill="none" stroke="rgba(251,191,36,0.65)" stroke-width="1.5"
+                              points="0,110 60,105 120,95 180,80 240,60 270,42"/>
+                            <line x1="270" y1="42" x2="480" y2="42" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.8"/>
+                            <polyline fill="none" stroke="#34d399" stroke-width="1.3" opacity="0.75"
+                              points="0,95 0,78 14,78 14,95 28,95 28,78 42,78 42,95 56,95 56,70 70,70 70,95 84,95 84,63 98,63 98,95 112,95 112,57 126,57 126,95 140,95 140,51 154,51 154,95 168,95 168,46 182,46 182,95 196,95 196,42 210,42 210,95 224,95 224,42 238,42 238,95 252,95"/>
+                            <text x="8" y="14" font-family="monospace" font-size="7.5" fill="rgba(248,113,113,0.75)">PWM DUTY CYCLE</text>
+                            <text x="275" y="34" font-family="monospace" font-size="7" fill="rgba(239,68,68,0.80)">TRIP &rarr;</text>
+                            <text x="8" y="25" font-family="monospace" font-size="7" fill="rgba(52,211,153,0.55)">&plusmn;0.5% current sensing accuracy</text>
+                        </svg>
                     </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <p class="text-xs text-gray-400 mono mb-2">2026 · Washington D.C.</p>
-                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">GNSI DC Experience 2026</h3>
-                        <p class="text-sm text-gray-500 flex-1">Selected for the Government-National Security Institute DC cohort. Covered policy, defense contracting, and intelligence community operations in a two-week immersion program.</p>
-                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
-                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <div class="proj-ng-body">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
+                            <div class="proj-ng-label">Power Distribution &middot; Hardware Design</div>
+                            <span class="proj-ng-status-complete">Complete</span>
+                        </div>
+                        <div class="proj-ng-title">Smart Load-Shedding &amp; Power Distribution Controller</div>
+                        <div class="proj-ng-stat">
+                            <span class="proj-ng-stat-num">&plusmn;0.5%</span>
+                            <span class="proj-ng-stat-desc">current sensing accuracy &mdash; noise cut 35% via RC filtering</span>
+                        </div>
+                        <div class="proj-ng-tags">
+                            <span class="proj-ng-tag">PWM Trip</span>
+                            <span class="proj-ng-tag">RC Filter</span>
+                            <span class="proj-ng-tag">Oscilloscope</span>
+                            <span class="proj-ng-tag">ESP32</span>
+                        </div>
+                        <div class="proj-ng-footer">
+                            <span class="proj-ng-date">Dec 2025 &middot; Jan 2026</span>
+                            <span class="proj-ng-cta">Explore &rarr;</span>
                         </div>
                     </div>
                 </a>
 
-                <!-- Card 3: ISE 2026 -->
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449895517582409729/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
-                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
-                        <img src="resources/ise-2026.png" alt="ISE 2026"
-                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
-                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
-                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">ISE · Conference</span>
+                <!-- PROJECT 03 — Infrastructure Lab -->
+                <a href="projects.html#project-04" class="proj-ng">
+                    <div class="proj-ng-img" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="proj-ng-overlay"></div>
+                    <!-- SVG network topology -->
+                    <div class="proj-ng-svg">
+                        <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+                            <defs><pattern id="net2" width="40" height="28" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 28" fill="none" stroke="rgba(220,38,38,0.08)" stroke-width="0.5"/></pattern></defs>
+                            <rect width="480" height="140" fill="url(#net2)" opacity="0.4"/>
+                            <line x1="240" y1="35" x2="120" y2="78" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
+                            <line x1="240" y1="35" x2="240" y2="78" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
+                            <line x1="240" y1="35" x2="360" y2="78" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
+                            <line x1="120" y1="78" x2="80" y2="118" stroke="rgba(52,211,153,0.28)" stroke-width="0.8"/>
+                            <line x1="120" y1="78" x2="155" y2="118" stroke="rgba(52,211,153,0.28)" stroke-width="0.8"/>
+                            <line x1="240" y1="78" x2="240" y2="118" stroke="rgba(251,191,36,0.28)" stroke-width="0.8"/>
+                            <line x1="360" y1="78" x2="320" y2="118" stroke="rgba(96,165,250,0.28)" stroke-width="0.8"/>
+                            <line x1="360" y1="78" x2="400" y2="118" stroke="rgba(96,165,250,0.28)" stroke-width="0.8"/>
+                            <circle cx="240" cy="35" r="12" fill="rgba(10,14,23,0.80)" stroke="#dc2626" stroke-width="1.4"/>
+                            <text x="240" y="39" font-family="monospace" font-size="7" fill="#ef4444" text-anchor="middle">SRV</text>
+                            <rect x="109" y="67" width="22" height="22" rx="2" fill="rgba(10,14,23,0.80)" stroke="#ef4444" stroke-width="1.1"/>
+                            <text x="120" y="82" font-family="monospace" font-size="6" fill="#f87171" text-anchor="middle">FW</text>
+                            <rect x="229" y="67" width="22" height="22" rx="2" fill="rgba(10,14,23,0.80)" stroke="rgba(251,191,36,0.65)" stroke-width="1.1"/>
+                            <text x="240" y="82" font-family="monospace" font-size="6" fill="rgba(251,191,36,0.85)" text-anchor="middle">AI</text>
+                            <rect x="349" y="67" width="22" height="22" rx="2" fill="rgba(10,14,23,0.80)" stroke="rgba(96,165,250,0.60)" stroke-width="1.1"/>
+                            <text x="360" y="82" font-family="monospace" font-size="6" fill="rgba(96,165,250,0.85)" text-anchor="middle">SW</text>
+                            <circle cx="80" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(52,211,153,0.50)" stroke-width="1"/>
+                            <circle cx="155" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(52,211,153,0.50)" stroke-width="1"/>
+                            <circle cx="240" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(251,191,36,0.50)" stroke-width="1"/>
+                            <circle cx="320" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(96,165,250,0.50)" stroke-width="1"/>
+                            <circle cx="400" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(96,165,250,0.50)" stroke-width="1"/>
+                            <text x="8" y="14" font-family="monospace" font-size="7.5" fill="rgba(248,113,113,0.75)">MULTI-TIER NETWORK TOPOLOGY</text>
+                            <text x="470" y="14" font-family="monospace" font-size="7" fill="rgba(220,38,38,0.50)" text-anchor="end">7 layers</text>
+                        </svg>
                     </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <p class="text-xs text-gray-400 mono mb-2">2026 · Tampa, FL</p>
-                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">ISE 2026 International Security Experience</h3>
-                        <p class="text-sm text-gray-500 flex-1">Attended the International Security Experience 2026. Connected with industry leaders across defense, critical infrastructure, and technology sectors while representing USF.</p>
-                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
-                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    <div class="proj-ng-body">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
+                            <div class="proj-ng-label">Power Grid &middot; Failure Simulation &middot; Active</div>
+                            <span class="proj-ng-status-active">Active</span>
+                        </div>
+                        <div class="proj-ng-title">Resilient Infrastructure Simulation Lab</div>
+                        <div class="proj-ng-stat">
+                            <span class="proj-ng-stat-num">22%</span>
+                            <span class="proj-ng-stat-desc">reduction in grid restoration time via MATLAB load-flow simulation</span>
+                        </div>
+                        <div class="proj-ng-tags">
+                            <span class="proj-ng-tag">MATLAB</span>
+                            <span class="proj-ng-tag">Load-Flow</span>
+                            <span class="proj-ng-tag">Proxmox</span>
+                            <span class="proj-ng-tag">PulseGrid AI</span>
+                            <span class="proj-ng-tag">pfSense</span>
+                        </div>
+                        <div class="proj-ng-footer">
+                            <span class="proj-ng-date">Jan 2026 &middot; Present</span>
+                            <span class="proj-ng-cta">Explore &rarr;</span>
                         </div>
                     </div>
                 </a>
-
-                <!-- Card 4: USF Engineering Expo -->
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449479028035653633/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
-                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
-                        <img src="resources/expo-2026.png" alt="USF Engineering Expo 2026"
-                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
-                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
-                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">NSBE · Expo</span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <p class="text-xs text-gray-400 mono mb-2">2026 · USF Tampa</p>
-                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">USF Engineering Expo with NSBE</h3>
-                        <p class="text-sm text-gray-500 flex-1">Represented USF NSBE at the Engineering Expo! Showcased engineering pathways and chapter initiatives to prospective students and industry partners.</p>
-                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
-                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 5: Cyberbay 2026 -->
-                <a href="https://www.linkedin.com/posts/dontavious-ellis_cyberbay2026-cybersecurity-dfir-activity-7439717196290854912-05UQ/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
-                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
-                        <img src="resources/cyberbay2026.jpg" alt="Cyberbay 2026"
-                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
-                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
-                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">Security Conference</span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <p class="text-xs text-gray-400 mono mb-2">2026 · Tampa, FL</p>
-                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Cyberbay 2026</h3>
-                        <p class="text-sm text-gray-500 flex-1">Attended Cyberbay 2026, a Tampa-area security engineering conference bringing together security and defense professionals, students, and industry practitioners for networking and knowledge sharing.</p>
-                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
-                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 6: Pathways to Priorities -->
-                <a href="https://www.linkedin.com/posts/dontavious-ellis_nsbe-engineeringstudents-studentleadership-activity-7439414519203893248-G9q5/"
-                   target="_blank" rel="noopener noreferrer"
-                   class="field-card rounded-xl border border-gray-100 overflow-hidden flex flex-col bg-white group">
-                    <div class="relative overflow-hidden" style="height:210px;background:#0d1b2e;">
-                        <img src="resources/ptp.JPG" alt="Pathways to Priorities"
-                             class="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-400">
-                        <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(7,13,26,0.6) 0%,transparent 60%);"></div>
-                        <span class="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full" style="background:rgba(220,38,38,0.15);color:#dc2626;border:1px solid rgba(220,38,38,0.30);">NSBE · Leadership</span>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1">
-                        <p class="text-xs text-gray-400 mono mb-2">2026 · USF Tampa</p>
-                        <h3 class="font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Pathways to Priorities</h3>
-                        <p class="text-sm text-gray-500 flex-1">NSBE USF chapter event on engineering career strategy. Brought together Black engineers at USF to align early-career planning with long-term professional impact.</p>
-                        <div class="mt-4 flex items-center text-red-600 text-sm font-semibold">
-                            Open post <svg class="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════════════
-         SECTION 1 — SYSTEMS & HARDWARE (90%)
-    ════════════════════════════════════════════════════ -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12">
-                <div class="overline mb-2">CORE HARDWARE PROJECTS</div>
-                <h2 class="text-3xl font-bold text-gray-900">Systems &amp; Hardware</h2>
-                <p class="text-lg text-gray-500 mt-3 max-w-2xl">Power distribution, embedded firmware, electromechanical design, and infrastructure simulation. Built from components, validated on the bench.</p>
-            </div>
-
-            <!-- 2×2 grid layout -->
-            <div class="grid md:grid-cols-2 gap-6">
-
-                <!-- Card 1 — Secure IIoT Smart Grid Edge Monitor -->
-                    <a href="projects.html#project-01" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
-                        <div class="p-7">
-                            <div class="flex items-start justify-between mb-4">
-                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 01</span>
-                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,197,94,0.08);color:#16a34a;border:1px solid rgba(34,197,94,0.22);">COMPLETE</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">Secure IIoT Smart Grid Edge Monitor</h3>
-                            <div class="flex items-baseline gap-3 mb-5 pl-4" style="border-left:3px solid #dc2626;">
-                                <span class="text-3xl font-bold" style="color:#dc2626;">&lt;3%</span>
-                                <span class="text-sm text-gray-500">error margin on live RMS voltage, current, and power factor</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-5">ESP32 firmware with FFT-based THD detection in sub-100ms intervals. AES-128 encryption and MQTT TLS 1.2 for a NERC CIP-compliant telemetry pipeline validated end-to-end.</p>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">ESP32</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">FFT · THD</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">MQTT TLS</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">NERC CIP</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">AES-128</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs text-gray-400 mono">Aug 2025 · Mar 2026</span>
-                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
-                            </div>
-                        </div>
-                    </a>
-                <!-- Card 2 — Smart Load-Shedding -->
-                    <a href="projects.html#project-02" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
-                        <div class="p-7">
-                            <div class="flex items-start justify-between mb-4">
-                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 02</span>
-                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(34,197,94,0.08);color:#16a34a;border:1px solid rgba(34,197,94,0.22);">COMPLETE</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">Smart Load-Shedding &amp; Power Distribution Controller</h3>
-                            <div class="flex items-baseline gap-3 mb-4 pl-4" style="border-left:3px solid #dc2626;">
-                                <span class="text-2xl font-bold" style="color:#dc2626;">±0.5%</span>
-                                <span class="text-sm text-gray-500">current sensing accuracy</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-4">PWM trip-logic maintaining stability within 10% of peak capacity. Active RC filtering cut noise (Vpp) by 35%, bench-validated with digital oscilloscopes.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">PWM Trip</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">RC Filter</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Oscilloscope</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs text-gray-400 mono">Dec 2025 · Jan 2026</span>
-                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
-                            </div>
-                        </div>
-                    </a>
-
-
-                <!-- Card 4 — Infrastructure Homelab -->
-                <a href="projects.html#project-04" class="proj-card-flat group block rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                        <div style="height:4px;background:linear-gradient(90deg,#dc2626,#ef4444 55%,rgba(239,68,68,0.15));"></div>
-                        <div class="p-7">
-                            <div class="flex items-start justify-between mb-4">
-                                <span class="mono text-xs tracking-widest" style="color:rgba(220,38,38,0.50);">PROJECT 03</span>
-                                <span class="mono text-xs px-2 py-0.5 rounded-full" style="background:rgba(239,68,68,0.08);color:#dc2626;border:1px solid rgba(220,38,38,0.22);">ACTIVE</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-red-700 transition-colors leading-tight">Enterprise Infrastructure Home Lab + PulseGrid AI</h3>
-                            <div class="flex items-baseline gap-3 mb-5 pl-4" style="border-left:3px solid #dc2626;">
-                                <span class="text-3xl font-bold" style="color:#dc2626;">22%</span>
-                                <span class="text-sm text-gray-500">reduction in grid restoration time via MATLAB load-flow simulation</span>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed mb-5">PulseGrid AI models cascading failure propagation across 7 infrastructure layers, covering 500+ unique outage scenarios. Proxmox and pfSense lab environment.</p>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">MATLAB</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Load-Flow</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Cascading Failure</span>
-                                <span class="text-xs px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-gray-600 mono">Proxmox</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs text-gray-400 mono">Jan 2026 · Present</span>
-                                <span class="text-sm font-bold text-red-600 group-hover:text-red-700 transition-colors">View project →</span>
-                            </div>
-                        </div>
-                    </a>
 
             </div>
 
-            <div class="mt-10 text-center">
-                <a href="projects.html" class="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                    View All Projects
-                </a>
+            <div style="margin-top:2.5rem;text-align:center;">
+                <a href="projects.html" class="btn-outline">View All Projects</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         SECTION 2 — SYSTEM REQUIREMENTS (Technical Specs)
-    ════════════════════════════════════════════════════ -->
-    <section class="py-20 bg-gray-950" style="background:#070d1a;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-14 items-start">
+    <!-- ── TECHNICAL SPEC + COMPETENCIES ──────────────────────── -->
+    <section class="ng-section" style="background:rgba(7,8,10,0.74);">
+        <div class="ng-section-inner">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
 
                 <!-- Left: spec table -->
                 <div>
-                    <div class="overline mb-2" style="color:#ef4444;">TECHNICAL SPECIFICATION</div>
-                    <h2 class="text-3xl font-bold text-white mb-8">System Requirements</h2>
-
-                    <div class="rounded-xl overflow-hidden border" style="border-color:rgba(220,38,38,0.18);">
-                        <!-- table header -->
-                        <div class="grid grid-cols-2 px-5 py-3 mono text-xs tracking-widest" style="background:rgba(220,38,38,0.10);color:#f87171;">
-                            <span>PARAMETER</span>
-                            <span>SPECIFICATION</span>
-                        </div>
-                        <!-- rows -->
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Simulation</span>
-                            <span class="text-sm text-white">MATLAB / Simulink · LTspice · PSpice</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">CAD / Design</span>
-                            <span class="text-sm text-white">SOLIDWORKS Electrical · KiCad · AutoCAD</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Measurement</span>
-                            <span class="text-sm text-white">Digital Oscilloscopes · DMM · Spectrum Analyzer</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Embedded</span>
-                            <span class="text-sm text-white">ESP32 · Raspberry Pi · Arduino · C / Python</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Power Domain</span>
-                            <span class="text-sm text-white">AC/DC Analysis · 3-Phase · Load Flow · THD</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Protocols</span>
-                            <span class="text-sm text-white">MQTT TLS 1.2 · AES-128 · I²C · SPI · UART</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5" style="border-color:rgba(220,38,38,0.08);">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Compliance</span>
-                            <span class="text-sm text-white">NERC CIP · CompTIA Security+ · IEEE 1459</span>
-                        </div>
-                        <div class="spec-row grid grid-cols-2 px-5 py-3.5 rounded-b-xl" style="border-bottom:none;">
-                            <span class="mono text-xs text-gray-400 uppercase tracking-wider">Target Sectors</span>
-                            <span class="text-sm text-white">Defense · Power Utilities · Critical Infrastructure</span>
-                        </div>
+                    <div class="overline">Technical Specification</div>
+                    <div class="ng-divider"></div>
+                    <h2 style="font-size:2rem;font-weight:700;color:#fff;margin:0 0 2rem;">System Requirements</h2>
+                    <div class="spec-table">
+                        <div class="spec-header"><span>Parameter</span><span>Specification</span></div>
+                        <div class="spec-row"><span class="spec-key">Simulation</span><span class="spec-val">MATLAB / Simulink &middot; LTspice &middot; PSpice</span></div>
+                        <div class="spec-row"><span class="spec-key">CAD / Design</span><span class="spec-val">SOLIDWORKS Electrical &middot; KiCad &middot; AutoCAD</span></div>
+                        <div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">Digital Oscilloscopes &middot; DMM &middot; Spectrum Analyzer</span></div>
+                        <div class="spec-row"><span class="spec-key">Embedded</span><span class="spec-val">ESP32 &middot; Raspberry Pi &middot; Arduino &middot; C / Python</span></div>
+                        <div class="spec-row"><span class="spec-key">Power Domain</span><span class="spec-val">AC/DC Analysis &middot; 3-Phase &middot; Load Flow &middot; THD</span></div>
+                        <div class="spec-row"><span class="spec-key">Protocols</span><span class="spec-val">MQTT TLS 1.2 &middot; AES-128 &middot; I&sup2;C &middot; SPI &middot; UART</span></div>
+                        <div class="spec-row"><span class="spec-key">Compliance</span><span class="spec-val">NERC CIP &middot; CompTIA Security+ &middot; IEEE 1459</span></div>
+                        <div class="spec-row"><span class="spec-key">Target Sectors</span><span class="spec-val">Defense &middot; Power Utilities &middot; Critical Infrastructure</span></div>
                     </div>
-
-                    <div class="mt-4 mono text-xs text-gray-600 tracking-wider">
-                        DOC-REV-2026A &nbsp;·&nbsp; ELECTRICAL ENGINEERING &nbsp;·&nbsp; USF &nbsp;·&nbsp; EXPECTED B.S. MAY 2028
+                    <div style="margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text-3);letter-spacing:0.14em;">
+                        DOC-REV-2026A &nbsp;&middot;&nbsp; ELECTRICAL ENGINEERING &nbsp;&middot;&nbsp; USF &nbsp;&middot;&nbsp; EXPECTED B.S. MAY 2028
                     </div>
                 </div>
 
-                <!-- Right: photo-forward competency grid -->
+                <!-- Right: competency grid -->
                 <div>
-                    <div class="overline mb-2" style="color:#ef4444;">CAPABILITY MATRIX</div>
-                    <h2 class="text-3xl font-bold text-white mb-8">Core Competencies</h2>
-
-                    <div class="grid grid-cols-2 gap-3" id="competency-grid">
-
-                        <!-- Cell 1: Power Systems -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
-                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                                <span class="text-white text-xs font-bold leading-tight mb-1">Power Systems</span>
-                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">AC/DC Analysis · 3-Phase · Power Factor Correction · Load Flow · THD</span>
-                            </div>
+                    <div class="overline">Capability Matrix</div>
+                    <div class="ng-divider"></div>
+                    <h2 style="font-size:2rem;font-weight:700;color:#fff;margin:0 0 2rem;">Core Competencies</h2>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                        <div class="comp-cell">
+                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                            <div class="comp-title">Power Systems</div>
+                            <div class="comp-desc">AC/DC Analysis &middot; 3-Phase &middot; Power Factor Correction &middot; Load Flow &middot; THD</div>
                         </div>
-
-                        <!-- Cell 2: Embedded Firmware -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
-                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h6M9 11h6"/></svg>
-                                <span class="text-white text-xs font-bold leading-tight mb-1">Embedded Firmware</span>
-                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">ESP32 · Raspberry Pi · Arduino · C/C++ · PWM · AES-128 · MQTT TLS</span>
-                            </div>
+                        <div class="comp-cell">
+                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h6M9 11h6"/></svg></div>
+                            <div class="comp-title">Embedded Firmware</div>
+                            <div class="comp-desc">ESP32 &middot; Raspberry Pi &middot; C/C++ &middot; PWM &middot; AES-128 &middot; MQTT TLS</div>
                         </div>
-
-                        <!-- Cell 3: Simulation -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
-                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                <span class="text-white text-xs font-bold leading-tight mb-1">Simulation &amp; Analysis</span>
-                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">MATLAB/Simulink · LTspice · PSpice · Load-Flow · FFT · Signal Conditioning</span>
-                            </div>
+                        <div class="comp-cell">
+                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                            <div class="comp-title">Simulation &amp; Analysis</div>
+                            <div class="comp-desc">MATLAB/Simulink &middot; LTspice &middot; Load-Flow &middot; FFT &middot; Signal Conditioning</div>
                         </div>
-
-                        <!-- Cell 4: CAD / Schematic -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
-                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-                                <span class="text-white text-xs font-bold leading-tight mb-1">Hardware Design &amp; CAD</span>
-                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">SOLIDWORKS Electrical · KiCad · AutoCAD · Revit · Schematic Capture</span>
-                            </div>
+                        <div class="comp-cell">
+                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+                            <div class="comp-title">Hardware Design &amp; CAD</div>
+                            <div class="comp-desc">SOLIDWORKS Electrical &middot; KiCad &middot; AutoCAD &middot; Schematic Capture</div>
                         </div>
-
-                        <!-- Cell 5: Lab Instrumentation -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
-                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-                                <span class="text-white text-xs font-bold leading-tight mb-1">Lab &amp; Bench Validation</span>
-                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">Oscilloscopes · DMM · Function Generators · Soldering · RC Filtering · Signal Integrity</span>
-                            </div>
+                        <div class="comp-cell">
+                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+                            <div class="comp-title">Lab &amp; Bench Validation</div>
+                            <div class="comp-desc">Oscilloscopes &middot; DMM &middot; Function Generators &middot; Soldering &middot; Signal Integrity</div>
                         </div>
-
-                        <!-- Cell 6: Infrastructure & Security -->
-                        <div class="comp-cell rounded-xl overflow-hidden relative group" style="height:150px;">
-                            <div class="absolute inset-0 flex flex-col justify-center z-10 p-4">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="mb-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                <span class="text-white text-xs font-bold leading-tight mb-1">Security &amp; Infrastructure</span>
-                                <span class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.40);">NERC CIP · CompTIA Security+ · Proxmox · Bash Automation · Threat Modeling</span>
-                            </div>
+                        <div class="comp-cell">
+                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                            <div class="comp-title">Security &amp; Infrastructure</div>
+                            <div class="comp-desc">NERC CIP &middot; CompTIA Security+ &middot; Proxmox &middot; Threat Modeling</div>
                         </div>
-
                     </div>
-
-                    <div class="mt-6 pt-6" style="border-top:1px solid rgba(220,38,38,0.12);">
-                        <a href="skills.html" class="inline-flex items-center text-red-500 hover:text-red-400 font-semibold transition-colors text-sm">
-                            Full capability profile →
-                        </a>
+                    <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+                        <a href="skills.html" style="color:var(--red-lt);font-weight:600;font-size:0.875rem;text-decoration:none;">Full capability profile &rarr;</a>
                     </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── DEFENSE ENGINEERING DISCIPLINES ────────────────────── -->
+    <section class="ng-section" style="background:rgba(13,14,17,0.72);">
+        <div class="ng-section-inner">
+            <div class="ng-section-head">
+                <div class="overline">Defense Engineering</div>
+                <div class="ng-divider"></div>
+                <h2>Built to Operate at the Edge</h2>
+                <p class="ng-section-sub">The hardware I build has to survive adversarial conditions. Security knowledge applied at the firmware and infrastructure boundary, not bolted on afterward.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;">
+
+                <div class="disc-card">
+                    <div class="disc-icon-wrap">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="disc-label">Firmware Layer</div>
+                    <div class="disc-title">Embedded Security Integration</div>
+                    <div class="disc-desc">AES-128 encryption and MQTT TLS 1.2 on ESP32 telemetry pipelines. NERC CIP-compliant data handling validated end-to-end, not bolted on after the fact.</div>
+                </div>
+
+                <div class="disc-card">
+                    <div class="disc-icon-wrap">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="disc-label">Failure Modeling</div>
+                    <div class="disc-title">Cascading Failure Analysis</div>
+                    <div class="disc-desc">PulseGrid AI simulates failure propagation across 7 infrastructure dependency layers and 500+ outage scenarios. Identifying failure vectors before they propagate is an engineering discipline.</div>
+                </div>
+
+                <div class="disc-card">
+                    <div class="disc-icon-wrap">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <div class="disc-label">Research &middot; CIBR Lab</div>
+                    <div class="disc-title">AI Threat Intelligence Research</div>
+                    <div class="disc-desc">Classified 100+ hardware and software scam cases to support AI model training at USF CIBR Lab. Mapped deterministic logic flows with 100% traceability.</div>
+                </div>
+
+            </div>
+
+            <div style="margin-top:2rem;padding:1.75rem 2rem;border:1px solid var(--border-red);border-radius:3px;background:rgba(220,38,38,0.04);">
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <div>
+                        <div class="overline" style="margin-bottom:0.4rem;">Operational Context</div>
+                        <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;margin:0;">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. CompTIA Security+ (Jan 2026) &middot; GNSI Tampa Summit 6 &middot; CIBR Lab (Mar 2026 to present) &middot; President, USF SCOPE.</p>
+                    </div>
+                    <a href="credentials.html" class="btn-outline" style="align-self:flex-start;">Credentials &rarr;</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         SECTION 3 — INFRASTRUCTURE HARDENING (10%)
-    ════════════════════════════════════════════════════ -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-10">
-                <div class="overline mb-2">SECURITY-HARDENED DESIGN</div>
-                <h2 class="text-3xl font-bold text-gray-900">Infrastructure Hardening &amp; Resilience</h2>
-                <p class="text-lg text-gray-500 mt-3 max-w-2xl">The physical hardware I build has to survive adversarial conditions. This is the safety layer: security knowledge applied where it matters most, at the firmware and infrastructure boundary.</p>
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <section class="ng-section" style="background:rgba(7,8,10,0.74);">
+        <div class="ng-section-inner" style="max-width:900px;text-align:center;">
+            <div class="overline" style="margin-bottom:1rem;">Targeting Summer 2027</div>
+            <div class="ng-divider" style="margin:0 auto 1.5rem;"></div>
+            <h2 style="font-size:2.5rem;font-weight:800;color:#fff;margin:0 0 1.25rem;line-height:1.15;">Open to Defense &amp;<br>Power Sector Opportunities</h2>
+            <p style="color:var(--text-2);font-size:1rem;line-height:1.7;max-width:640px;margin:0 auto 2rem;">Seeking EE internships in power distribution, embedded systems, and defense infrastructure. Hardware architecture skills grounded in real fabrication — tactical comms wiring harnesses, IPC-A-610 Class 3 assemblies, EMI shielding at Orbital Corporation. Lead researcher and founder of ARMS (Applied Research in Military Systems) at USF — active GPS-denied navigation research using Kalman filtering, 6-DOF IMU fusion, and TT&amp;C ground station development.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:2.5rem;">
+                <span class="ng-badge">U.S. Citizen</span>
+                <span class="ng-badge">Clearance Eligible</span>
+                <span class="ng-badge">CompTIA Security+</span>
+                <span class="ng-badge">B.S. EE &middot; USF &middot; 2028</span>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-
-                <!-- Hardening item 1 -->
-                <div class="rounded-xl border border-gray-100 p-7 bg-gray-50">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(220,38,38,0.10);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <div class="mono text-xs text-amber-600 tracking-widest mb-2">FIRMWARE LAYER</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Embedded Security Integration</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">AES-128 encryption and MQTT TLS 1.2 implemented directly on ESP32 telemetry pipelines. NERC CIP-compliant data handling architecture validated end-to-end, not bolted on after the fact.</p>
-                </div>
-
-                <!-- Hardening item 2 -->
-                <div class="rounded-xl border border-gray-100 p-7 bg-gray-50">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(220,38,38,0.10);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <div class="mono text-xs text-amber-600 tracking-widest mb-2">FAILURE MODELING</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">Cascading Failure Analysis</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">PulseGrid AI simulates failure propagation across 7 infrastructure dependency layers and 500+ outage scenarios. Identifying failure vectors before they propagate is an engineering discipline, not a security one.</p>
-                </div>
-
-                <!-- Hardening item 3 -->
-                <div class="rounded-xl border border-gray-100 p-7 bg-gray-50">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5" style="background:rgba(220,38,38,0.10);">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="8" x2="12" y2="12"/>
-                            <line x1="12" y1="16" x2="12.01" y2="16"/>
-                        </svg>
-                    </div>
-                    <div class="mono text-xs text-amber-600 tracking-widest mb-2">RESEARCH · CIBR LAB</div>
-                    <h3 class="text-lg font-bold text-gray-900 mb-3">AI Threat Intelligence Research</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed">Classified and analyzed 100+ hardware and software scam cases to support AI model training at USF CIBR Lab. Mapped deterministic logic flows for hardware-software interaction reports with 100% traceability. Security knowledge built from the ground up, not as an afterthought.</p>
-                </div>
-
-            </div>
-
-            <!-- Hardening footnote -->
-            <div class="mt-10 p-6 rounded-xl border" style="background:rgba(7,13,26,0.03);border-color:rgba(220,38,38,0.18);">
-                <div class="flex flex-col sm:flex-row sm:items-center gap-4">
-                    <div class="flex-1">
-                        <div class="mono text-xs text-amber-600 tracking-widest mb-1">OPERATIONAL CONTEXT</div>
-                        <p class="text-sm text-gray-700 leading-relaxed">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. The security knowledge is a force-multiplier for the hardware work, not a parallel track. CompTIA Security+ (Jan 2026) · GNSI Tampa Summit 6 · CIBR Lab (Mar 2026 to present) · President, USF SCOPE (Society for Critical Operations and Preparedness Engineering).</p>
-                    </div>
-                    <a href="credentials.html" class="flex-shrink-0 inline-flex items-center justify-center border border-amber-500/40 text-amber-700 hover:bg-amber-50 px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors">
-                        Credentials →
-                    </a>
-                </div>
+            <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="btn-primary">Connect on LinkedIn</a>
+                <a href="resume.html" class="btn-outline">Engineering Resume</a>
+                <a href="projects.html" class="btn-outline">View Projects</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         CTA — OPEN TO OPPORTUNITIES
-    ════════════════════════════════════════════════════ -->
-    <section class="py-20" style="background:#070d1a;">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <div class="overline mb-4" style="color:#ef4444;">TARGETING SUMMER 2027</div>
-            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-5">
-                Open to Defense &amp; Power Sector Opportunities
-            </h2>
-            <p class="text-lg text-gray-400 mb-6 max-w-2xl mx-auto leading-relaxed">
-                Seeking EE internships in power distribution, embedded systems, and defense infrastructure. Hardware architecture skills with a built-in understanding of the physical-digital threat boundary. Founding ARMS — Applied Research in Military Systems, a defense engineering org launching Spring 2027. Primary internship window: Summer 2027. Open to conversations now.
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer style="background:rgba(7,8,10,0.95);border-top:1px solid var(--border);padding:2.5rem 0;">
+        <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;text-align:center;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:0.75rem;">
+                <svg width="10" height="18" viewBox="0 0 11 19" fill="none"><path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/></svg>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;color:#fff;text-transform:uppercase;">Dontavious Ellis</span>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:1rem;">
+                Electrical Engineering &middot; Power Systems &middot; Embedded Firmware &middot; Defense Infrastructure
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-3);max-width:640px;margin:0 auto 1.5rem;line-height:1.6;">
+                All simulated infrastructure models and lab exercises are conducted in controlled academic environments for engineering development and research.
             </p>
-            <!-- Eligibility signals -->
-            <div class="flex flex-wrap gap-3 justify-center mb-10">
-                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">U.S. CITIZEN</span>
-                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">CLEARANCE ELIGIBLE</span>
-                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">COMPTIA SECURITY+</span>
-                <span class="mono text-xs px-4 py-2 rounded-full" style="background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.35);color:#f87171;">B.S. EE · USF · 2028</span>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold transition-colors">Connect on LinkedIn</a>
-                <a href="resume.html" class="border border-white/20 text-white hover:border-white/50 px-8 py-3 rounded-lg font-semibold transition-colors">Engineering Resume</a>
-                <a href="projects.html" class="border border-amber-500/30 text-amber-400 hover:border-amber-400/60 px-8 py-3 rounded-lg font-semibold transition-colors">View Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── Footer ── -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
-                <div class="text-sm text-gray-400 mb-4">Electrical Engineering · Power Systems · Embedded Firmware · Defense Infrastructure</div>
-                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
-                    <p>All simulated infrastructure models and lab exercises are conducted in controlled academic environments for engineering development and research.</p>
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
-                    © 2026 Dontavious Ellis. All rights reserved.
-                </div>
+            <div style="border-top:1px solid var(--border);padding-top:1.25rem;font-size:0.72rem;color:var(--text-3);">
+                &copy; 2026 Dontavious Ellis. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Scroll-driven white → red flame gradient + reveal class wiring -->
+    <!-- Full-page aerospace + circuit board SVG background -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+
+    <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+
     <script>
+    // ── Particle starfield ────────────────────────────────────────────────
     (function () {
-        /* ── Flame gradient ── */
-        function updateFlame() {
-            var maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-            var p = Math.min(window.scrollY / maxScroll, 1);
-            var eased = p * p * (3 - 2 * p);
-            var sat  = Math.round(eased * 88);
-            var midL = Math.round(100 - eased * 7);
-            var endL = Math.round(100 - eased * 16);
-            var midH = Math.round(eased * 6);
-            var endH = Math.round(eased * 10);
-            document.body.style.background =
-                'linear-gradient(180deg,#ffffff 0%,' +
-                'hsl(' + midH + ',' + sat + '%,' + midL + '%) 45%,' +
-                'hsl(' + endH + ',' + sat + '%,' + endL + '%) 100%)';
-            document.body.style.backgroundAttachment = 'fixed';
-        }
-        window.addEventListener('scroll', updateFlame, { passive: true });
-        updateFlame();
+        const canvas = document.getElementById('particle-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let W, H, particles = [];
 
-        /* ── Wire up reveal classes for scroll fade-in ──
-           page-anim.js runs after (it's deferred), so it will pick up
-           all elements we tag here with .reveal                        */
-        function tag(el, delay) {
-            el.classList.add('reveal');
-            if (delay) el.setAttribute('data-reveal-delay', String(delay));
+        function resize() {
+            W = canvas.width  = window.innerWidth;
+            H = canvas.height = window.innerHeight;
         }
 
-        // Section headings and overlines
-        document.querySelectorAll('section:not(.hero-bg) h2').forEach(function(el) { tag(el, 0); });
-        document.querySelectorAll('section:not(.hero-bg) .overline').forEach(function(el) { tag(el, 0); });
-        document.querySelectorAll('section:not(.hero-bg) p.text-lg').forEach(function(el) { tag(el, 80); });
+        function Particle() {
+            this.x  = Math.random() * W;
+            this.y  = Math.random() * H;
+            this.sz = Math.random() * 1.4 + 0.3;
+            this.vx = (Math.random() - 0.5) * 0.15;
+            this.vy = (Math.random() - 0.5) * 0.15;
+            this.op = Math.random() * 0.45 + 0.08;
+            this.dop = (Math.random() - 0.5) * 0.002;
+            this.red = Math.random() < 0.07;
+        }
+        Particle.prototype.step = function () {
+            this.x += this.vx; this.y += this.vy;
+            this.op += this.dop;
+            if (this.op > 0.60 || this.op < 0.05) this.dop *= -1;
+            if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
+            if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
+        };
+        Particle.prototype.draw = function () {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.sz, 0, Math.PI * 2);
+            ctx.fillStyle = this.red
+                ? 'rgba(220,55,55,' + this.op + ')'
+                : 'rgba(255,255,255,' + (this.op * 0.80) + ')';
+            ctx.fill();
+        };
 
-        // Field Notes cards — staggered by column
-        document.querySelectorAll('.field-card').forEach(function(el, i) {
-            tag(el, (i % 3) * 90);
-        });
+        function init() {
+            particles = [];
+            const n = Math.min(200, Math.floor(W * H / 6000));
+            for (let i = 0; i < n; i++) particles.push(new Particle());
+        }
 
-        // Project cards
-        document.querySelectorAll('.proj-card').forEach(function(el, i) {
-            tag(el, i * 100);
-        });
+        function connect() {
+            const max = 105;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const d  = Math.sqrt(dx * dx + dy * dy);
+                    if (d < max) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - d / max) * 0.07) + ')';
+                        ctx.lineWidth = 0.4;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
 
-        // Competency grid cells
-        document.querySelectorAll('.comp-cell').forEach(function(el, i) {
-            tag(el, (i % 2) * 90);
-        });
+        function loop() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(function (p) { p.step(); p.draw(); });
+            connect();
+            requestAnimationFrame(loop);
+        }
 
-        // Infrastructure hardening cards
-        document.querySelectorAll('.rounded-xl.border.p-7').forEach(function(el, i) {
-            tag(el, i * 80);
-        });
-
-        // Spec table rows
-        document.querySelectorAll('.spec-row').forEach(function(el, i) {
-            tag(el, i * 40);
-        });
-
-        // CTA section content
-        document.querySelectorAll('section > div > div.overline, section > div > h2.text-white').forEach(function(el) {
-            tag(el, 0);
-        });
+        resize(); init(); loop();
+        window.addEventListener('resize', function () { resize(); init(); });
     })();
+
+    // ── Nav scroll darkening ────────────────────────────────────────────
+    (function () {
+        const nav = document.querySelector('.ng-nav');
+        if (!nav) return;
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(7,8,10,0.97)';
+                nav.style.boxShadow  = '0 1px 0 rgba(220,38,38,0.10)';
+            } else {
+                nav.style.background = 'rgba(7,8,10,0.78)';
+                nav.style.boxShadow  = 'none';
+            }
+        }, { passive: true });
+    })();
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                mobileBtn.setAttribute('aria-expanded', !isHidden);
+            });
+        }
+
+        // Typed.js
+        if (document.getElementById('typed-mission')) {
+            new Typed('#typed-mission', {
+                strings: [
+                    'Power Distribution Hardware.',
+                    'Embedded Firmware for IIoT.',
+                    'Cascading Failure Modeling.',
+                    'NERC CIP-Compliant Systems.',
+                    'Defense Infrastructure Engineering.',
+                    'GPS-Denied Navigation Research.'
+                ],
+                typeSpeed: 48,
+                backSpeed: 28,
+                backDelay: 2200,
+                loop: true,
+                showCursor: false
+            });
+        }
+
+        // Scroll reveal for field cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'translateY(0)';
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+        document.querySelectorAll('.field-card, .proj-ng, .comp-cell, .disc-card').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.38s ease ${i * 22}ms, transform 0.38s ease ${i * 22}ms`;
+            observer.observe(el);
+        });
+    });
     </script>
     <script src="js/page-anim.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', () => {
-                    const isHidden = mobileMenu.classList.toggle('hidden');
-                    mobileBtn.setAttribute('aria-expanded', !isHidden);
-                });
-            }
-
-            // Typed.js — EE-specific rotating phrases
-            if (document.getElementById('typed-mission')) {
-                new Typed('#typed-mission', {
-                    strings: [
-                        'Power Distribution Hardware.',
-                        'Embedded Firmware for IIoT.',
-                        'Cascading Failure Modeling.',
-                        'DC-DC Regulation Design.',
-                        'NERC CIP-Compliant Systems.',
-                        'Defense Infrastructure Engineering.'
-                    ],
-                    typeSpeed: 48,
-                    backSpeed: 28,
-                    backDelay: 2200,
-                    loop: true,
-                    showCursor: false
-                });
-            }
-
-            // Skill bars — animate on scroll
-            const bars = document.querySelectorAll('.skill-bar-fill');
-            const skillObs = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        const w = e.target.dataset.width;
-                        e.target.style.width = w + '%';
-                        skillObs.unobserve(e.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            bars.forEach(b => skillObs.observe(b));
-        });
-    </script>
     <script src="main.js"></script>
-    <script data-global-fade>
-        requestAnimationFrame(() => document.body.classList.add('reveal-in'));
-    </script>
 </body>
 </html>
-                               
