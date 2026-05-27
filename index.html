@@ -134,18 +134,7 @@
             background: var(--bg-0);
             overflow: hidden;
         }
-        .ng-hero-img {
-            position: absolute; inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.52;
-        }
-        .ng-hero-img::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(135deg, var(--bg-0) 0%, rgba(7,10,15,0.55) 50%, transparent 100%);
-        }
+        .ng-hero-img { display: none; }
         .ng-hero-grid {
             position: absolute; inset: 0; pointer-events: none; z-index: 1;
         }
@@ -221,7 +210,7 @@
             transform: translateY(-3px);
         }
         .field-card-img {
-            height: 200px; overflow: hidden; position: relative;
+            height: 200px; overflow: hidden; position: relative; background: linear-gradient(135deg, #0d0d10 0%, #1a0505 100%);
         }
         .field-card-img img {
             width: 100%; height: 100%; object-fit: cover;
@@ -256,6 +245,8 @@
             display: flex; flex-direction: column; justify-content: flex-end;
             text-decoration: none;
             border: 1px solid var(--border);
+            background: rgba(9,10,14,0.65);
+            backdrop-filter: blur(8px);
             transition: border-color 0.25s, transform 0.25s;
         }
         .proj-ng:hover { border-color: rgba(220,38,38,0.50); transform: translateY(-4px); }
@@ -266,10 +257,6 @@
         .proj-ng-overlay {
             position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(7,8,10,0.97) 0%, rgba(7,8,10,0.62) 45%, rgba(7,8,10,0.10) 100%);
-        }
-        .proj-ng-svg {
-            position: absolute; top: 0; left: 0; right: 0;
-            height: 180px; overflow: hidden;
         }
         .proj-ng-body {
             position: relative; z-index: 2;
@@ -680,6 +667,260 @@
             box-shadow: 0 0 24px rgba(220,38,38,.12);
         }
 
+    
+        /* ── SVG RED GLOBE ───────────────────────────────────── */
+        @keyframes globe-rotate {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        @keyframes globe-pulse {
+            0%,100% { opacity: 0.55; }
+            50%      { opacity: 0.80; }
+        }
+        @keyframes globe-atmos {
+            0%,100% { opacity: 0.30; }
+            50%      { opacity: 0.50; }
+        }
+        /* ── Hero left panel — hidden, left side is pure black ── */
+        #hero-f22-bg { display: none; }
+
+        /* ── Hero right panel — globe ─────────────────────────── */
+        #hero-globe {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 62%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center;
+            pointer-events: none;
+            z-index: 1;
+            filter: brightness(0.75);
+            -webkit-mask-image: linear-gradient(to left, black 0%, black 28%, rgba(0,0,0,0.60) 50%, rgba(0,0,0,0.12) 66%, transparent 80%);
+            mask-image: linear-gradient(to left, black 0%, black 28%, rgba(0,0,0,0.60) 50%, rgba(0,0,0,0.12) 66%, transparent 80%);
+        }
+
+        /* Hidden — not used */
+        #hero-f22 { display: none; }
+
+        /* Section circuit backgrounds */
+        .ng-section-circuit {
+            position: relative;
+            overflow: hidden;
+        }
+        .ng-section-circuit::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.10;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg stroke='%23dc2626' stroke-width='0.7' fill='none'%3E%3Cpath d='M0 56h84v-28h56v28h140'/%3E%3Cpath d='M0 140h42v-42h28v42h28v-21h126v21h56'/%3E%3Cpath d='M0 224h112v28h56v-28h112'/%3E%3Cpath d='M56 0v84h28v56h-28v140'/%3E%3Cpath d='M140 0v42h42v28h-42v28h21v126h-21v56'/%3E%3Cpath d='M224 0v112h-28v56h28v112'/%3E%3Ccircle cx='56' cy='56' r='3.5'/%3E%3Ccircle cx='140' cy='56' r='2.5'/%3E%3Ccircle cx='224' cy='56' r='3'/%3E%3Ccircle cx='56' cy='140' r='2.5'/%3E%3Ccircle cx='140' cy='140' r='5'/%3E%3Ccircle cx='224' cy='140' r='2.5'/%3E%3Ccircle cx='56' cy='224' r='3'/%3E%3Ccircle cx='140' cy='224' r='2.5'/%3E%3Ccircle cx='224' cy='224' r='3.5'/%3E%3Crect x='133' y='133' width='14' height='14' rx='1'/%3E%3Crect x='49' y='49' width='14' height='14' rx='1' opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 280px 280px;
+        }
+        .ng-section-circuit > * { position: relative; z-index: 1; }
+
+        /* ── Hero → Field transition divider ─────────────────── */
+        .section-bridge {
+            position: relative;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--bg-0) 0%, #0d0e11 100%);
+            overflow: hidden;
+        }
+        .section-bridge::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg stroke='%23dc2626' stroke-width='0.7' fill='none'%3E%3Cpath d='M0 56h84v-28h56v28h140'/%3E%3Cpath d='M0 140h42v-42h28v42h28v-21h126v21h56'/%3E%3Cpath d='M56 0v84h28v56h-28v140'/%3E%3Cpath d='M140 0v42h42v28h-42v28h21v126h-21v56'/%3E%3Ccircle cx='56' cy='56' r='3.5'/%3E%3Ccircle cx='140' cy='56' r='2.5'/%3E%3Ccircle cx='56' cy='140' r='2.5'/%3E%3Ccircle cx='140' cy='140' r='5'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 280px 280px;
+        }
+        /* Center red trace line */
+        .section-bridge-line {
+            position: absolute;
+            top: 50%;
+            left: 0; right: 0;
+            height: 1px;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(220,38,38,0.08) 5%,
+                rgba(220,38,38,0.55) 22%,
+                rgba(220,38,38,0.85) 38%,
+                rgba(220,38,38,0.85) 62%,
+                rgba(220,38,38,0.55) 78%,
+                rgba(220,38,38,0.08) 95%,
+                transparent 100%
+            );
+        }
+        /* Corner tick marks */
+        .section-bridge-tick {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px; height: 14px;
+            border: 1px solid rgba(220,38,38,0.60);
+        }
+        .section-bridge-tick.left  { left: 18%; }
+        .section-bridge-tick.right { right: 18%; }
+        /* Center dot */
+        .section-bridge-dot {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%,-50%);
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: rgba(220,38,38,0.90);
+            box-shadow: 0 0 8px 2px rgba(220,38,38,0.35);
+        }
+        /* Mono label */
+        .section-bridge-label {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(18px, -50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.52rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(220,38,38,0.55);
+            white-space: nowrap;
+        }
+
+
+        /* Corner brackets */
+        .intro-frame {
+            position: absolute;
+            inset: clamp(16px, 3vw, 40px);
+            pointer-events: none;
+        }
+        .intro-frame::before,
+        .intro-frame::after,
+        .intro-frame-br::before,
+        .intro-frame-br::after {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 28px;
+        }
+        .intro-frame::before {
+            top: 0; left: 0;
+            border-top: 1px solid rgba(220,38,38,0.55);
+            border-left: 1px solid rgba(220,38,38,0.55);
+        }
+        .intro-frame::after {
+            top: 0; right: 0;
+            border-top: 1px solid rgba(220,38,38,0.55);
+            border-right: 1px solid rgba(220,38,38,0.55);
+        }
+        .intro-frame-br::before {
+            bottom: 0; left: 0;
+            border-bottom: 1px solid rgba(220,38,38,0.55);
+            border-left: 1px solid rgba(220,38,38,0.55);
+        }
+        .intro-frame-br::after {
+            bottom: 0; right: 0;
+            border-bottom: 1px solid rgba(220,38,38,0.55);
+            border-right: 1px solid rgba(220,38,38,0.55);
+        }
+
+
+        /* ── Intro loader ────────────────────────────────────── */
+        @keyframes introFade    { to { opacity: 1; } }
+        @keyframes introBar     { to { width: 100%; } }
+        @keyframes introRevealR {
+            from { clip-path: inset(0 100% 0 0); opacity: 0; transform: translateX(-10px); }
+            to   { clip-path: inset(0 0% 0 0);   opacity: 1; transform: translateX(0); }
+        }
+
+        body.is-loading { overflow: hidden; }
+
+        #intro {
+            position: fixed !important;
+            top: 0 !important; left: 0 !important;
+            right: 0 !important; bottom: 0 !important;
+            width: 100vw !important; height: 100vh !important;
+            z-index: 99999 !important;
+            background-color: #05070b !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            transition: opacity 0.6s ease 0.1s, visibility 0.6s ease 0.1s;
+        }
+        #intro.is-out {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        .ld-eye {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: rgba(220,38,38,0.80);
+            margin-bottom: 22px;
+            opacity: 0;
+            animation: introFade 0.5s ease 0.2s both;
+        }
+
+        .ld-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(72px, 16vw, 160px);
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px #dc2626;
+            text-transform: uppercase;
+            animation: introRevealR 0.95s cubic-bezier(0.77,0,0.175,1) 0.3s both;
+            overflow: visible;
+            padding: 0 0.2em 0.05em 0;
+        }
+
+        .ld-bar-w {
+            width: 220px; height: 2px;
+            background: rgba(255,255,255,0.08);
+            margin-top: 30px;
+            overflow: hidden;
+            opacity: 0;
+            animation: introFade 0.3s ease 0.6s both;
+        }
+        .ld-bar {
+            height: 100%; width: 0;
+            background: #dc2626;
+            animation: introBar 1.3s cubic-bezier(0.4,0,0.2,1) 0.7s both;
+        }
+
+        .ld-stat {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255,255,255,0.35);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 14px;
+            opacity: 0;
+            animation: introFade 0.3s ease 0.9s both;
+        }
+
+        /* Page-wipe transition between pages */
+        .page-wipe {
+            position: fixed; inset: 0; z-index: 9000;
+            background: #05070b;
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+        @keyframes wipeIn  { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        @keyframes wipeOut { from { transform: translateY(0); }    to { transform: translateY(-100%); } }
+        .page-wipe.is-in  { animation: wipeIn  0.42s cubic-bezier(0.77,0,0.175,1) forwards; pointer-events: all; }
+        .page-wipe.is-out { animation: wipeOut 0.42s cubic-bezier(0.77,0,0.175,1) forwards; }
+
+        @media (max-width: 900px) {
+            #intro { display: none; }
+            body.is-loading { overflow: auto; }
+        }
+
     </style>
     <link rel="stylesheet" href="css/reveal.css" />
     <script type="application/ld+json">
@@ -701,7 +942,18 @@
     </script>
     <link rel="stylesheet" href="css/scroll.css" />
 </head>
-<body>
+<body class="is-loading">
+
+    <!-- ── INTRO LOADER ─────────────────────────────────── -->
+    <div id="intro">
+        <div class="ld-eye">Defense Systems &nbsp;·&nbsp; USF</div>
+        <div class="ld-title">Ellis</div>
+        <div class="ld-bar-w"><div class="ld-bar"></div></div>
+        <div class="ld-stat">Electrical Engineering &nbsp;·&nbsp; ARMS &nbsp;·&nbsp; GNSI</div>
+    </div>
+
+    <!-- ── PAGE WIPE ─────────────────────────────────────── -->
+    <div class="page-wipe" id="page-wipe"></div>
 
     <!-- ── NAVIGATION ─────────────────────────────────────────── -->
     <nav class="ng-nav">
@@ -753,6 +1005,14 @@
     <!-- ── HERO ───────────────────────────────────────────────── -->
     <section class="ng-hero">
         <div class="ng-hero-img"></div>
+
+
+        <!-- F-22 Hero Layer -->
+        <img id="hero-f22-bg" src="resources/hero-left.png" alt="" aria-hidden="true">
+        <img id="hero-f22" src="resources/f22-raptor.jpg" alt="" aria-hidden="true">
+
+        <!-- Globe Background -->
+        <img id="hero-globe" src="resources/hero-forensic.png" alt="" aria-hidden="true">
 
         <!-- Scanline overlay -->
         <div class="hero-scanline" aria-hidden="true"></div>
@@ -896,8 +1156,17 @@
         </div>
     </section>
 
+    <!-- ── SECTION BRIDGE ───────────────────────────────────── -->
+    <div class="section-bridge" aria-hidden="true">
+        <div class="section-bridge-line"></div>
+        <div class="section-bridge-tick left"></div>
+        <div class="section-bridge-tick right"></div>
+        <div class="section-bridge-dot"></div>
+        <div class="section-bridge-label">Field Engagements</div>
+    </div>
+
     <!-- ── IN THE FIELD ────────────────────────────────────────── -->
-    <section class="ng-section" style="background:rgba(13,14,17,0.72);">
+    <section class="ng-section ng-section-circuit" style="background:rgba(13,14,17,0.72);">
         <div class="ng-section-inner">
             <div class="ng-section-head">
                 <div class="overline">Engagements</div>
@@ -908,50 +1177,54 @@
 
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;">
 
-                <!-- LinkedIn live -->
-                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="field-card" style="border-color:rgba(10,102,194,0.28);">
-                    <div class="field-card-img">
-                        <img src="resources/linkedin-card.png" alt="Dontavious Ellis on LinkedIn">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge" style="border-color:rgba(10,102,194,0.40);color:rgba(96,165,250,0.90);">LinkedIn &middot; Live Feed</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">Updated regularly &middot; 500+ connections</div>
-                        <div class="field-card-title">Connect on LinkedIn</div>
-                        <div class="field-card-desc">All field notes, conference dispatches, research updates, and engineering milestones post here first.</div>
-                        <div class="field-card-link">View profile <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
 
-                <!-- GNSI DC -->
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7450640869579395072/" target="_blank" rel="noopener noreferrer" class="field-card">
+
+
+                <!-- GNSI DC Experience -->
+                <a href="https://www.linkedin.com/posts/dontavious-ellis_a-vision-without-structure-is-just-ambition-activity-7461437813427953664-_Buy" target="_blank" rel="noopener noreferrer" class="field-card">
                     <div class="field-card-img">
-                        <img src="resources/gnsi-summit.png" alt="GNSI DC Experience 2026">
+                        <img src="resources/gnsi-dc-pentagon.jfif" alt="GNSI DC Experience — Pentagon Briefing">
                         <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">GNSI &middot; National Security</span>
+                        <span class="field-card-badge">GNSI &middot; Washington D.C.</span>
                     </div>
                     <div class="field-card-body">
-                        <div class="field-card-meta">2026 &middot; Washington D.C.</div>
+                        <div class="field-card-meta">Spring 2026 &middot; Washington D.C.</div>
                         <div class="field-card-title">GNSI DC Experience 2026</div>
-                        <div class="field-card-desc">Selected for the Government-National Security Institute DC cohort. Defense contracting, policy, and intelligence community operations.</div>
+                        <div class="field-card-desc">Five days moving through the national security ecosystem with the GNSI cohort. Defense, diplomacy, intelligence, and policy — the full system that engineering has to move through and survive.</div>
                         <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
                     </div>
                 </a>
 
-                <!-- ISE 2026 -->
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449895517582409729/" target="_blank" rel="noopener noreferrer" class="field-card">
+                <!-- SOF Week 2026 -->
+                <a href="https://www.linkedin.com/posts/usfgnsi_sofweek2026-nationalsecurity-specialoperations-activity-7463231294903316481-PXyj" target="_blank" rel="noopener noreferrer" class="field-card">
                     <div class="field-card-img">
-                        <img src="resources/ise-2026.png" alt="ISE 2026">
+                        <img src="resources/sof-week.jfif" alt="SOF Week 2026 — Tampa">
                         <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">ISE &middot; Conference</span>
+                        <span class="field-card-badge">SOF Week &middot; Tampa</span>
                     </div>
                     <div class="field-card-body">
-                        <div class="field-card-meta">2026 &middot; Tampa, FL</div>
-                        <div class="field-card-title">ISE 2026 International Security Experience</div>
-                        <div class="field-card-desc">Connected with industry leaders across defense, critical infrastructure, and technology sectors. Represented USF.</div>
+                        <div class="field-card-meta">May 2026 &middot; Tampa, FL</div>
+                        <div class="field-card-title">SOF Week 2026</div>
+                        <div class="field-card-desc">SOF Week 2026 took over downtown Tampa — special operations forces from around the globe, alongside the institutions, organizations, and companies that support them. On the ground with GNSI.</div>
+                        <div class="field-card-link">View post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+                    </div>
+                </a>
+
+                <!-- Lockheed Martin -->
+                <a href="https://www.linkedin.com/posts/dontavious-ellis_some-moments-do-not-need-a-full-briefing-activity-7461475560716713984-KRHW" target="_blank" rel="noopener noreferrer" class="field-card">
+                    <div class="field-card-img">
+                        <img src="resources/lockheed.jfif" alt="Lockheed Martin — Crystal City">
+                        <div class="field-card-img-overlay"></div>
+                        <span class="field-card-badge">Lockheed Martin &middot; DC</span>
+                    </div>
+                    <div class="field-card-body">
+                        <div class="field-card-meta">Spring 2026 &middot; Washington D.C.</div>
+                        <div class="field-card-title">A Moment Outside Lockheed Martin</div>
+                        <div class="field-card-desc">During the GNSI DC Experience, I stood outside Lockheed Martin and took a picture. No tour. No briefing. Just enough to understand the scale of the industry I am preparing to enter.</div>
                         <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
                     </div>
                 </a>
+
 
                 <!-- USF Expo -->
                 <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449479028035653633/" target="_blank" rel="noopener noreferrer" class="field-card">
@@ -1003,12 +1276,12 @@
     </section>
 
     <!-- ── SYSTEMS & HARDWARE ─────────────────────────────────── -->
-    <section class="ng-section" style="background:rgba(10,11,13,0.72);">
+    <section class="ng-section ng-section-circuit" style="background:rgba(10,11,13,0.72);">
         <div class="ng-section-inner">
             <div class="ng-section-head">
                 <div class="overline">Core Projects</div>
                 <div class="ng-divider"></div>
-                <h2>Systems &amp; Hardware</h2>
+                <h2>Built to Operate at the Edge</h2>
                 <p class="ng-section-sub">Power distribution, embedded firmware, and infrastructure simulation. Built from components, validated on the bench.</p>
             </div>
 
@@ -1016,23 +1289,7 @@
 
                 <!-- PROJECT 01 — Smart Grid -->
                 <a href="projects.html#project-01" class="proj-ng">
-                    <div class="proj-ng-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="proj-ng-overlay"></div>
-                    <!-- SVG oscilloscope panel on top -->
-                    <div class="proj-ng-svg">
-                        <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                            <defs><pattern id="osc2" width="40" height="28" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 28" fill="none" stroke="rgba(220,38,38,0.10)" stroke-width="0.5"/></pattern></defs>
-                            <rect width="480" height="140" fill="url(#osc2)" opacity="0.4"/>
-                            <line x1="0" y1="70" x2="480" y2="70" stroke="rgba(220,38,38,0.18)" stroke-width="0.8"/>
-                            <polyline fill="none" stroke="#ef4444" stroke-width="1.8" opacity="0.85"
-                              points="0,70 10,44 20,22 30,10 40,12 50,28 60,52 70,70 80,88 90,110 100,128 110,130 120,118 130,98 140,70 150,44 160,22 170,10 180,12 190,28 200,52 210,70 220,88 230,110 240,128 250,130 260,118 270,98 280,70 290,44 300,22 310,10 320,12 330,28 340,52 350,70 360,88 370,110 380,128 390,130 400,118 410,98 420,70 430,44 440,22 450,10 460,12 470,28 480,52"/>
-                            <polyline fill="none" stroke="rgba(251,191,36,0.50)" stroke-width="1" opacity="0.8"
-                              points="0,70 8,58 16,48 24,42 32,42 40,48 48,58 56,70 64,82 72,92 80,98 88,98 96,92 104,82 112,70 120,58 128,48 136,42 144,42 152,48 160,58 168,70 176,82 184,92 192,98 200,98 208,92 216,82 224,70 232,58 240,48 248,42 256,42 264,48 272,58 280,70 288,82 296,92 304,98 312,98 320,92 328,82 336,70 344,58 352,48 360,42 368,42 376,48 384,58 392,70 400,82 408,92 416,98 424,98 432,92 440,82 448,70 456,58 464,48 472,42 480,42"/>
-                            <text x="8" y="14" font-family="monospace" font-size="7.5" fill="rgba(248,113,113,0.75)">RMS VOLTAGE &mdash; CH1</text>
-                            <text x="8" y="25" font-family="monospace" font-size="7" fill="rgba(251,191,36,0.55)">THD HARMONIC &mdash; CH2 &bull; 100ms/div</text>
-                        </svg>
-                    </div>
-                    <div class="proj-ng-body">
+<div class="proj-ng-body">
                         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
                             <div class="proj-ng-label">Power Systems &middot; Embedded</div>
                             <span class="proj-ng-status-complete">Complete</span>
@@ -1058,25 +1315,8 @@
 
                 <!-- PROJECT 02 — Load-Shedding -->
                 <a href="projects.html#project-02" class="proj-ng">
-                    <div class="proj-ng-img" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="proj-ng-overlay"></div>
                     <!-- SVG PWM panel -->
-                    <div class="proj-ng-svg">
-                        <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                            <defs><pattern id="pwm2" width="40" height="28" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 28" fill="none" stroke="rgba(220,38,38,0.10)" stroke-width="0.5"/></pattern></defs>
-                            <rect width="480" height="140" fill="url(#pwm2)" opacity="0.4"/>
-                            <line x1="0" y1="42" x2="480" y2="42" stroke="rgba(251,191,36,0.30)" stroke-width="1" stroke-dasharray="6,4"/>
-                            <polyline fill="none" stroke="rgba(251,191,36,0.65)" stroke-width="1.5"
-                              points="0,110 60,105 120,95 180,80 240,60 270,42"/>
-                            <line x1="270" y1="42" x2="480" y2="42" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.8"/>
-                            <polyline fill="none" stroke="#34d399" stroke-width="1.3" opacity="0.75"
-                              points="0,95 0,78 14,78 14,95 28,95 28,78 42,78 42,95 56,95 56,70 70,70 70,95 84,95 84,63 98,63 98,95 112,95 112,57 126,57 126,95 140,95 140,51 154,51 154,95 168,95 168,46 182,46 182,95 196,95 196,42 210,42 210,95 224,95 224,42 238,42 238,95 252,95"/>
-                            <text x="8" y="14" font-family="monospace" font-size="7.5" fill="rgba(248,113,113,0.75)">PWM DUTY CYCLE</text>
-                            <text x="275" y="34" font-family="monospace" font-size="7" fill="rgba(239,68,68,0.80)">TRIP &rarr;</text>
-                            <text x="8" y="25" font-family="monospace" font-size="7" fill="rgba(52,211,153,0.55)">&plusmn;0.5% current sensing accuracy</text>
-                        </svg>
-                    </div>
-                    <div class="proj-ng-body">
+<div class="proj-ng-body">
                         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
                             <div class="proj-ng-label">Power Distribution &middot; Hardware Design</div>
                             <span class="proj-ng-status-complete">Complete</span>
@@ -1101,39 +1341,8 @@
 
                 <!-- PROJECT 03 — Infrastructure Lab -->
                 <a href="projects.html#project-04" class="proj-ng">
-                    <div class="proj-ng-img" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80');"></div>
-                    <div class="proj-ng-overlay"></div>
                     <!-- SVG network topology -->
-                    <div class="proj-ng-svg">
-                        <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-                            <defs><pattern id="net2" width="40" height="28" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 28" fill="none" stroke="rgba(220,38,38,0.08)" stroke-width="0.5"/></pattern></defs>
-                            <rect width="480" height="140" fill="url(#net2)" opacity="0.4"/>
-                            <line x1="240" y1="35" x2="120" y2="78" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
-                            <line x1="240" y1="35" x2="240" y2="78" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
-                            <line x1="240" y1="35" x2="360" y2="78" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
-                            <line x1="120" y1="78" x2="80" y2="118" stroke="rgba(52,211,153,0.28)" stroke-width="0.8"/>
-                            <line x1="120" y1="78" x2="155" y2="118" stroke="rgba(52,211,153,0.28)" stroke-width="0.8"/>
-                            <line x1="240" y1="78" x2="240" y2="118" stroke="rgba(251,191,36,0.28)" stroke-width="0.8"/>
-                            <line x1="360" y1="78" x2="320" y2="118" stroke="rgba(96,165,250,0.28)" stroke-width="0.8"/>
-                            <line x1="360" y1="78" x2="400" y2="118" stroke="rgba(96,165,250,0.28)" stroke-width="0.8"/>
-                            <circle cx="240" cy="35" r="12" fill="rgba(10,14,23,0.80)" stroke="#dc2626" stroke-width="1.4"/>
-                            <text x="240" y="39" font-family="monospace" font-size="7" fill="#ef4444" text-anchor="middle">SRV</text>
-                            <rect x="109" y="67" width="22" height="22" rx="2" fill="rgba(10,14,23,0.80)" stroke="#ef4444" stroke-width="1.1"/>
-                            <text x="120" y="82" font-family="monospace" font-size="6" fill="#f87171" text-anchor="middle">FW</text>
-                            <rect x="229" y="67" width="22" height="22" rx="2" fill="rgba(10,14,23,0.80)" stroke="rgba(251,191,36,0.65)" stroke-width="1.1"/>
-                            <text x="240" y="82" font-family="monospace" font-size="6" fill="rgba(251,191,36,0.85)" text-anchor="middle">AI</text>
-                            <rect x="349" y="67" width="22" height="22" rx="2" fill="rgba(10,14,23,0.80)" stroke="rgba(96,165,250,0.60)" stroke-width="1.1"/>
-                            <text x="360" y="82" font-family="monospace" font-size="6" fill="rgba(96,165,250,0.85)" text-anchor="middle">SW</text>
-                            <circle cx="80" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(52,211,153,0.50)" stroke-width="1"/>
-                            <circle cx="155" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(52,211,153,0.50)" stroke-width="1"/>
-                            <circle cx="240" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(251,191,36,0.50)" stroke-width="1"/>
-                            <circle cx="320" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(96,165,250,0.50)" stroke-width="1"/>
-                            <circle cx="400" cy="118" r="7" fill="rgba(10,14,23,0.80)" stroke="rgba(96,165,250,0.50)" stroke-width="1"/>
-                            <text x="8" y="14" font-family="monospace" font-size="7.5" fill="rgba(248,113,113,0.75)">MULTI-TIER NETWORK TOPOLOGY</text>
-                            <text x="470" y="14" font-family="monospace" font-size="7" fill="rgba(220,38,38,0.50)" text-anchor="end">7 layers</text>
-                        </svg>
-                    </div>
-                    <div class="proj-ng-body">
+<div class="proj-ng-body">
                         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
                             <div class="proj-ng-label">Power Grid &middot; Failure Simulation &middot; Active</div>
                             <span class="proj-ng-status-active">Active</span>
@@ -1168,127 +1377,32 @@
     <!-- ── TECHNICAL SPEC + COMPETENCIES ──────────────────────── -->
     <section class="ng-section" style="background:rgba(7,8,10,0.74);">
         <div class="ng-section-inner">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
 
                 <!-- Left: spec table -->
                 <div>
                     <div class="overline">Technical Specification</div>
                     <div class="ng-divider"></div>
                     <h2 style="font-size:2rem;font-weight:700;color:#fff;margin:0 0 2rem;">System Requirements</h2>
-                    <div class="spec-table">
-                        <div class="spec-header"><span>Parameter</span><span>Specification</span></div>
-                        <div class="spec-row"><span class="spec-key">Simulation</span><span class="spec-val">MATLAB / Simulink &middot; LTspice &middot; PSpice</span></div>
-                        <div class="spec-row"><span class="spec-key">CAD / Design</span><span class="spec-val">SOLIDWORKS Electrical &middot; KiCad &middot; AutoCAD</span></div>
-                        <div class="spec-row"><span class="spec-key">Measurement</span><span class="spec-val">Digital Oscilloscopes &middot; DMM &middot; Spectrum Analyzer</span></div>
-                        <div class="spec-row"><span class="spec-key">Embedded</span><span class="spec-val">ESP32 &middot; Raspberry Pi &middot; Arduino &middot; C / Python</span></div>
-                        <div class="spec-row"><span class="spec-key">Power Domain</span><span class="spec-val">AC/DC Analysis &middot; 3-Phase &middot; Load Flow &middot; THD</span></div>
-                        <div class="spec-row"><span class="spec-key">Protocols</span><span class="spec-val">MQTT TLS 1.2 &middot; AES-128 &middot; I&sup2;C &middot; SPI &middot; UART</span></div>
-                        <div class="spec-row"><span class="spec-key">Compliance</span><span class="spec-val">NERC CIP &middot; CompTIA Security+ &middot; IEEE 1459</span></div>
-                        <div class="spec-row"><span class="spec-key">Target Sectors</span><span class="spec-val">Defense &middot; Power Utilities &middot; Critical Infrastructure</span></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+                        <div class="spec-row" style="grid-column:1;"><span class="spec-key">Simulation</span><span class="spec-val">MATLAB / Simulink &middot; LTspice &middot; PSpice</span></div>
+                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);"><span class="spec-key">Power Domain</span><span class="spec-val">AC/DC Analysis &middot; 3-Phase &middot; Load Flow &middot; THD</span></div>
+                        <div class="spec-row" style="grid-column:1;"><span class="spec-key">CAD / Design</span><span class="spec-val">SOLIDWORKS Electrical &middot; KiCad &middot; AutoCAD</span></div>
+                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);"><span class="spec-key">Protocols</span><span class="spec-val">MQTT TLS 1.2 &middot; AES-128 &middot; I&sup2;C &middot; SPI &middot; UART</span></div>
+                        <div class="spec-row" style="grid-column:1;"><span class="spec-key">Measurement</span><span class="spec-val">Digital Oscilloscopes &middot; DMM &middot; Spectrum Analyzer</span></div>
+                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);"><span class="spec-key">Compliance</span><span class="spec-val">NERC CIP &middot; CompTIA Security+ &middot; IEEE 1459</span></div>
+                        <div class="spec-row" style="grid-column:1;border-bottom:none;"><span class="spec-key">Embedded</span><span class="spec-val">ESP32 &middot; Raspberry Pi &middot; Arduino &middot; C / Python</span></div>
+                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);border-bottom:none;"><span class="spec-key">Target Sectors</span><span class="spec-val">Defense &middot; Power Utilities &middot; Critical Infrastructure</span></div>
                     </div>
                     <div style="margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text-3);letter-spacing:0.14em;">
                         DOC-REV-2026A &nbsp;&middot;&nbsp; ELECTRICAL ENGINEERING &nbsp;&middot;&nbsp; USF &nbsp;&middot;&nbsp; EXPECTED B.S. MAY 2028
                     </div>
+                
                 </div>
 
-                <!-- Right: competency grid -->
-                <div>
-                    <div class="overline">Capability Matrix</div>
-                    <div class="ng-divider"></div>
-                    <h2 style="font-size:2rem;font-weight:700;color:#fff;margin:0 0 2rem;">Core Competencies</h2>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
-                        <div class="comp-cell">
-                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                            <div class="comp-title">Power Systems</div>
-                            <div class="comp-desc">AC/DC Analysis &middot; 3-Phase &middot; Power Factor Correction &middot; Load Flow &middot; THD</div>
-                        </div>
-                        <div class="comp-cell">
-                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h6M9 11h6"/></svg></div>
-                            <div class="comp-title">Embedded Firmware</div>
-                            <div class="comp-desc">ESP32 &middot; Raspberry Pi &middot; C/C++ &middot; PWM &middot; AES-128 &middot; MQTT TLS</div>
-                        </div>
-                        <div class="comp-cell">
-                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                            <div class="comp-title">Simulation &amp; Analysis</div>
-                            <div class="comp-desc">MATLAB/Simulink &middot; LTspice &middot; Load-Flow &middot; FFT &middot; Signal Conditioning</div>
-                        </div>
-                        <div class="comp-cell">
-                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
-                            <div class="comp-title">Hardware Design &amp; CAD</div>
-                            <div class="comp-desc">SOLIDWORKS Electrical &middot; KiCad &middot; AutoCAD &middot; Schematic Capture</div>
-                        </div>
-                        <div class="comp-cell">
-                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-                            <div class="comp-title">Lab &amp; Bench Validation</div>
-                            <div class="comp-desc">Oscilloscopes &middot; DMM &middot; Function Generators &middot; Soldering &middot; Signal Integrity</div>
-                        </div>
-                        <div class="comp-cell">
-                            <div class="comp-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.70)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                            <div class="comp-title">Security &amp; Infrastructure</div>
-                            <div class="comp-desc">NERC CIP &middot; CompTIA Security+ &middot; Proxmox &middot; Threat Modeling</div>
-                        </div>
-                    </div>
-                    <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
-                        <a href="skills.html" style="color:var(--red-lt);font-weight:600;font-size:0.875rem;text-decoration:none;">Full capability profile &rarr;</a>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
 
-    <!-- ── DEFENSE ENGINEERING DISCIPLINES ────────────────────── -->
-    <section class="ng-section" style="background:rgba(13,14,17,0.72);">
-        <div class="ng-section-inner">
-            <div class="ng-section-head">
-                <div class="overline">Defense Engineering</div>
-                <div class="ng-divider"></div>
-                <h2>Built to Operate at the Edge</h2>
-                <p class="ng-section-sub">The hardware I build has to survive adversarial conditions. Security knowledge applied at the firmware and infrastructure boundary, not bolted on afterward.</p>
-            </div>
-
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;">
-
-                <div class="disc-card">
-                    <div class="disc-icon-wrap">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <div class="disc-label">Firmware Layer</div>
-                    <div class="disc-title">Embedded Security Integration</div>
-                    <div class="disc-desc">AES-128 encryption and MQTT TLS 1.2 on ESP32 telemetry pipelines. NERC CIP-compliant data handling validated end-to-end, not bolted on after the fact.</div>
-                </div>
-
-                <div class="disc-card">
-                    <div class="disc-icon-wrap">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                    </div>
-                    <div class="disc-label">Failure Modeling</div>
-                    <div class="disc-title">Cascading Failure Analysis</div>
-                    <div class="disc-desc">PulseGrid AI simulates failure propagation across 7 infrastructure dependency layers and 500+ outage scenarios. Identifying failure vectors before they propagate is an engineering discipline.</div>
-                </div>
-
-                <div class="disc-card">
-                    <div class="disc-icon-wrap">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                    </div>
-                    <div class="disc-label">Research &middot; CIBR Lab</div>
-                    <div class="disc-title">AI Threat Intelligence Research</div>
-                    <div class="disc-desc">Classified 100+ hardware and software scam cases to support AI model training at USF CIBR Lab. Mapped deterministic logic flows with 100% traceability.</div>
-                </div>
-
-            </div>
-
-            <div style="margin-top:2rem;padding:1.75rem 2rem;border:1px solid var(--border-red);border-radius:3px;background:rgba(220,38,38,0.04);">
-                <div style="display:flex;flex-direction:column;gap:1rem;">
-                    <div>
-                        <div class="overline" style="margin-bottom:0.4rem;">Operational Context</div>
-                        <p style="font-size:0.875rem;color:var(--text-2);line-height:1.65;margin:0;">Defense and utility infrastructure operates at the intersection of physical and digital threat surfaces. CompTIA Security+ (Jan 2026) &middot; GNSI Tampa Summit 6 &middot; CIBR Lab (Mar 2026 to present) &middot; President, USF SCOPE.</p>
-                    </div>
-                    <a href="credentials.html" class="btn-outline" style="align-self:flex-start;">Credentials &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- ── CTA ────────────────────────────────────────────────── -->
     <section class="ng-section" style="background:rgba(7,8,10,0.74);">
@@ -1477,5 +1591,54 @@
     </script>
     <script src="js/page-anim.js" defer></script>
     <script src="main.js"></script>
+
+
+    <script>
+    (function () {
+        'use strict';
+
+        // ── Intro loader ──────────────────────────────────────────────
+        var intro = document.getElementById('intro');
+        if (intro) {
+            var dismissIntro = function () {
+                intro.classList.add('is-out');
+                document.body.classList.remove('is-loading');
+            };
+            var alreadySeen = sessionStorage.getItem('de-intro-seen');
+            if (alreadySeen) {
+                intro.style.display = 'none';
+                document.body.classList.remove('is-loading');
+            } else {
+                sessionStorage.setItem('de-intro-seen', '1');
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    dismissIntro();
+                } else {
+                    // bar: 0.7s delay + 1.3s fill = 2s; buffer to 2.2s
+                    setTimeout(dismissIntro, 2200);
+                }
+            }
+        }
+
+        // ── Page-wipe transitions ─────────────────────────────────────
+        var wipe = document.getElementById('page-wipe');
+        if (wipe) {
+            // Wipe out if we arrived via a wipe-in
+            if (sessionStorage.getItem('de-wipe-in')) {
+                sessionStorage.removeItem('de-wipe-in');
+                wipe.classList.add('is-out');
+            }
+            // Intercept internal nav links
+            document.querySelectorAll('a[href]').forEach(function (a) {
+                var href = a.getAttribute('href');
+                if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    sessionStorage.setItem('de-wipe-in', '1');
+                    wipe.classList.add('is-in');
+                    setTimeout(function () { window.location.href = href; }, 430);
+                });
+            });
+        }
+    })();
+    </script>
 </body>
-</html>
