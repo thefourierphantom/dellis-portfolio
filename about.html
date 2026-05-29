@@ -3,316 +3,679 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Dontavious Ellis — Defense EE · GPS-Denied Navigation · Orbital Corp Intern</title>
-    <meta name="description" content="About Dontavious Ellis: Electrical Engineering student at USF focused on defense systems engineering — GPS-denied navigation, tactical communications hardware, embedded firmware, and resilient infrastructure. Currently interning at Orbital Corporation and founding ARMS.">
+    <title>About | Dontavious Ellis: Cybersecurity · DFIR · USF CIBR Lab</title>
+    <meta name="description" content="About Dontavious Ellis: Cybersecurity student at USF, DFIR and threat intelligence focus. Research assistant at USF CIBR Lab, Technical Development Chair for NSBE USF. Building toward Tactical Intelligence Group (TIG).">
     <link rel="canonical" href="https://dontaviousellis.com/about.html">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0b1220">
-    <meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
-    <meta property="og:title" content="About | Dontavious Ellis — Defense EE · GPS-Denied Navigation · Orbital Corp Intern">
-    <meta property="og:description" content="About Dontavious Ellis: Electrical Engineering student at USF focused on defense systems engineering — GPS-denied navigation, tactical communications hardware, embedded firmware, and resilient infrastructure. Currently interning at Orbital Corporation and founding ARMS.">
+    <meta property="og:site_name" content="Dontavious Ellis">
+    <meta property="og:title" content="About | Dontavious Ellis: Cybersecurity · DFIR · USF CIBR Lab">
+    <meta property="og:description" content="About Dontavious Ellis: Cybersecurity student at USF, DFIR and threat intelligence focus. Research assistant at USF CIBR Lab, Technical Development Chair for NSBE USF.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dontaviousellis.com/about.html">
     <meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About | Dontavious Ellis — Defense EE · GPS-Denied Navigation · Orbital Corp Intern">
-    <meta name="twitter:description" content="About Dontavious Ellis: Electrical Engineering student at USF focused on defense systems engineering — GPS-denied navigation, tactical communications hardware, embedded firmware, and resilient infrastructure. Currently interning at Orbital Corporation and founding ARMS.">
+    <meta name="twitter:title" content="About | Dontavious Ellis: Cybersecurity · DFIR · USF CIBR Lab">
+    <meta name="twitter:description" content="About Dontavious Ellis: Cybersecurity student at USF, DFIR and threat intelligence focus.">
     <meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
+    <meta name="keywords" content="Dontavious Ellis, cybersecurity, DFIR, threat intelligence, USF CIBR Lab, NSBE, Security+, signals security, digital forensics, Tampa">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        /* ── Design System ─────────────────────────────────── */
+        :root {
+            --bg-0:  #07080a;
+            --bg-1:  #0a0b0d;
+            --bg-2:  #0d0e11;
+            --bg-3:  #111214;
+            --bg-card: #141516;
+            --text-1: #ffffff;
+            --text-2: #b0b4bc;
+            --text-3: rgba(255,255,255,0.38);
+            --red:    #dc2626;
+            --red-lt: #ef4444;
+            --border: rgba(255,255,255,0.07);
+            --border-red: rgba(220,38,38,0.30);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-1);
+            color: var(--text-1);
+            overflow-x: hidden;
+            margin: 0;
+        }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .card { transition: all .25s ease; }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,.08); }
-        .pill { background: linear-gradient(135deg, #dc2626, #b91c1c); }
-        .soft { border: 1px solid rgba(0,0,0,.08); }
+
+        /* ── Overline ── */
+        .overline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            color: var(--red-lt);
+        }
+
+        /* ── NAV ────────────────────────────────────────────── */
+        .ng-nav {
+            background: rgba(7,8,10,0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+        }
+        .ng-nav-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .ng-logo {
+            display: flex; align-items: flex-start;
+            text-decoration: none;
+        }
+        .ng-logo-block {
+            display: flex; flex-direction: column; gap: 3px;
+        }
+        .ng-logo-top {
+            display: flex; align-items: center; gap: 7px;
+        }
+        .ng-bolt-svg {
+            width: 11px; height: 19px; flex-shrink: 0;
+        }
+        .ng-logo-name {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.10em;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .ng-logo-line-wrap {
+            display: flex; align-items: center; gap: 4px;
+        }
+        .ng-logo-line-left, .ng-logo-line-right {
+            flex: 1; height: 1px;
+            background: rgba(220,38,38,0.45);
+        }
+        .ng-logo-line-dot {
+            width: 3px; height: 3px; border-radius: 50%;
+            background: var(--red);
+        }
+        .ng-logo-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.52rem;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.32);
+            text-transform: uppercase;
+        }
+        .ng-links { display: flex; gap: 2rem; align-items: center; }
+        .ng-links a {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.80rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color 0.2s;
+            text-transform: uppercase;
+        }
+        .ng-links a:hover, .ng-links a.active { color: #fff; }
+        .ng-links a.active { color: #fff; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
+        .ng-links .cta-link {
+            border: 1px solid rgba(220,38,38,0.40);
+            color: rgba(239,68,68,0.90) !important;
+            padding: 6px 16px;
+            border-radius: 3px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .ng-links .cta-link:hover {
+            background: rgba(220,38,38,0.10);
+            border-color: rgba(220,38,38,0.65);
+            color: #f87171 !important;
+        }
+
+        /* Mobile menu links */
+        #mobile-menu a {
+            display: block;
+            padding: 0.6rem 1rem;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+        #mobile-menu a:hover { color: #fff; }
+        #mobile-menu { background: #07080a; }
+
+        /* ── HERO ───────────────────────────────────────────── */
+        .ng-page-hero {
+            position: relative;
+            padding: 7rem 0 5rem;
+            background: var(--bg-0);
+            overflow: hidden;
+        }
+        .ng-page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('resources/hero-forensic.png') center/cover no-repeat;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+        .ng-page-hero-inner {
+            position: relative; z-index: 2;
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        /* Red scan line on hero bottom edge */
+        .ng-page-hero::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(220,38,38,0.12) 8%,
+                rgba(220,38,38,0.65) 30%,
+                rgba(220,38,38,0.65) 70%,
+                rgba(220,38,38,0.12) 92%,
+                transparent 100%
+            );
+        }
+
+        /* ── SECTION BASE ────────────────────────────────────── */
+        .ng-section {
+            padding: 5rem 0;
+            background: var(--bg-1);
+        }
+        .ng-section-alt {
+            padding: 5rem 0;
+            background: var(--bg-0);
+        }
+        .ng-section-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ── SECTION LABEL / HEADER ──────────────────────────── */
+        .ng-section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.60rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--red-lt);
+            margin-bottom: 0.75rem;
+        }
+        .ng-section-title {
+            font-size: clamp(1.6rem, 3vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-1);
+            margin-bottom: 0.5rem;
+        }
+        .ng-section-sub {
+            font-size: 0.95rem;
+            color: var(--text-2);
+            max-width: 640px;
+            line-height: 1.65;
+        }
+
+        /* ── CARDS ───────────────────────────────────────────── */
+        .ng-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.75rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .ng-card:hover {
+            border-color: var(--border-red);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+        }
+        .ng-card-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            margin-bottom: 0.4rem;
+        }
+        .ng-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-1);
+            margin-bottom: 0.5rem;
+        }
+        .ng-card-body {
+            font-size: 0.875rem;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        /* ── TAG PILLS ───────────────────────────────────────── */
+        .ng-tag {
+            display: inline-flex; align-items: center;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid var(--border-red);
+            color: rgba(239,68,68,0.85);
+            background: rgba(220,38,38,0.06);
+        }
+        .ng-tag-muted {
+            border-color: var(--border);
+            color: var(--text-3);
+            background: transparent;
+        }
+
+        /* ── BORDER-LEFT ENTRIES ─────────────────────────────── */
+        .ng-entry {
+            border-left: 2px solid var(--red);
+            padding-left: 1.25rem;
+        }
+        .ng-entry-inactive {
+            border-left: 2px solid rgba(255,255,255,0.12);
+            padding-left: 1.25rem;
+        }
+        .ng-entry-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-1);
+        }
+        .ng-entry-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: var(--text-3);
+            margin-top: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .ng-entry-body {
+            font-size: 0.875rem;
+            color: var(--text-2);
+            line-height: 1.65;
+        }
+
+        /* ── BUTTONS ─────────────────────────────────────────── */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            background: var(--red);
+            color: #fff;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background: var(--red-lt); }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.20);
+            color: rgba(255,255,255,0.75);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 3px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { border-color: rgba(255,255,255,0.50); color: #fff; }
+
+        /* ── PROFILE CARD ────────────────────────────────────── */
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            position: sticky;
+            top: 88px;
+        }
+        .profile-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+        .profile-card-body {
+            padding: 1.5rem;
+        }
+        .profile-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.82rem;
+        }
+        .profile-stat:last-child { border-bottom: none; }
+        .profile-stat-key { color: var(--text-3); font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
+        .profile-stat-val { color: var(--text-1); font-weight: 600; text-align: right; }
+
+        /* ── FOOTER ──────────────────────────────────────────── */
+        .ng-footer {
+            background: var(--bg-0);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 2rem;
+        }
+        .ng-footer-inner {
+            max-width: 1280px; margin: 0 auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+        .ng-footer-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.50);
+            margin-bottom: 0.35rem;
+        }
+        .ng-footer-sub {
+            font-size: 0.75rem;
+            color: var(--text-3);
+            margin-bottom: 1.25rem;
+        }
+        .ng-footer-disc {
+            font-size: 0.70rem;
+            color: rgba(255,255,255,0.18);
+            max-width: 640px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+        .ng-footer-copy {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.18);
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── CIRCUIT PATTERN SECTION ─────────────────────────── */
+        .ng-section-circuit {
+            position: relative;
+        }
+        .ng-section-circuit::before {
+            content: '';
+            position: absolute; inset: 0;
+            pointer-events: none; z-index: 0;
+            opacity: 0.07;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Crect width='280' height='280' fill='none'/%3E%3Cline x1='40' y1='0' x2='40' y2='60' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='40' y1='60' x2='120' y2='60' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='120' y1='60' x2='120' y2='20' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='120' y1='20' x2='200' y2='20' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='200' y1='20' x2='200' y2='100' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='0' y1='140' x2='80' y2='140' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='80' y1='140' x2='80' y2='200' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='80' y1='200' x2='160' y2='200' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='160' y1='200' x2='160' y2='160' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='160' y1='160' x2='240' y2='160' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='240' y1='160' x2='240' y2='280' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='40' cy='60' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='120' cy='60' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='200' cy='20' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='80' cy='140' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='160' cy='200' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Crect x='34' y='54' width='12' height='12' rx='1' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Crect x='154' y='154' width='12' height='12' rx='1' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3C/svg%3E");
+            background-size: 280px 280px;
+        }
+        .ng-section-circuit > * { position: relative; z-index: 1; }
     </style>
     <link rel="stylesheet" href="css/reveal.css" />
     <link rel="stylesheet" href="css/scroll.css" />
-    <meta name="keywords" content="Dontavious Ellis, defense electrical engineer, GPS-denied navigation, tactical communications, Orbital Corporation, USF electrical engineering, embedded systems, power systems, defense contractor, Lockheed Martin, Raytheon, L3Harris, Northrop Grumman, ARMS navigation">
 </head>
 
-<body class="bg-gray-50 text-gray-900 reveal">
+<body class="reveal">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="flex items-center hover:opacity-80 transition">
-                    <span class="mono text-lg font-semibold text-gray-900">DE</span>
-                    <span class="ml-2 text-sm text-gray-600">Electrical Engineering · Systems</span>
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                    <a href="about.html" class="text-gray-900 font-medium border-b-2 border-red-500 pb-1">About</a>
-                    <a href="projects.html" class="text-gray-600 hover:text-gray-900 transition-colors">Projects</a>
-                    <a href="skills.html" class="text-gray-600 hover:text-gray-900 transition-colors">Skills</a>
-                    <a href="credentials.html" class="text-gray-600 hover:text-gray-900 transition-colors">Credentials</a>
-                    <a href="resume.html" class="text-gray-600 hover:text-gray-900 transition-colors">Resume</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    <!-- ── NAVIGATION ─────────────────────────────────────────── -->
+    <nav class="ng-nav">
+        <div class="ng-nav-inner">
+            <a href="index.html" class="ng-logo">
+                <div class="ng-logo-block">
+                    <div class="ng-logo-top">
+                        <svg class="ng-bolt-svg" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/>
                         </svg>
-                    </button>
+                        <span class="ng-logo-name">Dontavious Ellis</span>
+                    </div>
+                    <div class="ng-logo-line-wrap">
+                        <div class="ng-logo-line-left"></div>
+                        <div class="ng-logo-line-dot"></div>
+                        <div class="ng-logo-line-right"></div>
+                    </div>
+                    <span class="ng-logo-sub">EE &nbsp;&middot;&nbsp; Defense Systems</span>
                 </div>
+            </a>
+            <div class="ng-links hidden md:flex">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="resume.html" class="cta-link">Resume</a>
             </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white opacity-70 hover:opacity-100" aria-label="Open menu" aria-expanded="false">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
-                <a href="about.html" class="block px-3 py-2 text-gray-900 font-medium">About</a>
-                <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
-                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
-                <a href="credentials.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Credentials</a>
-                <a href="resume.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Resume</a>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-4 py-3 space-y-1">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="resume.html">Resume</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="text-white py-20 relative overflow-hidden" style="background-color:#0d1b2e;">
-        <div class="absolute inset-0 z-0" style="opacity:0.28;">
-            <img src="resources/hero-forensic.png" alt="" class="w-full h-full object-cover" aria-hidden="true">
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-4xl">
-                <div class="mono text-xs tracking-widest text-red-400 mb-4">
-                    ELECTRICAL ENGINEERING · POWER SYSTEMS · EMBEDDED · INFRASTRUCTURE
-                </div>
-                <div class="flex-1">
-                    <h1 class="text-4xl lg:text-5xl font-bold leading-tight">
-                        About
-                    </h1>
-                    <p class="text-xl text-gray-300 mt-4 max-w-3xl">
-                        EE student at the University of South Florida designing resilient power, embedded, and infrastructure systems. Security hardening is a technical differentiator — applied at the layer most engineers never reach.
-                    </p>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold pill text-white">B.S. Electrical Engineering</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-200 soft">CIBR Lab Researcher</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-200 soft">Security+ Certified</span>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-200 soft">NSBE Tech Dev Chair</span>
-                    </div>
-                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                        <a href="projects.html" class="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                            View Projects
-                        </a>
-                        <a href="resume.html" class="inline-flex items-center justify-center border border-white/30 hover:bg-white hover:text-gray-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                            View Resume
-                        </a>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-4 mt-10">
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-4">
-                        <div class="mono text-xs text-gray-400 mb-1">FOCUS</div>
-                        <div class="text-sm text-gray-200">Power systems, embedded firmware, infrastructure modeling, secure-by-design engineering</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-4">
-                        <div class="mono text-xs text-gray-400 mb-1">APPROACH</div>
-                        <div class="text-sm text-gray-200">Systems thinking, measurable outcomes, hardware-to-software integration</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-4">
-                        <div class="mono text-xs text-gray-400 mb-1">DIRECTION</div>
-                        <div class="text-sm text-gray-200">Building ARMS — defense technology at the physical-digital engineering boundary</div>
-                    </div>
-                </div>
+    <!-- ── PAGE HERO ──────────────────────────────────────────── -->
+    <section class="ng-page-hero">
+        <div class="ng-page-hero-inner">
+            <div class="overline mb-4">Cybersecurity &nbsp;&middot;&nbsp; DFIR &nbsp;&middot;&nbsp; USF &nbsp;&middot;&nbsp; Tampa, FL</div>
+            <h1 style="font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:1.25rem;">
+                About
+            </h1>
+            <p style="font-size:1.05rem;color:var(--text-2);max-width:640px;line-height:1.7;">
+                Sophomore Cybersecurity student at USF with a background in Electrical Engineering. DFIR and threat intelligence are the core lane. Building toward founding the Tactical Intelligence Group.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6">
+                <span class="ng-tag">B.S. Cybersecurity</span>
+                <span class="ng-tag">CIBR Lab Researcher</span>
+                <span class="ng-tag">Security+</span>
+                <span class="ng-tag">NSBE Tech Dev Chair</span>
+            </div>
+            <div class="flex flex-wrap gap-3 mt-8">
+                <a href="projects.html" class="btn-primary">View Projects</a>
+                <a href="resume.html" class="btn-outline">Engineering Resume</a>
             </div>
         </div>
     </section>
 
-    <!-- Background -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ── BACKGROUND ─────────────────────────────────────────── -->
+    <section class="ng-section">
+        <div class="ng-section-inner">
             <div class="grid lg:grid-cols-3 gap-12 items-start">
+
+                <!-- Bio col -->
                 <div class="lg:col-span-2">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Background</h2>
-                    <div class="space-y-6 text-gray-600 leading-relaxed">
+                    <div class="ng-section-label">Background</div>
+                    <h2 class="ng-section-title">Who I Am</h2>
+                    <div style="font-size:0.92rem;color:var(--text-2);line-height:1.80;margin-top:1.5rem;" class="space-y-5">
                         <p>
-                            I'm an Electrical Engineering student at USF building at the hardware-software boundary — power monitoring nodes, electromechanical systems, and infrastructure models that have to work under real constraints. My projects start with circuit analysis, simulation, and bench testing, then layer in automation, firmware logic, and communications protocols.
+                            <!-- Biography placeholder: user will provide foundational copy -->
+                            I'm a sophomore Cybersecurity student at the University of South Florida with a background in Electrical Engineering. My core lane is Digital Forensics and Incident Response (DFIR) and threat intelligence, and I'm expanding into signals security and hardware/firmware. I bring an engineering foundation to security work, which means I understand the physical layer most analysts never touch.
                         </p>
                         <p>
-                            My differentiator isn't a security background applied to engineering. It's an engineering foundation that makes security rigorous. I've architected a NERC CIP-compliant IIoT grid monitor, designed a PWM-controlled power distribution unit validated with oscilloscopes, and built load-flow simulations in MATLAB that model cascading infrastructure failures at scale.
+                            I'm a research assistant at the USF CIBR Lab, working alongside criminologists and security researchers on behavioral AI interaction research and the SeniorSafe AI project. I serve as Technical Development Chair for NSBE USF, running workshops, developing Arduino curriculum for K-12 outreach, and leading technical programming for a 100+ member chapter.
                         </p>
                         <p>
-                            I'm a research assistant at the USF CIBR Lab, analyzing human-AI interaction datasets and working alongside criminologists and security researchers on behavioral and technical security problems. I serve as Technical Development Chair for NSBE USF, running workshops, developing Arduino curriculum for K-12 outreach, and leading technical programming for a chapter of 100+ engineering students.
-                        </p>
-                        <p>
-                            The long-term target is founding ARMS — Applied Research in Military Systems. A project-first defense engineering organization at USF, launching Spring 2027. The first project is a GPS-denied inertial navigation system built to professional engineering documentation standards. Everything being built now is foundation for that.
+                            Everything right now is infrastructure. The long-term target is founding the Tactical Intelligence Group (TIG): a defense technology firm operating at the physical-digital threat boundary. Elite DFIR internship Summer 2027. That's the mission.
                         </p>
                     </div>
 
-                    <div class="mt-10 grid md:grid-cols-2 gap-6">
-                        <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Education</h3>
-                            <p class="text-sm text-gray-600">
-                                University of South Florida — B.S. Electrical Engineering (Expected May 2028). Core Foundations: Electrical Systems I (AC/DC Analysis), Modeling & Analysis of Engineering Systems (MATLAB/Simulink).
-                            </p>
+                    <div class="grid md:grid-cols-2 gap-4 mt-10">
+                        <div class="ng-card">
+                            <div class="ng-card-label">Education</div>
+                            <div class="ng-card-title">University of South Florida</div>
+                            <div class="ng-card-body">B.S. Cybersecurity &nbsp;&middot;&nbsp; Expected May 2028. Background in EE coursework including AC/DC circuit analysis and MATLAB/Simulink systems modeling.</div>
                         </div>
-                        <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Certification</h3>
-                            <p class="text-sm text-gray-600">
-                                CompTIA Security+ (Jan 2026) — infrastructure security, secure protocols, and identity management. Verification available upon request.
-                            </p>
+                        <div class="ng-card">
+                            <div class="ng-card-label">Certification</div>
+                            <div class="ng-card-title">CompTIA Security+</div>
+                            <div class="ng-card-body">Issued January 2026. Infrastructure security, secure protocols, and identity management. Verification available upon request.</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Profile card -->
                 <aside class="lg:col-span-1">
-                    <div class="card bg-gray-50 border border-gray-200 rounded-lg p-6 sticky top-24">
-                        <img src="resources/profile.jpg" alt="Dontavious Ellis"
-                             class="w-full aspect-square object-cover rounded-lg shadow-sm ring-1 ring-black/5" />
-                        <div class="mt-5">
-                            <div class="mono text-xs tracking-widest text-gray-500">PROFILE</div>
-                            <div class="text-lg font-semibold text-gray-900 mt-1">Dontavious Ellis</div>
-                            <div class="text-sm text-gray-600 mt-1">Electrical Engineering · Power · Embedded · Infrastructure</div>
-                            <div class="mt-5 space-y-3 text-sm">
-                                <div class="flex items-start justify-between gap-4">
-                                    <span class="text-gray-500">Location</span>
-                                    <span class="font-medium text-gray-900 text-right">Tampa, FL</span>
+                    <div class="profile-card">
+                        <img src="resources/profile.jpg" alt="Dontavious Ellis">
+                        <div class="profile-card-body">
+                            <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.6rem;">Profile</div>
+                            <div style="font-size:1.05rem;font-weight:700;color:var(--text-1);margin-bottom:0.2rem;">Dontavious Ellis</div>
+                            <div style="font-size:0.78rem;color:var(--text-2);margin-bottom:1.25rem;">Cybersecurity &nbsp;&middot;&nbsp; DFIR &nbsp;&middot;&nbsp; Threat Intel</div>
+                            <div class="space-y-1">
+                                <div class="profile-stat">
+                                    <span class="profile-stat-key">Location</span>
+                                    <span class="profile-stat-val">Tampa, FL</span>
                                 </div>
-                                <div class="flex items-start justify-between gap-4">
-                                    <span class="text-gray-500">Primary lane</span>
-                                    <span class="font-medium text-gray-900 text-right">EE / Power & Embedded</span>
+                                <div class="profile-stat">
+                                    <span class="profile-stat-key">Core Lane</span>
+                                    <span class="profile-stat-val">DFIR / Threat Intel</span>
                                 </div>
-                                <div class="flex items-start justify-between gap-4">
-                                    <span class="text-gray-500">Research</span>
-                                    <span class="font-medium text-gray-900 text-right">USF CIBR Lab</span>
+                                <div class="profile-stat">
+                                    <span class="profile-stat-key">Research</span>
+                                    <span class="profile-stat-val">USF CIBR Lab</span>
                                 </div>
-                                <div class="flex items-start justify-between gap-4">
-                                    <span class="text-gray-500">Building</span>
-                                    <span class="font-medium text-gray-900 text-right">ARMS</span>
+                                <div class="profile-stat">
+                                    <span class="profile-stat-key">Building</span>
+                                    <span class="profile-stat-val">TIG (Tactical Intel Group)</span>
                                 </div>
-                                <div class="flex items-start justify-between gap-4">
-                                    <span class="text-gray-500">Target</span>
-                                    <span class="font-medium text-gray-900 text-right">EE internship 2027</span>
+                                <div class="profile-stat">
+                                    <span class="profile-stat-key">Target</span>
+                                    <span class="profile-stat-val">DFIR Internship 2027</span>
                                 </div>
                             </div>
-                            <div class="mt-6 flex flex-col gap-2">
-                                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            <div class="flex flex-col gap-2 mt-5">
+                                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="justify-content:center;font-size:0.75rem;">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                                     LinkedIn
                                 </a>
-                                <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener noreferrer" class="btn-outline" style="justify-content:center;font-size:0.75rem;border-color:var(--border);">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                                     GitHub
-                                </a>
-                                <a href="credentials.html" class="inline-flex items-center justify-center border border-gray-200 hover:bg-white text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                                    Credentials
                                 </a>
                             </div>
                         </div>
                     </div>
                 </aside>
+
             </div>
         </div>
     </section>
 
-    <!-- Active Work -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Active Work</h2>
-                <p class="text-xl text-gray-600 mt-3 max-w-3xl mx-auto">
-                    What's currently in progress across research, builds, and technical development.
-                </p>
-            </div>
+    <!-- ── ACTIVE WORK ─────────────────────────────────────────── -->
+    <section class="ng-section-alt ng-section-circuit">
+        <div class="ng-section-inner">
+            <div class="ng-section-label">Currently Executing</div>
+            <h2 class="ng-section-title" style="margin-bottom:2.5rem;">Active Work</h2>
 
-            <div class="grid lg:grid-cols-2 gap-8 items-start">
-                <!-- Current Projects -->
-                <div class="card bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Current Projects</h3>
+            <div class="grid lg:grid-cols-2 gap-6">
+
+                <!-- Active Projects -->
+                <div class="ng-card">
+                    <div class="ng-card-label" style="margin-bottom:1.25rem;">Current Projects</div>
                     <div class="space-y-6">
-                        <div class="border-l-4 border-red-500 pl-6">
-                            <h4 class="text-lg font-semibold text-gray-900">Enterprise Infrastructure Home Lab</h4>
-                            <p class="text-sm text-gray-500 mt-1">Feb 2026 – Present</p>
-                            <p class="text-sm text-gray-600 mt-3">
-                                MATLAB load-flow simulations modeling service recovery strategies and grid restoration. PulseGrid AI simulating cascading failure propagation across 7 infrastructure layers (500+ unique outage scenarios). Bash automation reducing manual diagnostic time by 40%. Infrastructure for both EE modeling and security lab work.
-                            </p>
+                        <div class="ng-entry">
+                            <div class="ng-entry-title">Trace &nbsp;&middot;&nbsp; HackUSF 2026</div>
+                            <div class="ng-entry-meta">Solo Build &nbsp;&middot;&nbsp; Threat Intel Fusion Workbench</div>
+                            <div class="ng-entry-body">Solo threat intelligence fusion workbench built for HackUSF 2026. Aggregates OSINT signals, network indicators, and behavioral data into a single analyst interface.</div>
                         </div>
-                        <div class="border-l-4 border-gray-300 pl-6">
-                            <h4 class="text-lg font-semibold text-gray-900">CIBR Lab — AI Systems & Research</h4>
-                            <p class="text-sm text-gray-500 mt-1">USF · Mar 2026 – Present</p>
-                            <p class="text-sm text-gray-600 mt-3">
-                                Analyzing 500+ human-AI interaction datasets to identify cognitive biases susceptible to social engineering. Working with an interdisciplinary team of criminologists and security researchers to improve technical and non-technical security capabilities.
-                            </p>
+                        <div class="ng-entry">
+                            <div class="ng-entry-title">CIBR Lab &nbsp;&middot;&nbsp; AI Systems Research</div>
+                            <div class="ng-entry-meta">USF &nbsp;&middot;&nbsp; Mar 2026 &ndash; Present</div>
+                            <div class="ng-entry-body">Analyzing 500+ human-AI interaction datasets to identify cognitive biases susceptible to social engineering. Contributing to SeniorSafe AI, a conversational AI system supporting cybercrime victims.</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Completed Projects + Credentials -->
-                <div class="card bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Completed Projects & Credentials</h3>
+                <!-- Completed + Credentials -->
+                <div class="ng-card">
+                    <div class="ng-card-label" style="margin-bottom:1.25rem;">Completed + Credentials</div>
                     <div class="space-y-6">
-                        <div class="border-l-4 border-green-500 pl-6">
-                            <h4 class="text-lg font-semibold text-gray-900">Secure IIoT Smart Grid Edge Monitor</h4>
-                            <p class="text-sm text-gray-500 mt-1">Completed · Aug 2025 – Mar 2026</p>
-                            <p class="text-sm text-gray-600 mt-3">
-                                Real-time ESP32 power monitoring node: RMS Voltage, Current, Power Factor with &lt;3% error margin. Firmware FFT for THD detection. AES-128 + MQTT TLS 1.2 for NERC CIP-compliant data handling.
-                            </p>
-                            <a href="projects.html#project-01" class="inline-flex items-center text-red-700 hover:text-red-800 font-semibold text-sm mt-3">
-                                View Project →
-                            </a>
+                        <div class="ng-entry">
+                            <div class="ng-entry-title">Secure IIoT Smart Grid Edge Monitor</div>
+                            <div class="ng-entry-meta">Completed &nbsp;&middot;&nbsp; Aug 2025 &ndash; Mar 2026</div>
+                            <div class="ng-entry-body">ESP32 power monitoring node with &lt;3% RMS error. AES-128 + MQTT TLS 1.2 pipeline mapped to NERC CIP compliance framework.</div>
+                            <a href="projects.html#project-01" style="font-size:0.78rem;color:var(--red-lt);font-weight:600;text-decoration:none;margin-top:0.4rem;display:inline-block;">View Project &rarr;</a>
                         </div>
-                        <div class="border-l-4 border-green-500 pl-6">
-                            <h4 class="text-lg font-semibold text-gray-900">Smart Load-Shedding & Power Distribution Controller</h4>
-                            <p class="text-sm text-gray-500 mt-1">Completed · Dec 2025 – Jan 2026</p>
-                            <p class="text-sm text-gray-600 mt-3">
-                                ESP32-based power distribution unit with ±0.5% current sensing. PWM trip-logic maintaining system stability within 10% of peak rated capacity. Oscilloscope-validated, reducing electrical noise (Vpp) by 35%.
-                            </p>
-                        </div>
-                        <div class="border-l-4 border-red-500 pl-6">
-                            <h4 class="text-lg font-semibold text-gray-900">CompTIA Security+</h4>
-                            <p class="text-sm text-gray-500 mt-1">Issued Jan 2026</p>
-                            <p class="text-sm text-gray-600 mt-3">
-                                Infrastructure security, secure protocols, and identity management. Verification available upon request.
-                            </p>
+                        <div class="ng-entry-inactive">
+                            <div class="ng-entry-title">CompTIA Security+</div>
+                            <div class="ng-entry-meta">Issued Jan 2026</div>
+                            <div class="ng-entry-body">Infrastructure security, secure protocols, and identity management.</div>
                         </div>
                     </div>
+                </div>
+
+            </div>
+
+            <!-- Stat row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="ng-card" style="text-align:center;padding:1.25rem;">
+                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">2</div>
+                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">Active Projects</div>
+                </div>
+                <div class="ng-card" style="text-align:center;padding:1.25rem;">
+                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">2</div>
+                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">Lab Investigations</div>
+                </div>
+                <div class="ng-card" style="text-align:center;padding:1.25rem;">
+                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">1</div>
+                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">Certification</div>
+                </div>
+                <div class="ng-card" style="text-align:center;padding:1.25rem;">
+                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">100+</div>
+                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">NSBE Members Led</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-20 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-6">Open to Opportunities</h2>
-            <p class="text-xl text-gray-300 mb-8">
-                Targeting EE internships in power systems, embedded engineering, and infrastructure — with a security-hardening edge. Primary target window: Summer 2027. Open to conversations now.
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <section class="ng-section" style="padding:4rem 0;">
+        <div class="ng-section-inner" style="text-align:center;">
+            <div class="ng-section-label" style="justify-content:center;display:flex;">Open to Opportunities</div>
+            <h2 class="ng-section-title" style="margin-bottom:1rem;">Targeting DFIR Internships &nbsp;&middot;&nbsp; Summer 2027</h2>
+            <p class="ng-section-sub" style="margin:0 auto 2rem;text-align:center;">
+                Primary focus: elite DFIR and threat intelligence roles. Open to conversations now. Everything being built is infrastructure for that goal.
             </p>
-            <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="btn-primary">
                 Connect on LinkedIn
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="mono text-lg font-semibold mb-2">Dontavious Ellis</div>
-                <div class="text-sm text-gray-400 mb-4">Electrical Engineering · Power Systems · Embedded · Infrastructure</div>
-                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
-                    <p>All investigations and case studies presented are simulated exercises conducted for educational and professional demonstration purposes. No real individuals were investigated and all scenarios are fictional or appropriately sanitized.</p>
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-700 text-xs text-gray-500">
-                    © 2026 Dontavious Ellis. All rights reserved.
-                </div>
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer class="ng-footer">
+        <div class="ng-footer-inner">
+            <div class="ng-footer-name">Dontavious Ellis</div>
+            <div class="ng-footer-sub">Cybersecurity &nbsp;&middot;&nbsp; DFIR &nbsp;&middot;&nbsp; Threat Intelligence &nbsp;&middot;&nbsp; USF</div>
+            <div class="ng-footer-disc">
+                All investigations and case studies presented are simulated exercises conducted for educational and professional demonstration purposes. No real individuals were investigated and all scenarios are fictional or appropriately sanitized.
             </div>
+            <div class="ng-footer-copy">&copy; 2026 Dontavious Ellis. All rights reserved.</div>
         </div>
     </footer>
 
+    <script>
+        // Mobile menu toggle
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+            btn.addEventListener('click', function () {
+                var open = menu.classList.toggle('hidden');
+                btn.setAttribute('aria-expanded', String(!open));
+            });
+        }
+    </script>
     <script src="js/page-anim.js" defer></script>
     <script src="main.js"></script>
     <script data-global-fade>
         requestAnimationFrame(() => document.body.classList.add('reveal-in'));
     </script>
 </body>
-</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+</html>

@@ -1,3 +1,53 @@
+// ─── Zoom persistence ────────────────────────────────────────────────────────
+// Chrome stores zoom per-URL on file:// protocol, causing "reset to 100%" on
+// navigation. This reads/writes the user's preferred zoom to localStorage and
+// compensates with CSS zoom whenever the browser loads a page at the wrong level.
+(function zoomPersist() {
+  var KEY = 'de-zoom';
+  var targetZoom = 1; // the zoom level the user actually wants
+
+  // outerWidth / innerWidth ≈ browser zoom level (1.0 = 100%, 0.75 = 75%, etc.)
+  function readBrowserZoom() {
+    var ow = window.outerWidth, iw = window.innerWidth;
+    if (ow && iw && iw > 0) return Math.round(ow / iw * 1000) / 1000;
+    return 1;
+  }
+
+  var browserZoom = readBrowserZoom();
+  var stored = parseFloat(localStorage.getItem(KEY));
+
+  if (stored && Math.abs(stored - browserZoom) > 0.05) {
+    // Browser loaded this page at a different zoom than the user last used —
+    // apply CSS zoom to compensate so it feels seamless.
+    document.documentElement.style.zoom = stored;
+    targetZoom = stored;
+  } else {
+    // Zoom already matches (or first ever visit) — record it.
+    targetZoom = stored || browserZoom;
+    localStorage.setItem(KEY, targetZoom);
+  }
+
+  // Detect user-initiated zoom changes: Ctrl+/- or pinch-to-zoom changes
+  // devicePixelRatio whereas a plain window resize does not.
+  var lastDpr = window.devicePixelRatio;
+  window.addEventListener('resize', function () {
+    if (window.devicePixelRatio !== lastDpr) {
+      lastDpr = window.devicePixelRatio;
+      // User explicitly changed browser zoom — drop CSS compensation and
+      // record the new level so all future pages load at the same zoom.
+      document.documentElement.style.zoom = '';
+      targetZoom = readBrowserZoom();
+      localStorage.setItem(KEY, targetZoom);
+    }
+  });
+
+  // Persist on navigation so the next page can read it immediately.
+  window.addEventListener('beforeunload', function () {
+    localStorage.setItem(KEY, targetZoom);
+  });
+})();
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Main JavaScript for Digital Forensics Portfolio
 document.addEventListener('DOMContentLoaded', function() {
     
