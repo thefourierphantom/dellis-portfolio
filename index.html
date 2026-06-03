@@ -824,92 +824,217 @@
         }
 
 
-        /* ── Intro loader ────────────────────────────────────── */
-        @keyframes introFade    { to { opacity: 1; } }
-        @keyframes introBar     { to { width: 100%; } }
-        @keyframes introRevealR {
-            from { clip-path: inset(0 100% 0 0); opacity: 0; transform: translateX(-10px); }
-            to   { clip-path: inset(0 0% 0 0);   opacity: 1; transform: translateX(0); }
-        }
-
+        /* ── Intro loader (tactical boot sequence) ──────────────── */
         body.is-loading { overflow: hidden; }
 
         #intro {
             position: fixed !important;
-            top: 0 !important; left: 0 !important;
-            right: 0 !important; bottom: 0 !important;
+            inset: 0 !important;
             width: 100vw !important; height: 100vh !important;
             z-index: 99999 !important;
-            background-color: #05070b !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0 24px;
-            transition: opacity 0.6s ease 0.1s, visibility 0.6s ease 0.1s;
+            background: #05070b !important;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.65s ease 0.05s, visibility 0.65s ease 0.05s;
         }
         #intro.is-out {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
+            opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
         }
 
-        .ld-eye {
+        /* Red scanline sweep */
+        .ld-scanline {
+            position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+        }
+        .ld-scanline::before {
+            content: '';
+            position: absolute; left: 0; right: 0; height: 3px; top: -4px;
+            background: linear-gradient(90deg, transparent 0%, rgba(220,38,38,0.18) 20%, rgba(220,38,38,0.75) 50%, rgba(220,38,38,0.18) 80%, transparent 100%);
+            box-shadow: 0 0 28px 10px rgba(220,38,38,0.12);
+            animation: ld-scan 0.55s cubic-bezier(0.4,0,0.6,1) 0.05s both;
+        }
+        .ld-scanline::after {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
+        }
+        @keyframes ld-scan {
+            from { top: -4px; opacity: 0; }
+            8%   { opacity: 1; }
+            92%  { opacity: 1; }
+            to   { top: calc(100% + 4px); opacity: 0; }
+        }
+
+        /* HUD corner brackets */
+        .ld-bracket {
+            position: absolute; width: 0; height: 0;
+            animation: ld-bracket-grow 0.35s cubic-bezier(0.77,0,0.175,1) 0.22s forwards;
+        }
+        .ld-bracket.tl { top:  clamp(18px,3vw,40px); left:  clamp(18px,3vw,40px); border-top:  1.5px solid rgba(220,38,38,0.60); border-left:  1.5px solid rgba(220,38,38,0.60); }
+        .ld-bracket.tr { top:  clamp(18px,3vw,40px); right: clamp(18px,3vw,40px); border-top:  1.5px solid rgba(220,38,38,0.60); border-right: 1.5px solid rgba(220,38,38,0.60); }
+        .ld-bracket.bl { bottom: clamp(18px,3vw,40px); left:  clamp(18px,3vw,40px); border-bottom: 1.5px solid rgba(220,38,38,0.60); border-left:  1.5px solid rgba(220,38,38,0.60); }
+        .ld-bracket.br { bottom: clamp(18px,3vw,40px); right: clamp(18px,3vw,40px); border-bottom: 1.5px solid rgba(220,38,38,0.60); border-right: 1.5px solid rgba(220,38,38,0.60); }
+        @keyframes ld-bracket-grow {
+            to { width: clamp(26px,4vw,48px); height: clamp(26px,4vw,48px); }
+        }
+
+        /* Top data strip */
+        .ld-top-strip {
+            position: absolute; top: clamp(20px,3vw,42px);
+            left: 0; right: 0;
+            display: flex; align-items: center; justify-content: center; gap: 2.5rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            letter-spacing: 0.5em;
-            text-transform: uppercase;
-            color: rgba(220,38,38,0.80);
-            margin-bottom: 22px;
-            opacity: 0;
-            animation: introFade 0.5s ease 0.2s both;
+            font-size: clamp(7px,0.9vw,10px); letter-spacing: 0.24em; text-transform: uppercase;
+            opacity: 0; animation: ld-fade-up 0.4s ease 0.38s both;
+        }
+        .ld-coord    { color: rgba(255,255,255,0.26); }
+        .ld-timestamp { color: rgba(220,38,38,0.55); }
+        .ld-class    { color: rgba(220,38,38,0.40); }
+
+        /* Center nameplate */
+        .ld-center {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
 
-        .ld-title {
+        /* "DONTAVIOUS" ghost letterform above the big name */
+        .ld-pre {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(72px, 16vw, 160px);
-            font-weight: 900;
-            letter-spacing: -0.045em;
-            line-height: 1;
+            font-size: clamp(0.72rem, 2.2vw, 1.30rem);
+            font-weight: 300;
+            letter-spacing: clamp(0.55em, 1.6vw, 1.35em);
             color: transparent;
-            -webkit-text-stroke: 2px #dc2626;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.30);
             text-transform: uppercase;
-            animation: introRevealR 0.95s cubic-bezier(0.77,0,0.175,1) 0.3s both;
-            overflow: visible;
-            padding: 0 0.2em 0.05em 0;
+            margin-bottom: 0.12em;
+            opacity: 0;
+            animation: ld-reveal-l 0.65s cubic-bezier(0.77,0,0.175,1) 0.42s both;
         }
 
-        .ld-bar-w {
-            width: 220px; height: 2px;
-            background: rgba(255,255,255,0.08);
-            margin-top: 30px;
-            overflow: hidden;
+        /* "ELLIS" — the big hero letterform */
+        .ld-name {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(80px, 19vw, 210px);
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 0.88;
+            position: relative;
             opacity: 0;
-            animation: introFade 0.3s ease 0.6s both;
+            animation: ld-name-in 0.12s ease 0.52s both;
+            text-shadow: 0 0 90px rgba(220,38,38,0.40), 0 0 24px rgba(220,38,38,0.25), 0 2px 0 rgba(0,0,0,0.60);
+        }
+        /* Cyan ghost layer — glitches on reveal */
+        .ld-name::after {
+            content: attr(data-text);
+            position: absolute; top: 0; left: 0; width: 100%;
+            color: rgba(0,210,255,0.10);
+            pointer-events: none;
+            animation: ld-name-ghost 1.0s ease 0.52s both;
+        }
+        @keyframes ld-name-in { to { opacity: 1; } }
+        @keyframes ld-name-ghost {
+            0%   { transform: translate(0); clip-path: none; opacity: 1; }
+            10%  { transform: translate(8px,0);  clip-path: inset(15% 0 65% 0); }
+            22%  { transform: translate(-5px,0); clip-path: inset(60% 0 20% 0); }
+            34%  { transform: translate(4px,0);  clip-path: inset(0% 0 85% 0); }
+            55%  { transform: translate(0); clip-path: inset(0); opacity: 0.10; }
+            100% { opacity: 0; }
+        }
+
+        /* Divider rule */
+        .ld-rule {
+            width: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(220,38,38,0.65) 38%, rgba(220,38,38,0.65) 62%, transparent);
+            margin: 0.55em auto;
+            animation: ld-rule-extend 0.55s cubic-bezier(0.77,0,0.175,1) 1.08s both;
+        }
+        @keyframes ld-rule-extend { to { width: clamp(180px, 44vw, 520px); } }
+
+        /* Role tag */
+        .ld-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(7px,0.85vw,10px);
+            letter-spacing: 0.30em; text-transform: uppercase;
+            color: rgba(255,255,255,0.36);
+            opacity: 0; animation: ld-fade-up 0.4s ease 1.18s both;
+        }
+
+        /* Bottom strip */
+        .ld-bottom {
+            position: absolute; bottom: clamp(20px,3.5vw,48px);
+            left: 0; right: 0;
+            display: flex; flex-direction: column; align-items: center; gap: 11px;
+        }
+        .ld-bar-w {
+            width: clamp(140px, 22vw, 250px); height: 2px;
+            background: rgba(255,255,255,0.06); overflow: hidden;
+            opacity: 0; animation: ld-fade-up 0.3s ease 1.30s both;
         }
         .ld-bar {
-            height: 100%; width: 0;
-            background: #dc2626;
-            animation: introBar 1.3s cubic-bezier(0.4,0,0.2,1) 0.7s both;
+            height: 100%; width: 0; background: #dc2626;
+            animation: ld-bar-fill 1.55s cubic-bezier(0.4,0,0.2,1) 1.40s both;
         }
-
+        @keyframes ld-bar-fill { to { width: 100%; } }
         .ld-stat {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: rgba(255,255,255,0.35);
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-top: 14px;
+            font-size: clamp(6px, 0.75vw, 9px);
+            color: rgba(255,255,255,0.20); letter-spacing: 0.30em; text-transform: uppercase;
+            opacity: 0; animation: ld-fade-up 0.3s ease 1.65s both;
+        }
+
+        /* F-22 background glitch */
+        .ld-f22 {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            object-position: center center;
             opacity: 0;
-            animation: introFade 0.3s ease 0.9s both;
+            pointer-events: none;
+            z-index: 1;
+            /* mask: fade edges so it bleeds in, stronger center */
+            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 62% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.28) 50%, transparent 80%);
+            mask-image:         radial-gradient(ellipse 80% 70% at 62% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.28) 50%, transparent 80%);
+            animation: ld-f22-glitch 4.2s ease forwards;
+        }
+        @keyframes ld-f22-glitch {
+            /* invisible at start */
+            0%    { opacity: 0;    transform: translate(0,0)    scale(1.04); filter: brightness(1.0) contrast(1.1); }
+            /* first flash — subliminal */
+            8%    { opacity: 0.32; transform: translate(-3px,0) scale(1.03); filter: brightness(1.3) contrast(1.2); }
+            9%    { opacity: 0.05; transform: translate(4px,0)  scale(1.04); }
+            /* settle into background presence */
+            18%   { opacity: 0.28; transform: translate(0,0)    scale(1.02); filter: brightness(1.1) contrast(1.1); }
+            /* glitch burst 1 */
+            38%   { opacity: 0.30; transform: translate(0,0)    scale(1.02); filter: brightness(1.0) contrast(1.1); }
+            39%   { opacity: 0.50; transform: translate(-5px,2px) scale(1.02); clip-path: inset(18% 0 60% 0); filter: brightness(1.5) contrast(1.3); }
+            40%   { opacity: 0.18; transform: translate(6px,0)  scale(1.03); clip-path: inset(55% 0 18% 0); }
+            41%   { opacity: 0.30; transform: translate(0,0)    scale(1.02); clip-path: none; filter: brightness(1.0) contrast(1.1); }
+            /* glitch burst 2 */
+            68%   { opacity: 0.28; transform: translate(0,0) scale(1.02); filter: brightness(1.0); }
+            69%   { opacity: 0.48; transform: translate(5px,-2px) scale(1.02); clip-path: inset(30% 0 45% 0); filter: brightness(1.4); }
+            70%   { opacity: 0.15; transform: translate(-4px,0)   scale(1.03); clip-path: inset(65% 0 10% 0); }
+            71%   { opacity: 0.28; transform: translate(0,0) scale(1.02); clip-path: none; filter: brightness(1.0); }
+            /* hold through bar fill */
+            88%   { opacity: 0.26; transform: translate(0,0) scale(1.01); filter: brightness(1.0) contrast(1.1); }
+            /* fade with the screen */
+            100%  { opacity: 0.18; transform: translate(0,0) scale(1.00); }
+        }
+
+        /* Shared keyframes */
+        @keyframes ld-fade-up {
+            from { opacity: 0; transform: translateY(7px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes ld-reveal-l {
+            from { clip-path: inset(0 100% 0 0); opacity: 0; transform: translateX(-10px); }
+            to   { clip-path: inset(0 0% 0 0);   opacity: 1; transform: translateX(0); }
         }
 
         /* Page-wipe transition between pages */
         .page-wipe {
             position: fixed; inset: 0; z-index: 9000;
-            background: #05070b;
-            transform: translateY(100%);
-            pointer-events: none;
+            background: #05070b; transform: translateY(100%); pointer-events: none;
         }
         @keyframes wipeIn  { from { transform: translateY(100%); } to { transform: translateY(0); } }
         @keyframes wipeOut { from { transform: translateY(0); }    to { transform: translateY(-100%); } }
@@ -917,8 +1042,27 @@
         .page-wipe.is-out { animation: wipeOut 0.42s cubic-bezier(0.77,0,0.175,1) forwards; }
 
         @media (max-width: 900px) {
-            #intro { display: none; }
-            body.is-loading { overflow: auto; }
+            /* Show on mobile — just dial in sizes */
+            body.is-loading { overflow: hidden; }
+            .ld-top-strip {
+                gap: 1rem;
+                font-size: 7px;
+                letter-spacing: 0.16em;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 clamp(14px,4vw,28px);
+            }
+            .ld-coord { display: none; } /* hide coords on small screens, keep timestamp + access */
+            .ld-bracket.tl,
+            .ld-bracket.tr,
+            .ld-bracket.bl,
+            .ld-bracket.br {
+                /* slightly closer to edge on mobile */
+            }
+        }
+        @media (max-width: 480px) {
+            .ld-class { display: none; } /* very small: just timestamp */
+            .ld-top-strip { gap: 0.5rem; }
         }
 
     </style>
@@ -944,12 +1088,35 @@
 </head>
 <body class="is-loading">
 
-    <!-- ── INTRO LOADER ─────────────────────────────────── -->
-    <div id="intro">
-        <div class="ld-eye">Defense Systems &nbsp;·&nbsp; USF</div>
-        <div class="ld-title">Ellis</div>
-        <div class="ld-bar-w"><div class="ld-bar"></div></div>
-        <div class="ld-stat">Electrical Engineering &nbsp;·&nbsp; ARMS &nbsp;·&nbsp; GNSI</div>
+    <!-- ── INTRO LOADER (tactical boot) ─────────────────── -->
+    <div id="intro" aria-hidden="true">
+        <!-- F-22 background (glitches in subliminally) -->
+        <img class="ld-f22" src="resources/hero-left.png" alt="" aria-hidden="true">
+        <!-- Red scanline sweep + CRT overlay -->
+        <div class="ld-scanline"></div>
+        <!-- HUD corner brackets -->
+        <div class="ld-bracket tl"></div>
+        <div class="ld-bracket tr"></div>
+        <div class="ld-bracket bl"></div>
+        <div class="ld-bracket br"></div>
+        <!-- Top data strip -->
+        <div class="ld-top-strip">
+            <span class="ld-coord">28.0587&deg; N &nbsp;&middot;&nbsp; 82.4139&deg; W</span>
+            <span class="ld-timestamp" id="ld-ts"></span>
+            <span class="ld-class">// ACCESS : GRANTED</span>
+        </div>
+        <!-- Main nameplate -->
+        <div class="ld-center">
+            <div class="ld-pre">Dontavious</div>
+            <div class="ld-name" data-text="ELLIS"><span id="ld-scramble">ELLIS</span></div>
+            <div class="ld-rule"></div>
+            <div class="ld-role">Defense Electrical Engineer &nbsp;&middot;&nbsp; USF 2028</div>
+        </div>
+        <!-- Bottom strip -->
+        <div class="ld-bottom">
+            <div class="ld-bar-w"><div class="ld-bar"></div></div>
+            <div class="ld-stat">EE &nbsp;&middot;&nbsp; ARMS &nbsp;&middot;&nbsp; ORBITAL &nbsp;&middot;&nbsp; GNSI</div>
+        </div>
     </div>
 
     <!-- ── PAGE WIPE ─────────────────────────────────────── -->
@@ -1609,8 +1776,8 @@
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     dismissIntro();
                 } else {
-                    // bar: 0.7s delay + 1.3s fill = 2s; buffer to 2.2s
-                    setTimeout(dismissIntro, 2200);
+                    // bar: 1.4s delay + 1.55s fill = 2.95s; hold 1.25s → dismiss at 4.2s
+                    setTimeout(dismissIntro, 4200);
                 }
             }
         }
@@ -1635,6 +1802,54 @@
                 });
             });
         }
+    })();
+    </script>
+
+    <script>
+    /* ── Intro: letter scramble + live timestamp ─────────────────────────── */
+    (function () {
+        // Live clock in top strip
+        var tsEl = document.getElementById('ld-ts');
+        if (tsEl) {
+            function tick() {
+                var d = new Date();
+                tsEl.textContent = d.toTimeString().slice(0, 8);
+            }
+            tick();
+            var tsTimer = setInterval(tick, 1000);
+            setTimeout(function () { clearInterval(tsTimer); }, 3500);
+        }
+
+        // Scramble "ELLIS" into place
+        var el = document.getElementById('ld-scramble');
+        if (!el) return;
+        var FINAL  = 'ELLIS';
+        var CHARS  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@!%&';
+        var START  = 520;   // ms – match ld-name-in animation delay
+        var TOTAL  = 720;   // ms – scramble duration
+        var FPS    = 42;    // ms per frame
+
+        function rand(s) { return s[Math.floor(Math.random() * s.length)]; }
+
+        setTimeout(function () {
+            var t0 = Date.now();
+            var iv = setInterval(function () {
+                var p = Math.min((Date.now() - t0) / TOTAL, 1);
+                var out = '';
+                for (var i = 0; i < FINAL.length; i++) {
+                    var threshold = i / FINAL.length;
+                    if (p > threshold + 0.22) {
+                        out += FINAL[i];                                          // resolved
+                    } else if (p > threshold) {
+                        out += rand(CHARS);                                        // scrambling
+                    } else {
+                        out += '<span style="opacity:.14">' + rand(CHARS) + '</span>'; // pending
+                    }
+                }
+                el.innerHTML = out;
+                if (p >= 1) { clearInterval(iv); el.textContent = FINAL; }
+            }, FPS);
+        }, START);
     })();
     </script>
 </body>
