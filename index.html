@@ -1767,18 +1767,10 @@
                 intro.classList.add('is-out');
                 document.body.classList.remove('is-loading');
             };
-            var alreadySeen = sessionStorage.getItem('de-intro-seen');
-            if (alreadySeen) {
-                intro.style.display = 'none';
-                document.body.classList.remove('is-loading');
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                dismissIntro();
             } else {
-                sessionStorage.setItem('de-intro-seen', '1');
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    dismissIntro();
-                } else {
-                    // bar: 1.4s delay + 1.55s fill = 2.95s; hold 1.25s → dismiss at 4.2s
-                    setTimeout(dismissIntro, 4200);
-                }
+                setTimeout(dismissIntro, 4200);
             }
         }
 
