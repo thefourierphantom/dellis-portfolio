@@ -1,403 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume | Dontavious Ellis: EE · Orbital Corporation · USF</title>
-  <meta name="description" content="Resume of Dontavious Ellis: Electrical Engineering intern at Orbital Corporation, GNSI Future Strategist, USF EE student. Experience with tactical communications hardware, GPS-denied navigation, power systems, and embedded firmware.">
-  <link rel="canonical" href="https://dontaviousellis.com/resume.html">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <meta property="og:site_name" content="Dontavious Ellis">
-  <meta property="og:title" content="Resume | Dontavious Ellis: EE · Orbital Corporation · USF">
-  <meta property="og:description" content="Resume of Dontavious Ellis: Electrical Engineering intern at Orbital Corporation, GNSI Future Strategist, USF EE student.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dontaviousellis.com/resume.html">
-  <meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Resume | Dontavious Ellis: EE · Orbital Corporation · USF">
-  <meta name="twitter:description" content="Resume of Dontavious Ellis: Electrical Engineering intern at Orbital Corporation, GNSI Future Strategist, USF EE student.">
-  <meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
-  <meta name="keywords" content="Dontavious Ellis, electrical engineering, Orbital Corporation, GNSI, USF, ARMS, GPS-denied navigation, tactical communications, defense, power systems">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-0:  #07080a;
-      --bg-1:  #0a0b0d;
-      --bg-2:  #0d0e11;
-      --bg-card: #141516;
-      --text-1: #ffffff;
-      --text-2: #b0b4bc;
-      --text-3: rgba(255,255,255,0.38);
-      --red:    #dc2626;
-      --red-lt: #ef4444;
-      --border: rgba(255,255,255,0.07);
-      --border-red: rgba(220,38,38,0.30);
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg-1); color: var(--text-1); overflow-x: hidden; margin: 0; }
-    .mono { font-family: 'JetBrains Mono', monospace; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Record / Resume | Dontavious Ellis · EE · Orbital Corporation · USF</title>
+<meta name="description" content="Resume of Dontavious Ellis: Electrical Engineering intern at Orbital Corporation, GNSI Future Strategist, founder of Ellis Dynamics. USF EE, May 2028.">
+<link rel="canonical" href="https://dontaviousellis.com/resume.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Dontavious Ellis">
+<meta property="og:title" content="Record / Resume | Dontavious Ellis">
+<meta property="og:description" content="Defense-focused EE: tactical communications hardware, GPS-denied navigation, power systems, embedded firmware.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dontaviousellis.com/resume.html">
+<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/command.css">
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () {
+  if (!(window.CE && window.CE.ready) || !document.documentElement.dataset.ceOk) document.documentElement.classList.remove('js');
+}, 3000);
+</script>
+<style>
+/* ═══ page: record / resume ═══ */
+body { padding-top: var(--nav-h); }
 
-    /* Nav */
-    .ng-nav { background: rgba(7,8,10,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
-    .ng-nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-    .ng-logo { display: flex; align-items: flex-start; text-decoration: none; }
-    .ng-logo-block { display: flex; flex-direction: column; gap: 3px; }
-    .ng-logo-top { display: flex; align-items: center; gap: 7px; }
-    .ng-logo-name { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.10em; color: #fff; text-transform: uppercase; line-height: 1; }
-    .ng-logo-line-wrap { display: flex; align-items: center; gap: 4px; }
-    .ng-logo-line-left, .ng-logo-line-right { flex: 1; height: 1px; background: rgba(220,38,38,0.45); }
-    .ng-logo-line-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--red); }
-    .ng-logo-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.52rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.32); text-transform: uppercase; }
-    .ng-links { display: flex; gap: 2rem; align-items: center; }
-    .ng-links a { color: rgba(255,255,255,0.65); font-size: 0.80rem; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; transition: color 0.2s; text-transform: uppercase; }
-    .ng-links a:hover { color: #fff; }
-    .ng-links a.active { color: #fff; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
-    .ng-links .cta-link { border: 1px solid rgba(220,38,38,0.40); color: rgba(239,68,68,0.90) !important; padding: 6px 16px; border-radius: 3px; }
-    #mobile-menu a { display: block; padding: 0.55rem 0; color: rgba(255,255,255,0.65); font-size: 0.82rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; border-bottom: 1px solid var(--border); }
-    #mobile-menu a:last-child { border-bottom: none; }
-    #mobile-menu { background: #07080a; border-top: 1px solid var(--border); padding: 0.75rem 1rem; }
+.rec-head { max-width: 1100px; margin: 0 auto; padding: clamp(3rem, 7vh, 5rem) clamp(1.2rem, 5vw, 3rem) 1.5rem;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+.rec-title { font-family: var(--font-display); text-transform: uppercase; font-weight: 700; font-size: clamp(2.6rem, 7vw, 5.5rem); line-height: 0.9; }
+.rec-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
-    /* Page hero */
-    .page-hero { position: relative; padding: 5rem 0 3.5rem; background: var(--bg-0); overflow: hidden; }
-    .page-hero::before { content: ''; position: absolute; inset: 0; background: url('resources/hero-forensic.png') center/cover no-repeat; opacity: 0.10; pointer-events: none; }
-    .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(220,38,38,0.12) 8%, rgba(220,38,38,0.65) 30%, rgba(220,38,38,0.65) 70%, rgba(220,38,38,0.12) 92%, transparent 100%); }
-    .page-hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; text-align: center; }
+.rec-doc { max-width: 1100px; margin: 0 auto 4rem; padding: 0 clamp(1.2rem, 5vw, 3rem); }
+.doc-frame { border: 1px solid var(--line-2); background: var(--panel); position: relative; }
+.doc-frame::before { content: 'DOC · DE-RES-2026 · VERIFIED CONTENT ONLY'; position: absolute; top: -9px; left: 18px;
+  background: var(--bg-0); padding: 0 10px; font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.22em; color: var(--txt-3); }
+.doc-inner { padding: clamp(1.5rem, 4vw, 3rem); }
 
-    /* Action bar */
-    .action-bar { background: var(--bg-0); border-bottom: 1px solid var(--border); padding: 1rem 0; }
-    .action-bar-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+.doc-id { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--line-2); padding-bottom: 1.4rem; margin-bottom: 1.8rem; }
+.doc-id h2 { font-family: var(--font-display); text-transform: uppercase; font-weight: 700; font-size: 2rem; line-height: 1; }
+.doc-id .c { font-family: var(--font-mono); font-size: 0.66rem; color: var(--txt-2); line-height: 1.9; text-align: right; }
+.doc-id .c a { color: var(--txt-2); text-decoration: none; }
+.doc-id .c a:hover { color: var(--red-lt); }
 
-    /* Resume body */
-    .resume-body { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+.rsec { margin-bottom: 2rem; }
+.rsec > h3 { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red-lt);
+  border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; margin-bottom: 1.1rem; display: flex; align-items: center; gap: 10px; }
+.rsec > h3::before { content: ''; width: 8px; height: 8px; background: var(--red); }
 
-    /* Section headers */
-    .rs-section { margin-bottom: 3rem; }
-    .rs-section-head { font-family: 'JetBrains Mono', monospace; font-size: 0.60rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red-lt); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-red); display: flex; align-items: center; gap: 0.75rem; }
-    .rs-section-head::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, rgba(220,38,38,0.20), transparent); }
+.entry { display: grid; grid-template-columns: 170px 1fr; gap: 1.2rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+.entry:last-child { border-bottom: none; }
+.entry .when { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--txt-3); text-transform: uppercase; padding-top: 3px; }
+.entry h4 { font-size: 0.98rem; font-weight: 600; color: var(--txt-1); }
+.entry .role { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--txt-2); text-transform: uppercase; display: block; margin: 2px 0 6px; }
+.entry ul { list-style: none; margin-top: 4px; }
+.entry li { font-size: 0.82rem; color: var(--txt-2); padding: 3px 0 3px 16px; position: relative; line-height: 1.55; }
+.entry li::before { content: '▸'; position: absolute; left: 0; color: var(--red-dim); }
+@media (max-width: 680px) { .entry { grid-template-columns: 1fr; gap: 0.3rem; } }
 
-    /* Entries */
-    .rs-entry { margin-bottom: 1.75rem; }
-    .rs-entry:last-child { margin-bottom: 0; }
-    .rs-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
-    .rs-entry-title { font-size: 0.95rem; font-weight: 700; color: var(--text-1); }
-    .rs-entry-date { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; color: var(--text-3); white-space: nowrap; }
-    .rs-entry-sub { font-size: 0.78rem; color: var(--text-3); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; margin-bottom: 0.6rem; }
-    .rs-bullet { display: flex; gap: 0.75rem; margin-bottom: 0.35rem; font-size: 0.84rem; color: var(--text-2); line-height: 1.60; }
-    .rs-bullet::before { content: '·'; color: var(--red-lt); flex-shrink: 0; margin-top: 0.05em; font-size: 1rem; }
+.skill-rows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem 2rem; }
+.skill-rows .sr { border: 1px solid var(--line); padding: 0.9rem 1.1rem; }
+.skill-rows .sr .k { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; color: var(--txt-3); text-transform: uppercase; display: block; margin-bottom: 5px; }
+.skill-rows .sr .v { font-size: 0.82rem; color: var(--txt-1); line-height: 1.5; }
+@media (max-width: 680px) { .skill-rows { grid-template-columns: 1fr; } }
 
-    /* Skills grid */
-    .rs-skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    @media (max-width: 640px) { .rs-skills-grid { grid-template-columns: 1fr; } }
-    .rs-skill-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 5px; padding: 1rem 1.25rem; }
-    .rs-skill-label { font-family: 'JetBrains Mono', monospace; font-size: 0.60rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red-lt); margin-bottom: 0.4rem; }
-    .rs-skill-val { font-size: 0.80rem; color: var(--text-2); line-height: 1.55; }
-
-    /* Accent borders */
-    .rs-entry-accent { border-left: 2px solid var(--red); padding-left: 1rem; }
-    .rs-entry-accent-blue { border-left: 2px solid rgba(96,165,250,0.50); padding-left: 1rem; }
-
-    /* Buttons */
-    .btn-primary { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--red); color: #fff; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 0.55rem 1.2rem; border-radius: 3px; transition: background 0.2s; border: none; cursor: pointer; font-family: inherit; }
-    .btn-primary:hover { background: var(--red-lt); }
-    .btn-dark { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--bg-card); border: 1px solid var(--border); color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 0.55rem 1.2rem; border-radius: 3px; transition: border-color 0.2s, color 0.2s; cursor: pointer; font-family: inherit; }
-    .btn-dark:hover { border-color: rgba(255,255,255,0.25); color: #fff; }
-
-    /* Footer */
-    .ng-footer { background: var(--bg-0); border-top: 1px solid var(--border); padding: 3rem 0 2rem; text-align: center; }
-    .ng-footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-
-    @media print {
-      nav, .action-bar, footer, .no-print { display: none !important; }
-      body { background: white; color: #111; }
-      .rs-section-head { color: #b91c1c; border-bottom-color: #fca5a5; }
-      .rs-entry-title { color: #111; }
-      .rs-entry-sub, .rs-entry-date, .rs-bullet { color: #444; }
-      .rs-bullet::before { color: #b91c1c; }
-      .rs-skill-block { background: #f9f9f9; border-color: #e5e7eb; }
-      .rs-skill-label { color: #b91c1c; }
-      .rs-skill-val { color: #333; }
-      .rs-entry-accent { border-left-color: #b91c1c; }
-      .rs-entry-accent-blue { border-left-color: #3b82f6; }
-    }
-  </style>
-    <link rel="stylesheet" href="css/reveal.css" />
-    <link rel="stylesheet" href="css/scroll.css" />
+/* print: strip environment, keep document */
+@media print {
+  body { background: #fff; color: #111; padding-top: 0; }
+  .cmd-nav, .cmd-overlay, #cur, #wipe, .cmd-footer, .rec-actions, .cmd-audio, .skip-link { display: none !important; }
+  .rec-head { padding: 0 0 0.5rem; }
+  .rec-title { color: #111; font-size: 2rem; }
+  .doc-frame { border-color: #bbb; background: #fff; }
+  .doc-frame::before { display: none; }
+  .rsec > h3 { color: #a11; border-color: #ddd; }
+  .entry h4, .skill-rows .sr .v, .doc-id h2 { color: #111; }
+  .entry li, .entry .role, .doc-id .c, .entry .when { color: #333; }
+  .entry, .skill-rows .sr { border-color: #ddd; }
+  a { color: #333 !important; }
+}
+</style>
 </head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
 
-<body class="reveal">
+<div class="rec-head">
+  <div>
+    <span class="overline rv">Service Record · Verified Against Source PDF</span>
+    <h1 class="rec-title rv" id="recw">THE RECORD</h1>
+  </div>
+  <div class="rec-actions rv" data-rv-delay="0.1">
+    <button class="btn-t" onclick="window.print()" data-magnetic="0.25" data-cursor-label="PRINT">
+      <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>PRINT</button>
+    <a class="btn-t" href="Ellis_Resume_May2026.pdf" target="_blank" rel="noopener" data-magnetic="0.25" data-cursor-label="OPEN PDF">
+      <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>OPEN PDF ↗</a>
+    <a class="btn-t primary" href="Ellis_Resume_May2026.pdf" download data-magnetic="0.25" data-cursor-label="DOWNLOAD">
+      <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>DOWNLOAD PDF <span class="arr">↓</span></a>
+  </div>
+</div>
 
-<!-- ── NAVIGATION ─────────────────────────────────────────── -->
-<nav class="ng-nav">
-  <div class="ng-nav-inner">
-    <a href="index.html" class="ng-logo">
-      <div class="ng-logo-block">
-        <div class="ng-logo-top">
-          <svg style="width:11px;height:19px;" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/>
-          </svg>
-          <span class="ng-logo-name">Dontavious Ellis</span>
+<div class="rec-doc">
+  <div class="doc-frame rv">
+    <div class="doc-inner">
+
+      <div class="doc-id">
+        <div>
+          <h2>DONTAVIOUS ELLIS</h2>
+          <span class="microtext" style="display:block; margin-top:6px;">DEFENSE ELECTRICAL ENGINEERING · FOUNDER, ELLIS DYNAMICS</span>
         </div>
-        <div class="ng-logo-line-wrap">
-          <div class="ng-logo-line-left"></div>
-          <div class="ng-logo-line-dot"></div>
-          <div class="ng-logo-line-right"></div>
+        <div class="c">
+          Tampa, FL · U.S. Citizen<br>
+          <a href="mailto:edon4585@gmail.com">edon4585@gmail.com</a> · 772-205-1606<br>
+          <a href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener">linkedin.com/in/dontavious-ellis</a> ·
+          <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener">github.com/thefourierphantom</a>
         </div>
-        <span class="ng-logo-sub">EE &nbsp;&middot;&nbsp; Defense Systems</span>
       </div>
-    </a>
-    <div class="ng-links hidden md:flex">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html" class="cta-link active">Resume</a>
-    </div>
-    <button id="mobile-menu-btn" class="md:hidden" style="color:rgba(255,255,255,0.70);background:none;border:none;cursor:pointer;" aria-label="Open menu" aria-expanded="false">
-      <svg style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-  <div id="mobile-menu" class="hidden md:hidden">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="resume.html">Resume</a>
-  </div>
-</nav>
 
-<!-- ── PAGE HERO ──────────────────────────────────────────── -->
-<section class="page-hero">
-  <div class="page-hero-inner">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.22em;text-transform:uppercase;color:#ef4444;margin-bottom:1rem;">Resume &nbsp;&middot;&nbsp; May 2026</div>
-    <h1 style="font-size:clamp(2.2rem,6vw,3.8rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:0.75rem;">Dontavious Ellis</h1>
-    <p style="font-size:0.88rem;color:var(--text-2);margin-bottom:0.4rem;">Tampa, FL &nbsp;&middot;&nbsp; 772-205-1606 &nbsp;&middot;&nbsp; edon4585@gmail.com &nbsp;&middot;&nbsp; U.S. Citizen</p>
-    <p style="font-size:0.78rem;color:var(--text-3);font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;">
-      <a href="https://linkedin.com/in/dontavious-ellis" style="color:inherit;text-decoration:none;" target="_blank" rel="noreferrer">linkedin.com/in/dontavious-ellis</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://dontaviousellis.com" style="color:inherit;text-decoration:none;" target="_blank" rel="noreferrer">dontaviousellis.com</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://github.com/thefourierphantom" style="color:inherit;text-decoration:none;" target="_blank" rel="noreferrer">github.com/thefourierphantom</a>
-    </p>
-  </div>
-</section>
+      <section class="rsec">
+        <h3>Education</h3>
+        <div class="entry">
+          <span class="when">Expected May 2028</span>
+          <div>
+            <h4>University of South Florida — B.S. Electrical Engineering</h4>
+            <span class="role">Tampa, FL</span>
+            <ul>
+              <li>Coursework: AC/DC circuit analysis, power systems, MATLAB/Simulink, embedded systems design.</li>
+              <li>CompTIA Security+ (January 2026).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-<!-- ── ACTION BAR ─────────────────────────────────────────── -->
-<div class="action-bar no-print">
-  <div class="action-bar-inner">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-3);">Last updated: May 2026</span>
-    <div style="display:flex;gap:0.6rem;">
-      <button onclick="window.print()" class="btn-dark">
-        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-        Print
-      </button>
-      <a href="Ellis_Resume_May2026.pdf" target="_blank" rel="noreferrer" class="btn-dark">
-        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        Open PDF
-      </a>
-      <a href="Ellis_Resume_May2026.pdf" download class="btn-primary">
-        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-        Download PDF
-      </a>
+      <section class="rsec">
+        <h3>Technical Skills</h3>
+        <div class="skill-rows">
+          <div class="sr"><span class="k">Power &amp; Circuitry</span><span class="v">AC/DC Circuit Analysis, 3-Phase Power, Power Factor Correction, Load Flow Analysis</span></div>
+          <div class="sr"><span class="k">Design &amp; Simulation</span><span class="v">MATLAB/Simulink, LTspice, SOLIDWORKS Electrical, AutoCAD (2D/3D), Revit, PSpice, KiCad</span></div>
+          <div class="sr"><span class="k">Hardware &amp; Lab</span><span class="v">Digital Oscilloscopes, Multimeters, Function Generators, Soldering, PWM Control, ESP32/Arduino, FPGA (Spartan-3), Signal Conditioning</span></div>
+          <div class="sr"><span class="k">Software</span><span class="v">C/C++, Python, Bash Automation, Git/GitHub, Linux</span></div>
+        </div>
+      </section>
+
+      <section class="rsec">
+        <h3>Professional Experience</h3>
+        <div class="entry">
+          <span class="when">May 2026 — Present</span>
+          <div>
+            <h4>Orbital Corporation — Electrical Engineering Intern</h4>
+            <span class="role">Tactical Communications Hardware · Tampa Bay Area, FL</span>
+            <ul>
+              <li>Fabricate tactical communications wiring harnesses and aerospace cable assemblies in compliance with IPC-A-610 Class 3 standards.</li>
+              <li>Crimp multi-pin circular connectors and perform high-reliability cup soldering for board-level electronic assemblies.</li>
+              <li>Isolate wiring, routing, and insulation faults via point-to-point continuity and resistance testing with digital multimeters.</li>
+              <li>Map EMI shielding, backshell strain reliefs, and lacing by interpreting nailboard layouts, assembly drawings, and wire run lists.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <span class="when">May 2026</span>
+          <div>
+            <h4>GNSI Future Strategist Program — D.C. Experience</h4>
+            <span class="role">Cohort Delegate · Washington, D.C.</span>
+            <ul>
+              <li>Selected for a competitive national security cohort; engaged 15+ senior officials across the Pentagon, Capitol Hill, and CNAS.</li>
+              <li>Directed discussions on GPS-denied navigation, resilient communications, and electronic warfare threats for non-technical audiences.</li>
+              <li>Identified research pathways for Ellis Dynamics aligned with problems discussed around USSOCOM, USCENTCOM, and major defense contractors.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <span class="when">Mar 2026 — Present</span>
+          <div>
+            <h4>USF CIBR Lab — Research Assistant</h4>
+            <span class="role">Tampa, FL</span>
+            <ul>
+              <li>Designed and executed a structured classification framework across 100+ hardware and software cases supporting AI model training data.</li>
+              <li>Contributed to SeniorSafe AI, a specialized conversational model for senior-citizen cybercrime victims; conference poster presented.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <span class="when">Sep 2024 — Present</span>
+          <div>
+            <h4>USF Dept. of Mechanical Engineering — Website Specialist</h4>
+            <span class="role">Tampa, FL</span>
+            <ul>
+              <li>Primary technical contact for department website updates across 15+ pages, office system configuration, and local IT maintenance.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="rsec">
+        <h3>Founder &amp; Research Leadership</h3>
+        <div class="entry">
+          <span class="when">May 2026 — Present</span>
+          <div>
+            <h4>Ellis Dynamics — Founder &amp; Lead Researcher</h4>
+            <span class="role">Countermeasure Systems · GPS-Denied Navigation</span>
+            <ul>
+              <li>Founded a countermeasure systems company spanning two domains: ECCM (GPS-denied navigation, resilient communications) and Detect-Track (predictive tracking via sensor fusion and EO/IR sensing).</li>
+              <li>Developing a GPS-denied navigation validation pipeline using C++/MATLAB Kalman filtering to fuse simulated 6-DOF IMU and atmospheric data.</li>
+              <li>Conducting inertial dead-reckoning studies to establish sensor bias baselines and reduce cumulative drift (Allan variance methodology).</li>
+              <li>Building a Telemetry, Tracking &amp; Command (TT&amp;C) ground station for real-time state estimation and fault monitoring.</li>
+              <li>First hardware deliverable — an IMU-based dead-reckoning navigation module — currently in development.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <span class="when">Fall 2026</span>
+          <div>
+            <h4>NSBE USF — Technical Development Chair</h4>
+            <ul>
+              <li>Technical programming for a 100+ member chapter; three technical workshops scoped for the semester.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="rsec">
+        <h3>Technical Projects</h3>
+        <div class="entry">
+          <span class="when">Aug 2025 — Mar 2026</span>
+          <div>
+            <h4>Secure IIoT Smart Grid Edge Monitor</h4>
+            <ul>
+              <li>ESP32 firmware with FFT-based THD detection in sub-100 ms intervals; &lt;3% RMS error margin.</li>
+              <li>AES-128 + MQTT TLS 1.2 telemetry pipeline mapped to NERC CIP guidance, validated end-to-end.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <span class="when">Dec 2025 — Jan 2026</span>
+          <div>
+            <h4>Smart Load-Shedding &amp; Power Distribution Controller</h4>
+            <ul>
+              <li>ESP32-based PDU with PWM trip logic holding system stability within 10% of peak capacity.</li>
+              <li>Active RC filtering cut noise (Vpp) by 35%; bench-validated with digital oscilloscopes.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="entry">
+          <span class="when">Feb 2026 — Present</span>
+          <div>
+            <h4>Enterprise Infrastructure Home Lab</h4>
+            <ul>
+              <li>Proxmox + pfSense multi-tier lab; MATLAB load-flow simulations cut modeled grid restoration time 22%.</li>
+              <li>Cascading-failure modeling across 7 infrastructure layers and 500+ outage scenarios.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 </div>
 
-<!-- ── RESUME BODY ─────────────────────────────────────────── -->
-<div class="resume-body">
+</main>
 
-  <!-- Education -->
-  <div class="rs-section">
-    <div class="rs-section-head">Education</div>
-    <div class="rs-entry rs-entry-accent">
-      <div class="rs-entry-header">
-        <div class="rs-entry-title">University of South Florida (USF)</div>
-        <div class="rs-entry-date">Expected May 2028</div>
-      </div>
-      <div class="rs-entry-sub">B.S. Electrical Engineering &nbsp;&middot;&nbsp; Tampa, FL</div>
-    </div>
-  </div>
-
-  <!-- Technical Skills -->
-  <div class="rs-section">
-    <div class="rs-section-head">Technical Skills</div>
-    <div class="rs-skills-grid">
-      <div class="rs-skill-block">
-        <div class="rs-skill-label">Power &amp; Circuitry</div>
-        <div class="rs-skill-val">AC/DC Circuit Analysis, 3-Phase Power, Power Factor Correction, Load Flow Analysis</div>
-      </div>
-      <div class="rs-skill-block">
-        <div class="rs-skill-label">Design &amp; Simulation</div>
-        <div class="rs-skill-val">MATLAB/Simulink, LTspice, SOLIDWORKS Electrical, AutoCAD (2D/3D), Revit, PSpice, KiCad</div>
-      </div>
-      <div class="rs-skill-block">
-        <div class="rs-skill-label">Hardware &amp; Lab</div>
-        <div class="rs-skill-val">Digital Oscilloscopes, Multimeters, Function Generators, Soldering, PWM Control, ESP32/Arduino, Signal Conditioning</div>
-      </div>
-      <div class="rs-skill-block">
-        <div class="rs-skill-label">Software</div>
-        <div class="rs-skill-val">C/C++, Python, Bash Automation, Git/GitHub, Linux</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Professional Experience -->
-  <div class="rs-section">
-    <div class="rs-section-head">Professional Experience</div>
-    <div class="space-y-8">
-
-      <div class="rs-entry rs-entry-accent">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">GNSI Future Strategist Program &nbsp;&middot;&nbsp; D.C. Experience</div>
-          <div class="rs-entry-date">May 2026</div>
-        </div>
-        <div class="rs-entry-sub">Cohort Delegate</div>
-        <div class="rs-bullet">Selected for a competitive national security cohort; engaged 15+ senior officials across the Pentagon, Capitol Hill, and CNAS.</div>
-        <div class="rs-bullet">Directed discussions on GPS-denied navigation, resilient communications, and electronic warfare threats for non-technical audiences.</div>
-        <div class="rs-bullet">Identified research pathways for ARMS aligned with areas discussed by USSOCOM, USCENTCOM, and major defense contractors.</div>
-      </div>
-
-      <div class="rs-entry rs-entry-accent">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Electrical Engineering Intern &nbsp;&middot;&nbsp; Orbital Corporation</div>
-          <div class="rs-entry-date">May 2026 &ndash; Present</div>
-        </div>
-        <div class="rs-entry-sub">Tampa, FL</div>
-        <div class="rs-bullet">Fabricate tactical communications wiring harnesses and aerospace cable assemblies in compliance with IPC-A-610 Class 3 standards.</div>
-        <div class="rs-bullet">Crimp multi-pin circular connectors and perform high-reliability cup soldering for board-level electronic assemblies.</div>
-        <div class="rs-bullet">Isolate wiring, routing, and insulation faults via point-to-point continuity and resistance testing with digital multimeters.</div>
-        <div class="rs-bullet">Map EMI shielding, backshell strain reliefs, and lacing by interpreting physical nailboard layouts, assembly drawings, and wire run lists.</div>
-      </div>
-
-      <div class="rs-entry rs-entry-accent-blue">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Research Assistant &nbsp;&middot;&nbsp; USF CIBR Lab</div>
-          <div class="rs-entry-date">Mar 2026 &ndash; Present</div>
-        </div>
-        <div class="rs-entry-sub">Tampa, FL</div>
-        <div class="rs-bullet">Design and execute a structured classification framework across 100+ hardware and software cases to support AI model training data.</div>
-        <div class="rs-bullet">Contribute to the development of SeniorSafe AI, a specialized conversational model for senior citizen cybercrime victims.</div>
-      </div>
-
-      <div class="rs-entry rs-entry-accent-blue">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Website Specialist &nbsp;&middot;&nbsp; USF Dept. of Mechanical Engineering</div>
-          <div class="rs-entry-date">Sep 2024 &ndash; Present</div>
-        </div>
-        <div class="rs-entry-sub">Tampa, FL</div>
-        <div class="rs-bullet">Serve as primary technical contact for department website updates across 15+ pages, office system configuration, and local IT maintenance.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Technical Projects -->
-  <div class="rs-section">
-    <div class="rs-section-head">Technical Projects</div>
-    <div class="space-y-8">
-
-      <div class="rs-entry rs-entry-accent">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Applied Research in Military Systems (ARMS) at USF</div>
-          <div class="rs-entry-date">May 2026 &ndash; Present</div>
-        </div>
-        <div class="rs-entry-sub">Lead Researcher &amp; Founder</div>
-        <div class="rs-bullet">Developing a GPS-denied navigation prototype using C++/MATLAB Kalman filtering to fuse simulated 6-DOF IMU and atmospheric data.</div>
-        <div class="rs-bullet"><strong style="color:var(--text-1);font-weight:600;">Error Characterization:</strong> Conducting Inertial Dead Reckoning studies to establish sensor bias baselines and reduce cumulative drift.</div>
-        <div class="rs-bullet"><strong style="color:var(--text-1);font-weight:600;">TT&amp;C Implementation:</strong> Building a Telemetry, Tracking, and Command ground station for real-time state estimation and fault monitoring.</div>
-      </div>
-
-      <div class="rs-entry rs-entry-accent">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Smart Load-Shedding &amp; Power Distribution Controller</div>
-          <div class="rs-entry-date">Dec 2025 &ndash; Jan 2026</div>
-        </div>
-        <div class="rs-bullet"><strong style="color:var(--text-1);font-weight:600;">Hardware Design:</strong> Engineered an ESP32-based power distribution unit to monitor real-time loads with a &plusmn;0.5% current sensing accuracy.</div>
-        <div class="rs-bullet"><strong style="color:var(--text-1);font-weight:600;">Control Logic:</strong> Developed PWM-based trip-logic to prevent overcurrent, maintaining system stability within 10% of peak rated capacity.</div>
-        <div class="rs-bullet"><strong style="color:var(--text-1);font-weight:600;">Bench Testing:</strong> Utilized digital oscilloscopes to validate signal integrity, reducing noise (Vpp) by 35% through active RC signal conditioning.</div>
-      </div>
-
-      <div class="rs-entry rs-entry-accent">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Resilient Infrastructure Simulation Lab</div>
-          <div class="rs-entry-date">Jan 2026 &ndash; Present</div>
-        </div>
-        <div class="rs-entry-sub">Proxmox VE &nbsp;&middot;&nbsp; MATLAB &nbsp;&middot;&nbsp; Python &nbsp;&middot;&nbsp; Linux</div>
-        <div class="rs-bullet">Conducted load-flow simulations in MATLAB to identify service recovery strategies, optimizing simulated grid restoration time by 22%.</div>
-        <div class="rs-bullet">Built an AI-driven simulation model to analyze failure propagation across 7 infrastructure layers, generating 500+ unique grid outage scenarios.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Leadership -->
-  <div class="rs-section">
-    <div class="rs-section-head">Leadership &amp; Involvement</div>
-    <div class="space-y-8">
-
-      <div class="rs-entry rs-entry-accent-blue">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">Technical Development Chair &nbsp;&middot;&nbsp; NSBE USF Chapter</div>
-          <div class="rs-entry-date">Apr 2025 &ndash; Present</div>
-        </div>
-        <div class="rs-entry-sub">National Society of Black Engineers</div>
-        <div class="rs-bullet">Direct technical skill-building initiatives and workshops for a chapter of 100+ engineering and technology students.</div>
-        <div class="rs-bullet">Develop curriculum on Arduino fundamentals for community outreach programs targeting K-12 students.</div>
-      </div>
-
-      <div class="rs-entry rs-entry-accent-blue">
-        <div class="rs-entry-header">
-          <div class="rs-entry-title">President &nbsp;&middot;&nbsp; USF SCOPE</div>
-          <div class="rs-entry-date">Jun 2025 &ndash; Dec 2025</div>
-        </div>
-        <div class="rs-entry-sub">Society for Critical Operations and Preparedness Engineering</div>
-        <div class="rs-bullet">Founded and scaled a 60+ member organization focused on mission-critical readiness and emergency engineering operations.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Certifications -->
-  <div class="rs-section">
-    <div class="rs-section-head">Certifications</div>
-    <div class="rs-entry rs-entry-accent">
-      <div class="rs-entry-header">
-        <div class="rs-entry-title">CompTIA Security+</div>
-        <div class="rs-entry-date">Issued Jan 2026</div>
-      </div>
-      <div class="rs-entry-sub">Infrastructure security &nbsp;&middot;&nbsp; Secure protocols &nbsp;&middot;&nbsp; Identity management</div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ── FOOTER ─────────────────────────────────────────────── -->
-<footer class="ng-footer">
-  <div class="ng-footer-inner">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.50);margin-bottom:0.35rem;">Dontavious Ellis</div>
-    <div style="font-size:0.75rem;color:rgba(255,255,255,0.30);margin-bottom:1.5rem;">Electrical Engineering &nbsp;&middot;&nbsp; Orbital Corporation &nbsp;&middot;&nbsp; USF</div>
-    <div style="font-size:0.68rem;color:rgba(255,255,255,0.18);max-width:640px;margin:0 auto 1.5rem;line-height:1.6;">All simulated infrastructure models and lab exercises are conducted in controlled academic environments for engineering development and research.</div>
-    <div style="padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.07);font-size:0.68rem;color:rgba(255,255,255,0.18);">&copy; 2026 Dontavious Ellis. All rights reserved.</div>
-  </div>
+<footer class="cmd-footer microtext">
+  <span>© 2026 DONTAVIOUS ELLIS · RECORD CURRENT AS OF JUL 2026</span>
+  <a href="index.html" data-route>RETURN TO COMMAND</a>
 </footer>
 
-<script>
-  var btn = document.getElementById('mobile-menu-btn');
-  var menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', function () {
-      var isHidden = menu.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', String(!isHidden));
-    });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/command.js" data-page="resume" defer></script>
+<script defer>
+(function () {
+  function main() {
+    window.CE.reveal();
+    window.CE.scramble(document.getElementById('recw'), 'THE RECORD', { duration: 800 });
+    document.documentElement.dataset.ceOk = '1';
   }
+  if (window.CE && window.CE.onReady) window.CE.onReady(main);
+  else document.addEventListener('ce:ready', main, { once: true });
+})();
 </script>
-    <script src="js/page-anim.js" defer></script>
-    <script src="main.js"></script>
-    <script data-global-fade>
-        requestAnimationFrame(() => document.body.classList.add('reveal-in'));
-    </script>
 </body>
 </html>

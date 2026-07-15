@@ -1,324 +1,707 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Dontavious Ellis · Hardware Builds · Embedded Systems · Defense Engineering</title>
-
-<meta name="description" content="Engineering projects by Dontavious Ellis: ESP32 smart grid monitor, power distribution controller, GPS-denied navigation prototype (ARMS), and resilient infrastructure simulation lab. Defense-focused hardware with measurable outcomes.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ellis Dynamics | Countermeasure Systems · Program Briefing</title>
+<meta name="description" content="Ellis Dynamics — countermeasure systems: GPS-denied navigation and resilient communications (ECCM), plus predictive tracking of aerial threats (Detect-Track). Founded by Dontavious Ellis. First hardware in development.">
 <link rel="canonical" href="https://dontaviousellis.com/projects.html">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0b1220">
-
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
-<meta property="og:title" content="Projects | Dontavious Ellis · Hardware Builds · Embedded Systems · Defense Engineering">
-<meta property="og:description" content="Engineering projects by Dontavious Ellis: ESP32 smart grid monitor, power distribution controller, GPS-denied navigation prototype (ARMS), and resilient infrastructure simulation lab. Defense-focused hardware with measurable outcomes.">
+<meta property="og:title" content="Ellis Dynamics | Countermeasure Systems · Program Briefing">
+<meta property="og:description" content="Protecting friendly platforms from electronic denial. Detecting and predicting hostile ones. Proven as working hardware, not claimed capability.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dontaviousellis.com/projects.html">
 <meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Projects | Dontavious Ellis · Hardware Builds · Embedded Systems · Defense Engineering">
-<meta name="twitter:description" content="Engineering projects by Dontavious Ellis: ESP32 smart grid monitor, power distribution controller, GPS-denied navigation prototype (ARMS), and resilient infrastructure simulation lab. Defense-focused hardware with measurable outcomes.">
-<meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
-<script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .case-card { transition: all 0.3s ease; }
-        .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .filter-btn.active { background-color: #d97706; color: white; }
-        .evidence-badge { background: linear-gradient(135deg, #dc2626, #b91c1c); }
-    </style>
-    <link rel="stylesheet" href="css/reveal.css" />
-  <link rel="stylesheet" href="css/scroll.css" />
-    <meta name="keywords" content="Dontavious Ellis, defense electrical engineer, GPS-denied navigation, tactical communications, Orbital Corporation, USF electrical engineering, embedded systems, power systems, defense contractor, Lockheed Martin, Raytheon, L3Harris, Northrop Grumman, ARMS navigation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/command.css">
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () {
+  if (!(window.CE && window.CE.ready) || !document.documentElement.dataset.ceOk) document.documentElement.classList.remove('js');
+}, 3000);
+</script>
+<style>
+/* ═══ page: ellis dynamics briefing ═══ */
+body { padding-top: var(--nav-h); }
+
+.brief-banner {
+  border-bottom: 1px solid var(--line);
+  padding: 10px clamp(1.2rem, 5vw, 4.5rem);
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+  font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--txt-3); background: var(--bg-1);
+}
+.brief-banner .rel { color: var(--grn); }
+
+/* briefing hero */
+#brief-hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; }
+#bh-canvas { position: absolute; inset: 0; opacity: 0.85; }
+#brief-hero .inner { position: relative; z-index: 2; padding: clamp(3rem, 8vh, 6rem) clamp(1.2rem, 5vw, 4.5rem); max-width: 1560px; margin: 0 auto; width: 100%; }
+.ed-word {
+  font-family: var(--font-display); text-transform: uppercase; font-weight: 700;
+  font-size: clamp(3.4rem, 12vw, 11rem); line-height: 0.86;
+}
+.ed-word .row2 { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(232,234,237,0.8); }
+.ed-mission { margin-top: 2rem; max-width: 58ch; color: var(--txt-2); font-size: clamp(0.95rem, 1.3vw, 1.15rem); line-height: 1.7; }
+.ed-mission strong { color: var(--txt-1); }
+.stage-strip { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* briefing sections */
+.bsec { border-top: 1px solid var(--line); }
+.bsec .b-tag { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.26em; color: var(--red-lt); text-transform: uppercase; }
+.b-two { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+.b-two p, .b-copy p { color: var(--txt-2); margin-bottom: 1.1rem; max-width: 56ch; }
+.b-two p strong, .b-copy p strong { color: var(--txt-1); }
+@media (max-width: 880px) { .b-two { grid-template-columns: 1fr; } }
+
+/* jamming demo */
+#jam-demo { border: 1px solid var(--line); background: var(--panel); padding: 1.4rem; }
+#jam-canvas { width: 100%; height: 160px; display: block; background: var(--bg-1); border: 1px solid var(--line); }
+#jam-demo .jd-row { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+#jam-demo label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--txt-3); }
+#jam-power { flex: 1; min-width: 140px; appearance: none; height: 2px; background: var(--steel); outline-offset: 4px; }
+#jam-power::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; background: var(--red); border: 2px solid var(--bg-0); cursor: pointer; }
+#jam-power::-moz-range-thumb { width: 14px; height: 14px; background: var(--red); border: 2px solid var(--bg-0); cursor: pointer; border-radius: 0; }
+#jam-status { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; color: var(--grn); min-width: 190px; text-transform: uppercase; }
+
+/* domain panels */
+.domains { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.domain { border: 1px solid var(--line); background: var(--panel); padding: 1.8rem; position: relative; overflow: hidden; transition: border-color .3s; }
+.domain:hover { border-color: var(--red-dim); }
+.domain .d-num { font-family: var(--font-display); font-size: 3.2rem; font-weight: 700; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.15); line-height: 1; }
+.domain h3 { font-family: var(--font-display); text-transform: uppercase; font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2.3rem); margin: 0.4rem 0 0.2rem; }
+.domain .d-sub { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red-lt); }
+.domain canvas { width: 100%; height: 150px; display: block; margin: 1.2rem 0; border: 1px solid var(--line); background: var(--bg-1); }
+.domain ul { list-style: none; }
+.domain li { padding: 0.7rem 0; border-top: 1px solid var(--line); font-size: 0.83rem; color: var(--txt-2); }
+.domain li strong { color: var(--txt-1); display: block; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 3px; }
+@media (max-width: 880px) { .domains { grid-template-columns: 1fr; } }
+
+/* counter-UAS sequence */
+.cuas-seq { display: flex; gap: 0; margin-top: 2.2rem; border: 1px solid var(--line); flex-wrap: wrap; }
+.cuas-step { flex: 1; min-width: 130px; padding: 1.1rem 1.2rem; border-right: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--txt-3); position: relative; }
+.cuas-step:last-child { border-right: none; }
+.cuas-step.hot { color: var(--red-lt); background: var(--red-glow); }
+.cuas-step.hot::after { content: 'ELLIS DYNAMICS FOCUS'; position: absolute; bottom: 6px; left: 1.2rem; font-size: 0.46rem; letter-spacing: 0.14em; color: var(--txt-3); }
+.cuas-step .n { display: block; color: var(--txt-3); font-size: 0.5rem; margin-bottom: 6px; }
+
+/* discipline pillars */
+.pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.pillar { background: var(--bg-0); padding: 1.5rem; min-height: 190px; display: flex; flex-direction: column; transition: background .3s; }
+.pillar:hover { background: var(--panel-2); }
+.pillar .p-id { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.2em; color: var(--red-lt); }
+.pillar h4 { font-family: var(--font-display); text-transform: uppercase; font-weight: 600; font-size: 1.15rem; margin: 0.5rem 0; }
+.pillar p { font-size: 0.78rem; color: var(--txt-2); line-height: 1.55; }
+@media (max-width: 1000px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
+.scope-note { margin-top: 1.4rem; border: 1px dashed rgba(232,163,61,0.35); padding: 1.1rem 1.3rem; font-size: 0.8rem; color: var(--txt-2); }
+.scope-note .k { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amb); display: block; margin-bottom: 4px; }
+
+/* status board */
+.status-board { border: 1px solid var(--line); }
+.sb-row { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--line); }
+.sb-row:last-child { border-bottom: none; }
+.sb-row .item { font-size: 0.88rem; color: var(--txt-1); }
+.sb-row .item .sub { display: block; font-size: 0.72rem; color: var(--txt-3); margin-top: 2px; }
+.sb-bar { grid-column: 1 / -1; height: 3px; background: rgba(255,255,255,0.06); position: relative; }
+.sb-bar i { position: absolute; left: 0; top: 0; height: 100%; background: var(--amb); width: 0; transition: width 1.2s var(--ease-mech); }
+
+/* roadmap chain */
+.chain { display: flex; flex-direction: column; gap: 0; position: relative; margin-left: 8px; }
+.chain-node { position: relative; padding: 0 0 2.4rem 42px; }
+.chain-node::before { content: ''; position: absolute; left: 6px; top: 20px; bottom: 0; width: 1px; background: var(--line-2); }
+.chain-node:last-child::before { display: none; }
+.chain-node .c-dot { position: absolute; left: 0; top: 5px; width: 13px; height: 13px; border: 1px solid var(--txt-3); transform: rotate(45deg); background: var(--bg-0); }
+.chain-node.now .c-dot { border-color: var(--amb); background: rgba(232,163,61,0.2); box-shadow: 0 0 10px rgba(232,163,61,0.3); }
+.chain-node h4 { font-family: var(--font-display); text-transform: uppercase; font-weight: 600; font-size: 1.3rem; }
+.chain-node .c-gate { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--txt-3); }
+.chain-node p { font-size: 0.82rem; color: var(--txt-2); max-width: 60ch; margin-top: 0.4rem; }
+
+/* evidence grid */
+.ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.ev-card { border: 1px solid var(--line); background: var(--panel); padding: 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; transition: border-color .3s, transform .4s var(--ease-out); }
+.ev-card:hover { border-color: var(--red-dim); transform: translateY(-5px); }
+.ev-card .e-id { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.2em; color: var(--red-lt); display: flex; justify-content: space-between; }
+.ev-card h4 { font-family: var(--font-display); text-transform: uppercase; font-weight: 600; font-size: 1.25rem; line-height: 1.05; }
+.ev-card canvas { width: 100%; height: 84px; display: block; border: 1px solid var(--line); background: var(--bg-1); }
+.ev-card p { font-size: 0.76rem; color: var(--txt-2); line-height: 1.5; }
+@media (max-width: 1000px) { .ev-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .ev-grid { grid-template-columns: 1fr; } }
+
+/* market */
+.mkt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.mkt-panel { border: 1px solid var(--line); background: var(--panel); padding: 1.8rem; }
+.mkt-panel h3 { font-family: var(--font-display); text-transform: uppercase; font-weight: 600; font-size: 1.5rem; margin-bottom: 1rem; }
+.mkt-panel ul { list-style: none; }
+.mkt-panel li { padding: 0.65rem 0; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--txt-2); }
+.mkt-panel li strong { color: var(--txt-1); }
+@media (max-width: 880px) { .mkt-grid { grid-template-columns: 1fr; } }
+.reg-note { margin-top: 1.4rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--txt-3); text-transform: uppercase; }
+
+/* founder strip */
+.founder-strip { display: flex; justify-content: space-between; align-items: center; gap: 2rem; border: 1px solid var(--line); background: var(--panel); padding: 2rem; flex-wrap: wrap; }
+.founder-strip .f-copy { max-width: 62ch; color: var(--txt-2); font-size: 0.9rem; }
+.founder-strip .f-copy strong { color: var(--txt-1); }
+</style>
 </head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<body style="background:#07080a;color:#ffffff;font-family:'Inter',sans-serif;margin:0;overflow-x:hidden;">
-    <!-- ── NAVIGATION ─────────────────────────────────────────── -->
-    <nav style="background:rgba(7,8,10,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.07);position:sticky;top:0;z-index:50;">
-        <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;">
-            <a href="index.html" style="display:flex;align-items:flex-start;text-decoration:none;">
-                <div style="display:flex;flex-direction:column;gap:3px;">
-                    <div style="display:flex;align-items:center;gap:7px;">
-                        <svg style="width:11px;height:19px;" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/>
-                        </svg>
-                        <span style="font-size:0.82rem;font-weight:700;letter-spacing:0.10em;color:#fff;text-transform:uppercase;line-height:1;">Dontavious Ellis</span>
-                    </div>
-                    <div style="display:flex;align-items:center;gap:4px;">
-                        <div style="flex:1;height:1px;background:rgba(220,38,38,0.45);"></div>
-                        <div style="width:3px;height:3px;border-radius:50%;background:#dc2626;"></div>
-                        <div style="flex:1;height:1px;background:rgba(220,38,38,0.45);"></div>
-                    </div>
-                    <span style="font-family:'JetBrains Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;color:rgba(255,255,255,0.32);text-transform:uppercase;">EE &nbsp;&middot;&nbsp; Defense Systems</span>
-                </div>
-            </a>
-            <div class="hidden md:flex" style="gap:2rem;align-items:center;">
-                <a href="index.html" style="color:rgba(255,255,255,0.65);font-size:0.80rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;text-transform:uppercase;">Home</a>
-                <a href="about.html" style="color:rgba(255,255,255,0.65);font-size:0.80rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;text-transform:uppercase;">About</a>
-                <a href="projects.html" style="color:#fff;font-size:0.80rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;text-transform:uppercase;border-bottom:1px solid #dc2626;padding-bottom:2px;">Projects</a>
-                <a href="resume.html" style="border:1px solid rgba(220,38,38,0.40);color:rgba(239,68,68,0.90);font-size:0.80rem;font-weight:500;letter-spacing:0.04em;text-decoration:none;padding:6px 16px;border-radius:3px;text-transform:uppercase;">Resume</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden" style="color:rgba(255,255,255,0.70);background:none;border:none;cursor:pointer;" aria-label="Open menu">
-                <svg style="width:24px;height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden" style="background:#07080a;border-top:1px solid rgba(255,255,255,0.07);">
-            <div style="padding:0.75rem 1rem;">
-                <a href="index.html" style="display:block;padding:0.55rem 0;color:rgba(255,255,255,0.65);font-size:0.82rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.07);">Home</a>
-                <a href="about.html" style="display:block;padding:0.55rem 0;color:rgba(255,255,255,0.65);font-size:0.82rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.07);">About</a>
-                <a href="projects.html" style="display:block;padding:0.55rem 0;color:#fff;font-size:0.82rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.07);">Projects</a>
-                <a href="resume.html" style="display:block;padding:0.55rem 0;color:rgba(239,68,68,0.90);font-size:0.82rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;">Resume</a>
-            </div>
-        </div>
-    </nav>
+<div class="brief-banner" role="note">
+  <span>ELLIS DYNAMICS · PROGRAM BRIEFING · DOC ED-PB-26</span>
+  <span class="rel">RELEASE: PUBLIC · NO CONTROLLED INFORMATION</span>
+  <span>STAGE: PRE-FORMATION · FIRST HARDWARE IN DEVELOPMENT</span>
+</div>
 
-    <!-- Header Section -->
-    <section style="background:#07080a;color:#fff;padding:5rem 0 3.5rem;position:relative;overflow:hidden;">
-        <div class="absolute inset-0 z-0" style="opacity:0.28;">
-            <img src="resources/hero-forensic.png" alt="" class="w-full h-full object-cover" aria-hidden="true">
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center">
-                <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.22em;text-transform:uppercase;color:#ef4444;margin-bottom:1rem;">Technical Projects</div>
-                <h1 style="font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:1rem;">Engineering Projects</h1>
-                <p style="font-size:1rem;color:#b0b4bc;max-width:640px;margin:0 auto;line-height:1.70;">
-                    Hardware builds, power systems, embedded firmware, infrastructure modeling, and lab investigations · all documented with measurable outcomes and engineering rationale.
-                </p>
-                <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:640px;margin:1rem auto 0;line-height:1.60;">
-                    Lab simulations are conducted in controlled environments for academic and professional development. No real systems were targeted.
-                </p>
-            </div>
-        </div>
-    </section>
+<main id="main">
 
-    <!-- Filter Section -->
-    <section style="padding:1.5rem 0;background:#0a0b0d;border-bottom:1px solid rgba(255,255,255,0.07);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-6 items-center">
-                <div class="flex-1 w-full lg:w-auto">
-                    <div class="relative">
-                        <input type="text" id="case-search" placeholder="Search projects..."
-                               style="width:100%;padding:0.5rem 0.75rem 0.5rem 2.5rem;background:#0d0e11;border:1px solid rgba(255,255,255,0.10);border-radius:4px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.78rem;" placeholder="Search projects...">
-                        <svg style="position:absolute;left:0.75rem;top:0.6rem;width:1rem;height:1rem;color:rgba(255,255,255,0.35);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                    <button class="case-filter filter-btn active" data-filter="all" style="padding:0.4rem 1rem;border-radius:3px;border:1px solid rgba(220,38,38,0.40);background:rgba(220,38,38,0.12);color:#ef4444;font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">All Projects</button>
-                    <button class="case-filter filter-btn" data-filter="power" style="padding:0.4rem 1rem;border-radius:3px;border:1px solid rgba(255,255,255,0.10);background:transparent;color:rgba(255,255,255,0.50);font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Power Systems</button>
-                    <button class="case-filter filter-btn" data-filter="embedded" style="padding:0.4rem 1rem;border-radius:3px;border:1px solid rgba(255,255,255,0.10);background:transparent;color:rgba(255,255,255,0.50);font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Embedded</button>
-                    <button class="case-filter filter-btn" data-filter="infrastructure" style="padding:0.4rem 1rem;border-radius:3px;border:1px solid rgba(255,255,255,0.10);background:transparent;color:rgba(255,255,255,0.50);font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Infrastructure</button>
-                    <button class="case-filter filter-btn" data-filter="lab" style="padding:0.4rem 1rem;border-radius:3px;border:1px solid rgba(255,255,255,0.10);background:transparent;color:rgba(255,255,255,0.50);font-size:0.75rem;font-weight:600;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Lab Investigations</button>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ═══ BRIEFING HERO ═══ -->
+<section id="brief-hero" aria-label="Ellis Dynamics">
+  <canvas id="bh-canvas" aria-hidden="true"></canvas>
+  <div class="inner">
+    <span class="overline rv">Countermeasure Systems</span>
+    <h1 class="ed-word" style="margin-top:1rem;"><span id="edw1">ELLIS</span><span class="row2" id="edw2">DYNAMICS</span></h1>
+    <p class="ed-mission rv" data-rv-delay="0.15">
+      <strong>Protecting friendly platforms from electronic denial. Detecting and predicting hostile ones.</strong>
+      Modern reconnaissance and defense platforms fail exactly when they're needed most — GPS jammed or spoofed,
+      radio links suppressed. That's now standard practice in contested environments, not an edge case.
+      Ellis Dynamics exists to keep systems functioning through denial, and to find and track the threats causing it —
+      <strong>proven as working hardware, not claimed capability.</strong>
+    </p>
+    <div class="stage-strip rv" data-rv-delay="0.3">
+      <span class="tag amb">STAGE: PRE-FORMATION</span>
+      <span class="tag amb">FIRST DELIVERABLE: IN DEVELOPMENT</span>
+      <span class="tag">SOLO FOUNDER · SELF-DIRECTED</span>
+      <span class="tag">NO CLAIMS WITHOUT HARDWARE</span>
+    </div>
+  </div>
+</section>
 
-    <!-- Projects Grid -->
-    <section style="padding:3rem 0;background:#0a0b0d;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+<!-- ═══ 01 · OPERATIONAL ENVIRONMENT ═══ -->
+<section class="sec bsec" id="env" aria-label="Operational environment">
+  <div class="sec-head">
+    <div>
+      <span class="sec-id">01</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Operational Environment</span>
+      <h2 class="sec-title">THE SIGNAL IS<br><em>THE FIRST CASUALTY.</em></h2>
+    </div>
+  </div>
+  <div class="b-two">
+    <div class="b-copy rv">
+      <p>Every modern platform assumes two things: it knows where it is, and it can talk to friendly systems.
+      In a contested environment, <strong>both assumptions are attacked directly</strong> — GPS jamming and spoofing
+      deny trusted position; RF jamming severs coordination and data links.</p>
+      <p>The result is a capability gap that senior defense and intelligence leaders return to constantly:
+      <strong>systems that perform flawlessly in the lab become blind and mute exactly when the mission depends on them.</strong></p>
+      <p>Try it yourself. Raise the jamming power and watch the link degrade — then note what has to happen next.
+      That "next" is where Ellis Dynamics operates.</p>
+    </div>
+    <div id="jam-demo" class="rv" data-rv-delay="0.15" data-cursor-label="INTERACT">
+      <canvas id="jam-canvas"></canvas>
+      <div class="jd-row">
+        <label for="jam-power">JAMMING POWER</label>
+        <input type="range" id="jam-power" min="0" max="100" value="0" aria-label="Jamming power simulation">
+        <span id="jam-status">LINK NOMINAL · SNR 32 dB</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <!-- Project 1: Smart Grid Edge Monitor -->
-                <div id="project-01" class="case-card" style="background:#141516;border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;transition:border-color 0.2s;" data-category="power">
-                    <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.18em;text-transform:uppercase;color:#ef4444;font-weight:600;">POWER SYSTEMS &nbsp;&middot;&nbsp; EMBEDDED</div>
-                        <div style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.10em;text-transform:uppercase;color:rgba(52,211,153,0.70);"><div style="width:6px;height:6px;border-radius:50%;background:#34d399;"></div>Completed</div>
-                    </div>
-                    <h3 style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Secure IIoT Smart Grid Edge Monitor</h3>
-                    <p style="font-size:0.82rem;color:#b0b4bc;margin-bottom:1rem;line-height:1.65;">ESP32 firmware with FFT-based THD detection in sub-100ms intervals, &lt;3% RMS error margin. AES-128 + MQTT TLS 1.2 over a NERC CIP-compliant telemetry pipeline validated end-to-end.</p>
-                    <div class="mb-4">
-                        <h4 style="font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.55);margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;">Technologies & Methods:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">ESP32 Firmware</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">FFT / THD Analysis</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">AES-128 · MQTT TLS 1.2</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">NERC CIP Compliance</span>
-                        </div>
-                    </div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.30);letter-spacing:0.06em;">Aug 2025 – Mar 2026</div>
-                    </div><!-- /p-6 -->
-                </div>
+<!-- ═══ 02 · MISSION DOMAINS ═══ -->
+<section class="sec bsec" id="domains" aria-label="Mission domains">
+  <div class="sec-head">
+    <div>
+      <span class="sec-id">02</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Mission Domains</span>
+      <h2 class="sec-title">TWO DOMAINS.<br><em>ONE DISCIPLINE.</em></h2>
+    </div>
+    <p class="sec-desc rv">Both domains run on the same physical layer: robotics, mechatronics, and embedded real-time systems.</p>
+  </div>
+  <div class="domains">
+    <article class="domain rv" data-cursor-label="INSPECT DOMAIN">
+      <span class="d-num">D1</span>
+      <h3>ECCM</h3>
+      <span class="d-sub">Electronic Counter-Countermeasures · Protect the friendly platform</span>
+      <canvas id="dom-eccm"></canvas>
+      <ul>
+        <li><strong>GPS-Denied Navigation</strong>Dead reckoning via inertial sensing — position awareness maintained when GPS is jammed or spoofed. First hardware deliverable in development.</li>
+        <li><strong>Resilient Communications</strong>Maintaining coordination and data links under active jamming.</li>
+      </ul>
+    </article>
+    <article class="domain rv" data-rv-delay="0.12" data-cursor-label="INSPECT DOMAIN">
+      <span class="d-num">D2</span>
+      <h3>DETECT-TRACK</h3>
+      <span class="d-sub">Find the threat · Predict its trajectory</span>
+      <canvas id="dom-track"></canvas>
+      <ul>
+        <li><strong>Predictive Tracking</strong>State estimation and sensor fusion — Kalman filtering applied to flying objects. Design phase.</li>
+        <li><strong>EO/IR Sensing</strong>Thermal and night-vision imaging as the primary sensor input feeding the tracker.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="cuas-seq rv" aria-label="Counter-UAS sequence">
+    <div class="cuas-step"><span class="n">STEP 1</span>DETECT</div>
+    <div class="cuas-step hot"><span class="n">STEP 2</span>TRACK</div>
+    <div class="cuas-step"><span class="n">STEP 3</span>IDENTIFY</div>
+    <div class="cuas-step"><span class="n">STEP 4</span>DEFEAT</div>
+  </div>
+  <p class="rv" style="color:var(--txt-2); font-size:0.85rem; max-width:64ch; margin-top:1.4rem;">
+    Track is deliberately positioned as the <strong style="color:var(--txt-1)">foundational, mechanism-agnostic layer</strong>
+    of counter-UAS: every eventual defeat method — jamming, net capture, kinetic — needs this layer first,
+    regardless of which one a customer ultimately deploys.
+  </p>
+</section>
 
-                <!-- Project 2: Load-Shedding Controller -->
-                <div id="project-02" class="case-card" style="background:#141516;border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;transition:border-color 0.2s;" data-category="power">
-                    <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.18em;text-transform:uppercase;color:#ef4444;font-weight:600;">POWER DISTRIBUTION &nbsp;&middot;&nbsp; HARDWARE DESIGN</div>
-                        <div style="display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.10em;text-transform:uppercase;color:rgba(52,211,153,0.70);"><div style="width:6px;height:6px;border-radius:50%;background:#34d399;"></div>Completed</div>
-                    </div>
-                    <h3 style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Smart Load-Shedding &amp; Power Distribution Controller</h3>
-                    <p style="font-size:0.82rem;color:#b0b4bc;margin-bottom:1rem;line-height:1.65;">PWM trip-logic holding system stability within 10% of peak capacity. Active RC filtering cut noise (Vpp) by 35%, bench-validated with digital oscilloscopes.</p>
-                    <div class="mb-4">
-                        <h4 style="font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.55);margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;">Technologies &amp; Methods:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">ESP32 · PWM Control</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Digital Oscilloscope</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">RC Signal Conditioning</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Current Sensing</span>
-                        </div>
-                    </div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.30);letter-spacing:0.06em;">Dec 2025 – Jan 2026</div>
-                    </div><!-- /p-6 -->
-                </div>
+<!-- ═══ 03 · CORE DISCIPLINE ═══ -->
+<section class="sec bsec" id="discipline" aria-label="Core engineering discipline">
+  <div class="sec-head">
+    <div>
+      <span class="sec-id">03</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Core Engineering Discipline</span>
+      <h2 class="sec-title">ROBOTICS · MECHATRONICS<br><em>· EMBEDDED SYSTEMS</em></h2>
+    </div>
+    <p class="sec-desc rv">The physical layer both mission domains run on.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar rv"><span class="p-id">PIL·01</span><h4>Embedded Real-Time Systems</h4><p>The compute substrate. Current platform: Xilinx Spartan-3 FPGA, with ESP32-class firmware experience already bench-proven.</p></div>
+    <div class="pillar rv" data-rv-delay="0.06"><span class="p-id">PIL·02</span><h4>Sensor &amp; Actuator Integration</h4><p>Physically integrating IMU, EO/IR, and future RF hardware onto a shared platform.</p></div>
+    <div class="pillar rv" data-rv-delay="0.12"><span class="p-id">PIL·03</span><h4>Precision Pointing / Gimbal Control</h4><p>Two-axis gimbal driven by predictive feedforward from the tracker's own state estimate — leading a moving target instead of lagging it. Where Detect-Track and robotics become one system.</p></div>
+    <div class="pillar rv" data-rv-delay="0.18"><span class="p-id">PIL·04</span><h4>SWaP-Constrained Design</h4><p>Size, weight, and power discipline for small-platform deployability — the practical filter most small-platform defense proposals are screened against.</p></div>
+  </div>
+  <div class="scope-note rv">
+    <span class="k">// DECLARED OUT OF SCOPE — FOR NOW</span>
+    Full autonomous flight (path planning, SLAM) is a real robotics subfield, but it's ahead of current mission scope.
+    That decision gets made later — once a physical platform exists to fly.
+  </div>
+</section>
 
-                <!-- Project 3: Infrastructure Home Lab -->
-                <div id="project-04" class="case-card" style="background:#141516;border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;transition:border-color 0.2s;" data-category="infrastructure">
-                    <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.18em;text-transform:uppercase;color:#ef4444;font-weight:600;">INFRASTRUCTURE &nbsp;&middot;&nbsp; MODELING &nbsp;&middot;&nbsp; LAB</div>
-                        <div class="flex items-center text-xs text-gray-500">
-                            <div class="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
-                            <span>Active</span>
-                        </div>
-                    </div>
-                    <h3 style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Enterprise Infrastructure Home Lab</h3>
-                    <p style="font-size:0.82rem;color:#b0b4bc;margin-bottom:1rem;line-height:1.65;">Proxmox + pfSense multi-tier lab. MATLAB load-flow simulations cut grid restoration time 22%. PulseGrid AI models cascading failure across 7 infrastructure layers across 500+ outage scenarios.</p>
-                    <div class="mb-4">
-                        <h4 style="font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.55);margin-bottom:0.5rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;">Technologies &amp; Methods:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">MATLAB Load-Flow</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Proxmox VE</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">PulseGrid AI</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">pfSense · VLAN</span>
-                            <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Bash Automation</span>
-                        </div>
-                    </div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.30);letter-spacing:0.06em;">Feb 2026 – Present</div>
-                    </div><!-- /p-6 -->
-                </div>
+<!-- ═══ 04 · ROADMAP ═══ -->
+<section class="sec bsec" id="roadmap" aria-label="Roadmap">
+  <div class="sec-head">
+    <div>
+      <span class="sec-id">04</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Development Status</span>
+      <h2 class="sec-title">WHERE THE PROGRAM<br><em>ACTUALLY STANDS.</em></h2>
+    </div>
+    <p class="sec-desc rv">Each stage unlocks the next. Nothing goes public before it physically exists.</p>
+  </div>
+  <div class="chain">
+    <div class="chain-node now rv">
+      <span class="c-dot"></span>
+      <span class="c-gate">GATE 1 · CURRENT POSITION</span>
+      <h4>Ship the IMU Dead-Reckoning Module</h4>
+      <p>First physical deliverable: inertial navigation hardware demonstrating position awareness through GPS denial. In active development.</p>
+    </div>
+    <div class="chain-node rv">
+      <span class="c-dot"></span>
+      <span class="c-gate">GATE 2 · UNLOCKED BY GATE 1</span>
+      <h4>Begin the Precision-Pointing Build</h4>
+      <p>Predictive tracker + two-axis gimbal with feedforward pointing — moving Detect-Track from design phase to hardware.</p>
+    </div>
+    <div class="chain-node rv">
+      <span class="c-dot"></span>
+      <span class="c-gate">GATE 3 · UNLOCKED BY GATE 1</span>
+      <h4>Formalize the Company</h4>
+      <p>LLC registration and public brand presence — deliberately held until there is a demonstrable system to stand behind.</p>
+    </div>
+    <div class="chain-node rv">
+      <span class="c-dot"></span>
+      <span class="c-gate">LONG RANGE</span>
+      <h4>Established Defense Company</h4>
+      <p>Countermeasure systems proven in hardware, positioned across the counter-UAS stack — with mitigation as the stated long-term direction once regulatory and capital gates are met.</p>
+    </div>
+  </div>
+</section>
 
-            </div>
+<!-- ═══ 05 · MARKET POSITION ═══ -->
+<section class="sec bsec" id="market" aria-label="Market position">
+  <div class="sec-head">
+    <div>
+      <span class="sec-id">05</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Market Position</span>
+      <h2 class="sec-title">TRACK FIRST.<br><em>DEFEAT LATER.</em></h2>
+    </div>
+  </div>
+  <div class="mkt-grid">
+    <div class="mkt-panel rv">
+      <span class="overline">Near-Term Focus</span>
+      <h3>Detect-Track / Pointing</h3>
+      <ul>
+        <li><strong>Buildable now:</strong> detection and tracking-only systems require no special federal authorization to build or demonstrate — unlike active mitigation.</li>
+        <li><strong>Addressable market:</strong> military, critical infrastructure, airports — plus the newly authorized state, local, tribal, and territorial law-enforcement market under the SAFER SKIES Act (FY2026 NDAA), effective July 1, 2026.</li>
+        <li><strong>Demand signal:</strong> DHS and FBI recorded 600+ drone incursions into restricted airspace at U.S. World Cup host-city venues as of June 20, 2026.</li>
+        <li><strong>Mechanism-agnostic:</strong> foundational to the whole counter-UAS market regardless of which defeat method wins out.</li>
+      </ul>
+    </div>
+    <div class="mkt-panel rv" data-rv-delay="0.12">
+      <span class="overline dim">Long-Term Direction</span>
+      <h3>Mitigation / Defeat Systems</h3>
+      <ul>
+        <li><strong>Real, growing market</strong> — SAFER SKIES widened who is legally authorized to deploy defeat systems.</li>
+        <li><strong>Gated:</strong> formal Authorized Systems List approval, plus materially higher capital, testing, and liability requirements.</li>
+        <li><strong>Stated direction, not a near-term build.</strong> The Track layer being built now is the prerequisite either way.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="reg-note rv">// REGULATORY ENVIRONMENT ACTIVELY LEGISLATED — DOD DOMESTIC C-UAS AUTHORITY SUNSETS DEC 31, 2026 ABSENT EXTENSION. FIGURES CURRENT AS OF JUL 2026.</p>
+</section>
 
-            <!-- Lab Investigations subsection -->
-            <div class="mt-14">
-                <div class="mb-8">
-                    <div class="mono text-xs tracking-widest text-red-600 mb-2">HOMELAB · SECURITY VALIDATION</div>
-                    <h2 class="text-2xl font-bold text-gray-900">Lab Investigations</h2>
-                    <p class="text-gray-600 mt-2">Security validation exercises conducted on isolated homelab infrastructure. Methodological documentation of network forensics and incident response workflows.</p>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8">
+<!-- ═══ 06 · EVIDENCE OF EXECUTION ═══ -->
+<section class="sec bsec" id="evidence" aria-label="Evidence of execution">
+  <div class="sec-head">
+    <div>
+      <span class="sec-id">06</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Evidence of Execution</span>
+      <h2 class="sec-title">THE COMPANY IS NEW.<br><em>THE DISCIPLINE ISN'T.</em></h2>
+    </div>
+    <p class="sec-desc rv">Bench-built, bench-validated, documented with measured outcomes — the engineering record Ellis Dynamics is built on.</p>
+  </div>
+  <div class="ev-grid">
+    <article class="ev-card rv" data-viz="imu">
+      <span class="e-id">ED-TR-001 <span class="status-chip dev">ACTIVE</span></span>
+      <h4>MEMS Inertial Drift Characterization</h4>
+      <canvas></canvas>
+      <p>ESP32 / MPU-6050 strapdown arrays: quantifying bias, noise floor, and drift before Kalman integration. Anchored in Woodman (2007), ARL, and DARPA INS literature. Feeds the ED navigation module directly.</p>
+    </article>
+    <article class="ev-card rv" data-viz="grid" data-rv-delay="0.06">
+      <span class="e-id">PWR-2025-01 <span class="status-chip live">COMPLETE</span></span>
+      <h4>Secure IIoT Grid Edge Monitor</h4>
+      <canvas></canvas>
+      <p>FFT-based THD detection in sub-100 ms intervals, &lt;3% RMS error. AES-128 + MQTT TLS 1.2 telemetry validated end-to-end against NERC CIP guidance.</p>
+    </article>
+    <article class="ev-card rv" data-viz="load" data-rv-delay="0.12">
+      <span class="e-id">PWR-2025-02 <span class="status-chip live">COMPLETE</span></span>
+      <h4>Smart Load-Shedding Controller</h4>
+      <canvas></canvas>
+      <p>PWM trip logic holding stability within 10% of peak capacity; active RC filtering cut noise 35% — validated on digital oscilloscopes.</p>
+    </article>
+    <article class="ev-card rv" data-viz="lab">
+      <span class="e-id">INF-2026-01 <span class="status-chip live">ACTIVE</span></span>
+      <h4>Enterprise Infrastructure Lab</h4>
+      <canvas></canvas>
+      <p>Proxmox + pfSense multi-tier lab; MATLAB load-flow cutting modeled restoration time 22%; cascading-failure modeling across 500+ outage scenarios.</p>
+    </article>
+    <article class="ev-card rv" data-viz="comms" data-rv-delay="0.06">
+      <span class="e-id">ORBITAL-26 <span class="status-chip live">ACTIVE</span></span>
+      <h4>Tactical Comms Hardware</h4>
+      <canvas></canvas>
+      <p>IPC-A-610 Class 3 harness fabrication, EMI shielding, and fault isolation at Orbital Corporation — production-grade hands on the resilient-comms physical layer.</p>
+    </article>
+    <article class="ev-card rv" data-viz="field" data-rv-delay="0.12">
+      <span class="e-id">GNSI-DC-26 <span class="status-chip live">AFTER-ACTION</span></span>
+      <h4>National Security Ecosystem</h4>
+      <canvas></canvas>
+      <p>Pentagon, Capitol Hill, CNAS — 15+ senior officials including a former DIA Director. The institutional context these systems must survive. <a href="gnsi-dc.html" style="color:var(--red-lt)">Full after-action →</a></p>
+    </article>
+  </div>
+</section>
 
-                    <div class="case-card" style="background:#141516;border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;transition:border-color 0.2s;" data-category="lab">
-                        <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.18em;text-transform:uppercase;color:#ef4444;font-weight:600;">CASE-001 &nbsp;&middot;&nbsp; NETWORK SECURITY ANALYSIS</div>
-                            <div class="flex items-center text-xs text-gray-500">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                <span>Completed</span>
-                            </div>
-                        </div>
-                        <h3 style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">After-Hours Network Activity Investigation</h3>
-                        <p style="font-size:0.82rem;color:#b0b4bc;margin-bottom:1rem;line-height:1.65;">7,000+ frames and 86 TCP conversations analyzed under NIST SP 800-61. Baseline deviation, persistence artifacts, and full timeline reconstruction documented.</p>
-                        <div class="mb-4">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="evidence-badge text-white text-xs px-2 py-1 rounded">PCAP / Wireshark</span>
-                                <span class="evidence-badge text-white text-xs px-2 py-1 rounded">TCP Conversation Analysis</span>
-                                <span class="evidence-badge text-white text-xs px-2 py-1 rounded">NIST SP 800-61</span>
-                            </div>
-                        </div>
-                        <a href="case-001.html" style="display:inline-flex;align-items:center;color:#ef4444;font-size:0.78rem;font-weight:600;text-decoration:none;">
-                            View Full Write-Up
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                        </div><!-- /p-6 -->
-                    </div>
+<!-- ═══ 07 · FOUNDER / CONTACT ═══ -->
+<section class="sec bsec" id="founder" aria-label="Founder">
+  <div class="founder-strip rv">
+    <div class="f-copy">
+      <span class="overline" style="margin-bottom:0.8rem; display:inline-flex;">Founder</span>
+      <p style="margin-top:0.8rem;"><strong>Dontavious Ellis</strong> — B.S. Electrical Engineering, University of South Florida, expected May 2028. Tactical communications hardware at Orbital Corporation; GPS-denied navigation research through Ellis Dynamics. Clearance eligible.</p>
+    </div>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a class="btn-t" href="about.html" data-route data-magnetic="0.25" data-cursor-label="OPEN DOSSIER">
+        <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+        OPERATOR DOSSIER <span class="arr">→</span></a>
+      <a class="btn-t primary" href="mailto:edon4585@gmail.com" data-magnetic="0.25" data-cursor-label="ESTABLISH LINK">
+        <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+        CONTACT THE PROGRAM <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
 
-                    <div class="case-card" style="background:#141516;border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden;transition:border-color 0.2s;" data-category="lab">
-                        <div class="p-6">
-                        <div class="flex items-start justify-between mb-4">
-                            <div class="mono text-sm text-red-600 font-semibold">CASE-002 · LINUX SECURITY ANALYSIS</div>
-                            <div class="flex items-center text-xs text-gray-500">
-                                <div class="w-2 h-2 bg-gray-400 rounded-full mr-2"></div>
-                                <span>Planned</span>
-                            </div>
-                        </div>
-                        <h3 style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem;">Linux Web Server Compromise Investigation</h3>
-                        <p style="font-size:0.82rem;color:#b0b4bc;margin-bottom:1rem;line-height:1.65;">DVWA exploit chain: foothold, root via misconfiguration, SSH/systemd persistence, staged exfiltration. Full evidence-backed timeline reconstruction in progress.</p>
-                        <div class="mb-4">
-                            <div class="flex flex-wrap gap-2">
-                                <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Apache / Auth Logs</span>
-                                <span class="evidence-badge text-white text-xs px-2 py-1 rounded">SSH + systemd Artifacts</span>
-                                <span class="evidence-badge text-white text-xs px-2 py-1 rounded">Linux Security</span>
-                            </div>
-                        </div>
-                        <a href="case-002.html" style="display:inline-flex;align-items:center;color:#ef4444;font-size:0.78rem;font-weight:600;text-decoration:none;">
-                            View Case Brief
-                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
-                        </div><!-- /p-6 -->
-                    </div>
+</main>
 
-                </div>
-            </div>
+<footer class="cmd-footer microtext">
+  <span>© 2026 DONTAVIOUS ELLIS · ELLIS DYNAMICS — PRE-FORMATION</span>
+  <span>NO CONTROLLED INFORMATION · ALL CLAIMS GATED ON HARDWARE</span>
+  <a href="index.html" data-route>RETURN TO COMMAND</a>
+</footer>
 
-        </div>
-    </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/command.js" data-page="ed" defer></script>
+<script defer>
+(function () {
+  'use strict';
+  function main() {
+  const CE = window.CE;
+  if (window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+  CE.reveal();
 
-    <!-- Project Stats -->
-    <section style="padding:4rem 0;background:#07080a;border-top:1px solid rgba(255,255,255,0.07);">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;color:#fff;text-align:center;margin-bottom:2.5rem;">Project Summary</h2>
-            <div class="grid md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div style="font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#dc2626;">4</div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.25rem;">Engineering Projects</div>
-                </div>
-                <div>
-                    <div style="font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#34d399;">2</div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.25rem;">Completed</div>
-                </div>
-                <div>
-                    <div style="font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#ef4444;">2</div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.25rem;">Active</div>
-                </div>
-                <div>
-                    <div style="font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#60a5fa;">2</div>
-                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.25rem;">Lab Investigations</div>
-                </div>
-            </div>
-        </div>
-    </section>
+  // headline resolve
+  CE.scramble(document.getElementById('edw1'), 'ELLIS', { duration: 800 });
+  setTimeout(() => CE.scramble(document.getElementById('edw2'), 'DYNAMICS', { duration: 1000 }), 250);
 
-    <!-- Footer -->
-    <footer style="background:#07080a;border-top:1px solid rgba(255,255,255,0.07);padding:3rem 0 2rem;">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.50);margin-bottom:0.35rem;">Dontavious Ellis</div>
-                <div style="font-size:0.75rem;color:rgba(255,255,255,0.30);margin-bottom:1.25rem;">Cybersecurity &nbsp;&middot;&nbsp; DFIR &nbsp;&middot;&nbsp; Threat Intelligence</div>
-                <div class="text-xs text-gray-500 max-w-3xl mx-auto">
-                    <p style="font-size:0.70rem;color:rgba(255,255,255,0.18);max-width:640px;margin:0 auto;line-height:1.6;">All lab simulations and security validation exercises are conducted in controlled environments for academic and professional development. No real systems or individuals were targeted.</p>
-                </div>
-                <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.07);font-size:0.68rem;color:rgba(255,255,255,0.18);">
-                    © 2026 Dontavious Ellis. All rights reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
+  /* briefing hero backdrop: drifting contour field + track lines */
+  (function bh() {
+    const cv = document.getElementById('bh-canvas');
+    const g = cv.getContext('2d');
+    // background art: render at 1x, not device pixels — quarter the fill cost
+    let t = 0, w = 0, h = 0, vis = true;
+    function size() { w = cv.width = cv.offsetWidth; h = cv.height = cv.offsetHeight; }
+    size(); addEventListener('resize', size);
+    if (window.ResizeObserver) new ResizeObserver(size).observe(cv);
+    if (window.IntersectionObserver) new IntersectionObserver(es => { vis = es[0].isIntersecting; }).observe(cv);
+    function draw() {
+      if (!CE.reducedMotion) requestAnimationFrame(draw);
+      if (!vis) return;                        // offscreen: skip the paint
+      t += 0.006;
+      g.clearRect(0, 0, w, h);
+      // contour bands
+      for (let r = 0; r < 7; r++) {
+        g.strokeStyle = 'rgba(42,48,56,' + (0.25 + r * 0.04) + ')';
+        g.beginPath();
+        for (let x = 0; x <= w; x += 8) {
+          const y = h * (0.25 + r * 0.11) + Math.sin(x * 0.003 + t * 2 + r * 1.3) * 26
+                  + Math.sin(x * 0.0013 - t + r) * 40;
+          x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
+        }
+        g.stroke();
+      }
+      // scanning line
+      const sy = ((t * 0.12) % 1) * h;
+      g.strokeStyle = 'rgba(226,24,43,0.18)';
+      g.beginPath(); g.moveTo(0, sy); g.lineTo(w, sy); g.stroke();
+    }
+    draw();
+  })();
 
-    <script src="js/page-anim.js" defer></script>
-  <script src="main.js"></script>
-<script data-global-fade>
-  // Backup fade-in in case reveal observer doesn't attach
-  requestAnimationFrame(() => document.body.classList.add('reveal-in'));
+  /* jamming demo */
+  (function jam() {
+    const cv = document.getElementById('jam-canvas');
+    const g = cv.getContext('2d');
+    const slider = document.getElementById('jam-power');
+    const status = document.getElementById('jam-status');
+    let jamP = 0;
+    slider.addEventListener('input', () => {
+      jamP = +slider.value / 100;
+      const snr = Math.round(32 - jamP * 40);
+      if (jamP < 0.35) { status.textContent = 'LINK NOMINAL · SNR ' + snr + ' dB'; status.style.color = 'var(--grn)'; }
+      else if (jamP < 0.7) { status.textContent = 'LINK DEGRADED · SNR ' + snr + ' dB'; status.style.color = 'var(--amb)'; }
+      else { status.textContent = 'LINK DENIED → INERTIAL FALLBACK'; status.style.color = 'var(--red-lt)'; CE.audio && CE.audio.deny(); }
+    });
+    let t = 0, w = 0, h = 0, vis = true;
+    function size() { w = cv.width = cv.offsetWidth * CE.dpr; h = cv.height = 160 * CE.dpr; }
+    size(); addEventListener('resize', size);
+    if (window.ResizeObserver) new ResizeObserver(size).observe(cv);
+    if (window.IntersectionObserver) new IntersectionObserver(es => { vis = es[0].isIntersecting; }).observe(cv);
+    function draw() {
+      if (!CE.reducedMotion) requestAnimationFrame(draw);
+      if (!vis) return;
+      t += 0.06;
+      g.clearRect(0, 0, w, h);
+      // clean carrier
+      g.strokeStyle = jamP < 0.7 ? 'rgba(63,214,140,0.9)' : 'rgba(226,24,43,0.9)';
+      g.lineWidth = 1.2 * CE.dpr;
+      g.beginPath();
+      for (let x = 0; x < w; x += 2) {
+        const carrier = Math.sin(x * 0.05 + t * 3) * h * 0.26;
+        const noise = (Math.random() - 0.5) * h * 0.85 * jamP;
+        const y = h / 2 + carrier * (1 - jamP * 0.8) + noise;
+        x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
+      }
+      g.stroke();
+      // noise floor indicator
+      g.fillStyle = 'rgba(226,24,43,' + jamP * 0.12 + ')';
+      g.fillRect(0, 0, w, h);
+      // DR fallback path appears when denied
+      if (jamP >= 0.7) {
+        g.strokeStyle = 'rgba(232,163,61,0.95)'; g.setLineDash([6, 5]);
+        g.beginPath();
+        for (let x = 0; x < w; x += 4) {
+          const y = h * 0.5 + Math.sin(x * 0.012 + t * 0.6) * h * 0.14;
+          x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
+        }
+        g.stroke(); g.setLineDash([]);
+        g.fillStyle = 'rgba(232,163,61,0.95)';
+        g.font = (10 * CE.dpr) + 'px JetBrains Mono';
+        g.fillText('INS / DEAD-RECKONING ESTIMATE', 12 * CE.dpr, 18 * CE.dpr);
+      }
+    }
+    draw();
+  })();
+
+  /* domain canvases */
+  (function domains() {
+    const eccm = document.getElementById('dom-eccm');
+    const trk = document.getElementById('dom-track');
+    let t = 0, ew = 0, eh = 0, tw2 = 0, th2 = 0;
+    function size() {
+      ew = eccm.width = eccm.offsetWidth * CE.dpr; eh = eccm.height = 150 * CE.dpr;
+      tw2 = trk.width = trk.offsetWidth * CE.dpr; th2 = trk.height = 150 * CE.dpr;
+    }
+    size(); addEventListener('resize', size);
+    if (window.ResizeObserver) { const ro = new ResizeObserver(size); ro.observe(eccm); ro.observe(trk); }
+    let vis = true;
+    if (window.IntersectionObserver) new IntersectionObserver(es => { vis = es[0].isIntersecting; }).observe(eccm);
+    function draw() {
+      if (!CE.reducedMotion) requestAnimationFrame(draw);
+      if (!vis) return;
+      t += 0.016;
+      // ECCM: path continuing through a denial zone
+      {
+        const g = eccm.getContext('2d');
+        const w = ew, h = eh;
+        g.clearRect(0, 0, w, h);
+        g.fillStyle = 'rgba(226,24,43,0.09)';
+        g.fillRect(w * 0.38, 0, w * 0.3, h);
+        g.strokeStyle = 'rgba(226,24,43,0.4)'; g.strokeRect(w * 0.38, 0, w * 0.3, h);
+        g.font = (8 * CE.dpr) + 'px JetBrains Mono'; g.fillStyle = 'rgba(255,52,72,0.8)';
+        g.fillText('DENIAL ZONE', w * 0.40, 14 * CE.dpr);
+        const px = ((t * 0.09) % 1.2) * w;
+        // planned
+        g.strokeStyle = 'rgba(154,161,171,0.3)'; g.setLineDash([4, 4]);
+        g.beginPath(); g.moveTo(0, h * 0.55); g.bezierCurveTo(w * 0.3, h * 0.25, w * 0.6, h * 0.75, w, h * 0.4); g.stroke(); g.setLineDash([]);
+        // flown with drift inside zone
+        g.strokeStyle = 'rgba(63,214,140,0.9)';
+        g.beginPath();
+        for (let x = 0; x <= Math.min(px, w); x += 3) {
+          const f = x / w;
+          const base = h * (0.55 + (-0.3) * Math.sin(f * Math.PI) * Math.sin(f * 2.4));
+          const inZone = x > w * 0.38 && x < w * 0.68;
+          const drift = inZone ? Math.sin(x * 0.08 + t) * 4 * CE.dpr : 0;
+          g.strokeStyle = inZone ? 'rgba(232,163,61,0.95)' : 'rgba(63,214,140,0.9)';
+          x === 0 ? g.moveTo(x, base + drift) : g.lineTo(x, base + drift);
+        }
+        g.stroke();
+      }
+      // TRACK: radar with predicted intercept lead
+      {
+        const g = trk.getContext('2d');
+        const w = tw2, h = th2;
+        g.clearRect(0, 0, w, h);
+        const cx = w / 2, cy = h * 0.92, R = h * 0.8;
+        g.strokeStyle = 'rgba(154,161,171,0.25)';
+        [0.35, 0.65, 1].forEach(f => { g.beginPath(); g.arc(cx, cy, R * f, Math.PI, 0); g.stroke(); });
+        const a = Math.PI + ((t * 0.4) % 1) * Math.PI;
+        g.strokeStyle = 'rgba(226,24,43,0.75)';
+        g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R); g.stroke();
+        // target history + prediction
+        const ta = Math.PI * 1.35 + Math.sin(t * 0.35) * 0.35;
+        const tx = cx + Math.cos(ta) * R * 0.66, ty = cy + Math.sin(ta) * R * 0.66;
+        g.strokeStyle = 'rgba(255,52,72,0.5)';
+        g.beginPath();
+        for (let k = 8; k >= 1; k--) {
+          const pa = Math.PI * 1.35 + Math.sin((t - k * 0.12) * 0.35) * 0.35;
+          const px2 = cx + Math.cos(pa) * R * 0.66, py2 = cy + Math.sin(pa) * R * 0.66;
+          k === 8 ? g.moveTo(px2, py2) : g.lineTo(px2, py2);
+        }
+        g.lineTo(tx, ty); g.stroke();
+        g.fillStyle = '#ff3448'; g.fillRect(tx - 2.5 * CE.dpr, ty - 2.5 * CE.dpr, 5 * CE.dpr, 5 * CE.dpr);
+        // predicted lead box
+        const la = Math.PI * 1.35 + Math.sin((t + 0.9) * 0.35) * 0.35;
+        const lx = cx + Math.cos(la) * R * 0.66, ly = cy + Math.sin(la) * R * 0.66;
+        g.strokeStyle = 'rgba(95,168,255,0.95)';
+        g.strokeRect(lx - 7 * CE.dpr, ly - 7 * CE.dpr, 14 * CE.dpr, 14 * CE.dpr);
+        g.setLineDash([3, 3]); g.strokeStyle = 'rgba(95,168,255,0.45)';
+        g.beginPath(); g.moveTo(tx, ty); g.lineTo(lx, ly); g.stroke(); g.setLineDash([]);
+        g.font = (8 * CE.dpr) + 'px JetBrains Mono'; g.fillStyle = 'rgba(95,168,255,0.9)';
+        g.fillText('PREDICTED', lx + 10 * CE.dpr, ly);
+      }
+    }
+    draw();
+  })();
+
+  /* evidence card canvases (reuse simple viz set) */
+  const vizFns = {
+    imu(g, w, h, t) {
+      g.strokeStyle = 'rgba(226,24,43,0.9)'; g.beginPath();
+      for (let x = 0; x <= w; x += 3) { const y = h / 2 + Math.sin(x * 0.05 + t * 2) * 6 + Math.sin(x * 0.013 + t * 0.4) * h * 0.22; x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
+      g.stroke();
+      g.strokeStyle = 'rgba(232,163,61,0.6)';
+      const px = ((t * 0.15) % 1) * w;
+      g.beginPath(); g.ellipse(px, h / 2, 8 + px / w * 12, 5 + px / w * 7, 0, 0, 7); g.stroke();
+    },
+    grid(g, w, h, t) {
+      g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
+      for (let x = 0; x < w; x += 2) { const y = h / 2 + Math.sin(x * 0.1 + t * 3) * h * 0.3 * Math.abs(Math.sin(x * 0.01)); x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
+      g.stroke();
+    },
+    load(g, w, h, t) {
+      g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
+      for (let x = 0; x < w; x += 2) { const duty = 0.3 + (Math.sin(t + x * 0.004) * 0.5 + 0.5) * 0.4; const y = ((x % 34) / 34 < duty) ? h * 0.3 : h * 0.72; x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
+      g.stroke();
+    },
+    lab(g, w, h, t) {
+      const nodes = [[0.12, 0.5], [0.35, 0.25], [0.35, 0.75], [0.6, 0.5], [0.85, 0.3], [0.85, 0.7]];
+      [[0,1],[0,2],[1,3],[2,3],[3,4],[3,5]].forEach(([a, b], i) => {
+        g.strokeStyle = 'rgba(154,161,171,0.3)';
+        g.beginPath(); g.moveTo(nodes[a][0] * w, nodes[a][1] * h); g.lineTo(nodes[b][0] * w, nodes[b][1] * h); g.stroke();
+        const p = ((t * 0.6 + i * 0.17) % 1);
+        g.fillStyle = 'rgba(232,163,61,0.9)';
+        g.fillRect(nodes[a][0] * w + (nodes[b][0] - nodes[a][0]) * w * p - 1.5, nodes[a][1] * h + (nodes[b][1] - nodes[a][1]) * h * p - 1.5, 3, 3);
+      });
+      nodes.forEach(n => { g.strokeStyle = 'rgba(226,24,43,0.7)'; g.strokeRect(n[0] * w - 4, n[1] * h - 4, 8, 8); });
+    },
+    comms(g, w, h, t) {
+      g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
+      for (let x = 0; x < w; x += 2) {
+        const jamZ = x > w * 0.35 && x < w * 0.6;
+        const y = h / 2 + Math.sin(x * 0.09 + t * 4) * h * 0.28 * (jamZ ? Math.random() : 1);
+        x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
+      }
+      g.stroke();
+      g.fillStyle = 'rgba(226,24,43,0.12)'; g.fillRect(w * 0.35, 0, w * 0.25, h);
+    },
+    field(g, w, h, t) {
+      g.strokeStyle = 'rgba(154,161,171,0.4)';
+      for (let i = 0; i < 4; i++) g.strokeRect(8 + i * 5, 8 + i * 5, w - 16 - i * 10, h - 16 - i * 10);
+      g.fillStyle = '#ff3448';
+      g.fillRect(w / 2 + Math.cos(t * 1.2) * w * 0.3 - 2, h / 2 + Math.sin(t * 1.2) * h * 0.28 - 2, 4, 4);
+    }
+  };
+  const cards = [];
+  document.querySelectorAll('.ev-card[data-viz]').forEach(el => {
+    const cv = el.querySelector('canvas'); if (cv) cards.push({ cv, fn: vizFns[el.dataset.viz] });
+  });
+  function size() {
+    cards.forEach(o => {
+      if (!o.cv.offsetWidth || !o.cv.offsetHeight) return;
+      o.cv.width = o.cv.offsetWidth * CE.dpr;
+      o.cv.height = o.cv.offsetHeight * CE.dpr;
+    });
+  }
+  size(); addEventListener('resize', size);
+  if (window.ResizeObserver) { const ro = new ResizeObserver(size); cards.forEach(o => ro.observe(o.cv)); }
+  if (window.IntersectionObserver) {
+    const io = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; }));
+    cards.forEach(o => io.observe(o.cv));
+  } else cards.forEach(o => { o.cv._vis = true; });
+  let vt = 0;
+  (function loop() {
+    if (!CE.reducedMotion) requestAnimationFrame(loop);
+    vt += 0.016;
+    cards.forEach(o => {
+      if (!o.cv._vis) return;                 // offscreen cards don't paint
+      const g = o.cv.getContext('2d');
+      g.setTransform(CE.dpr, 0, 0, CE.dpr, 0, 0);
+      g.clearRect(0, 0, o.cv.offsetWidth, o.cv.offsetHeight);
+      o.fn(g, o.cv.offsetWidth, o.cv.offsetHeight, vt);
+    });
+  })();
+
+  /* status board bars animate in */
+  document.querySelectorAll('.sb-bar i').forEach(bar => {
+    ScrollTrigger.create({
+      trigger: bar, start: 'top 85%',
+      onEnter: () => { bar.style.width = bar.dataset.w; }
+    });
+  });
+  if (CE.reducedMotion) document.querySelectorAll('.sb-bar i').forEach(b => b.style.width = b.dataset.w);
+  document.documentElement.dataset.ceOk = '1';
+  }
+  if (window.CE && window.CE.onReady) window.CE.onReady(main);
+  else document.addEventListener('ce:ready', main, { once: true });
+})();
 </script>
 </body>
-
 </html>

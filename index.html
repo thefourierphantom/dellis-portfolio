@@ -1,1847 +1,939 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications</title>
-    <meta name="description" content="Dontavious Ellis: USF Electrical Engineering student targeting defense industry roles. Building GPS-denied navigation systems, tactical communications hardware, resilient power infrastructure, and embedded systems for national security applications. Clearance eligible.">
-    <link rel="canonical" href="https://dontaviousellis.com/">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
-    <meta property="og:title" content="Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications">
-    <meta property="og:description" content="Dontavious Ellis: USF Electrical Engineering student targeting defense industry roles. Building GPS-denied navigation systems, tactical communications hardware, resilient power infrastructure, and embedded systems for national security applications. Clearance eligible.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dontaviousellis.com/">
-    <meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications">
-    <meta name="twitter:description" content="Dontavious Ellis: USF Electrical Engineering student targeting defense industry roles.">
-    <meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
-    <meta name="keywords" content="Dontavious Ellis, defense electrical engineer, GPS-denied navigation, tactical communications, Orbital Corporation, USF electrical engineering, embedded systems, power systems, defense contractor, Lockheed Martin, Raytheon, L3Harris, Northrop Grumman, ARMS navigation">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications</title>
+<meta name="description" content="Dontavious Ellis: USF Electrical Engineering student targeting defense industry roles. Building GPS-denied navigation systems, tactical communications hardware, resilient power infrastructure, and embedded systems for national security applications. Founder of Ellis Dynamics. Clearance eligible.">
+<link rel="canonical" href="https://dontaviousellis.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
+<meta property="og:title" content="Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications">
+<meta property="og:description" content="USF Electrical Engineering student targeting defense industry roles. Founder of Ellis Dynamics. Clearance eligible.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dontaviousellis.com/">
+<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/command.css">
+<script>
+document.documentElement.classList.add('js');
+// Watchdog: if the runtime hasn't initialized within 3s, drop back to
+// fully-visible static content (the :not(.js) CSS rules take over).
+setTimeout(function () {
+  if (!(window.CE && window.CE.ready) || !document.documentElement.dataset.ceOk) document.documentElement.classList.remove('js');
+}, 3000);
+</script>
+<style>
+/* ═══ page: home ═══ */
 
-    <style>
-        /* ── Design System ─────────────────────────────────── */
-        :root {
-            --bg-0:  #07080a;
-            --bg-1:  #0a0b0d;
-            --bg-2:  #0d0e11;
-            --bg-3:  #111214;
-            --bg-card: #141516;
-            --text-1: #ffffff;
-            --text-2: #b0b4bc;
-            --text-3: rgba(255,255,255,0.38);
-            --red:    #dc2626;
-            --red-lt: #ef4444;
-            --border: rgba(255,255,255,0.07);
-            --border-red: rgba(220,38,38,0.30);
-        }
+/* intro overlay — jet flyby */
+#boot {
+  position: fixed; inset: 0; z-index: 9500;
+  background: var(--bg-0);
+  overflow: hidden;
+}
+#intro-canvas { position: absolute; inset: 0; }
+#intro-canvas canvas { display: block; }
+#boot .boot-corner {
+  position: absolute; top: 22px; left: 24px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+#boot .boot-skip {
+  position: absolute; bottom: 22px; right: 24px;
+  background: none; border: 1px solid var(--line);
+  color: var(--txt-3); font-family: var(--font-mono);
+  font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 8px 14px; transition: color .2s, border-color .2s;
+}
+#boot .boot-skip:hover { color: var(--red-lt); border-color: var(--red-dim); }
+#boot .boot-vig { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 55%, rgba(5,6,7,0.8) 100%); }
 
-        *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0b0d;
-            color: var(--text-1);
-            overflow-x: hidden;
-            margin: 0;
-        }
-        .mono { font-family: 'JetBrains Mono', monospace; }
+/* hero */
+#hero { position: relative; min-height: 100vh; overflow: hidden; background: var(--bg-0); }
+#hero-canvas { position: absolute; inset: 0; }
+#hero-canvas canvas { display: block; }
+.hero-vig { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 115% 95% at 50% 45%, transparent 48%, rgba(5,6,7,0.9) 100%); }
 
-        /* ── Overline ── */
-        .overline {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.20em;
-            text-transform: uppercase;
-            color: var(--red-lt);
-        }
+.hud-readout {
+  position: absolute; z-index: 6; font-family: var(--font-mono);
+  font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--txt-3); display: flex; flex-direction: column; gap: 6px;
+  pointer-events: none;
+}
+.hud-readout .row { display: flex; gap: 12px; align-items: center; }
+#hud-mode { color: var(--grn); font-weight: 700; }
+.hud-tl { top: calc(var(--nav-h) + 22px); left: clamp(1.2rem, 6vw, 5.5rem); }
+.hud-bl { bottom: 26px; left: clamp(1.2rem, 6vw, 5.5rem); }
+#hud-signal { width: 110px; height: 3px; background: rgba(255,255,255,0.09); display: block; }
+#hud-signal-bar { display: block; height: 100%; width: 100%; background: var(--grn); transition: width .4s, background .4s; }
+#hud-warn {
+  position: absolute; top: calc(var(--nav-h) + 24px); left: 50%; transform: translateX(-50%);
+  z-index: 6; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--amb); border: 1px solid transparent;
+  padding: 8px 18px; opacity: 0; transition: opacity .3s; pointer-events: none;
+  white-space: nowrap;
+}
+#hud-warn.active { opacity: 1; border-color: rgba(232,163,61,0.4); background: rgba(232,163,61,0.05); animation: warn-blink 1.1s step-end infinite; }
+#hud-warn.crit { color: var(--red-lt); border-color: var(--red-dim); background: rgba(226,24,43,0.07); }
+@keyframes warn-blink { 50% { opacity: 0.45; } }
 
-        /* ── NAV ────────────────────────────────────────────── */
-        .ng-nav {
-            background: rgba(7,8,10,0.78);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 50;
-        }
-        .ng-nav-inner {
-            max-width: 1280px; margin: 0 auto;
-            padding: 0 1.5rem;
-            height: 64px;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .ng-logo {
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none;
-        }
-        .ng-logo-mark {
-            width: 28px; height: 28px;
-            flex-shrink: 0;
-        }
-        .ng-logo-text {
-            display: flex; flex-direction: column; gap: 1px;
-        }
-        .ng-logo-name {
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            color: #fff;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        .ng-logo-sub {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.55rem;
-            letter-spacing: 0.14em;
-            color: rgba(255,255,255,0.35);
-            text-transform: uppercase;
-        }
-        .ng-links { display: flex; gap: 2rem; align-items: center; }
-        .ng-links a {
-            color: rgba(255,255,255,0.65);
-            font-size: 0.80rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-decoration: none;
-            transition: color 0.2s;
-            text-transform: uppercase;
-        }
-        .ng-links a:hover, .ng-links a.active { color: #fff; }
-        .ng-links a.active { color: #fff; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
-        .ng-links .cta-link {
-            border: 1px solid rgba(220,38,38,0.40);
-            color: rgba(239,68,68,0.90) !important;
-            padding: 6px 16px;
-            border-radius: 3px;
-            transition: background 0.2s, border-color 0.2s;
-        }
-        .ng-links .cta-link:hover {
-            background: rgba(220,38,38,0.10);
-            border-color: rgba(220,38,38,0.65);
-            color: #f87171 !important;
-        }
+.hero-content {
+  position: relative; z-index: 7;
+  max-width: 1140px; margin: 0 auto;
+  padding: calc(var(--nav-h) + 3.2rem) 1.5rem 4rem;
+  display: grid; grid-template-columns: 1fr 350px;
+  gap: 3.2rem; align-items: center;
+  min-height: 100vh;
+}
+@media (max-width: 980px) { .hero-content { grid-template-columns: 1fr; gap: 2.5rem; padding-top: calc(var(--nav-h) + 2.5rem); } }
 
-        /* ── HERO ────────────────────────────────────────────── */
-        .ng-hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex; align-items: center;
-            background: var(--bg-0);
-            overflow: hidden;
-        }
-        .ng-hero-img { display: none; }
-        .ng-hero-grid {
-            position: absolute; inset: 0; pointer-events: none; z-index: 1;
-        }
-        .ng-hero-content {
-            position: relative; z-index: 2;
-            max-width: 1280px; margin: 0 auto;
-            padding: 5rem 1.5rem;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 4rem;
-            align-items: center;
-        }
-        @media (max-width: 900px) {
-            .ng-hero-content { grid-template-columns: 1fr; }
-        }
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--red-lt);
+  display: flex; align-items: center; gap: 0.8em; margin-bottom: 1.1rem;
+}
+.hero-eyebrow i { width: 4px; height: 4px; background: var(--red); border-radius: 50%; }
 
-        /* ── SECTION ─────────────────────────────────────────── */
-        .ng-section { padding: 6rem 0; }
-        .ng-section-inner { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-        .ng-section-head { margin-bottom: 3.5rem; }
-        .ng-section-head h2 {
-            font-size: 2.25rem; font-weight: 700;
-            color: #fff; margin: 0.5rem 0 0;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-        }
-        .ng-divider {
-            width: 40px; height: 2px;
-            background: var(--red);
-            margin: 1rem 0 1.2rem;
-        }
-        .ng-section-sub {
-            color: var(--text-2); font-size: 1rem;
-            max-width: 640px; line-height: 1.7;
-            margin: 0;
-        }
+h1.hero-title {
+  font-family: 'Inter', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(2.3rem, 5.2vw, 4.1rem); line-height: 0.98; letter-spacing: -0.015em;
+  color: #fff;
+  border-top: 1px solid var(--line-2); padding-top: 1.2rem;
+}
+h1.hero-title .l2 {
+  display: block; color: transparent;
+  -webkit-text-stroke: 1.6px rgba(240,242,245,0.92);
+  text-shadow: 0 0 28px rgba(226,24,43,0.55), 0 0 70px rgba(226,24,43,0.25);
+  position: relative; width: fit-content; padding-bottom: 1.1rem;
+}
+h1.hero-title .l2::after {
+  content: ''; position: absolute; left: 2px; bottom: 0; width: 92px; height: 3px;
+  background: var(--red); box-shadow: 0 0 16px rgba(226,24,43,0.7);
+}
+h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
+@keyframes h-glitch {
+  0% { text-shadow: 3px 0 rgba(226,24,43,0.8), -3px 0 rgba(95,168,255,0.6); transform: translateX(0); }
+  50% { text-shadow: -4px 0 rgba(226,24,43,0.8), 4px 0 rgba(95,168,255,0.6); transform: translateX(2px); }
+  100% { text-shadow: 2px 0 rgba(226,24,43,0.8), -2px 0 rgba(95,168,255,0.6); transform: translateX(-1px); }
+}
 
-        /* ── BUTTONS ─────────────────────────────────────────── */
-        .btn-primary {
-            display: inline-flex; align-items: center; justify-content: center;
-            background: var(--red); color: #fff;
-            padding: 12px 28px; font-weight: 600; font-size: 0.875rem;
-            letter-spacing: 0.05em; text-transform: uppercase;
-            border: 1px solid var(--red);
-            border-radius: 3px; text-decoration: none;
-            transition: background 0.2s, border-color 0.2s;
-        }
-        .btn-primary:hover { background: var(--red-lt); border-color: var(--red-lt); }
-        .btn-outline {
-            display: inline-flex; align-items: center; justify-content: center;
-            background: transparent; color: rgba(255,255,255,0.85);
-            padding: 11px 28px; font-weight: 600; font-size: 0.875rem;
-            letter-spacing: 0.05em; text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.20);
-            border-radius: 3px; text-decoration: none;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        .btn-outline:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+.hero-typed {
+  font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.06em;
+  color: var(--red-lt); margin: 1.2rem 0 0.9rem; min-height: 1.5em;
+}
+.hero-typed .tcur { display: inline-block; width: 8px; height: 1.05em; background: var(--red); vertical-align: text-bottom; margin-left: 3px; animation: tblink 1s step-end infinite; }
+@keyframes tblink { 50% { opacity: 0; } }
 
-        /* ── FIELD NOTES CARDS ───────────────────────────────── */
-        .field-card {
-            background: rgba(14,15,16,0.78);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex; flex-direction: column;
-            text-decoration: none;
-            transition: border-color 0.25s, transform 0.25s;
-        }
-        .field-card:hover {
-            border-color: rgba(220,38,38,0.35);
-            transform: translateY(-3px);
-        }
-        .field-card-img {
-            height: 200px; overflow: hidden; position: relative; background: linear-gradient(135deg, #0d0d10 0%, #1a0505 100%);
-        }
-        .field-card-img img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .field-card:hover .field-card-img img { transform: scale(1.04); }
-        .field-card-img-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(7,10,15,0.75) 0%, transparent 55%);
-        }
-        .field-card-badge {
-            position: absolute; top: 12px; left: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.60rem; letter-spacing: 0.12em; text-transform: uppercase;
-            padding: 3px 10px; border-radius: 2px;
-            background: rgba(7,10,15,0.70);
-            border: 1px solid rgba(220,38,38,0.35);
-            color: rgba(248,113,113,0.90);
-        }
-        .field-card-body { padding: 1.2rem 1.25rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
-        .field-card-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.60rem; color: var(--text-3); letter-spacing: 0.10em; margin-bottom: 0.5rem; }
-        .field-card-title { font-weight: 600; font-size: 0.95rem; color: #fff; margin: 0 0 0.5rem; line-height: 1.4; }
-        .field-card-desc { font-size: 0.83rem; color: var(--text-2); line-height: 1.6; flex: 1; }
-        .field-card-link { margin-top: 1rem; font-size: 0.80rem; font-weight: 600; color: var(--red-lt); display: flex; align-items: center; gap: 4px; }
+.hero-intro { color: var(--txt-2); font-size: 0.86rem; line-height: 1.7; max-width: 62ch; }
+.hero-intro strong { color: var(--txt-1); font-weight: 600; }
 
-        /* ── PROJECT CARDS (NG photo-dominant) ───────────────── */
-        .proj-ng {
-            position: relative;
-            border-radius: 3px;
-            overflow: hidden;
-            min-height: 340px;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            background: rgba(9,10,14,0.65);
-            backdrop-filter: blur(8px);
-            transition: border-color 0.25s, transform 0.25s;
-        }
-        .proj-ng:hover { border-color: rgba(220,38,38,0.50); transform: translateY(-4px); }
-        .proj-ng-img {
-            position: absolute; inset: 0;
-            background-size: cover; background-position: center;
-        }
-        .proj-ng-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(7,8,10,0.97) 0%, rgba(7,8,10,0.62) 45%, rgba(7,8,10,0.10) 100%);
-        }
-        .proj-ng-body {
-            position: relative; z-index: 2;
-            padding: 1.5rem;
-        }
-        .proj-ng-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--red-lt); margin-bottom: 0.5rem;
-        }
-        .proj-ng-title {
-            font-size: 1.2rem; font-weight: 700; color: #fff;
-            line-height: 1.3; margin: 0 0 0.75rem;
-        }
-        .proj-ng-stat {
-            display: flex; align-items: baseline; gap: 0.5rem;
-            border-left: 2px solid var(--red);
-            padding-left: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-        .proj-ng-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--red); }
-        .proj-ng-stat-desc { font-size: 0.78rem; color: var(--text-2); }
-        .proj-ng-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
-        .proj-ng-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.60rem; letter-spacing: 0.08em;
-            padding: 3px 9px; border-radius: 2px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.10);
-            color: rgba(255,255,255,0.60);
-        }
-        .proj-ng-footer {
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .proj-ng-date { font-family: 'JetBrains Mono', monospace; font-size: 0.60rem; color: var(--text-3); }
-        .proj-ng-cta { font-size: 0.80rem; font-weight: 600; color: var(--red-lt); letter-spacing: 0.04em; }
-        .proj-ng-status-complete {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em;
-            padding: 2px 8px; border-radius: 2px;
-            background: rgba(34,197,94,0.08); color: #4ade80; border: 1px solid rgba(34,197,94,0.20);
-        }
-        .proj-ng-status-active {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em;
-            padding: 2px 8px; border-radius: 2px;
-            background: rgba(220,38,38,0.08); color: var(--red-lt); border: 1px solid var(--border-red);
-        }
+.hero-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1.2rem; }
+.hero-chips .tag { font-size: 0.52rem; padding: 3px 8px; }
+.hero-cta { margin-top: 1.6rem; display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.hero-cta .btn-t { padding: 12px 22px; font-size: 0.62rem; }
 
-        /* ── SPEC TABLE ──────────────────────────────────────── */
-        .spec-table { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
-        .spec-header {
-            display: grid; grid-template-columns: 1fr 1fr;
-            padding: 0.75rem 1.25rem;
-            background: rgba(220,38,38,0.08);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.60rem; letter-spacing: 0.18em;
-            color: rgba(239,68,68,0.75);
-        }
-        .spec-row {
-            display: grid; grid-template-columns: 1fr 1fr;
-            padding: 0.85rem 1.25rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .spec-row:last-child { border-bottom: none; }
-        .spec-row:nth-child(even) { background: rgba(255,255,255,0.02); }
-        .spec-key { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.10em; }
-        .spec-val { font-size: 0.875rem; color: var(--text-1); }
+/* hero right card (original layout, ED wording) */
+.res-card {
+  border: 1px solid var(--line-2);
+  background: linear-gradient(165deg, var(--panel-2), var(--panel));
+  overflow: hidden; position: relative;
+}
+.res-photo { position: relative; aspect-ratio: 1 / 0.78; overflow: hidden; border-bottom: 1px solid var(--line); }
+.res-photo img { width: 100%; height: 100%; object-fit: cover; }
+.res-photo .crosshair {
+  position: absolute; top: 14%; right: 12%; width: 44px; height: 44px; opacity: 0.85; pointer-events: none;
+}
+.res-photo .crosshair::before, .res-photo .crosshair::after {
+  content: ''; position: absolute; background: rgba(226,24,43,0.9);
+}
+.res-photo .crosshair::before { left: 50%; top: 0; width: 1px; height: 100%; }
+.res-photo .crosshair::after { top: 50%; left: 0; height: 1px; width: 100%; }
+.res-photo .ch-ring { position: absolute; inset: 8px; border: 1px solid rgba(226,24,43,0.55); border-radius: 50%; }
+.res-body { padding: 1.1rem 1.2rem 1.2rem; }
+.res-body .r-over { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.24em; color: var(--red-lt); text-transform: uppercase; border-bottom: 1px solid var(--red-dim); padding-bottom: 4px; display: inline-block; }
+.res-body h3 { font-size: 1.02rem; font-weight: 700; margin-top: 0.6rem; }
+.res-body .r-sub { font-family: var(--font-mono); font-size: 0.6rem; color: var(--red-lt); display: block; margin: 2px 0 0.6rem; }
+.res-body p { font-size: 0.74rem; color: var(--txt-2); line-height: 1.55; }
+.res-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 0.9rem; }
+.res-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
+.res-foot .r-id { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.18em; color: var(--txt-3); text-transform: uppercase; }
+.res-foot a { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--txt-1); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+.res-foot a:hover { color: var(--red-lt); }
 
-        /* ── COMP CELLS ──────────────────────────────────────── */
-        .comp-cell {
-            background: rgba(14,15,16,0.78);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 1.25rem;
-            transition: border-color 0.25s, transform 0.25s;
-            cursor: default;
-        }
-        .comp-cell:hover { border-color: var(--border-red); transform: scale(1.02); }
-        .comp-icon { margin-bottom: 0.75rem; }
-        .comp-title { font-size: 0.875rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; }
-        .comp-desc { font-size: 0.75rem; color: var(--text-3); line-height: 1.55; }
+/* small-viewport height units (mobile URL bar safe) */
+@supports (min-height: 100svh) {
+  #hero { min-height: 100svh; }
+  .hero-content { min-height: 100svh; }
+}
 
-        /* ── DISCIPLINE CARDS ────────────────────────────────── */
-        .disc-card {
-            background: rgba(14,15,16,0.78);
-            border: 1px solid var(--border);
-            border-radius: 4px; padding: 2rem;
-            transition: border-color 0.25s;
-        }
-        .disc-card:hover { border-color: var(--border-red); }
-        .disc-icon-wrap {
-            width: 40px; height: 40px;
-            background: rgba(220,38,38,0.09);
-            border: 1px solid rgba(220,38,38,0.18);
-            border-radius: 3px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.25rem;
-        }
-        .disc-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.16em; color: var(--red-lt); text-transform: uppercase; margin-bottom: 0.5rem; }
-        .disc-title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
-        .disc-desc { font-size: 0.86rem; color: var(--text-2); line-height: 1.65; }
+.scroll-cue { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 8;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.scroll-cue .line { width: 1px; height: 38px; background: linear-gradient(to bottom, transparent, var(--red)); animation: cue 1.8s var(--ease-out) infinite; }
+@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
-        /* ── PROFILE CARD ────────────────────────────────────── */
-        .profile-card {
-            background: rgba(13,17,25,0.92);
-            border: 1px solid rgba(220,38,38,0.45);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(220,38,38,0.10), 0 0 32px rgba(220,38,38,0.14), 0 0 80px rgba(220,38,38,0.06);
-        }
+/* active work */
+.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.work-card { border: 1px solid var(--line); background: var(--panel); padding: 1.8rem; transition: border-color .3s, transform .4s var(--ease-out); }
+.work-card:hover { border-color: var(--red-dim); transform: translateY(-4px); }
+.work-card .w-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.9rem; }
+.work-card h3 { font-size: 1.15rem; font-weight: 700; }
+.work-card .w-role { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--red-lt); text-transform: uppercase; display: block; margin: 4px 0 0.8rem; }
+.work-card p { font-size: 0.85rem; color: var(--txt-2); line-height: 1.65; }
+.work-card .w-link { display: inline-block; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.12em; color: var(--txt-1); text-decoration: none; text-transform: uppercase; transition: color .2s; }
+.work-card .w-link:hover { color: var(--red-lt); }
+@media (max-width: 820px) { .work-grid { grid-template-columns: 1fr; } }
 
-        /* ── BADGE ───────────────────────────────────────────── */
-        .ng-badge {
-            display: inline-flex; align-items: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.60rem; letter-spacing: 0.12em; text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 2px;
-            background: rgba(220,38,38,0.08);
-            border: 1px solid rgba(220,38,38,0.28);
-            color: rgba(248,113,113,0.85);
-        }
+/* in the field */
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.field-card { border: 1px solid var(--line); background: var(--panel); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color .3s, transform .4s var(--ease-out); }
+.field-card:hover { border-color: var(--red-dim); transform: translateY(-4px); }
+.field-card .f-img { aspect-ratio: 16 / 8.5; overflow: hidden; border-bottom: 1px solid var(--line); position: relative; }
+.field-card .f-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85); transition: transform .6s var(--ease-out); }
+.field-card:hover .f-img img { transform: scale(1.04); }
+.field-card .f-body { padding: 1.3rem 1.5rem 1.5rem; }
+.field-card .f-meta { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; color: var(--txt-3); text-transform: uppercase; display: flex; justify-content: space-between; margin-bottom: 0.6rem; }
+.field-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.field-card p { font-size: 0.82rem; color: var(--txt-2); line-height: 1.6; }
+.field-card .f-open { display: inline-block; margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--red-lt); text-transform: uppercase; }
+@media (max-width: 820px) { .field-grid { grid-template-columns: 1fr; } }
 
-        /* ── BLINKING CURSOR ─────────────────────────────────── */
-        @keyframes cursor-blink { 0%,49%{opacity:1}50%,100%{opacity:0} }
-        .blink { animation: cursor-blink 1s step-end infinite; }
+/* projects & qualifications glimpse */
+.proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+.proj-card { border: 1px solid var(--line); background: var(--panel); padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.7rem; transition: border-color .3s, transform .4s var(--ease-out); }
+.proj-card:hover { border-color: var(--red-dim); transform: translateY(-4px); }
+.proj-card .p-top { display: flex; justify-content: space-between; align-items: center; }
+.proj-card .p-cat { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.2em; color: var(--red-lt); text-transform: uppercase; }
+.proj-card h3 { font-size: 1.05rem; font-weight: 700; }
+.proj-card canvas { width: 100%; height: 76px; display: block; border: 1px solid var(--line); background: var(--bg-1); }
+.proj-card p { font-size: 0.8rem; color: var(--txt-2); line-height: 1.6; }
+.proj-card .p-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+@media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr; } }
 
-        /* ── GLITCH HEADLINE ─────────────────────────────────── */
-        @keyframes glitch-shift {
-            0%,85%,100% { transform: translate(0); filter: none; clip-path: none; }
-            86% { transform: translate(-3px,0); filter: drop-shadow(3px 0 0 rgba(0,200,255,0.55)) drop-shadow(-3px 0 0 rgba(220,38,38,0.70)); }
-            87% { transform: translate(3px,0); clip-path: inset(15% 0 70% 0); }
-            88% { transform: translate(-1px,0); clip-path: inset(60% 0 20% 0); filter: drop-shadow(2px 0 0 rgba(220,38,38,0.90)); }
-            89% { transform: translate(0); clip-path: none; filter: none; }
-        }
-        @keyframes glitch-layer {
-            0%,85%,100% { opacity: 0; transform: translate(0); }
-            86% { opacity: 0.8; transform: translate(5px,0); clip-path: inset(10% 0 75% 0); }
-            87% { opacity: 0.6; transform: translate(-5px,0); clip-path: inset(65% 0 15% 0); }
-            88% { opacity: 0; }
-        }
-        @keyframes scanline-sweep {
-            0% { transform: translateY(-100%); opacity: 0; }
-            5% { opacity: 1; }
-            95% { opacity: 1; }
-            100% { transform: translateY(110vh); opacity: 0; }
-        }
-        @keyframes hero-flicker {
-            0%,89%,100% { opacity: 1; }
-            90% { opacity: 0.92; }
-            90.3% { opacity: 1; }
-            93% { opacity: 1; }
-            93.4% { opacity: 0.80; }
-            93.7% { opacity: 1; }
-        }
-        .hero-glitch-wrap {
-            position: relative;
-            display: inline-block;
-            animation: hero-flicker 3s ease-in-out infinite;
-        }
-        .hero-glitch-wrap .glitch-title {
-            animation: glitch-shift 3s ease-in-out infinite;
-        }
-        .hero-glitch-wrap::after {
-            content: "DONTAVIOUS";
-            position: absolute; top: 0; left: 0;
-            color: rgba(0,210,255,0.20);
-            animation: glitch-layer 3s ease-in-out infinite;
-            pointer-events: none;
-            white-space: nowrap;
-            overflow: hidden;
-            font-size: clamp(2.75rem,5vw,4.25rem);
-            font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -0.02em;
-            width: 100%;
-        }
+/* contact console */
+#contact { text-align: center; }
+#link-console { max-width: 620px; margin: 0 auto; border: 1px solid var(--line); background: var(--panel); padding: 2.2rem; text-align: left; }
+#hs-start { text-align: center; }
+#hs-log { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; color: var(--txt-2); line-height: 2; min-height: 8em; display: none; }
+#hs-log .ok { color: var(--grn); }
+#link-channels { display: none; margin-top: 1rem; }
+#link-channels .ch { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--line); padding: 1rem 1.3rem; margin-top: 0.8rem; text-decoration: none; transition: border-color .25s, background .25s; }
+#link-channels .ch:hover { border-color: var(--red-dim); background: var(--red-glow); }
+#link-channels .ch .k { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--txt-3); text-transform: uppercase; }
+#link-channels .ch .v { font-family: var(--font-mono); font-size: 0.78rem; color: var(--txt-1); }
 
-        /* Scanline overlay on hero */
-        .hero-scanline {
-            position: absolute; inset: 0; z-index: 3;
-            pointer-events: none; overflow: hidden;
-        }
-        .hero-scanline::before {
-            content: '';
-            position: absolute; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent 0%, rgba(220,38,38,0.25) 25%, rgba(220,38,38,0.55) 50%, rgba(220,38,38,0.25) 75%, transparent 100%);
-            animation: scanline-sweep 7s linear infinite;
-        }
-        .hero-scanline::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
-            pointer-events: none;
-        }
-
-        /* ── LOGO: lightning wordmark ───────────────────────── */
-        .ng-logo-block { display: flex; flex-direction: column; gap: 1px; }
-        .ng-logo-top { display: flex; align-items: center; gap: 9px; }
-        .ng-bolt-svg { width: 11px; height: 19px; flex-shrink: 0; }
-        .ng-logo-line-wrap {
-            display: flex; align-items: center; gap: 5px;
-            margin: 2px 0 1px;
-        }
-        .ng-logo-line-left  { width: 11px; height: 1px; background: var(--red); flex-shrink: 0; }
-        .ng-logo-line-dot   { width: 3px; height: 3px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
-        .ng-logo-line-right { flex: 1; min-width: 40px; height: 1px; background: linear-gradient(90deg, var(--red) 0%, rgba(220,38,38,0.06) 100%); }
-
-        /* ── PARTICLE CANVAS BACKGROUND ─────────────────────── */
-        #particle-canvas {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0; pointer-events: none;
-        }
-        body > *:not(#particle-canvas) { position: relative; z-index: 1; }
-        .ng-nav { z-index: 50 !important; }
-        #mobile-menu { z-index: 50 !important; }
-
-        /* Glassmorphism for cards */
-        .field-card {
-            background: rgba(9,10,14,0.62) !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .comp-cell {
-            background: rgba(9,10,14,0.62) !important;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .disc-card {
-            background: rgba(9,10,14,0.62) !important;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-        .profile-card {
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
-
-        /* Orbital ring keyframes */
-        @keyframes orb-spin-slow {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-        @keyframes orb-spin-r-slow {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(-360deg); }
-        }
-        @keyframes orb-glow-pulse {
-            0%,100% { opacity: 0.30; }
-            50%      { opacity: 0.65; }
-        }
-        .orb-spin-60  { transform-box: fill-box; transform-origin: center; animation: orb-spin-slow   60s linear infinite; }
-        .orb-spin-45  { transform-box: fill-box; transform-origin: center; animation: orb-spin-slow   45s linear infinite; }
-        .orb-spin-30r { transform-box: fill-box; transform-origin: center; animation: orb-spin-r-slow 30s linear infinite; }
-        .orb-glow     { animation: orb-glow-pulse 3.5s ease-in-out infinite; }
-        .orb-glow2    { animation: orb-glow-pulse 5s   ease-in-out infinite 1.5s; }
-
-        /* Pulse keyframes */
-        @keyframes node-pulse {
-            0%,100% { opacity: 0.22; }
-            50%      { opacity: 0.75; }
-        }
-        @keyframes hud-ring-pulse {
-            0%,100% { opacity: 0.12; }
-            50%      { opacity: 0.30; }
-        }
-        @keyframes reticle-spin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-        @keyframes reticle-spin-r {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(-360deg); }
-        }
-        @keyframes trace-glow {
-            0%,100% { opacity: 0.16; }
-            50%      { opacity: 0.38; }
-        }
-        .aero-trace  { animation: trace-glow       6s ease-in-out infinite; }
-        .aero-trace2 { animation: trace-glow       8s ease-in-out infinite 2s; }
-        .aero-trace3 { animation: trace-glow       10s ease-in-out infinite 4s; }
-        .via-pulse   { animation: node-pulse       3.5s ease-in-out infinite; }
-        .via-pulse2  { animation: node-pulse       5s ease-in-out infinite 1s; }
-        .via-pulse3  { animation: node-pulse       4s ease-in-out infinite 2.2s; }
-        .hud-pulse   { animation: hud-ring-pulse   4s ease-in-out infinite; }
-        .hud-pulse2  { animation: hud-ring-pulse   6s ease-in-out infinite 2s; }
-        .spin-cw  { transform-box: fill-box; transform-origin: center; animation: reticle-spin   24s linear infinite; }
-        .spin-ccw { transform-box: fill-box; transform-origin: center; animation: reticle-spin-r 18s linear infinite; }
-
-        /* mobile menu */
-        #mobile-menu { background: rgba(7,8,10,0.97); border-top: 1px solid var(--border); }
-        #mobile-menu a { color: rgba(255,255,255,0.70); font-size: 0.875rem; display: block; padding: 0.75rem 1rem; }
-        #mobile-menu a:hover { color: #fff; }
-    
-        /* ── LOCKHEED WORDMARK ───────────────────────────────── */
-        .hero-kicker {
-            display: flex; flex-wrap: wrap; align-items: center; gap: .7rem;
-            font-family: 'JetBrains Mono', monospace;
-            color: rgba(255,255,255,.45); font-size: .65rem;
-            text-transform: uppercase; letter-spacing: .18em;
-            margin-bottom: 1.6rem;
-        }
-        .kicker-dot {
-            width: 4px; height: 4px; border-radius: 50%;
-            background: #dc2626; box-shadow: 0 0 14px rgba(220,38,38,.80);
-        }
-        .lockheed-wordmark {
-            display: inline-block; position: relative;
-            margin-bottom: 1.25rem; padding: .35rem 0 .8rem;
-        }
-        .lockheed-wordmark h1 {
-            margin: 0; font-size: clamp(3rem,7vw,6.35rem);
-            line-height: .9; letter-spacing: -.055em;
-            font-weight: 900; color: #fff; text-transform: uppercase;
-            text-shadow: 0 0 22px rgba(255,255,255,.10);
-        }
-        .lockheed-wordmark h1 span { display: block; }
-        .lockheed-wordmark h1 span:last-child {
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255,255,255,.92);
-            text-shadow: 0 0 30px rgba(220,38,38,.34);
-            letter-spacing: .02em;
-        }
-        .wordmark-rule {
-            position: relative; height: 1px;
-            background: linear-gradient(90deg, rgba(220,38,38,.95), rgba(220,38,38,.18), transparent);
-        }
-        .wordmark-rule.top  { width: 68%; margin-bottom: .75rem; }
-        .wordmark-rule.bottom { width: 88%; margin-top: .65rem; }
-        .wordmark-rule.bottom span {
-            position: absolute; left: 34%; top: -5px;
-            width: 46px; height: 10px;
-            border-top: 1px solid rgba(220,38,38,.85);
-            transform: skewX(-35deg);
-        }
-
-        /* ── HERO PROFILE CARD (research focus) ─────────────── */
-        .hero-profile-card {
-            background: rgba(5,7,12,.76);
-            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255,255,255,.10);
-            border-radius: 14px; overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(220,38,38,.10), 0 36px 100px rgba(0,0,0,.42);
-        }
-        .profile-visual-wrap {
-            position: relative; height: 300px; overflow: hidden; background: #07080a;
-        }
-        .profile-portrait {
-            width: 100%; height: 100%; object-fit: cover; object-position: center 16%;
-            filter: contrast(1.05) saturate(.86);
-        }
-        .profile-visual-wrap::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(5,7,12,.98) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 28%, transparent 0%, rgba(220,38,38,.10) 100%);
-        }
-        .profile-reticle {
-            position: absolute; right: 20px; top: 20px;
-            width: 68px; height: 68px;
-            border: 1px solid rgba(239,68,68,.30); border-radius: 50%;
-            box-shadow: inset 0 0 18px rgba(239,68,68,.07);
-        }
-        .profile-reticle::before, .profile-reticle::after {
-            content: ''; position: absolute; background: rgba(239,68,68,.32);
-        }
-        .profile-reticle::before { width: 100%; height: 1px; left: 0; top: 50%; }
-        .profile-reticle::after  { height: 100%; width: 1px; left: 50%; top: 0; }
-        .profile-body-clean { padding: 1.25rem 1.4rem 1.4rem; }
-        .profile-body-clean h2 {
-            font-size: 1.0rem; font-weight: 700; color: #fff; margin: .3rem 0 .2rem;
-        }
-        .profile-research-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .60rem; letter-spacing: .08em;
-            color: rgba(220,38,38,.80); margin-bottom: .75rem;
-        }
-        .profile-body-clean p {
-            color: rgba(255,255,255,.60); line-height: 1.65;
-            font-size: .84rem; margin: 0 0 1rem;
-        }
-        .profile-tags {
-            display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem;
-        }
-        .profile-tags span {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .60rem; letter-spacing: .05em;
-            color: rgba(255,255,255,.68);
-            border: 1px solid rgba(255,255,255,.10);
-            background: rgba(255,255,255,.04);
-            padding: .3rem .55rem; border-radius: 999px;
-        }
-        .profile-status-line {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: .56rem; letter-spacing: .12em;
-            color: rgba(220,38,38,.50); padding: .4rem 0 .6rem;
-        }
-        .profile-link {
-            display: flex; justify-content: center; text-decoration: none;
-            color: #fff; border: 1px solid rgba(220,38,38,.35);
-            border-radius: 999px; padding: .72rem 1rem;
-            font-weight: 700; font-size: .76rem; letter-spacing: .08em;
-            text-transform: uppercase;
-            transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
-        }
-        .profile-link:hover {
-            background: rgba(220,38,38,.10); border-color: rgba(239,68,68,.70);
-            box-shadow: 0 0 24px rgba(220,38,38,.12);
-        }
-
-    
-        /* ── SVG RED GLOBE ───────────────────────────────────── */
-        @keyframes globe-rotate {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-        }
-        @keyframes globe-pulse {
-            0%,100% { opacity: 0.55; }
-            50%      { opacity: 0.80; }
-        }
-        @keyframes globe-atmos {
-            0%,100% { opacity: 0.30; }
-            50%      { opacity: 0.50; }
-        }
-        /* ── Hero left panel: hidden, left side is pure black ── */
-        #hero-f22-bg { display: none; }
-
-        /* ── Hero right panel: globe ─────────────────────────── */
-        #hero-globe {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 62%;
-            height: 100%;
-            object-fit: cover;
-            object-position: left center;
-            pointer-events: none;
-            z-index: 1;
-            filter: brightness(0.75);
-            -webkit-mask-image: linear-gradient(to left, black 0%, black 28%, rgba(0,0,0,0.60) 50%, rgba(0,0,0,0.12) 66%, transparent 80%);
-            mask-image: linear-gradient(to left, black 0%, black 28%, rgba(0,0,0,0.60) 50%, rgba(0,0,0,0.12) 66%, transparent 80%);
-        }
-
-        /* Hidden: not used */
-        #hero-f22 { display: none; }
-
-        /* Section circuit backgrounds */
-        .ng-section-circuit {
-            position: relative;
-            overflow: hidden;
-        }
-        .ng-section-circuit::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.10;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg stroke='%23dc2626' stroke-width='0.7' fill='none'%3E%3Cpath d='M0 56h84v-28h56v28h140'/%3E%3Cpath d='M0 140h42v-42h28v42h28v-21h126v21h56'/%3E%3Cpath d='M0 224h112v28h56v-28h112'/%3E%3Cpath d='M56 0v84h28v56h-28v140'/%3E%3Cpath d='M140 0v42h42v28h-42v28h21v126h-21v56'/%3E%3Cpath d='M224 0v112h-28v56h28v112'/%3E%3Ccircle cx='56' cy='56' r='3.5'/%3E%3Ccircle cx='140' cy='56' r='2.5'/%3E%3Ccircle cx='224' cy='56' r='3'/%3E%3Ccircle cx='56' cy='140' r='2.5'/%3E%3Ccircle cx='140' cy='140' r='5'/%3E%3Ccircle cx='224' cy='140' r='2.5'/%3E%3Ccircle cx='56' cy='224' r='3'/%3E%3Ccircle cx='140' cy='224' r='2.5'/%3E%3Ccircle cx='224' cy='224' r='3.5'/%3E%3Crect x='133' y='133' width='14' height='14' rx='1'/%3E%3Crect x='49' y='49' width='14' height='14' rx='1' opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 280px 280px;
-        }
-        .ng-section-circuit > * { position: relative; z-index: 1; }
-
-        /* ── Hero → Field transition divider ─────────────────── */
-        .section-bridge {
-            position: relative;
-            height: 100px;
-            background: linear-gradient(to bottom, var(--bg-0) 0%, #0d0e11 100%);
-            overflow: hidden;
-        }
-        .section-bridge::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            opacity: 0.18;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cg stroke='%23dc2626' stroke-width='0.7' fill='none'%3E%3Cpath d='M0 56h84v-28h56v28h140'/%3E%3Cpath d='M0 140h42v-42h28v42h28v-21h126v21h56'/%3E%3Cpath d='M56 0v84h28v56h-28v140'/%3E%3Cpath d='M140 0v42h42v28h-42v28h21v126h-21v56'/%3E%3Ccircle cx='56' cy='56' r='3.5'/%3E%3Ccircle cx='140' cy='56' r='2.5'/%3E%3Ccircle cx='56' cy='140' r='2.5'/%3E%3Ccircle cx='140' cy='140' r='5'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 280px 280px;
-        }
-        /* Center red trace line */
-        .section-bridge-line {
-            position: absolute;
-            top: 50%;
-            left: 0; right: 0;
-            height: 1px;
-            transform: translateY(-50%);
-            background: linear-gradient(90deg,
-                transparent 0%,
-                rgba(220,38,38,0.08) 5%,
-                rgba(220,38,38,0.55) 22%,
-                rgba(220,38,38,0.85) 38%,
-                rgba(220,38,38,0.85) 62%,
-                rgba(220,38,38,0.55) 78%,
-                rgba(220,38,38,0.08) 95%,
-                transparent 100%
-            );
-        }
-        /* Corner tick marks */
-        .section-bridge-tick {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px; height: 14px;
-            border: 1px solid rgba(220,38,38,0.60);
-        }
-        .section-bridge-tick.left  { left: 18%; }
-        .section-bridge-tick.right { right: 18%; }
-        /* Center dot */
-        .section-bridge-dot {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%,-50%);
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: rgba(220,38,38,0.90);
-            box-shadow: 0 0 8px 2px rgba(220,38,38,0.35);
-        }
-        /* Mono label */
-        .section-bridge-label {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(18px, -50%);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.52rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: rgba(220,38,38,0.55);
-            white-space: nowrap;
-        }
-
-
-        /* Corner brackets */
-        .intro-frame {
-            position: absolute;
-            inset: clamp(16px, 3vw, 40px);
-            pointer-events: none;
-        }
-        .intro-frame::before,
-        .intro-frame::after,
-        .intro-frame-br::before,
-        .intro-frame-br::after {
-            content: '';
-            position: absolute;
-            width: 28px;
-            height: 28px;
-        }
-        .intro-frame::before {
-            top: 0; left: 0;
-            border-top: 1px solid rgba(220,38,38,0.55);
-            border-left: 1px solid rgba(220,38,38,0.55);
-        }
-        .intro-frame::after {
-            top: 0; right: 0;
-            border-top: 1px solid rgba(220,38,38,0.55);
-            border-right: 1px solid rgba(220,38,38,0.55);
-        }
-        .intro-frame-br::before {
-            bottom: 0; left: 0;
-            border-bottom: 1px solid rgba(220,38,38,0.55);
-            border-left: 1px solid rgba(220,38,38,0.55);
-        }
-        .intro-frame-br::after {
-            bottom: 0; right: 0;
-            border-bottom: 1px solid rgba(220,38,38,0.55);
-            border-right: 1px solid rgba(220,38,38,0.55);
-        }
-
-
-        /* ── Intro loader (tactical boot sequence) ──────────────── */
-        body.is-loading { overflow: hidden; }
-
-        #intro {
-            position: fixed !important;
-            inset: 0 !important;
-            width: 100vw !important; height: 100vh !important;
-            z-index: 99999 !important;
-            background: #05070b !important;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            overflow: hidden;
-            transition: opacity 0.65s ease 0.05s, visibility 0.65s ease 0.05s;
-        }
-        #intro.is-out {
-            opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
-        }
-
-        /* Red scanline sweep */
-        .ld-scanline {
-            position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-        }
-        .ld-scanline::before {
-            content: '';
-            position: absolute; left: 0; right: 0; height: 3px; top: -4px;
-            background: linear-gradient(90deg, transparent 0%, rgba(220,38,38,0.18) 20%, rgba(220,38,38,0.75) 50%, rgba(220,38,38,0.18) 80%, transparent 100%);
-            box-shadow: 0 0 28px 10px rgba(220,38,38,0.12);
-            animation: ld-scan 0.55s cubic-bezier(0.4,0,0.6,1) 0.05s both;
-        }
-        .ld-scanline::after {
-            content: ''; position: absolute; inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px);
-        }
-        @keyframes ld-scan {
-            from { top: -4px; opacity: 0; }
-            8%   { opacity: 1; }
-            92%  { opacity: 1; }
-            to   { top: calc(100% + 4px); opacity: 0; }
-        }
-
-        /* HUD corner brackets */
-        .ld-bracket {
-            position: absolute; width: 0; height: 0;
-            animation: ld-bracket-grow 0.35s cubic-bezier(0.77,0,0.175,1) 0.22s forwards;
-        }
-        .ld-bracket.tl { top:  clamp(18px,3vw,40px); left:  clamp(18px,3vw,40px); border-top:  1.5px solid rgba(220,38,38,0.60); border-left:  1.5px solid rgba(220,38,38,0.60); }
-        .ld-bracket.tr { top:  clamp(18px,3vw,40px); right: clamp(18px,3vw,40px); border-top:  1.5px solid rgba(220,38,38,0.60); border-right: 1.5px solid rgba(220,38,38,0.60); }
-        .ld-bracket.bl { bottom: clamp(18px,3vw,40px); left:  clamp(18px,3vw,40px); border-bottom: 1.5px solid rgba(220,38,38,0.60); border-left:  1.5px solid rgba(220,38,38,0.60); }
-        .ld-bracket.br { bottom: clamp(18px,3vw,40px); right: clamp(18px,3vw,40px); border-bottom: 1.5px solid rgba(220,38,38,0.60); border-right: 1.5px solid rgba(220,38,38,0.60); }
-        @keyframes ld-bracket-grow {
-            to { width: clamp(26px,4vw,48px); height: clamp(26px,4vw,48px); }
-        }
-
-        /* Top data strip */
-        .ld-top-strip {
-            position: absolute; top: clamp(20px,3vw,42px);
-            left: 0; right: 0;
-            display: flex; align-items: center; justify-content: center; gap: 2.5rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(7px,0.9vw,10px); letter-spacing: 0.24em; text-transform: uppercase;
-            opacity: 0; animation: ld-fade-up 0.4s ease 0.38s both;
-        }
-        .ld-coord    { color: rgba(255,255,255,0.26); }
-        .ld-timestamp { color: rgba(220,38,38,0.55); }
-        .ld-class    { color: rgba(220,38,38,0.40); }
-
-        /* Center nameplate */
-        .ld-center {
-            position: relative; z-index: 2;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-        }
-
-        /* "DONTAVIOUS" ghost letterform above the big name */
-        .ld-pre {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.72rem, 2.2vw, 1.30rem);
-            font-weight: 300;
-            letter-spacing: clamp(0.55em, 1.6vw, 1.35em);
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.30);
-            text-transform: uppercase;
-            margin-bottom: 0.12em;
-            opacity: 0;
-            animation: ld-reveal-l 0.65s cubic-bezier(0.77,0,0.175,1) 0.42s both;
-        }
-
-        /* "ELLIS" — the big hero letterform */
-        .ld-name {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(80px, 19vw, 210px);
-            font-weight: 900;
-            letter-spacing: -0.035em;
-            color: #fff;
-            text-transform: uppercase;
-            line-height: 0.88;
-            position: relative;
-            opacity: 0;
-            animation: ld-name-in 0.12s ease 0.52s both;
-            text-shadow: 0 0 90px rgba(220,38,38,0.40), 0 0 24px rgba(220,38,38,0.25), 0 2px 0 rgba(0,0,0,0.60);
-        }
-        /* Cyan ghost layer — glitches on reveal */
-        .ld-name::after {
-            content: attr(data-text);
-            position: absolute; top: 0; left: 0; width: 100%;
-            color: rgba(0,210,255,0.10);
-            pointer-events: none;
-            animation: ld-name-ghost 1.0s ease 0.52s both;
-        }
-        @keyframes ld-name-in { to { opacity: 1; } }
-        @keyframes ld-name-ghost {
-            0%   { transform: translate(0); clip-path: none; opacity: 1; }
-            10%  { transform: translate(8px,0);  clip-path: inset(15% 0 65% 0); }
-            22%  { transform: translate(-5px,0); clip-path: inset(60% 0 20% 0); }
-            34%  { transform: translate(4px,0);  clip-path: inset(0% 0 85% 0); }
-            55%  { transform: translate(0); clip-path: inset(0); opacity: 0.10; }
-            100% { opacity: 0; }
-        }
-
-        /* Divider rule */
-        .ld-rule {
-            width: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(220,38,38,0.65) 38%, rgba(220,38,38,0.65) 62%, transparent);
-            margin: 0.55em auto;
-            animation: ld-rule-extend 0.55s cubic-bezier(0.77,0,0.175,1) 1.08s both;
-        }
-        @keyframes ld-rule-extend { to { width: clamp(180px, 44vw, 520px); } }
-
-        /* Role tag */
-        .ld-role {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(7px,0.85vw,10px);
-            letter-spacing: 0.30em; text-transform: uppercase;
-            color: rgba(255,255,255,0.36);
-            opacity: 0; animation: ld-fade-up 0.4s ease 1.18s both;
-        }
-
-        /* Bottom strip */
-        .ld-bottom {
-            position: absolute; bottom: clamp(20px,3.5vw,48px);
-            left: 0; right: 0;
-            display: flex; flex-direction: column; align-items: center; gap: 11px;
-        }
-        .ld-bar-w {
-            width: clamp(140px, 22vw, 250px); height: 2px;
-            background: rgba(255,255,255,0.06); overflow: hidden;
-            opacity: 0; animation: ld-fade-up 0.3s ease 1.30s both;
-        }
-        .ld-bar {
-            height: 100%; width: 0; background: #dc2626;
-            animation: ld-bar-fill 1.55s cubic-bezier(0.4,0,0.2,1) 1.40s both;
-        }
-        @keyframes ld-bar-fill { to { width: 100%; } }
-        .ld-stat {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(6px, 0.75vw, 9px);
-            color: rgba(255,255,255,0.20); letter-spacing: 0.30em; text-transform: uppercase;
-            opacity: 0; animation: ld-fade-up 0.3s ease 1.65s both;
-        }
-
-        /* F-22 background glitch */
-        .ld-f22 {
-            position: absolute; inset: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1;
-            /* mask: fade edges so it bleeds in, stronger center */
-            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 62% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.28) 50%, transparent 80%);
-            mask-image:         radial-gradient(ellipse 80% 70% at 62% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.28) 50%, transparent 80%);
-            animation: ld-f22-glitch 4.2s ease forwards;
-        }
-        @keyframes ld-f22-glitch {
-            /* invisible at start */
-            0%    { opacity: 0;    transform: translate(0,0)    scale(1.04); filter: brightness(1.0) contrast(1.1); }
-            /* first flash — subliminal */
-            8%    { opacity: 0.32; transform: translate(-3px,0) scale(1.03); filter: brightness(1.3) contrast(1.2); }
-            9%    { opacity: 0.05; transform: translate(4px,0)  scale(1.04); }
-            /* settle into background presence */
-            18%   { opacity: 0.28; transform: translate(0,0)    scale(1.02); filter: brightness(1.1) contrast(1.1); }
-            /* glitch burst 1 */
-            38%   { opacity: 0.30; transform: translate(0,0)    scale(1.02); filter: brightness(1.0) contrast(1.1); }
-            39%   { opacity: 0.50; transform: translate(-5px,2px) scale(1.02); clip-path: inset(18% 0 60% 0); filter: brightness(1.5) contrast(1.3); }
-            40%   { opacity: 0.18; transform: translate(6px,0)  scale(1.03); clip-path: inset(55% 0 18% 0); }
-            41%   { opacity: 0.30; transform: translate(0,0)    scale(1.02); clip-path: none; filter: brightness(1.0) contrast(1.1); }
-            /* glitch burst 2 */
-            68%   { opacity: 0.28; transform: translate(0,0) scale(1.02); filter: brightness(1.0); }
-            69%   { opacity: 0.48; transform: translate(5px,-2px) scale(1.02); clip-path: inset(30% 0 45% 0); filter: brightness(1.4); }
-            70%   { opacity: 0.15; transform: translate(-4px,0)   scale(1.03); clip-path: inset(65% 0 10% 0); }
-            71%   { opacity: 0.28; transform: translate(0,0) scale(1.02); clip-path: none; filter: brightness(1.0); }
-            /* hold through bar fill */
-            88%   { opacity: 0.26; transform: translate(0,0) scale(1.01); filter: brightness(1.0) contrast(1.1); }
-            /* fade with the screen */
-            100%  { opacity: 0.18; transform: translate(0,0) scale(1.00); }
-        }
-
-        /* Shared keyframes */
-        @keyframes ld-fade-up {
-            from { opacity: 0; transform: translateY(7px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes ld-reveal-l {
-            from { clip-path: inset(0 100% 0 0); opacity: 0; transform: translateX(-10px); }
-            to   { clip-path: inset(0 0% 0 0);   opacity: 1; transform: translateX(0); }
-        }
-
-        /* Page-wipe transition between pages */
-        .page-wipe {
-            position: fixed; inset: 0; z-index: 9000;
-            background: #05070b; transform: translateY(100%); pointer-events: none;
-        }
-        @keyframes wipeIn  { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        @keyframes wipeOut { from { transform: translateY(0); }    to { transform: translateY(-100%); } }
-        .page-wipe.is-in  { animation: wipeIn  0.42s cubic-bezier(0.77,0,0.175,1) forwards; pointer-events: all; }
-        .page-wipe.is-out { animation: wipeOut 0.42s cubic-bezier(0.77,0,0.175,1) forwards; }
-
-        @media (max-width: 900px) {
-            /* Show on mobile — just dial in sizes */
-            body.is-loading { overflow: hidden; }
-            .ld-top-strip {
-                gap: 1rem;
-                font-size: 7px;
-                letter-spacing: 0.16em;
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 0 clamp(14px,4vw,28px);
-            }
-            .ld-coord { display: none; } /* hide coords on small screens, keep timestamp + access */
-            .ld-bracket.tl,
-            .ld-bracket.tr,
-            .ld-bracket.bl,
-            .ld-bracket.br {
-                /* slightly closer to edge on mobile */
-            }
-        }
-        @media (max-width: 480px) {
-            .ld-class { display: none; } /* very small: just timestamp */
-            .ld-top-strip { gap: 0.5rem; }
-        }
-
-    </style>
-    <link rel="stylesheet" href="css/reveal.css" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Dontavious Ellis",
-      "url": "https://dontaviousellis.com",
-      "image": "https://dontaviousellis.com/resources/profile.jpg",
-      "jobTitle": "Defense Electrical Engineering Student | GPS-Denied Navigation | Tactical Communications",
-      "description": "USF Electrical Engineering student building toward defense systems: GPS-denied navigation, tactical communications hardware, resilient power infrastructure, and embedded systems engineering.",
-      "sameAs": ["https://www.linkedin.com/in/dontavious-ellis/","https://github.com/thefourierphantom"],
-      "affiliation": [
-        {"@type":"CollegeOrUniversity","name":"University of South Florida","department":"Department of Electrical Engineering"},
-        {"@type":"Organization","name":"Orbital Corporation","description":"Defense electronics manufacturing"}
-      ],
-      "knowsAbout": ["GPS-Denied Navigation","Tactical Communications Hardware","Power Systems Engineering","Embedded Firmware","Kalman Filtering","Defense Systems Engineering","Resilient Infrastructure","Inertial Navigation Systems"]
-    }
-    </script>
-    <link rel="stylesheet" href="css/scroll.css" />
+/* ── mobile ─────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  h1.hero-title { font-size: clamp(2rem, 10.5vw, 2.9rem); }
+  .hud-bl { display: none; }
+  .hud-tl { top: calc(var(--nav-h) + 14px); left: 1.2rem; }
+  #hud-warn {
+    top: auto; bottom: 14px; max-width: 92vw; white-space: normal;
+    text-align: center; font-size: 0.54rem; padding: 6px 12px; line-height: 1.6;
+  }
+  .hero-content { padding-bottom: 3rem; }
+  .hero-intro { font-size: 0.84rem; }
+  .res-photo { aspect-ratio: 1 / 0.7; }
+  .scroll-cue { display: none; }
+  .btn-t { padding: 12px 18px; }
+  .hero-cta { gap: 0.7rem; }
+  #link-console { padding: 1.4rem; }
+  #link-channels .ch { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+</style>
 </head>
-<body class="is-loading">
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- ── INTRO LOADER (tactical boot) ─────────────────── -->
-    <div id="intro" aria-hidden="true">
-        <!-- F-22 background (glitches in subliminally) -->
-        <img class="ld-f22" src="resources/hero-left.png" alt="" aria-hidden="true">
-        <!-- Red scanline sweep + CRT overlay -->
-        <div class="ld-scanline"></div>
-        <!-- HUD corner brackets -->
-        <div class="ld-bracket tl"></div>
-        <div class="ld-bracket tr"></div>
-        <div class="ld-bracket bl"></div>
-        <div class="ld-bracket br"></div>
-        <!-- Top data strip -->
-        <div class="ld-top-strip">
-            <span class="ld-coord">28.0587&deg; N &nbsp;&middot;&nbsp; 82.4139&deg; W</span>
-            <span class="ld-timestamp" id="ld-ts"></span>
-            <span class="ld-class">// ACCESS : GRANTED</span>
-        </div>
-        <!-- Main nameplate -->
-        <div class="ld-center">
-            <div class="ld-pre">Dontavious</div>
-            <div class="ld-name" data-text="ELLIS"><span id="ld-scramble">ELLIS</span></div>
-            <div class="ld-rule"></div>
-            <div class="ld-role">Defense Electrical Engineer &nbsp;&middot;&nbsp; USF 2028</div>
-        </div>
-        <!-- Bottom strip -->
-        <div class="ld-bottom">
-            <div class="ld-bar-w"><div class="ld-bar"></div></div>
-            <div class="ld-stat">EE &nbsp;&middot;&nbsp; ARMS &nbsp;&middot;&nbsp; ORBITAL &nbsp;&middot;&nbsp; GNSI</div>
-        </div>
+<!-- ═══ INTRO — JET FLYBY ═══ -->
+<div id="boot" aria-hidden="true">
+  <div id="intro-canvas"></div>
+  <div class="boot-vig"></div>
+  <div class="boot-corner">
+    <span class="microtext" style="color:var(--red-lt);">ELLIS COMMAND ENVIRONMENT</span>
+    <span class="microtext">INBOUND · TRACKING</span>
+  </div>
+  <button class="boot-skip" id="boot-skip">SKIP →</button>
+</div>
+
+<main id="main">
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" aria-label="Introduction">
+  <div id="hero-canvas"></div>
+  <div class="hero-vig"></div>
+
+  <div class="hud-readout hud-tl">
+    <span class="row"><span id="hud-mode">GNSS · RTK LOCK</span></span>
+    <span class="row"><span id="hud-sats">07 SV</span><span id="hud-pdop">PDOP 1.4</span></span>
+    <span class="row"><span id="hud-signal"><i id="hud-signal-bar"></i></span></span>
+  </div>
+  <div class="hud-readout hud-bl">
+    <span class="row"><span id="hud-pos">28.0587°N · 82.4139°W</span><span id="hud-drift">σ 0.4 m</span></span>
+    <span>SCROLL = MISSION TIMELINE</span>
+  </div>
+  <div id="hud-warn" role="status"></div>
+
+  <div class="hero-content" id="hero-content">
+    <div>
+      <div class="hero-eyebrow rv">Electrical Engineering <i></i> Defense Systems <i></i> USF 2028</div>
+      <h1 class="hero-title" id="hero-h1"><span id="h1a">DONTAVIOUS</span><span class="l2" id="h1b">ELLIS</span></h1>
+      <div class="hero-typed rv"><span id="typed"></span><span class="tcur"></span></div>
+      <p class="hero-intro rv" data-rv-delay="0.1">
+        A 3rd year Electrical Engineering student at the University of South Florida building toward a career in
+        defense systems. Currently an EE intern at <strong>Orbital Corporation</strong> working on tactical communications
+        hardware, a USF Global &amp; National Security Institute <strong>Future Strategist</strong> with direct exposure to
+        Pentagon and Capitol Hill decision-makers, the founder of <strong>Ellis Dynamics</strong>, a countermeasure systems
+        company currently building a GPS-denied navigation validation pipeline anchored in ARL and DARPA literature,
+        and the <strong>Technical Development Chair for NSBE USF</strong>. My work sits at the intersection of embedded
+        systems, resilient power, and national security, bench-built and clearance eligible.
+      </p>
+      <div class="hero-chips rv" data-rv-delay="0.18">
+        <span class="tag">U.S. Citizen</span>
+        <span class="tag">Clearance Eligible</span>
+        <span class="tag">CompTIA Security+</span>
+        <span class="tag">Tampa, FL</span>
+      </div>
+      <div class="hero-cta rv" data-rv-delay="0.26">
+        <a class="btn-t primary" href="projects.html" data-route data-magnetic="0.25" data-cursor-label="OPEN">
+          <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+          ELLIS DYNAMICS <span class="arr">→</span></a>
+        <a class="btn-t" href="resume.html" data-route data-magnetic="0.25" data-cursor-label="OPEN">
+          <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+          ENGINEERING RESUME <span class="arr">→</span></a>
+      </div>
     </div>
 
-    <!-- ── PAGE WIPE ─────────────────────────────────────── -->
-    <div class="page-wipe" id="page-wipe"></div>
-
-    <!-- ── NAVIGATION ─────────────────────────────────────────── -->
-    <nav class="ng-nav">
-        <div class="ng-nav-inner">
-            <a href="index.html" class="ng-logo">
-                <div class="ng-logo-block">
-                    <div class="ng-logo-top">
-                        <!-- Lightning bolt mark -->
-                        <svg class="ng-bolt-svg" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/>
-                        </svg>
-                        <span class="ng-logo-name">Dontavious Ellis</span>
-                    </div>
-                    <!-- NG-style horizontal line framing the wordmark -->
-                    <div class="ng-logo-line-wrap">
-                        <div class="ng-logo-line-left"></div>
-                        <div class="ng-logo-line-dot"></div>
-                        <div class="ng-logo-line-right"></div>
-                    </div>
-                    <span class="ng-logo-sub">EE &nbsp;&middot;&nbsp; Defense Systems</span>
-                </div>
-            </a>
-            <div class="ng-links hidden md:flex">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="resume.html" class="cta-link">Resume</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden text-white opacity-70 hover:opacity-100" aria-label="Open menu" aria-expanded="false">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+    <aside class="res-card rv" data-rv-delay="0.2" aria-label="Active research">
+      <div class="res-photo">
+        <img src="resources/profile.jpg" alt="Dontavious Ellis">
+        <div class="crosshair" aria-hidden="true"><span class="ch-ring"></span></div>
+      </div>
+      <div class="res-body">
+        <span class="r-over">Active Research</span>
+        <h3>Ellis Dynamics · Project One</h3>
+        <span class="r-sub">MEMS Inertial Drift Characterisation</span>
+        <p>Validating GPS-denied dead reckoning using ESP32/MPU-6050 arrays. Quantifying bias, noise floor, and drift
+        in low-cost strapdown systems before Kalman filter integration. Experimental design anchored in Woodman (2007),
+        ARL, and DARPA INS literature.</p>
+        <div class="res-tags">
+          <span class="tag">C++ · ESP32</span><span class="tag">MPU-6050 · 6-DOF</span><span class="tag">Dead Reckoning</span>
+          <span class="tag">Kalman Filtering</span><span class="tag">Allan Variance</span><span class="tag">Strapdown INS</span>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-4 py-3 space-y-1">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="resume.html">Resume</a>
-            </div>
+        <div class="res-foot">
+          <span class="r-id">ED-TR-001 · IN PROGRESS</span>
+          <a href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener">Connect on LinkedIn →</a>
         </div>
-    </nav>
+      </div>
+    </aside>
+  </div>
 
-    <!-- ── HERO ───────────────────────────────────────────────── -->
-    <section class="ng-hero">
-        <div class="ng-hero-img"></div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span class="microtext">SCROLL</span>
+    <span class="line"></span>
+  </div>
+</section>
 
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee" data-speed="0.55" aria-hidden="true">
+  <div class="marquee-track">
+    <span>GPS-DENIED NAVIGATION</span><span>INERTIAL DEAD RECKONING</span><span>KALMAN FILTERING</span>
+    <span>SENSOR FUSION</span><span>TACTICAL COMMUNICATIONS</span><span>EMBEDDED SYSTEMS</span>
+    <span>RESILIENT POWER</span><span>SIGNAL CONDITIONING</span><span>COUNTERMEASURE SYSTEMS</span>
+  </div>
+</div>
 
-        <!-- F-22 Hero Layer -->
-        <img id="hero-f22-bg" src="resources/hero-left.png" alt="" aria-hidden="true">
-        <img id="hero-f22" src="resources/f22-raptor.jpg" alt="" aria-hidden="true">
-
-        <!-- Globe Background -->
-        <img id="hero-globe" src="resources/hero-forensic.png" alt="" aria-hidden="true">
-
-        <!-- Scanline overlay -->
-        <div class="hero-scanline" aria-hidden="true"></div>
-
-        <!-- Orbital ring decoration -->
-        <div style="position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:720px;height:720px;pointer-events:none;z-index:1;" aria-hidden="true">
-            <svg viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;overflow:visible;">
-                <!-- Outer dashed ring, slow clockwise -->
-                <circle cx="360" cy="360" r="330" fill="none" stroke="rgba(220,38,38,0.10)" stroke-width="1" stroke-dasharray="5 7" class="orb-spin-60"/>
-                <!-- Tilted ellipse, medium counter -->
-                <ellipse cx="360" cy="360" rx="295" ry="105" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="1" class="orb-spin-30r"/>
-                <!-- Equatorial ellipse, clockwise -->
-                <ellipse cx="360" cy="360" rx="190" ry="295" fill="none" stroke="rgba(220,38,38,0.07)" stroke-width="1" stroke-dasharray="3 9" class="orb-spin-45"/>
-                <!-- Static inner ring -->
-                <circle cx="360" cy="360" r="200" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.8"/>
-                <!-- Glowing arc segment -->
-                <path d="M 360,62 A 298,298 0 0,1 618,360" fill="none" stroke="rgba(220,38,38,0.22)" stroke-width="1.5" class="orb-glow"/>
-                <!-- Counter arc -->
-                <path d="M 360,658 A 298,298 0 0,1 102,360" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" class="orb-glow2"/>
-                <!-- Corner brackets -->
-                <path d="M 130,130 L 130,175 M 130,130 L 175,130" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
-                <path d="M 590,130 L 590,175 M 590,130 L 545,130" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
-                <path d="M 130,590 L 130,545 M 130,590 L 175,590" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
-                <path d="M 590,590 L 590,545 M 590,590 L 545,590" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
-                <!-- Center crosshair -->
-                <line x1="320" y1="360" x2="400" y2="360" stroke="rgba(220,38,38,0.22)" stroke-width="0.8"/>
-                <line x1="360" y1="320" x2="360" y2="400" stroke="rgba(220,38,38,0.22)" stroke-width="0.8"/>
-                <circle cx="360" cy="360" r="5" fill="none" stroke="rgba(220,38,38,0.35)" stroke-width="1"/>
-                <!-- Satellite node on outer ring -->
-                <circle cx="360" cy="30" r="4.5" fill="rgba(220,38,38,0.65)" class="orb-spin-60 orb-glow"/>
-                <!-- Second node on tilted ellipse -->
-                <circle cx="655" cy="360" r="3" fill="rgba(255,255,255,0.50)" class="orb-spin-30r orb-glow2"/>
-            </svg>
-        </div>
-
-        <!-- Animated grid overlay -->
-        <svg class="ng-hero-grid" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="180" y1="0" x2="180" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="360" y1="0" x2="360" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="540" y1="0" x2="540" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="720" y1="0" x2="720" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="900" y1="0" x2="900" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="1080" y1="0" x2="1080" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="1260" y1="0" x2="1260" y2="900"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="180" x2="1440" y2="180"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="360" x2="1440" y2="360"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="540" x2="1440" y2="540"/>
-            <line stroke="rgba(220,38,38,0.06)" stroke-width="1" x1="0" y1="720" x2="1440" y2="720"/>
-            <line stroke="rgba(220,38,38,0.14)" stroke-width="1.5" x1="720" y1="0" x2="720" y2="900"/>
-            <line stroke="rgba(220,38,38,0.14)" stroke-width="1.5" x1="0" y1="450" x2="1440" y2="450"/>
-            <!-- animated sine wave -->
-            <path fill="none" stroke="rgba(220,38,38,0.35)" stroke-width="1.5"
-                  stroke-dasharray="800"
-                  style="animation: sine-march 5s linear infinite;"
-                  d="M0,450 C30,450 50,390 80,390 S130,510 160,510 S230,390 260,390 S330,510 360,510 S430,390 460,390 S530,510 560,510 S630,390 660,390 S730,510 760,510 S830,390 860,390 S930,510 960,510 S1030,390 1060,390 S1130,510 1160,510 S1230,390 1260,390 S1330,510 1360,510 S1410,450 1440,450"/>
-        </svg>
-        <style>
-        @keyframes sine-march { from { stroke-dashoffset: 800; } to { stroke-dashoffset: 0; } }
-        </style>
-
-        <div class="ng-hero-content">
-            <!-- Left: identity + CTAs -->
-            <div class="hero-copy-panel">
-                <!-- Discipline kicker -->
-                <div class="hero-kicker">
-                    <span>Electrical Engineering</span>
-                    <span class="kicker-dot"></span>
-                    <span>Defense Systems</span>
-                    <span class="kicker-dot"></span>
-                    <span>USF 2028</span>
-                </div>
-
-                <!-- Lockheed wordmark: two rules, no diamond -->
-                <div class="lockheed-wordmark hero-glitch-wrap" aria-label="Dontavious Ellis">
-                    <div class="wordmark-rule top"></div>
-                    <h1 class="glitch-title">
-                        <span>DONTAVIOUS</span>
-                        <span>ELLIS</span>
-                    </h1>
-                    <div class="wordmark-rule bottom">
-                        <span></span>
-                    </div>
-                </div>
-
-                <!-- Typing sequence -->
-                <div class="typed-line" style="font-family:'JetBrains Mono',monospace;font-size:0.875rem;color:#f87171;min-height:1.4rem;margin-bottom:1.5rem;">
-                    <span id="typed-mission"></span><span class="blink" style="color:var(--red);">&#9608;</span>
-                </div>
-
-                <!-- Bio: user's exact text -->
-                <p style="font-size:0.97rem;color:var(--text-2);font-weight:400;margin:0 0 1.75rem;max-width:560px;line-height:1.80;">
-                    A 3rd year Electrical Engineering student at the University of South Florida building toward a career in defense systems. Currently an EE intern at Orbital Corporation working on tactical communications hardware, a USF Global &amp; National Security Institute Future Strategist with direct exposure to Pentagon and Capitol Hill decision-makers, the founder of ARMS, a student research organization currently building a GPS-denied navigation validation pipeline anchored in ARL and DARPA literature, and the Technical Development Chair for NSBE USF. My work sits at the intersection of embedded systems, resilient power, and national security, bench-built and clearance eligible.
-                </p>
-
-                <!-- Badges -->
-                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem;">
-                    <span class="ng-badge">U.S. Citizen</span>
-                    <span class="ng-badge">Clearance Eligible</span>
-                    <span class="ng-badge">CompTIA Security+</span>
-                    <span class="ng-badge">Tampa, FL</span>
-                </div>
-
-                <!-- CTAs -->
-                <div style="display:flex;flex-wrap:wrap;gap:12px;">
-                    <a href="projects.html" class="btn-primary">View Projects</a>
-                    <a href="resume.html" class="btn-outline">Engineering Resume</a>
-                    <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener noreferrer" class="btn-outline" style="gap:8px;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                        GitHub
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right: ARMS research focus card -->
-            <aside class="hero-profile-card">
-                <div class="profile-visual-wrap">
-                    <img src="resources/profile.jpg" alt="Dontavious Ellis" class="profile-portrait">
-                    <div class="profile-reticle" aria-hidden="true"></div>
-                </div>
-                <div class="profile-body-clean">
-                    <div class="overline" style="margin-bottom:0.3rem;">Active Research</div>
-                    <h2>ARMS &middot; Project One</h2>
-                    <div class="profile-research-tag">MEMS Inertial Drift Characterisation</div>
-                    <p>
-                        Validating GPS-denied dead reckoning using ESP32/MPU-6050 arrays. Quantifying bias, noise floor, and drift in low-cost strapdown systems before Kalman filter integration. Experimental design anchored in Woodman (2007), ARL, and DARPA INS literature.
-                    </p>
-                    <div class="profile-tags">
-                        <span>C++ &middot; ESP32</span>
-                        <span>MPU-6050 &middot; 6-DOF</span>
-                        <span>Dead Reckoning</span>
-                        <span>Kalman Filtering</span>
-                        <span>Allan Variance</span>
-                        <span>Strapdown INS</span>
-                    </div>
-                    <div class="profile-status-line">ARMS-TR-001 &nbsp;&middot;&nbsp; IN PROGRESS</div>
-                    <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="profile-link">
-                        Connect on LinkedIn &rarr;
-                    </a>
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <!-- ── SECTION BRIDGE ───────────────────────────────────── -->
-    <div class="section-bridge" aria-hidden="true">
-        <div class="section-bridge-line"></div>
-        <div class="section-bridge-tick left"></div>
-        <div class="section-bridge-tick right"></div>
-        <div class="section-bridge-dot"></div>
-        <div class="section-bridge-label">Field Engagements</div>
+<!-- ═══ 01 · ACTIVE WORK ═══ -->
+<section class="sec" id="active-work" aria-label="Active work">
+  <div class="sec-head">
+    <div>
+      <span class="overline">Currently Executing</span>
+      <h2 class="sec-title">ACTIVE <em>WORK</em></h2>
     </div>
+  </div>
+  <div class="work-grid">
+    <article class="work-card rv">
+      <div class="w-top"><span class="overline dim">Founder-Led</span><span class="status-chip dev">IN PROGRESS</span></div>
+      <h3>Ellis Dynamics · GPS-Denied Navigation</h3>
+      <span class="w-role">Founder &amp; Lead Researcher · May 2026 – Present</span>
+      <p>Building a GPS-denied navigation validation pipeline. Kalman filtering for 6-DOF IMU fusion, inertial
+      dead reckoning error characterization, and TT&amp;C ground station development. Anchored in ARL and DARPA
+      INS literature.</p>
+      <a class="w-link" href="projects.html" data-route>View Ellis Dynamics →</a>
+    </article>
+    <article class="work-card rv" data-rv-delay="0.1">
+      <div class="w-top"><span class="overline dim">Industry</span><span class="status-chip live">ACTIVE</span></div>
+      <h3>Orbital Corporation · EE Intern</h3>
+      <span class="w-role">May 2026 – Present</span>
+      <p>Building IPC-A-610 Class 3 tactical communications wiring harnesses. Multi-pin crimp connectors, cup
+      soldering, continuity and resistance fault isolation, EMI shielding and nailboard layout interpretation.</p>
+      <a class="w-link" href="resume.html" data-route>Engineering Resume →</a>
+    </article>
+  </div>
+</section>
 
-    <!-- ── IN THE FIELD ────────────────────────────────────────── -->
-    <section class="ng-section ng-section-circuit" style="background:rgba(13,14,17,0.72);">
-        <div class="ng-section-inner">
-            <div class="ng-section-head">
-                <div class="overline">Engagements</div>
-                <div class="ng-divider"></div>
-                <h2>In the Field</h2>
-                <p class="ng-section-sub">Industry summits, research briefings, and engineering showcases. Where technical work meets operational context.</p>
-            </div>
+<!-- ═══ 02 · IN THE FIELD ═══ -->
+<section class="sec" id="field" aria-label="In the field">
+  <div class="sec-head">
+    <div>
+      <span class="overline">Engagements</span>
+      <h2 class="sec-title">IN THE <em>FIELD</em></h2>
+    </div>
+    <p class="sec-desc rv">Industry summits, research briefings, and engineering showcases. Where technical work meets operational context.</p>
+  </div>
+  <div class="field-grid">
+    <a class="field-card rv" href="gnsi-dc.html" data-cursor-label="OPEN POST">
+      <div class="f-img"><img src="resources/gnsi-dc-pentagon.jfif" alt="GNSI DC Experience — Pentagon" loading="lazy"></div>
+      <div class="f-body">
+        <div class="f-meta"><span>GNSI · Washington D.C.</span><span>Spring 2026</span></div>
+        <h3>GNSI DC Experience 2026</h3>
+        <p>Five days moving through the national security ecosystem with the GNSI cohort. Defense, diplomacy,
+        intelligence, and policy: the full system that engineering has to move through and survive.</p>
+        <span class="f-open">Open post →</span>
+      </div>
+    </a>
+    <a class="field-card rv" data-rv-delay="0.1" href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener" data-cursor-label="VIEW POST">
+      <div class="f-img"><img src="resources/sof-week.jfif" alt="SOF Week 2026 — Tampa" loading="lazy"></div>
+      <div class="f-body">
+        <div class="f-meta"><span>SOF Week · Tampa</span><span>May 2026</span></div>
+        <h3>SOF Week 2026</h3>
+        <p>SOF Week 2026 took over downtown Tampa. Special operations forces from around the globe, alongside
+        the institutions, organizations, and companies that support them. On the ground with GNSI.</p>
+        <span class="f-open">View post ↗</span>
+      </div>
+    </a>
+  </div>
+</section>
 
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;">
+<!-- ═══ 03 · PROJECTS & QUALIFICATIONS ═══ -->
+<section class="sec" id="projects-glimpse" aria-label="Core projects and qualifications">
+  <div class="sec-head">
+    <div>
+      <span class="overline">Built to Outcomes</span>
+      <h2 class="sec-title">CORE PROJECTS <em>&amp; QUALIFICATIONS</em></h2>
+    </div>
+    <p class="sec-desc rv">Hardware builds, power systems, embedded firmware, and infrastructure modeling — all documented with measurable outcomes and engineering rationale.</p>
+  </div>
+  <div class="proj-grid">
+    <a class="proj-card rv" href="projects.html#evidence" data-route data-viz="grid">
+      <div class="p-top"><span class="p-cat">Power Systems · Embedded</span><span class="status-chip live">COMPLETED</span></div>
+      <h3>Secure IIoT Smart Grid Edge Monitor</h3>
+      <canvas></canvas>
+      <p>ESP32 firmware with FFT-based THD detection in sub-100&nbsp;ms intervals, &lt;3% RMS error margin.
+      AES-128 + MQTT TLS 1.2 over a NERC CIP-compliant telemetry pipeline validated end-to-end.</p>
+      <div class="p-tags"><span class="tag">ESP32 Firmware</span><span class="tag">FFT / THD</span><span class="tag">AES-128 · TLS 1.2</span></div>
+    </a>
+    <a class="proj-card rv" data-rv-delay="0.08" href="projects.html#evidence" data-route data-viz="load">
+      <div class="p-top"><span class="p-cat">Power Distribution · Hardware</span><span class="status-chip live">COMPLETED</span></div>
+      <h3>Smart Load-Shedding &amp; Power Distribution Controller</h3>
+      <canvas></canvas>
+      <p>PWM trip-logic holding system stability within 10% of peak capacity. Active RC filtering cut noise (Vpp)
+      by 35%, bench-validated with digital oscilloscopes.</p>
+      <div class="p-tags"><span class="tag">ESP32 · PWM</span><span class="tag">RC Conditioning</span><span class="tag">Current Sensing</span></div>
+    </a>
+    <a class="proj-card rv" data-rv-delay="0.16" href="projects.html#evidence" data-route data-viz="lab">
+      <div class="p-top"><span class="p-cat">Infrastructure · Modeling</span><span class="status-chip dev">ACTIVE</span></div>
+      <h3>Enterprise Infrastructure Home Lab</h3>
+      <canvas></canvas>
+      <p>Proxmox + pfSense multi-tier lab. MATLAB load-flow simulations cut grid restoration time 22%. Cascading
+      failure modeled across 7 infrastructure layers and 500+ outage scenarios.</p>
+      <div class="p-tags"><span class="tag">MATLAB Load-Flow</span><span class="tag">Proxmox · VLAN</span><span class="tag">pfSense</span></div>
+    </a>
+    <div class="proj-card rv" data-rv-delay="0.24" style="cursor:auto;">
+      <div class="p-top"><span class="p-cat">Qualifications</span><span class="status-chip live">VERIFIED</span></div>
+      <h3>Education &amp; Certification</h3>
+      <div class="spec-row"><span class="k">Degree</span><span class="v">B.S. Electrical Engineering · USF</span></div>
+      <div class="spec-row"><span class="k">Expected</span><span class="v">May 2028</span></div>
+      <div class="spec-row"><span class="k">Cert</span><span class="v">CompTIA Security+ · Jan 2026</span></div>
+      <div class="spec-row" style="border-bottom:none;"><span class="k">Status</span><span class="v">U.S. Citizen · Clearance Eligible</span></div>
+      <div class="p-tags"><a class="w-link" href="about.html" data-route style="font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.12em; color:var(--txt-1); text-decoration:none; text-transform:uppercase;">More about me →</a></div>
+    </div>
+  </div>
+</section>
 
+<!-- ═══ 04 · CONTACT ═══ -->
+<section class="sec" id="contact" aria-label="Contact">
+  <span class="overline" style="display:inline-flex; margin-bottom:1rem;">Communications</span>
+  <h2 class="sec-title rv" style="margin-bottom:2.4rem;">ESTABLISH <em>LINK</em></h2>
+  <div id="link-console" class="rv">
+    <div id="hs-start">
+      <p style="color:var(--txt-2); font-size:0.9rem; margin-bottom:1.6rem;">Open a channel for opportunities, research collaboration, or Ellis Dynamics inquiries.</p>
+      <button class="btn-t primary" id="hs-btn" data-magnetic="0.3" data-cursor-label="TRANSMIT">
+        <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+        INITIATE HANDSHAKE <span class="arr">→</span></button>
+    </div>
+    <div id="hs-log" aria-live="polite"></div>
+    <div id="link-channels">
+      <a class="ch" href="mailto:edon4585@gmail.com"><span class="k">CH·01 EMAIL</span><span class="v">edon4585@gmail.com</span></a>
+      <a class="ch" href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener"><span class="k">CH·02 LINKEDIN</span><span class="v">/in/dontavious-ellis ↗</span></a>
+      <a class="ch" href="https://github.com/thefourierphantom" target="_blank" rel="noopener"><span class="k">CH·03 GITHUB</span><span class="v">/thefourierphantom ↗</span></a>
+      <a class="ch" href="resume.html" data-route><span class="k">CH·04 RESUME</span><span class="v">resume + PDF →</span></a>
+    </div>
+  </div>
+</section>
 
+</main>
 
+<footer class="cmd-footer microtext">
+  <span>© 2026 DONTAVIOUS ELLIS. ALL RIGHTS RESERVED.</span>
+  <span>
+    <a href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener">LINKEDIN</a> ·
+    <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener">GITHUB</a> ·
+    <a href="mailto:edon4585@gmail.com">EMAIL</a>
+  </span>
+</footer>
 
-                <!-- GNSI DC Experience -->
-                <a href="https://www.linkedin.com/posts/dontavious-ellis_a-vision-without-structure-is-just-ambition-activity-7461437813427953664-_Buy" target="_blank" rel="noopener noreferrer" class="field-card">
-                    <div class="field-card-img">
-                        <img src="resources/gnsi-dc-pentagon.jfif" alt="GNSI DC Experience, Pentagon Briefing">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">GNSI &middot; Washington D.C.</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">Spring 2026 &middot; Washington D.C.</div>
-                        <div class="field-card-title">GNSI DC Experience 2026</div>
-                        <div class="field-card-desc">Five days moving through the national security ecosystem with the GNSI cohort. Defense, diplomacy, intelligence, and policy: the full system that engineering has to move through and survive.</div>
-                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- hero-scene MUST load before command.js: command.js dispatches ce:ready
+     synchronously, and page code started from it needs CE.initHero to exist -->
+<script src="js/hero-scene.js" defer></script>
+<script src="js/command.js" data-page="home" defer></script>
+<script defer>
+(function () {
+  'use strict';
+  function main() {
+    const CE = window.CE;
+    if (window.gsap && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
-                <!-- SOF Week 2026 -->
-                <a href="https://www.linkedin.com/posts/usfgnsi_sofweek2026-nationalsecurity-specialoperations-activity-7463231294903316481-PXyj" target="_blank" rel="noopener noreferrer" class="field-card">
-                    <div class="field-card-img">
-                        <img src="resources/sof-week.jfif" alt="SOF Week 2026, Tampa">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">SOF Week &middot; Tampa</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">May 2026 &middot; Tampa, FL</div>
-                        <div class="field-card-title">SOF Week 2026</div>
-                        <div class="field-card-desc">SOF Week 2026 took over downtown Tampa. Special operations forces from around the globe, alongside the institutions, organizations, and companies that support them. On the ground with GNSI.</div>
-                        <div class="field-card-link">View post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
+    // Returning to this page must always start clean at the top of the
+    // pinned hero — never mid-timeline from restored scroll state.
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    scrollTo(0, 0);
 
-                <!-- Lockheed Martin -->
-                <a href="https://www.linkedin.com/posts/dontavious-ellis_some-moments-do-not-need-a-full-briefing-activity-7461475560716713984-KRHW" target="_blank" rel="noopener noreferrer" class="field-card">
-                    <div class="field-card-img">
-                        <img src="resources/lockheed.jfif" alt="Lockheed Martin, Crystal City">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">Lockheed Martin &middot; DC</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">Spring 2026 &middot; Washington D.C.</div>
-                        <div class="field-card-title">A Moment Outside Lockheed Martin</div>
-                        <div class="field-card-desc">During the GNSI DC Experience, I stood outside Lockheed Martin and took a picture. No tour. No briefing. Just enough to understand the scale of the industry I am preparing to enter.</div>
-                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
+    /* ═══ INTRO — JET FLYBY ═══ */
+    // NOTE: declared with `var` (hoisted) because endBoot() can run
+    // synchronously on return visits, before later `let` lines execute.
+    var heroStarted = false;
+    const boot = document.getElementById('boot');
+    const seen = (function () { try { return sessionStorage.getItem('ce-boot'); } catch (e) { return null; } })();
+    let booted = false;
+    let introStop = null;
 
+    function endBoot(fast) {
+      if (booted) return; booted = true;
+      try { sessionStorage.setItem('ce-boot', '1'); } catch (e) {}
+      if (CE.reducedMotion || fast || !window.gsap) {
+        if (introStop) introStop();
+        boot.style.display = 'none'; startHero(); return;
+      }
+      // Crossfade: hero comes alive underneath while the jet keeps
+      // climbing through the fading overlay — no hard wipe.
+      startHero();
+      gsap.to(boot, {
+        opacity: 0, duration: 1.5, ease: 'power2.inOut',
+        onComplete: () => { boot.style.display = 'none'; if (introStop) introStop(); }
+      });
+    }
+    document.getElementById('boot-skip').addEventListener('click', () => endBoot(true));
 
-                <!-- USF Expo -->
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7449479028035653633/" target="_blank" rel="noopener noreferrer" class="field-card">
-                    <div class="field-card-img">
-                        <img src="resources/expo-2026.png" alt="USF Engineering Expo 2026">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">NSBE &middot; Expo</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">2026 &middot; USF Tampa</div>
-                        <div class="field-card-title">USF Engineering Expo with NSBE</div>
-                        <div class="field-card-desc">Represented USF NSBE at the Engineering Expo. Showcased engineering pathways and chapter initiatives to industry partners.</div>
-                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
-
-                <!-- Cyberbay -->
-                <a href="https://www.linkedin.com/posts/dontavious-ellis_cyberbay2026-cybersecurity-dfir-activity-7439717196290854912-05UQ/" target="_blank" rel="noopener noreferrer" class="field-card">
-                    <div class="field-card-img">
-                        <img src="resources/cyberbay2026.jpg" alt="Cyberbay 2026">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">Security Conference</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">2026 &middot; Tampa, FL</div>
-                        <div class="field-card-title">Cyberbay 2026</div>
-                        <div class="field-card-desc">Tampa-area security engineering conference. Defense professionals, students, and practitioners across critical infrastructure sectors.</div>
-                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
-
-                <!-- Pathways -->
-                <a href="https://www.linkedin.com/posts/dontavious-ellis_nsbe-engineeringstudents-studentleadership-activity-7439414519203893248-G9q5/" target="_blank" rel="noopener noreferrer" class="field-card">
-                    <div class="field-card-img">
-                        <img src="resources/ptp.JPG" alt="Pathways to Priorities">
-                        <div class="field-card-img-overlay"></div>
-                        <span class="field-card-badge">NSBE &middot; Leadership</span>
-                    </div>
-                    <div class="field-card-body">
-                        <div class="field-card-meta">2026 &middot; USF Tampa</div>
-                        <div class="field-card-title">Pathways to Priorities</div>
-                        <div class="field-card-desc">NSBE USF career strategy event. Aligned early-career planning with long-term professional impact for Black engineers at USF.</div>
-                        <div class="field-card-link">Open post <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ── SYSTEMS & HARDWARE ─────────────────────────────────── -->
-    <section class="ng-section ng-section-circuit" style="background:rgba(10,11,13,0.72);">
-        <div class="ng-section-inner">
-            <div class="ng-section-head">
-                <div class="overline">Core Projects</div>
-                <div class="ng-divider"></div>
-                <h2>Built to Operate at the Edge</h2>
-                <p class="ng-section-sub">Power distribution, embedded firmware, and infrastructure simulation. Built from components, validated on the bench.</p>
-            </div>
-
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;">
-
-                <!-- PROJECT 01: Smart Grid -->
-                <a href="projects.html#project-01" class="proj-ng">
-<div class="proj-ng-body">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
-                            <div class="proj-ng-label">Power Systems &middot; Embedded</div>
-                            <span class="proj-ng-status-complete">Complete</span>
-                        </div>
-                        <div class="proj-ng-title">Secure IIoT Smart Grid Edge Monitor</div>
-                        <div class="proj-ng-stat">
-                            <span class="proj-ng-stat-num">&lt;3%</span>
-                            <span class="proj-ng-stat-desc">error margin on live RMS voltage, current &amp; power factor</span>
-                        </div>
-                        <div class="proj-ng-tags">
-                            <span class="proj-ng-tag">ESP32</span>
-                            <span class="proj-ng-tag">FFT &middot; THD</span>
-                            <span class="proj-ng-tag">MQTT TLS</span>
-                            <span class="proj-ng-tag">NERC CIP</span>
-                            <span class="proj-ng-tag">AES-128</span>
-                        </div>
-                        <div class="proj-ng-footer">
-                            <span class="proj-ng-date">Aug 2025 &middot; Mar 2026</span>
-                            <span class="proj-ng-cta">Explore &rarr;</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- PROJECT 02: Load-Shedding -->
-                <a href="projects.html#project-02" class="proj-ng">
-                    <!-- SVG PWM panel -->
-<div class="proj-ng-body">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
-                            <div class="proj-ng-label">Power Distribution &middot; Hardware Design</div>
-                            <span class="proj-ng-status-complete">Complete</span>
-                        </div>
-                        <div class="proj-ng-title">Smart Load-Shedding &amp; Power Distribution Controller</div>
-                        <div class="proj-ng-stat">
-                            <span class="proj-ng-stat-num">&plusmn;0.5%</span>
-                            <span class="proj-ng-stat-desc">current sensing accuracy &mdash; noise cut 35% via RC filtering</span>
-                        </div>
-                        <div class="proj-ng-tags">
-                            <span class="proj-ng-tag">PWM Trip</span>
-                            <span class="proj-ng-tag">RC Filter</span>
-                            <span class="proj-ng-tag">Oscilloscope</span>
-                            <span class="proj-ng-tag">ESP32</span>
-                        </div>
-                        <div class="proj-ng-footer">
-                            <span class="proj-ng-date">Dec 2025 &middot; Jan 2026</span>
-                            <span class="proj-ng-cta">Explore &rarr;</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- PROJECT 03: Infrastructure Lab -->
-                <a href="projects.html#project-04" class="proj-ng">
-                    <!-- SVG network topology -->
-<div class="proj-ng-body">
-                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;">
-                            <div class="proj-ng-label">Power Grid &middot; Failure Simulation &middot; Active</div>
-                            <span class="proj-ng-status-active">Active</span>
-                        </div>
-                        <div class="proj-ng-title">Resilient Infrastructure Simulation Lab</div>
-                        <div class="proj-ng-stat">
-                            <span class="proj-ng-stat-num">22%</span>
-                            <span class="proj-ng-stat-desc">reduction in grid restoration time via MATLAB load-flow simulation</span>
-                        </div>
-                        <div class="proj-ng-tags">
-                            <span class="proj-ng-tag">MATLAB</span>
-                            <span class="proj-ng-tag">Load-Flow</span>
-                            <span class="proj-ng-tag">Proxmox</span>
-                            <span class="proj-ng-tag">PulseGrid AI</span>
-                            <span class="proj-ng-tag">pfSense</span>
-                        </div>
-                        <div class="proj-ng-footer">
-                            <span class="proj-ng-date">Jan 2026 &middot; Present</span>
-                            <span class="proj-ng-cta">Explore &rarr;</span>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-
-            <div style="margin-top:2.5rem;text-align:center;">
-                <a href="projects.html" class="btn-outline">View All Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── TECHNICAL SPEC + COMPETENCIES ──────────────────────── -->
-    <section class="ng-section" style="background:rgba(7,8,10,0.74);">
-        <div class="ng-section-inner">
-
-                <!-- Left: spec table -->
-                <div>
-                    <div class="overline">Technical Specification</div>
-                    <div class="ng-divider"></div>
-                    <h2 style="font-size:2rem;font-weight:700;color:#fff;margin:0 0 2rem;">System Requirements</h2>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
-                        <div class="spec-row" style="grid-column:1;"><span class="spec-key">Simulation</span><span class="spec-val">MATLAB / Simulink &middot; LTspice &middot; PSpice</span></div>
-                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);"><span class="spec-key">Power Domain</span><span class="spec-val">AC/DC Analysis &middot; 3-Phase &middot; Load Flow &middot; THD</span></div>
-                        <div class="spec-row" style="grid-column:1;"><span class="spec-key">CAD / Design</span><span class="spec-val">SOLIDWORKS Electrical &middot; KiCad &middot; AutoCAD</span></div>
-                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);"><span class="spec-key">Protocols</span><span class="spec-val">MQTT TLS 1.2 &middot; AES-128 &middot; I&sup2;C &middot; SPI &middot; UART</span></div>
-                        <div class="spec-row" style="grid-column:1;"><span class="spec-key">Measurement</span><span class="spec-val">Digital Oscilloscopes &middot; DMM &middot; Spectrum Analyzer</span></div>
-                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);"><span class="spec-key">Compliance</span><span class="spec-val">NERC CIP &middot; CompTIA Security+ &middot; IEEE 1459</span></div>
-                        <div class="spec-row" style="grid-column:1;border-bottom:none;"><span class="spec-key">Embedded</span><span class="spec-val">ESP32 &middot; Raspberry Pi &middot; Arduino &middot; C / Python</span></div>
-                        <div class="spec-row" style="grid-column:2;border-left:1px solid var(--border);border-bottom:none;"><span class="spec-key">Target Sectors</span><span class="spec-val">Defense &middot; Power Utilities &middot; Critical Infrastructure</span></div>
-                    </div>
-                    <div style="margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text-3);letter-spacing:0.14em;">
-                        DOC-REV-2026A &nbsp;&middot;&nbsp; ELECTRICAL ENGINEERING &nbsp;&middot;&nbsp; USF &nbsp;&middot;&nbsp; EXPECTED B.S. MAY 2028
-                    </div>
-                
-                </div>
-
-        </div>
-    </section>
-
-    
-
-    <!-- ── CTA ────────────────────────────────────────────────── -->
-    <section class="ng-section" style="background:rgba(7,8,10,0.74);">
-        <div class="ng-section-inner" style="max-width:900px;text-align:center;">
-            <div class="overline" style="margin-bottom:1rem;">Targeting Summer 2027</div>
-            <div class="ng-divider" style="margin:0 auto 1.5rem;"></div>
-            <h2 style="font-size:2.5rem;font-weight:800;color:#fff;margin:0 0 1.25rem;line-height:1.15;">Open to Defense &amp;<br>Power Sector Opportunities</h2>
-            <p style="color:var(--text-2);font-size:1rem;line-height:1.7;max-width:640px;margin:0 auto 2rem;">Seeking EE internships in power distribution, embedded systems, and defense infrastructure. Hardware architecture skills grounded in real fabrication: tactical comms wiring harnesses, IPC-A-610 Class 3 assemblies, EMI shielding at Orbital Corporation. Lead researcher and founder of ARMS (Applied Research in Military Systems) at USF: active GPS-denied navigation research using Kalman filtering, 6-DOF IMU fusion, and TT&amp;C ground station development.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:2.5rem;">
-                <span class="ng-badge">U.S. Citizen</span>
-                <span class="ng-badge">Clearance Eligible</span>
-                <span class="ng-badge">CompTIA Security+</span>
-                <span class="ng-badge">B.S. EE &middot; USF &middot; 2028</span>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
-                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="btn-primary">Connect on LinkedIn</a>
-                <a href="resume.html" class="btn-outline">Engineering Resume</a>
-                <a href="projects.html" class="btn-outline">View Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── FOOTER ─────────────────────────────────────────────── -->
-    <footer style="background:rgba(7,8,10,0.95);border-top:1px solid var(--border);padding:2.5rem 0;">
-        <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;text-align:center;">
-            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:0.75rem;">
-                <svg width="10" height="18" viewBox="0 0 11 19" fill="none"><path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/></svg>
-                <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;color:#fff;text-transform:uppercase;">Dontavious Ellis</span>
-            </div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:0.60rem;letter-spacing:0.12em;color:var(--text-3);text-transform:uppercase;margin-bottom:1rem;">
-                Electrical Engineering &middot; Power Systems &middot; Embedded Firmware &middot; Defense Infrastructure
-            </div>
-            <p style="font-size:0.78rem;color:var(--text-3);max-width:640px;margin:0 auto 1.5rem;line-height:1.6;">
-                All simulated infrastructure models and lab exercises are conducted in controlled academic environments for engineering development and research.
-            </p>
-            <div style="border-top:1px solid var(--border);padding-top:1.25rem;font-size:0.72rem;color:var(--text-3);">
-                &copy; 2026 Dontavious Ellis. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Full-page aerospace + circuit board SVG background -->
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-
-    <!-- ── SCRIPTS ────────────────────────────────────────────── -->
-
-    <script>
-    // ── Particle starfield ────────────────────────────────────────────────
-    (function () {
-        const canvas = document.getElementById('particle-canvas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let W, H, particles = [];
-
-        function resize() {
-            W = canvas.width  = window.innerWidth;
-            H = canvas.height = window.innerHeight;
+    function buildJet() {
+      const g = new THREE.Group();
+      const bodyMat = new THREE.MeshBasicMaterial({ color: 0x232930 });
+      const wingMat = new THREE.MeshBasicMaterial({ color: 0x2c333c, side: THREE.DoubleSide });
+      const edgeMat = new THREE.LineBasicMaterial({ color: 0xaeb6c0, transparent: true, opacity: 0.45 });
+      function add(geo, mat, edges) {
+        g.add(new THREE.Mesh(geo, mat));
+        if (edges !== false) g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 14), edgeMat));
+      }
+      // fuselage — smooth lathed body, tapering nose to tail (forward = +Z)
+      const prof = [
+        [0.13, -2.05], [0.27, -1.55], [0.33, -0.7], [0.36, 0.1],
+        [0.33, 0.8], [0.24, 1.45], [0.11, 2.0], [0.0, 2.35]
+      ].map(p => new THREE.Vector2(p[0], p[1]));
+      const fus = new THREE.LatheGeometry(prof, 14);
+      fus.rotateX(Math.PI / 2);                       // axis → Z, nose at +Z
+      add(fus, bodyMat, false);
+      g.add(new THREE.LineSegments(new THREE.EdgesGeometry(fus, 30), edgeMat));
+      // radome tip accent
+      const tip = new THREE.ConeGeometry(0.09, 0.4, 10); tip.rotateX(Math.PI / 2); tip.translate(0, 0, 2.32);
+      add(tip, new THREE.MeshBasicMaterial({ color: 0x8f1420 }), false);
+      // engine intakes flanking the fuselage
+      [1, -1].forEach(s => {
+        const intake = new THREE.BoxGeometry(0.2, 0.26, 1.1);
+        intake.translate(s * 0.42, -0.06, -0.2);
+        add(intake, new THREE.MeshBasicMaterial({ color: 0x1a1f26 }));
+      });
+      // twin nozzles
+      [0.16, -0.16].forEach(x => {
+        const noz = new THREE.CylinderGeometry(0.15, 0.11, 0.4, 10);
+        noz.rotateX(Math.PI / 2); noz.translate(x, 0, -2.0);
+        add(noz, new THREE.MeshBasicMaterial({ color: 0x11141a }), false);
+      });
+      // canopy — bubble on the spine
+      const can = new THREE.SphereGeometry(0.22, 10, 8); can.scale(0.85, 0.6, 1.9); can.translate(0, 0.3, 0.7);
+      add(can, new THREE.MeshBasicMaterial({ color: 0x18202e }), false);
+      // wingtip stores
+      [2.25, -2.25].forEach(x => {
+        const rail = new THREE.CylinderGeometry(0.045, 0.045, 0.95, 8);
+        rail.rotateX(Math.PI / 2); rail.translate(x, -0.02, -0.75);
+        add(rail, new THREE.MeshBasicMaterial({ color: 0x3a424c }), false);
+        const mTip = new THREE.ConeGeometry(0.045, 0.16, 8);
+        mTip.rotateX(Math.PI / 2); mTip.translate(x, -0.02, -0.2);
+        add(mTip, new THREE.MeshBasicMaterial({ color: 0x8f1420 }), false);
+      });
+      // swept surfaces (triangle-pair trapezoids)
+      function surf(pts) {
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pts), 3));
+        add(geo, wingMat, false);
+        g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 1), edgeMat));
+      }
+      [1, -1].forEach(s => {
+        // main delta wing
+        surf([s * 0.3, 0, 0.5,  s * 2.3, 0, -1.0,  s * 0.3, 0, -1.0,
+              s * 2.3, 0, -1.0,  s * 2.3, 0, -1.35,  s * 0.3, 0, -1.0]);
+        // horizontal stabilizer
+        surf([s * 0.28, 0.02, -1.05,  s * 1.15, 0.02, -1.7,  s * 0.28, 0.02, -1.6,
+              s * 1.15, 0.02, -1.7,  s * 1.15, 0.02, -1.88,  s * 0.28, 0.02, -1.6]);
+        // canted vertical tail
+        const piv = new THREE.Group();
+        const vt = new THREE.BufferGeometry();
+        vt.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+          0, 0.05, -0.8,  0, 0.95, -1.5,  0, 0.05, -1.7,
+          0, 0.95, -1.5,  0, 0.95, -1.75,  0, 0.05, -1.7
+        ]), 3));
+        piv.add(new THREE.Mesh(vt, wingMat));
+        piv.add(new THREE.LineSegments(new THREE.EdgesGeometry(vt, 1), edgeMat));
+        piv.position.x = s * 0.26; piv.rotation.z = -s * 0.22;
+        g.add(piv);
+      });
+      // twin purple afterburners
+      g.userData.plumes = [];
+      [-0.16, 0.16].forEach(x => {
+        const grp = new THREE.Group();
+        function pc(r, h, color, op, z) {
+          const cg = new THREE.ConeGeometry(r, h, 8, 1, true); cg.rotateX(-Math.PI / 2);
+          const m = new THREE.Mesh(cg, new THREE.MeshBasicMaterial({
+            color, transparent: true, opacity: op,
+            blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
+          }));
+          m.position.z = z; grp.add(m); return m;
         }
+        const outer = pc(0.15, 1.3, 0x7c3aed, 0.7, -2.85);
+        const mid = pc(0.1, 0.9, 0xa78bfa, 0.8, -2.65);
+        const core = pc(0.055, 0.5, 0xf1ecff, 0.95, -2.45);
+        grp.position.x = x;
+        g.add(grp);
+        g.userData.plumes.push({ outer, mid, core });
+      });
+      g.scale.setScalar(1.15);
+      return g;
+    }
 
-        function Particle() {
-            this.x  = Math.random() * W;
-            this.y  = Math.random() * H;
-            this.sz = Math.random() * 1.4 + 0.3;
-            this.vx = (Math.random() - 0.5) * 0.15;
-            this.vy = (Math.random() - 0.5) * 0.15;
-            this.op = Math.random() * 0.45 + 0.08;
-            this.dop = (Math.random() - 0.5) * 0.002;
-            this.red = Math.random() < 0.07;
-        }
-        Particle.prototype.step = function () {
-            this.x += this.vx; this.y += this.vy;
-            this.op += this.dop;
-            if (this.op > 0.60 || this.op < 0.05) this.dop *= -1;
-            if (this.x < 0) this.x = W; if (this.x > W) this.x = 0;
-            if (this.y < 0) this.y = H; if (this.y > H) this.y = 0;
-        };
-        Particle.prototype.draw = function () {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.sz, 0, Math.PI * 2);
-            ctx.fillStyle = this.red
-                ? 'rgba(220,55,55,' + this.op + ')'
-                : 'rgba(255,255,255,' + (this.op * 0.80) + ')';
-            ctx.fill();
-        };
+    function runIntro(done) {
+      const holder = document.getElementById('intro-canvas');
+      const renderer = new THREE.WebGLRenderer({ antialias: !CE.lowPower, alpha: true, powerPreference: 'high-performance' });
+      renderer.setPixelRatio(CE.dpr);
+      renderer.setSize(innerWidth, innerHeight);
+      holder.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.FogExp2(0x050607, 0.01);
+      const camera = new THREE.PerspectiveCamera(58, innerWidth / innerHeight, 0.1, 500);
+      camera.position.set(0, 2.2, 7);
 
-        function init() {
-            particles = [];
-            const n = Math.min(200, Math.floor(W * H / 6000));
-            for (let i = 0; i < n; i++) particles.push(new Particle());
-        }
+      // ground reference grid
+      const gGeo = new THREE.PlaneGeometry(400, 400, 36, 36);
+      gGeo.rotateX(-Math.PI / 2);
+      const ground = new THREE.Mesh(gGeo, new THREE.MeshBasicMaterial({ color: 0x39424d, wireframe: true, transparent: true, opacity: 0.16 }));
+      ground.position.y = -9;
+      scene.add(ground);
 
-        function connect() {
-            const max = 105;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const d  = Math.sqrt(dx * dx + dy * dy);
-                    if (d < max) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - d / max) * 0.07) + ')';
-                        ctx.lineWidth = 0.4;
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
+      // atmosphere particles
+      const P = CE.lowPower ? 250 : 550;
+      const pGeo = new THREE.BufferGeometry();
+      const pArr = new Float32Array(P * 3);
+      for (let i = 0; i < P; i++) {
+        pArr[i * 3] = (Math.random() - 0.5) * 160;
+        pArr[i * 3 + 1] = Math.random() * 55 - 6;
+        pArr[i * 3 + 2] = -Math.random() * 300 + 10;
+      }
+      pGeo.setAttribute('position', new THREE.BufferAttribute(pArr, 3));
+      scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0x565e6a, size: 0.2, transparent: true, opacity: 0.5 })));
 
-        function loop() {
-            ctx.clearRect(0, 0, W, H);
-            particles.forEach(function (p) { p.step(); p.draw(); });
-            connect();
-            requestAnimationFrame(loop);
-        }
+      // speed streaks
+      const streaks = [];
+      for (let i = 0; i < (CE.lowPower ? 14 : 26); i++) {
+        const len = 6 + Math.random() * 10;
+        const ln = new THREE.Line(
+          new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, len)]),
+          new THREE.LineBasicMaterial({ color: 0x565e6a, transparent: true, opacity: 0.26 }));
+        ln.position.set((Math.random() - 0.5) * 60, Math.random() * 24 - 4, -Math.random() * 260);
+        scene.add(ln); streaks.push(ln);
+      }
 
-        resize(); init(); loop();
-        window.addEventListener('resize', function () { resize(); init(); });
-    })();
+      const jet = buildJet();
+      scene.add(jet);
 
-    // ── Nav scroll darkening ────────────────────────────────────────────
-    (function () {
-        const nav = document.querySelector('.ng-nav');
-        if (!nav) return;
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(7,8,10,0.97)';
-                nav.style.boxShadow  = '0 1px 0 rgba(220,38,38,0.10)';
-            } else {
-                nav.style.background = 'rgba(7,8,10,0.78)';
-                nav.style.boxShadow  = 'none';
-            }
-        }, { passive: true });
-    })();
+      const clock = new THREE.Clock();
+      const DUR = 4.6;
+      let raf, finished = false;
+      const look = new THREE.Vector3(0, 0, -120);
+      const tmpLook = new THREE.Vector3();
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // Mobile menu
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileBtn && mobileMenu) {
-            mobileBtn.addEventListener('click', () => {
-                const isHidden = mobileMenu.classList.toggle('hidden');
-                mobileBtn.setAttribute('aria-expanded', !isHidden);
-            });
-        }
+      // One continuous spline: long low approach with gentle weaving,
+      // flowing into a single smooth climbing arc past the camera.
+      const PATH = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-6, -1.6, -280),
+        new THREE.Vector3(5, -1.0, -190),
+        new THREE.Vector3(-3.5, -0.7, -100),
+        new THREE.Vector3(2.2, -1.0, -36),
+        new THREE.Vector3(1.4, -0.3, -10),
+        new THREE.Vector3(1.7, 4.5, 2),
+        new THREE.Vector3(2.2, 26, 8),
+        new THREE.Vector3(2.8, 70, 2)
+      ], false, 'catmullrom', 0.5);
+      const tanV = new THREE.Vector3();
 
-        // Typed.js
-        if (document.getElementById('typed-mission')) {
-            new Typed('#typed-mission', {
-                strings: [
-                    'Power Distribution Hardware.',
-                    'Embedded Firmware for IIoT.',
-                    'Cascading Failure Modeling.',
-                    'NERC CIP-Compliant Systems.',
-                    'Defense Infrastructure Engineering.',
-                    'GPS-Denied Navigation Research.'
-                ],
-                typeSpeed: 48,
-                backSpeed: 28,
-                backDelay: 2200,
-                loop: true,
-                showCursor: false
-            });
-        }
-
-        // Scroll reveal for field cards
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.style.opacity = '1';
-                    e.target.style.transform = 'translateY(0)';
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
-
-        document.querySelectorAll('.field-card, .proj-ng, .comp-cell, .disc-card').forEach((el, i) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = `opacity 0.38s ease ${i * 22}ms, transform 0.38s ease ${i * 22}ms`;
-            observer.observe(el);
+      function frame() {
+        if (finished) return;
+        raf = requestAnimationFrame(frame);
+        const t = clock.getElapsedTime();
+        const u = Math.min(t / DUR, 1);
+        const s = Math.min(u * u * (3 - 2 * u) * 0.55 + u * 0.45, 1); // gentle ease over the arc
+        PATH.getPointAt(s, jet.position);
+        PATH.getTangentAt(s, tanV);
+        tmpLook.copy(jet.position).add(tanV);
+        jet.lookAt(tmpLook);                                // pitch flows from the curve — no corner
+        // banking: weaves early, rolls slightly into the climb, settles
+        const bank = Math.cos(u * 6) * 0.38 * Math.max(1 - s * 1.7, 0)
+                   - 0.18 * Math.max(Math.min((s - 0.62) / 0.25, 1), 0);
+        jet.rotateZ(bank);
+        // afterburner tracks the actual climb angle of the flight path
+        const burn = 1 + Math.max(tanV.y, 0) * 1.5;
+        jet.userData.plumes.forEach(p => {
+          const pl = burn * (0.9 + Math.random() * 0.15);
+          p.outer.scale.set(1, 1, pl);
+          p.mid.scale.set(1, 1, pl * 0.9);
+          p.core.scale.set(1, 1, 0.8 + pl * 0.3);
+          p.outer.material.opacity = 0.55 + Math.random() * 0.2;
         });
+        // world rush
+        streaks.forEach(st => { st.position.z += 2.2 + u * 3; if (st.position.z > 20) st.position.z = -260; });
+        // camera tracks the jet; shakes and widens as it sweeps past,
+        // then pans up smoothly with the climb
+        look.lerp(jet.position, 0.11);
+        camera.lookAt(look);
+        const near = Math.max(0, 1 - jet.position.distanceTo(camera.position) / 22);
+        camera.position.x = Math.sin(t * 30) * 0.05 * near;
+        camera.position.y = 2.2 + Math.cos(t * 27) * 0.05 * near + Math.min(Math.max(jet.position.y, 0) * 0.05, 3.4);
+        camera.fov = 58 + near * 12;
+        camera.updateProjectionMatrix();
+        renderer.render(scene, camera);
+        // hand off to the hero as the jet sails out — the intro keeps
+        // rendering through the crossfade until introStop() is called.
+        if (s >= 0.8) done(false);
+      }
+      frame();
+
+      return function stop() {
+        finished = true;
+        cancelAnimationFrame(raf);
+        try { renderer.dispose(); holder.innerHTML = ''; } catch (e) {}
+      };
+    }
+
+    if (seen || CE.reducedMotion || !window.THREE) {
+      endBoot(true);
+    } else {
+      try { introStop = runIntro(endBoot); } catch (e) { endBoot(true); }
+      setTimeout(() => endBoot(false), 8000); // hard failsafe
+    }
+
+    /* ═══ HERO SCENE + HEADLINE ═══ */
+    function startHero() {
+      if (heroStarted) return; heroStarted = true;
+      // Content first — a 3D failure must never blank the page.
+      CE.reveal();
+      CE.scramble(document.getElementById('h1a'), 'DONTAVIOUS', { duration: 800 });
+      setTimeout(() => CE.scramble(document.getElementById('h1b'), 'ELLIS', { duration: 650 }), 250);
+      startTyped();
+      // hero-scene.js may not have executed yet on instant-skip visits —
+      // poll briefly instead of silently giving up.
+      (function scene(tries) {
+        if (window.CE.initHero) {
+          try { CE.initHero({ container: 'hero-canvas' }); }
+          catch (err) { console.warn('Hero scene unavailable:', err); }
+        } else if (tries > 0) {
+          setTimeout(() => scene(tries - 1), 120);
+        }
+      })(25);
+      // Self-check: if no canvas materialized (silent init failure),
+      // make one more attempt before giving up.
+      setTimeout(() => {
+        const holder = document.getElementById('hero-canvas');
+        if (holder && !holder.querySelector('canvas') && CE.initHero) {
+          console.warn('Hero scene: retrying init');
+          try { CE.initHero({ container: 'hero-canvas' }); } catch (err) {}
+        }
+      }, 1200);
+    }
+
+    // Back/forward-cache restore: Chrome revives the page exactly as it
+    // was but kills its WebGL contexts — the frozen scene would render
+    // nothing. Detect the restore and rebuild the scene from scratch.
+    addEventListener('pageshow', (e) => {
+      if (!e.persisted) return;
+      const holder = document.getElementById('hero-canvas');
+      if (!holder) return;
+      if (CE.hero) CE.hero.running = false;   // stop the orphaned loop
+      holder.innerHTML = '';
+      if (CE.initHero) {
+        try { CE.initHero({ container: 'hero-canvas' }); }
+        catch (err) { console.warn('Hero scene rebuild failed:', err); }
+      }
     });
-    </script>
-    <script src="js/page-anim.js" defer></script>
-    <script src="main.js"></script>
 
-
-    <script>
-    (function () {
-        'use strict';
-
-        // ── Intro loader ──────────────────────────────────────────────
-        var intro = document.getElementById('intro');
-        if (intro) {
-            var dismissIntro = function () {
-                intro.classList.add('is-out');
-                document.body.classList.remove('is-loading');
-            };
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                dismissIntro();
-            } else {
-                setTimeout(dismissIntro, 4200);
-            }
+    /* typed rotator (old-style red mono line) */
+    function startTyped() {
+      const el = document.getElementById('typed');
+      const words = ['GPS-Denied Navigation', 'Tactical Communications', 'Embedded Systems', 'Power Systems'];
+      if (CE.reducedMotion) { el.textContent = words[0]; return; }
+      let wi = 0, ci = 0, del = false;
+      (function tick() {
+        const w = words[wi];
+        el.textContent = w.slice(0, ci);
+        if (!del) {
+          if (ci < w.length) { ci++; setTimeout(tick, 55); }
+          else { del = true; setTimeout(tick, 1600); }
+        } else {
+          if (ci > 0) { ci--; setTimeout(tick, 28); }
+          else { del = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); }
         }
+      })();
+    }
 
-        // ── Page-wipe transitions ─────────────────────────────────────
-        var wipe = document.getElementById('page-wipe');
-        if (wipe) {
-            // Wipe out if we arrived via a wipe-in
-            if (sessionStorage.getItem('de-wipe-in')) {
-                sessionStorage.removeItem('de-wipe-in');
-                wipe.classList.add('is-out');
-            }
-            // Intercept internal nav links
-            document.querySelectorAll('a[href]').forEach(function (a) {
-                var href = a.getAttribute('href');
-                if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
-                a.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    sessionStorage.setItem('de-wipe-in', '1');
-                    wipe.classList.add('is-in');
-                    setTimeout(function () { window.location.href = href; }, 430);
-                });
-            });
-        }
+    /* ═══ HERO SCROLL TIMELINE — pure animation, no captions ═══ */
+    if (!CE.reducedMotion && window.gsap && window.ScrollTrigger) {
+      const h1 = document.getElementById('hero-h1');
+      const content = document.getElementById('hero-content');
+      const cue = document.querySelector('.scroll-cue');
+      const desktop = matchMedia('(min-width: 768px)').matches && !CE.touch;
+      if (desktop) {
+        // pinned cinematic timeline
+        ScrollTrigger.create({
+          trigger: '#hero',
+          start: 'top top',
+          end: '+=140%',
+          pin: true,
+          scrub: 0.6,
+          onUpdate(self) {
+            const p = self.progress;
+            if (CE.hero) CE.hero.progress = p;
+            h1.classList.toggle('glitching', p > 0.40 && p < 0.60);
+            gsap.set(content, { opacity: 1 - Math.min(p / 0.13, 1), y: -p * 110, pointerEvents: p > 0.05 ? 'none' : 'auto' });
+            gsap.set(cue, { opacity: 1 - Math.min(p / 0.06, 1) });
+          }
+        });
+      } else {
+        // mobile: no pinning — the mission arc plays as the hero scrolls out
+        ScrollTrigger.create({
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom 25%',
+          scrub: 0.4,
+          onUpdate(self) {
+            if (CE.hero) CE.hero.progress = self.progress;
+            gsap.set(cue, { opacity: 1 - Math.min(self.progress / 0.06, 1) });
+          }
+        });
+      }
+    }
+
+    /* ═══ PROJECT CARD CANVASES ═══ */
+    const vizFns = {
+      grid(g, w, h, t) {
+        g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
+        for (let x = 0; x < w; x += 2) { const y = h / 2 + Math.sin(x * 0.1 + t * 3) * h * 0.3 * Math.abs(Math.sin(x * 0.01)); x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
+        g.stroke();
+      },
+      load(g, w, h, t) {
+        g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
+        for (let x = 0; x < w; x += 2) { const duty = 0.3 + (Math.sin(t + x * 0.004) * 0.5 + 0.5) * 0.4; const y = ((x % 34) / 34 < duty) ? h * 0.3 : h * 0.72; x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
+        g.stroke();
+      },
+      lab(g, w, h, t) {
+        const nodes = [[0.12, 0.5], [0.35, 0.25], [0.35, 0.75], [0.6, 0.5], [0.85, 0.3], [0.85, 0.7]];
+        [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [3, 5]].forEach(([a, b], i) => {
+          g.strokeStyle = 'rgba(154,161,171,0.3)';
+          g.beginPath(); g.moveTo(nodes[a][0] * w, nodes[a][1] * h); g.lineTo(nodes[b][0] * w, nodes[b][1] * h); g.stroke();
+          const p = ((t * 0.6 + i * 0.17) % 1);
+          g.fillStyle = 'rgba(232,163,61,0.9)';
+          g.fillRect(nodes[a][0] * w + (nodes[b][0] - nodes[a][0]) * w * p - 1.5, nodes[a][1] * h + (nodes[b][1] - nodes[a][1]) * h * p - 1.5, 3, 3);
+        });
+        nodes.forEach(n => { g.strokeStyle = 'rgba(226,24,43,0.7)'; g.strokeRect(n[0] * w - 4, n[1] * h - 4, 8, 8); });
+      }
+    };
+    const cards = [];
+    document.querySelectorAll('[data-viz]').forEach(el => {
+      const cv = el.querySelector('canvas'); if (cv) cards.push({ cv, fn: vizFns[el.dataset.viz] || vizFns.grid });
+    });
+    function size() {
+      cards.forEach(o => {
+        if (!o.cv.offsetWidth || !o.cv.offsetHeight) return;   // layout not settled yet
+        o.cv.width = o.cv.offsetWidth * CE.dpr;
+        o.cv.height = o.cv.offsetHeight * CE.dpr;
+      });
+    }
+    size(); addEventListener('resize', size);
+    // Re-size when each canvas's own box changes — catches the 0×0 case
+    // when scripts run before layout settles on cached return visits.
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(size);
+      cards.forEach(o => ro.observe(o.cv));
+    }
+    if (window.IntersectionObserver) {
+      const io = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; }));
+      cards.forEach(o => io.observe(o.cv));
+    } else cards.forEach(o => { o.cv._vis = true; });
+    let vt = 0;
+    (function loop() {
+      if (!CE.reducedMotion) requestAnimationFrame(loop);
+      vt += 0.016;
+      cards.forEach(o => {
+        if (!o.cv._vis) return;               // offscreen cards don't paint
+        const g = o.cv.getContext('2d');
+        g.setTransform(CE.dpr, 0, 0, CE.dpr, 0, 0);
+        g.clearRect(0, 0, o.cv.offsetWidth, o.cv.offsetHeight);
+        o.fn(g, o.cv.offsetWidth, o.cv.offsetHeight, vt);
+      });
     })();
-    </script>
 
-    <script>
-    /* ── Intro: letter scramble + live timestamp ─────────────────────────── */
-    (function () {
-        // Live clock in top strip
-        var tsEl = document.getElementById('ld-ts');
-        if (tsEl) {
-            function tick() {
-                var d = new Date();
-                tsEl.textContent = d.toTimeString().slice(0, 8);
-            }
-            tick();
-            var tsTimer = setInterval(tick, 1000);
-            setTimeout(function () { clearInterval(tsTimer); }, 3500);
+    /* ═══ CONTACT HANDSHAKE ═══ */
+    document.getElementById('hs-btn').addEventListener('click', () => {
+      const start = document.getElementById('hs-start');
+      const hlog = document.getElementById('hs-log');
+      const ch = document.getElementById('link-channels');
+      start.style.display = 'none'; hlog.style.display = 'block';
+      const steps = ['> TX HANDSHAKE ……… SYN', '> RX RESPONSE ……… SYN-ACK', '> KEY EXCHANGE ……… AES-256 OK', '> CHANNEL INTEGRITY … VERIFIED', '> LINK ESTABLISHED — CHANNELS OPEN'];
+      let i = 0;
+      (function next() {
+        if (i >= steps.length) {
+          ch.style.display = 'block';
+          if (window.gsap && !CE.reducedMotion) gsap.from(ch.children, { y: 16, opacity: 0, stagger: 0.08, duration: 0.5, ease: 'power3.out' });
+          return;
         }
+        const d = document.createElement('div');
+        d.className = i === steps.length - 1 ? 'ok' : '';
+        d.textContent = steps[i];
+        hlog.appendChild(d);
+        i++;
+        setTimeout(next, CE.reducedMotion ? 0 : 220 + Math.random() * 160);
+      })();
+    });
 
-        // Scramble "ELLIS" into place
-        var el = document.getElementById('ld-scramble');
-        if (!el) return;
-        var FINAL  = 'ELLIS';
-        var CHARS  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@!%&';
-        var START  = 520;   // ms – match ld-name-in animation delay
-        var TOTAL  = 720;   // ms – scramble duration
-        var FPS    = 42;    // ms per frame
+    if (CE.reducedMotion) startHero();
+    document.documentElement.dataset.ceOk = '1';   // page script completed
+  }
 
-        function rand(s) { return s[Math.floor(Math.random() * s.length)]; }
-
-        setTimeout(function () {
-            var t0 = Date.now();
-            var iv = setInterval(function () {
-                var p = Math.min((Date.now() - t0) / TOTAL, 1);
-                var out = '';
-                for (var i = 0; i < FINAL.length; i++) {
-                    var threshold = i / FINAL.length;
-                    if (p > threshold + 0.22) {
-                        out += FINAL[i];                                          // resolved
-                    } else if (p > threshold) {
-                        out += rand(CHARS);                                        // scrambling
-                    } else {
-                        out += '<span style="opacity:.14">' + rand(CHARS) + '</span>'; // pending
-                    }
-                }
-                el.innerHTML = out;
-                if (p >= 1) { clearInterval(iv); el.textContent = FINAL; }
-            }, FPS);
-        }, START);
-    })();
-    </script>
+  if (window.CE && window.CE.onReady) window.CE.onReady(main);
+  else document.addEventListener('ce:ready', main, { once: true });
+})();
+</script>
 </body>
+</html>

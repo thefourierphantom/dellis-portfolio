@@ -1,687 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Dontavious Ellis: Electrical Engineering · Defense Systems · USF</title>
-    <meta name="description" content="About Dontavious Ellis: Electrical Engineering student at USF targeting defense industry roles. EE intern at Orbital Corporation, GNSI Future Strategist, founder of ARMS navigation research, Technical Development Chair for NSBE USF. Clearance eligible.">
-    <link rel="canonical" href="https://dontaviousellis.com/about.html">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <meta property="og:site_name" content="Dontavious Ellis">
-    <meta property="og:title" content="About | Dontavious Ellis: Electrical Engineering · Defense Systems · USF">
-    <meta property="og:description" content="About Dontavious Ellis: Electrical Engineering student at USF targeting defense industry roles. EE intern at Orbital Corporation, founder of ARMS, GNSI Future Strategist. Clearance eligible.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dontaviousellis.com/about.html">
-    <meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About | Dontavious Ellis: Electrical Engineering · Defense Systems · USF">
-    <meta name="twitter:description" content="About Dontavious Ellis: EE student at USF targeting defense systems roles. Orbital Corporation intern, ARMS founder, GNSI Future Strategist.">
-    <meta name="twitter:image" content="https://dontaviousellis.com/og/og-default.png">
-    <meta name="keywords" content="Dontavious Ellis, electrical engineering, defense systems, GPS-denied navigation, embedded systems, power systems, Orbital Corporation, ARMS, GNSI, USF electrical engineering, defense contractor, Tampa, CompTIA Security+">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Dontavious Ellis: Electrical Engineering · Defense Systems · USF</title>
+<meta name="description" content="About Dontavious Ellis: Electrical Engineering student at USF targeting defense industry roles. EE intern at Orbital Corporation, GNSI Future Strategist, founder of Ellis Dynamics, Technical Development Chair for NSBE USF. Clearance eligible.">
+<link rel="canonical" href="https://dontaviousellis.com/about.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Dontavious Ellis">
+<meta property="og:title" content="About | Dontavious Ellis: Electrical Engineering · Defense Systems · USF">
+<meta property="og:description" content="About Dontavious Ellis: Electrical Engineering student at USF targeting defense industry roles. EE intern at Orbital Corporation, founder of Ellis Dynamics, GNSI Future Strategist. Clearance eligible.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dontaviousellis.com/about.html">
+<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/command.css">
+<script>
+document.documentElement.classList.add('js');
+setTimeout(function () {
+  if (!(window.CE && window.CE.ready) || !document.documentElement.dataset.ceOk) document.documentElement.classList.remove('js');
+}, 3000);
+</script>
+<style>
+/* ═══ page: about ═══ */
+body { padding-top: var(--nav-h); }
 
-    <style>
-        /* ── Design System ─────────────────────────────────── */
-        :root {
-            --bg-0:  #07080a;
-            --bg-1:  #0a0b0d;
-            --bg-2:  #0d0e11;
-            --bg-3:  #111214;
-            --bg-card: #141516;
-            --text-1: #ffffff;
-            --text-2: #b0b4bc;
-            --text-3: rgba(255,255,255,0.38);
-            --red:    #dc2626;
-            --red-lt: #ef4444;
-            --border: rgba(255,255,255,0.07);
-            --border-red: rgba(220,38,38,0.30);
-        }
-        *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-1);
-            color: var(--text-1);
-            overflow-x: hidden;
-            margin: 0;
-        }
-        .mono { font-family: 'JetBrains Mono', monospace; }
+#dossier-hero { position: relative; padding: clamp(3rem, 8vh, 5.5rem) clamp(1.2rem, 5vw, 4.5rem) clamp(3rem, 8vh, 5rem); max-width: 1440px; margin: 0 auto; overflow: hidden; }
+#dossier-hero .grid-bg { opacity: 0.8; }
+.dh-grid { display: grid; grid-template-columns: 1fr 380px; gap: clamp(2rem, 5vw, 5rem); align-items: start; position: relative; z-index: 2; }
+@media (max-width: 980px) { .dh-grid { grid-template-columns: 1fr; } }
 
-        /* ── Overline ── */
-        .overline {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.20em;
-            text-transform: uppercase;
-            color: var(--red-lt);
-        }
+.dh-title {
+  font-family: 'Inter', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1; letter-spacing: -0.015em;
+  margin-top: 1rem; color: #fff;
+  text-shadow: 0 0 34px rgba(226,24,43,0.35);
+  position: relative; width: fit-content; padding-bottom: 1.2rem;
+}
+.dh-title::after { content: ''; position: absolute; left: 2px; bottom: 0; width: 110px; height: 3px; background: var(--red); box-shadow: 0 0 16px rgba(226,24,43,0.7); }
+.dh-copy { margin-top: 1.8rem; }
+.dh-copy p { color: var(--txt-2); margin-bottom: 1.15rem; max-width: 64ch; }
+.dh-copy p strong { color: var(--txt-1); }
+.dh-cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        /* ── NAV ────────────────────────────────────────────── */
-        .ng-nav {
-            background: rgba(7,8,10,0.92);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
-            position: sticky; top: 0; z-index: 50;
-        }
-        .ng-nav-inner {
-            max-width: 1280px; margin: 0 auto;
-            padding: 0 1.5rem;
-            height: 64px;
-            display: flex; align-items: center; justify-content: space-between;
-        }
-        .ng-logo {
-            display: flex; align-items: flex-start;
-            text-decoration: none;
-        }
-        .ng-logo-block {
-            display: flex; flex-direction: column; gap: 3px;
-        }
-        .ng-logo-top {
-            display: flex; align-items: center; gap: 7px;
-        }
-        .ng-bolt-svg {
-            width: 11px; height: 19px; flex-shrink: 0;
-        }
-        .ng-logo-name {
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.10em;
-            color: #fff;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-        .ng-logo-line-wrap {
-            display: flex; align-items: center; gap: 4px;
-        }
-        .ng-logo-line-left, .ng-logo-line-right {
-            flex: 1; height: 1px;
-            background: rgba(220,38,38,0.45);
-        }
-        .ng-logo-line-dot {
-            width: 3px; height: 3px; border-radius: 50%;
-            background: var(--red);
-        }
-        .ng-logo-sub {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.52rem;
-            letter-spacing: 0.14em;
-            color: rgba(255,255,255,0.32);
-            text-transform: uppercase;
-        }
-        .ng-links { display: flex; gap: 2rem; align-items: center; }
-        .ng-links a {
-            color: rgba(255,255,255,0.65);
-            font-size: 0.80rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-decoration: none;
-            transition: color 0.2s;
-            text-transform: uppercase;
-        }
-        .ng-links a:hover, .ng-links a.active { color: #fff; }
-        .ng-links a.active { color: #fff; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
-        .ng-links .cta-link {
-            border: 1px solid rgba(220,38,38,0.40);
-            color: rgba(239,68,68,0.90) !important;
-            padding: 6px 16px;
-            border-radius: 3px;
-            transition: background 0.2s, border-color 0.2s;
-        }
-        .ng-links .cta-link:hover {
-            background: rgba(220,38,38,0.10);
-            border-color: rgba(220,38,38,0.65);
-            color: #f87171 !important;
-        }
-
-        /* Mobile menu links */
-        #mobile-menu a {
-            display: block;
-            padding: 0.6rem 1rem;
-            color: rgba(255,255,255,0.65);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-bottom: 1px solid var(--border);
-        }
-        #mobile-menu a:hover { color: #fff; }
-        #mobile-menu { background: #07080a; }
-
-        /* ── HERO ───────────────────────────────────────────── */
-        .ng-page-hero {
-            position: relative;
-            padding: 7rem 0 5rem;
-            background: var(--bg-0);
-            overflow: hidden;
-        }
-        .ng-page-hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: url('resources/hero-forensic.png') center/cover no-repeat;
-            opacity: 0.12;
-            pointer-events: none;
-        }
-        .ng-page-hero-inner {
-            position: relative; z-index: 2;
-            max-width: 1280px; margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        /* Red scan line on hero bottom edge */
-        .ng-page-hero::after {
-            content: '';
-            position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg,
-                transparent 0%,
-                rgba(220,38,38,0.12) 8%,
-                rgba(220,38,38,0.65) 30%,
-                rgba(220,38,38,0.65) 70%,
-                rgba(220,38,38,0.12) 92%,
-                transparent 100%
-            );
-        }
-
-        /* ── SECTION BASE ────────────────────────────────────── */
-        .ng-section {
-            padding: 5rem 0;
-            background: var(--bg-1);
-        }
-        .ng-section-alt {
-            padding: 5rem 0;
-            background: var(--bg-0);
-        }
-        .ng-section-inner {
-            max-width: 1280px; margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* ── SECTION LABEL / HEADER ──────────────────────────── */
-        .ng-section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.60rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--red-lt);
-            margin-bottom: 0.75rem;
-        }
-        .ng-section-title {
-            font-size: clamp(1.6rem, 3vw, 2.25rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text-1);
-            margin-bottom: 0.5rem;
-        }
-        .ng-section-sub {
-            font-size: 0.95rem;
-            color: var(--text-2);
-            max-width: 640px;
-            line-height: 1.65;
-        }
-
-        /* ── CARDS ───────────────────────────────────────────── */
-        .ng-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 1.75rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .ng-card:hover {
-            border-color: var(--border-red);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.35);
-        }
-        .ng-card-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.58rem;
-            letter-spacing: 0.20em;
-            text-transform: uppercase;
-            color: var(--text-3);
-            margin-bottom: 0.4rem;
-        }
-        .ng-card-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-1);
-            margin-bottom: 0.5rem;
-        }
-        .ng-card-body {
-            font-size: 0.875rem;
-            color: var(--text-2);
-            line-height: 1.65;
-        }
-
-        /* ── TAG PILLS ───────────────────────────────────────── */
-        .ng-tag {
-            display: inline-flex; align-items: center;
-            padding: 3px 10px;
-            border-radius: 3px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: 1px solid var(--border-red);
-            color: rgba(239,68,68,0.85);
-            background: rgba(220,38,38,0.06);
-        }
-        .ng-tag-muted {
-            border-color: var(--border);
-            color: var(--text-3);
-            background: transparent;
-        }
-
-        /* ── BORDER-LEFT ENTRIES ─────────────────────────────── */
-        .ng-entry {
-            border-left: 2px solid var(--red);
-            padding-left: 1.25rem;
-        }
-        .ng-entry-inactive {
-            border-left: 2px solid rgba(255,255,255,0.12);
-            padding-left: 1.25rem;
-        }
-        .ng-entry-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-1);
-        }
-        .ng-entry-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.08em;
-            color: var(--text-3);
-            margin-top: 2px;
-            margin-bottom: 0.5rem;
-        }
-        .ng-entry-body {
-            font-size: 0.875rem;
-            color: var(--text-2);
-            line-height: 1.65;
-        }
-
-        /* ── BUTTONS ─────────────────────────────────────────── */
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: var(--red);
-            color: #fff;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 0.65rem 1.5rem;
-            border-radius: 3px;
-            transition: background 0.2s;
-        }
-        .btn-primary:hover { background: var(--red-lt); }
-        .btn-outline {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.20);
-            color: rgba(255,255,255,0.75);
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            text-decoration: none;
-            padding: 0.65rem 1.5rem;
-            border-radius: 3px;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        .btn-outline:hover { border-color: rgba(255,255,255,0.50); color: #fff; }
-
-        /* ── PROFILE CARD ────────────────────────────────────── */
-        .profile-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-            position: sticky;
-            top: 88px;
-        }
-        .profile-card img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            display: block;
-        }
-        .profile-card-body {
-            padding: 1.5rem;
-        }
-        .profile-stat {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.82rem;
-        }
-        .profile-stat:last-child { border-bottom: none; }
-        .profile-stat-key { color: var(--text-3); font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; }
-        .profile-stat-val { color: var(--text-1); font-weight: 600; text-align: right; }
-
-        /* ── FOOTER ──────────────────────────────────────────── */
-        .ng-footer {
-            background: var(--bg-0);
-            border-top: 1px solid var(--border);
-            padding: 3rem 0 2rem;
-        }
-        .ng-footer-inner {
-            max-width: 1280px; margin: 0 auto;
-            padding: 0 1.5rem;
-            text-align: center;
-        }
-        .ng-footer-name {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.50);
-            margin-bottom: 0.35rem;
-        }
-        .ng-footer-sub {
-            font-size: 0.75rem;
-            color: var(--text-3);
-            margin-bottom: 1.25rem;
-        }
-        .ng-footer-disc {
-            font-size: 0.70rem;
-            color: rgba(255,255,255,0.18);
-            max-width: 640px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.6;
-        }
-        .ng-footer-copy {
-            font-size: 0.68rem;
-            color: rgba(255,255,255,0.18);
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--border);
-        }
-
-        /* ── CIRCUIT PATTERN SECTION ─────────────────────────── */
-        .ng-section-circuit {
-            position: relative;
-        }
-        .ng-section-circuit::before {
-            content: '';
-            position: absolute; inset: 0;
-            pointer-events: none; z-index: 0;
-            opacity: 0.07;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Crect width='280' height='280' fill='none'/%3E%3Cline x1='40' y1='0' x2='40' y2='60' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='40' y1='60' x2='120' y2='60' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='120' y1='60' x2='120' y2='20' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='120' y1='20' x2='200' y2='20' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='200' y1='20' x2='200' y2='100' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='0' y1='140' x2='80' y2='140' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='80' y1='140' x2='80' y2='200' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='80' y1='200' x2='160' y2='200' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='160' y1='200' x2='160' y2='160' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='160' y1='160' x2='240' y2='160' stroke='%23dc2626' stroke-width='0.7'/%3E%3Cline x1='240' y1='160' x2='240' y2='280' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='40' cy='60' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='120' cy='60' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='200' cy='20' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='80' cy='140' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Ccircle cx='160' cy='200' r='3' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Crect x='34' y='54' width='12' height='12' rx='1' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3Crect x='154' y='154' width='12' height='12' rx='1' fill='none' stroke='%23dc2626' stroke-width='0.7'/%3E%3C/svg%3E");
-            background-size: 280px 280px;
-        }
-        .ng-section-circuit > * { position: relative; z-index: 1; }
-    </style>
-    <link rel="stylesheet" href="css/reveal.css" />
-    <link rel="stylesheet" href="css/scroll.css" />
+/* ID card */
+.id-card { position: sticky; top: calc(var(--nav-h) + 1.5rem); border: 1px solid var(--line-2); background: linear-gradient(165deg, var(--panel-2), var(--panel)); overflow: hidden; }
+.id-photo { position: relative; aspect-ratio: 1 / 1.02; overflow: hidden; border-bottom: 1px solid var(--line); }
+.id-photo img { width: 100%; height: 100%; object-fit: cover; }
+.id-photo::after { content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 96%, rgba(226,24,43,0.5) 100%); pointer-events: none; }
+.id-scan { position: absolute; left: 0; right: 0; height: 2px; background: var(--red); box-shadow: 0 0 18px 2px var(--red-dim); top: 0; opacity: 0.8; }
+.id-body { padding: 1.3rem 1.4rem 1.5rem; }
+.id-body .id-name { font-size: 1.35rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; }
+.id-body .id-role { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red-lt); margin: 0.35rem 0 1rem; display: block; }
+.id-links a { color: var(--red-lt); text-decoration: none; }
+.id-links a:hover { text-decoration: underline; }
+</style>
 </head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
 
-<body class="reveal">
+<section id="dossier-hero" aria-label="About Dontavious Ellis">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="dh-grid">
+    <div>
+      <span class="overline rv">Electrical Engineering · Defense Systems · USF · Tampa, FL</span>
+      <h1 class="dh-title rv" id="dhw">ABOUT</h1>
+      <div class="dh-copy">
+        <p class="rv" data-rv-delay="0.08">I'm a 3rd year Electrical Engineering student at the University of South Florida
+        building toward a career in defense systems. My work sits at the intersection of <strong>power distribution,
+        embedded firmware, and national security hardware</strong>. I bench-build, bench-validate, and document with
+        measurable outcomes.</p>
+        <p class="rv" data-rv-delay="0.14">I'm currently an <strong>EE intern at Orbital Corporation</strong> working on
+        IPC-A-610 Class 3 tactical communications wiring harnesses, multi-pin crimp connections, and EMI shielding layout.
+        I'm also the <strong>founder and lead researcher of Ellis Dynamics</strong>, a countermeasure systems company,
+        where I'm building a GPS-denied navigation validation pipeline using Kalman filtering, 6-DOF IMU fusion, and
+        dead reckoning anchored in ARL and DARPA INS literature.</p>
+        <p class="rv" data-rv-delay="0.2">In Spring 2026 I was selected as a <strong>GNSI Future Strategist</strong>,
+        spending five days embedded in the national security ecosystem: the Pentagon, Capitol Hill, CNAS, and Lockheed
+        Martin. I hold <strong>CompTIA Security+</strong>, which grounds my systems work in secure protocol and
+        infrastructure awareness. I serve as <strong>Technical Development Chair for NSBE USF</strong>, running technical
+        programming for a 100+ member chapter.</p>
+        <p class="rv" data-rv-delay="0.26"><strong>Education:</strong> B.S. Electrical Engineering, University of South
+        Florida — expected May 2028. Coursework in AC/DC circuit analysis, power systems, MATLAB/Simulink, and embedded
+        systems design. <strong>Certification:</strong> CompTIA Security+, issued January 2026 — infrastructure security,
+        secure protocols, and identity management. Verification available upon request.</p>
+      </div>
+      <div class="dh-cta rv" data-rv-delay="0.32">
+        <a class="btn-t primary" href="projects.html" data-route data-magnetic="0.25" data-cursor-label="OPEN">
+          <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+          ELLIS DYNAMICS <span class="arr">→</span></a>
+        <a class="btn-t" href="resume.html" data-route data-magnetic="0.25" data-cursor-label="OPEN">
+          <span class="bc tl"></span><span class="bc tr"></span><span class="bc bl"></span><span class="bc br"></span>
+          ENGINEERING RESUME <span class="arr">→</span></a>
+      </div>
+    </div>
 
-    <!-- ── NAVIGATION ─────────────────────────────────────────── -->
-    <nav class="ng-nav">
-        <div class="ng-nav-inner">
-            <a href="index.html" class="ng-logo">
-                <div class="ng-logo-block">
-                    <div class="ng-logo-top">
-                        <svg class="ng-bolt-svg" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 0L0 10.5H5L3 19L11 8H6L7.5 0Z" fill="#dc2626"/>
-                        </svg>
-                        <span class="ng-logo-name">Dontavious Ellis</span>
-                    </div>
-                    <div class="ng-logo-line-wrap">
-                        <div class="ng-logo-line-left"></div>
-                        <div class="ng-logo-line-dot"></div>
-                        <div class="ng-logo-line-right"></div>
-                    </div>
-                    <span class="ng-logo-sub">EE &nbsp;&middot;&nbsp; Defense Systems</span>
-                </div>
-            </a>
-            <div class="ng-links hidden md:flex">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="resume.html" class="cta-link">Resume</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden text-white opacity-70 hover:opacity-100" aria-label="Open menu" aria-expanded="false">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="px-4 py-3 space-y-1">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="resume.html">Resume</a>
-            </div>
-        </div>
-    </nav>
+    <aside class="id-card rv" data-rv-delay="0.18" aria-label="Profile">
+      <div class="id-photo">
+        <img src="resources/profile2.jpg" alt="Dontavious Ellis">
+        <div class="id-scan" id="id-scan"></div>
+      </div>
+      <div class="id-body">
+        <span class="id-name">Dontavious Ellis</span>
+        <span class="id-role">Defense EE · Founder · Clearance Eligible</span>
+        <div class="spec-row"><span class="k">Location</span><span class="v">Tampa, FL</span></div>
+        <div class="spec-row"><span class="k">Focus</span><span class="v">EE · Defense Systems</span></div>
+        <div class="spec-row"><span class="k">Research</span><span class="v">Ellis Dynamics · CIBR Lab</span></div>
+        <div class="spec-row"><span class="k">Building</span><span class="v">Ellis Dynamics · GPS-Denied Nav</span></div>
+        <div class="spec-row id-links" style="border-bottom:none;"><span class="k">Links</span><span class="v"><a href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener">GitHub</a></span></div>
+      </div>
+    </aside>
+  </div>
+</section>
 
-    <!-- ── PAGE HERO ──────────────────────────────────────────── -->
-    <section class="ng-page-hero">
-        <div class="ng-page-hero-inner">
-            <div class="overline mb-4">Electrical Engineering &nbsp;&middot;&nbsp; Defense Systems &nbsp;&middot;&nbsp; USF &nbsp;&middot;&nbsp; Tampa, FL</div>
-            <h1 style="font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:1.25rem;">
-                About
-            </h1>
-            <p style="font-size:1.05rem;color:var(--text-2);max-width:640px;line-height:1.7;">
-                Electrical Engineering student at USF building toward a career in defense systems. Interning at Orbital Corporation on tactical communications hardware, founding ARMS at USF, and moving through the national security pipeline with GNSI. Clearance eligible.
-            </p>
-            <div class="flex flex-wrap gap-2 mt-6">
-                <span class="ng-tag">B.S. Electrical Engineering</span>
-                <span class="ng-tag">Orbital Corporation Intern</span>
-                <span class="ng-tag">ARMS Founder</span>
-                <span class="ng-tag">GNSI Future Strategist</span>
-                <span class="ng-tag">CompTIA Security+</span>
-            </div>
-            <div class="flex flex-wrap gap-3 mt-8">
-                <a href="projects.html" class="btn-primary">View Projects</a>
-                <a href="resume.html" class="btn-outline">Engineering Resume</a>
-            </div>
-        </div>
-    </section>
+</main>
 
-    <!-- ── BACKGROUND ─────────────────────────────────────────── -->
-    <section class="ng-section">
-        <div class="ng-section-inner">
-            <div class="grid lg:grid-cols-3 gap-12 items-start">
+<footer class="cmd-footer microtext">
+  <span>© 2026 DONTAVIOUS ELLIS. ALL RIGHTS RESERVED.</span>
+  <a href="index.html" data-route>HOME</a>
+</footer>
 
-                <!-- Bio col -->
-                <div class="lg:col-span-2">
-                    <div class="ng-section-label">Background</div>
-                    <h2 class="ng-section-title">Who I Am</h2>
-                    <div style="font-size:0.92rem;color:var(--text-2);line-height:1.80;margin-top:1.5rem;" class="space-y-5">
-                        <p>
-                            I'm a 3rd year Electrical Engineering student at the University of South Florida building toward a career in defense systems. My work sits at the intersection of power distribution, embedded firmware, and national security hardware. I bench-build, bench-validate, and document with measurable outcomes.
-                        </p>
-                        <p>
-                            I'm currently an EE intern at Orbital Corporation working on IPC-A-610 Class 3 tactical communications wiring harnesses, multi-pin crimp connections, and EMI shielding layout. I'm also the founder and lead researcher of ARMS (Applied Research in Military Systems) at USF, where I'm building a GPS-denied navigation validation pipeline using Kalman filtering, 6-DOF IMU fusion, and dead reckoning anchored in ARL and DARPA INS literature.
-                        </p>
-                        <p>
-                            In Spring 2026 I was selected as a GNSI Future Strategist, spending five days embedded in the national security ecosystem: the Pentagon, Capitol Hill, CNAS, and Lockheed Martin. I hold CompTIA Security+, which grounds my systems work in secure protocol and infrastructure awareness. I serve as Technical Development Chair for NSBE USF, running technical programming for a 100+ member chapter.
-                        </p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4 mt-10">
-                        <div class="ng-card">
-                            <div class="ng-card-label">Education</div>
-                            <div class="ng-card-title">University of South Florida</div>
-                            <div class="ng-card-body">B.S. Electrical Engineering &nbsp;&middot;&nbsp; Expected May 2028. Coursework in AC/DC circuit analysis, power systems, MATLAB/Simulink, and embedded systems design.</div>
-                        </div>
-                        <div class="ng-card">
-                            <div class="ng-card-label">Certification</div>
-                            <div class="ng-card-title">CompTIA Security+</div>
-                            <div class="ng-card-body">Issued January 2026. Infrastructure security, secure protocols, and identity management. Verification available upon request.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Profile card -->
-                <aside class="lg:col-span-1">
-                    <div class="profile-card">
-                        <img src="resources/profile.jpg" alt="Dontavious Ellis">
-                        <div class="profile-card-body">
-                            <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:0.6rem;">Profile</div>
-                            <div style="font-size:1.05rem;font-weight:700;color:var(--text-1);margin-bottom:0.2rem;">Dontavious Ellis</div>
-                            <div style="font-size:0.78rem;color:var(--text-2);margin-bottom:1.25rem;">Electrical Engineering &nbsp;&middot;&nbsp; Defense Systems</div>
-                            <div class="space-y-1">
-                                <div class="profile-stat">
-                                    <span class="profile-stat-key">Location</span>
-                                    <span class="profile-stat-val">Tampa, FL</span>
-                                </div>
-                                <div class="profile-stat">
-                                    <span class="profile-stat-key">Focus</span>
-                                    <span class="profile-stat-val">EE &nbsp;&middot;&nbsp; Defense Systems</span>
-                                </div>
-                                <div class="profile-stat">
-                                    <span class="profile-stat-key">Research</span>
-                                    <span class="profile-stat-val">ARMS &nbsp;&middot;&nbsp; CIBR Lab</span>
-                                </div>
-                                <div class="profile-stat">
-                                    <span class="profile-stat-key">Building</span>
-                                    <span class="profile-stat-val">ARMS &nbsp;&middot;&nbsp; GPS-Denied Nav</span>
-                                </div>
-                                <div class="profile-stat">
-                                    <span class="profile-stat-key">Target</span>
-                                    <span class="profile-stat-val">Defense EE Internship 2027</span>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-2 mt-5">
-                                <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="justify-content:center;font-size:0.75rem;">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                                    LinkedIn
-                                </a>
-                                <a href="https://github.com/thefourierphantom" target="_blank" rel="noopener noreferrer" class="btn-outline" style="justify-content:center;font-size:0.75rem;border-color:var(--border);">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                                    GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ── ACTIVE WORK ─────────────────────────────────────────── -->
-    <section class="ng-section-alt ng-section-circuit">
-        <div class="ng-section-inner">
-            <div class="ng-section-label">Currently Executing</div>
-            <h2 class="ng-section-title" style="margin-bottom:2.5rem;">Active Work</h2>
-
-            <div class="grid lg:grid-cols-2 gap-6">
-
-                <!-- Active Projects -->
-                <div class="ng-card">
-                    <div class="ng-card-label" style="margin-bottom:1.25rem;">Active Projects</div>
-                    <div class="space-y-6">
-                        <div class="ng-entry">
-                            <div class="ng-entry-title">ARMS &nbsp;&middot;&nbsp; GPS-Denied Navigation</div>
-                            <div class="ng-entry-meta">Lead Researcher &amp; Founder &nbsp;&middot;&nbsp; May 2026 &ndash; Present</div>
-                            <div class="ng-entry-body">Building a GPS-denied navigation validation pipeline at USF. Kalman filtering for 6-DOF IMU fusion, inertial dead reckoning error characterization, and TT&amp;C ground station development. Anchored in ARL and DARPA INS literature.</div>
-                            <a href="projects.html" style="font-size:0.78rem;color:var(--red-lt);font-weight:600;text-decoration:none;margin-top:0.4rem;display:inline-block;">View Projects &rarr;</a>
-                        </div>
-                        <div class="ng-entry">
-                            <div class="ng-entry-title">Orbital Corporation &nbsp;&middot;&nbsp; EE Intern</div>
-                            <div class="ng-entry-meta">May 2026 &ndash; Present</div>
-                            <div class="ng-entry-body">Building IPC-A-610 Class 3 tactical communications wiring harnesses. Multi-pin crimp connectors, cup soldering, continuity and resistance fault isolation, EMI shielding and nailboard layout interpretation.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Supporting Work + Credentials -->
-                <div class="ng-card">
-                    <div class="ng-card-label" style="margin-bottom:1.25rem;">Supporting Work + Credentials</div>
-                    <div class="space-y-6">
-                        <div class="ng-entry">
-                            <div class="ng-entry-title">Secure IIoT Smart Grid Edge Monitor</div>
-                            <div class="ng-entry-meta">Completed &nbsp;&middot;&nbsp; Aug 2025 &ndash; Mar 2026</div>
-                            <div class="ng-entry-body">ESP32 power monitoring node with &lt;3% RMS error. AES-128 + MQTT TLS 1.2 pipeline mapped to NERC CIP compliance framework.</div>
-                            <a href="projects.html#project-01" style="font-size:0.78rem;color:var(--red-lt);font-weight:600;text-decoration:none;margin-top:0.4rem;display:inline-block;">View Project &rarr;</a>
-                        </div>
-                        <div class="ng-entry">
-                            <div class="ng-entry-title">CIBR Lab &nbsp;&middot;&nbsp; AI Research Assistant</div>
-                            <div class="ng-entry-meta">USF &nbsp;&middot;&nbsp; Mar 2026 &ndash; Present</div>
-                            <div class="ng-entry-body">Analyzing human-AI interaction datasets for cognitive bias patterns. Contributing to SeniorSafe AI. Secondary to engineering work but adds behavioral systems context.</div>
-                        </div>
-                        <div class="ng-entry-inactive">
-                            <div class="ng-entry-title">CompTIA Security+</div>
-                            <div class="ng-entry-meta">Issued Jan 2026</div>
-                            <div class="ng-entry-body">Infrastructure security, secure protocols, identity management. Complements hardware and systems engineering work.</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Stat row -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                <div class="ng-card" style="text-align:center;padding:1.25rem;">
-                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">2</div>
-                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">Active Engineering Projects</div>
-                </div>
-                <div class="ng-card" style="text-align:center;padding:1.25rem;">
-                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">2</div>
-                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">Completed Projects</div>
-                </div>
-                <div class="ng-card" style="text-align:center;padding:1.25rem;">
-                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">1</div>
-                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">Certification</div>
-                </div>
-                <div class="ng-card" style="text-align:center;padding:1.25rem;">
-                    <div style="font-size:2rem;font-weight:900;color:var(--red);letter-spacing:-0.04em;">100+</div>
-                    <div style="font-size:0.70rem;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3);margin-top:0.25rem;">NSBE Members Led</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── CTA ────────────────────────────────────────────────── -->
-    <section class="ng-section" style="padding:4rem 0;">
-        <div class="ng-section-inner" style="text-align:center;">
-            <div class="ng-section-label" style="justify-content:center;display:flex;">Open to Opportunities</div>
-            <h2 class="ng-section-title" style="margin-bottom:1rem;">Targeting Defense EE Internships &nbsp;&middot;&nbsp; Summer 2027</h2>
-            <p class="ng-section-sub" style="margin:0 auto 2rem;text-align:center;">
-                Seeking EE internships in power distribution, embedded systems, and defense hardware. Open to conversations now. Everything being built right now is infrastructure for that goal.
-            </p>
-            <a href="https://www.linkedin.com/in/dontavious-ellis/" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                Connect on LinkedIn
-            </a>
-        </div>
-    </section>
-
-    <!-- ── FOOTER ─────────────────────────────────────────────── -->
-    <footer class="ng-footer">
-        <div class="ng-footer-inner">
-            <div class="ng-footer-name">Dontavious Ellis</div>
-            <div class="ng-footer-sub">Electrical Engineering &nbsp;&middot;&nbsp; Defense Systems &nbsp;&middot;&nbsp; Embedded Firmware &nbsp;&middot;&nbsp; USF</div>
-            <div class="ng-footer-disc">
-                All lab simulations and engineering exercises are conducted in controlled academic environments for professional development and research purposes.
-            </div>
-            <div class="ng-footer-copy">&copy; 2026 Dontavious Ellis. All rights reserved.</div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        var btn = document.getElementById('mobile-menu-btn');
-        var menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', function () {
-                var open = menu.classList.toggle('hidden');
-                btn.setAttribute('aria-expanded', String(!open));
-            });
-        }
-    </script>
-    <script src="js/page-anim.js" defer></script>
-    <script src="main.js"></script>
-    <script data-global-fade>
-        requestAnimationFrame(() => document.body.classList.add('reveal-in'));
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/command.js" data-page="about" defer></script>
+<script defer>
+(function () {
+  function main() {
+    const CE = window.CE;
+    CE.reveal();
+    CE.scramble(document.getElementById('dhw'), 'ABOUT', { duration: 600 });
+    if (!CE.reducedMotion && window.gsap) {
+      gsap.to('#id-scan', { top: '100%', duration: 2.6, ease: 'power1.inOut', repeat: -1, yoyo: true });
+    }
+    document.documentElement.dataset.ceOk = '1';
+  }
+  if (window.CE && window.CE.onReady) window.CE.onReady(main);
+  else document.addEventListener('ce:ready', main, { once: true });
+})();
+</script>
 </body>
 </html>
