@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ellis Dynamics | Countermeasure Systems · Program Briefing</title>
-<meta name="description" content="Ellis Dynamics — countermeasure systems: GPS-denied navigation and resilient communications (ECCM), plus predictive tracking of aerial threats (Detect-Track). Founded by Dontavious Ellis. First hardware in development.">
+<title>Ellis Dynamics | Countermeasure Systems — GPS-Denied Navigation &amp; Counter-UAS</title>
+<meta name="description" content="Ellis Dynamics — countermeasure systems startup launched Summer 2026: GPS-denied inertial navigation, resilient communications, and predictive tracking for counter-UAS. Founded by Dontavious Ellis.">
 <link rel="canonical" href="https://dontaviousellis.com/projects.html">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="512x512" href="resources/ed-mark.png">
+<link rel="apple-touch-icon" href="resources/ed-mark.png">
 <meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
 <meta property="og:title" content="Ellis Dynamics | Countermeasure Systems · Program Briefing">
-<meta property="og:description" content="Protecting friendly platforms from electronic denial. Detecting and predicting hostile ones. Proven as working hardware, not claimed capability.">
+<meta property="og:description" content="Countermeasure systems startup launched Summer 2026 — GPS-denied navigation, resilient communications, and predictive tracking for counter-UAS.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dontaviousellis.com/projects.html">
-<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+<meta property="og:image" content="https://dontaviousellis.com/resources/dynamics.png">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","@id":"https://dontaviousellis.com/#org",
+ "name":"Ellis Dynamics","url":"https://dontaviousellis.com/projects.html",
+ "logo":"https://dontaviousellis.com/resources/ed-mark.png","image":"https://dontaviousellis.com/resources/dynamics.png",
+ "foundingDate":"2026","foundingLocation":{"@type":"Place","name":"Tampa, FL"},
+ "founder":{"@type":"Person","name":"Dontavious Ellis","url":"https://dontaviousellis.com/","sameAs":["https://www.linkedin.com/in/dontavious-ellis"]},
+ "description":"Countermeasure systems startup launched Summer 2026: GPS-denied inertial navigation, resilient communications, and predictive tracking for counter-UAS."}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -41,6 +50,10 @@ body { padding-top: var(--nav-h); }
 #brief-hero { position: relative; min-height: 88vh; display: flex; align-items: center; overflow: hidden; }
 #bh-canvas { position: absolute; inset: 0; opacity: 0.85; }
 #brief-hero .inner { position: relative; z-index: 2; padding: clamp(3rem, 8vh, 6rem) clamp(1.2rem, 5vw, 4.5rem); max-width: 1560px; margin: 0 auto; width: 100%; }
+.bh-grid { display: grid; grid-template-columns: 1fr minmax(280px, 420px); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.ed-logo-panel { border: 1px solid var(--line-2); background: #060708; overflow: hidden; box-shadow: 0 0 40px rgba(0,0,0,0.65); }
+.ed-logo-panel img { width: 100%; height: auto; display: block; }
+@media (max-width: 980px) { .bh-grid { grid-template-columns: 1fr; } .ed-logo-panel { max-width: 340px; } }
 .ed-word {
   font-family: var(--font-display); text-transform: uppercase; font-weight: 700;
   font-size: clamp(3.4rem, 12vw, 11rem); line-height: 0.86;
@@ -48,7 +61,6 @@ body { padding-top: var(--nav-h); }
 .ed-word .row2 { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(232,234,237,0.8); }
 .ed-mission { margin-top: 2rem; max-width: 58ch; color: var(--txt-2); font-size: clamp(0.95rem, 1.3vw, 1.15rem); line-height: 1.7; }
 .ed-mission strong { color: var(--txt-1); }
-.stage-strip { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* briefing sections */
 .bsec { border-top: 1px solid var(--line); }
@@ -57,16 +69,6 @@ body { padding-top: var(--nav-h); }
 .b-two p, .b-copy p { color: var(--txt-2); margin-bottom: 1.1rem; max-width: 56ch; }
 .b-two p strong, .b-copy p strong { color: var(--txt-1); }
 @media (max-width: 880px) { .b-two { grid-template-columns: 1fr; } }
-
-/* jamming demo */
-#jam-demo { border: 1px solid var(--line); background: var(--panel); padding: 1.4rem; }
-#jam-canvas { width: 100%; height: 160px; display: block; background: var(--bg-1); border: 1px solid var(--line); }
-#jam-demo .jd-row { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
-#jam-demo label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--txt-3); }
-#jam-power { flex: 1; min-width: 140px; appearance: none; height: 2px; background: var(--steel); outline-offset: 4px; }
-#jam-power::-webkit-slider-thumb { appearance: none; width: 14px; height: 14px; background: var(--red); border: 2px solid var(--bg-0); cursor: pointer; }
-#jam-power::-moz-range-thumb { width: 14px; height: 14px; background: var(--red); border: 2px solid var(--bg-0); cursor: pointer; border-radius: 0; }
-#jam-status { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; color: var(--grn); min-width: 190px; text-transform: uppercase; }
 
 /* domain panels */
 .domains { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
@@ -101,15 +103,6 @@ body { padding-top: var(--nav-h); }
 .scope-note { margin-top: 1.4rem; border: 1px dashed rgba(232,163,61,0.35); padding: 1.1rem 1.3rem; font-size: 0.8rem; color: var(--txt-2); }
 .scope-note .k { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amb); display: block; margin-bottom: 4px; }
 
-/* status board */
-.status-board { border: 1px solid var(--line); }
-.sb-row { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--line); }
-.sb-row:last-child { border-bottom: none; }
-.sb-row .item { font-size: 0.88rem; color: var(--txt-1); }
-.sb-row .item .sub { display: block; font-size: 0.72rem; color: var(--txt-3); margin-top: 2px; }
-.sb-bar { grid-column: 1 / -1; height: 3px; background: rgba(255,255,255,0.06); position: relative; }
-.sb-bar i { position: absolute; left: 0; top: 0; height: 100%; background: var(--amb); width: 0; transition: width 1.2s var(--ease-mech); }
-
 /* roadmap chain */
 .chain { display: flex; flex-direction: column; gap: 0; position: relative; margin-left: 8px; }
 .chain-node { position: relative; padding: 0 0 2.4rem 42px; }
@@ -127,20 +120,11 @@ body { padding-top: var(--nav-h); }
 .ev-card:hover { border-color: var(--red-dim); transform: translateY(-5px); }
 .ev-card .e-id { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.2em; color: var(--red-lt); display: flex; justify-content: space-between; }
 .ev-card h4 { font-family: var(--font-display); text-transform: uppercase; font-weight: 600; font-size: 1.25rem; line-height: 1.05; }
-.ev-card canvas { width: 100%; height: 84px; display: block; border: 1px solid var(--line); background: var(--bg-1); }
+.ev-card .e-img { aspect-ratio: 16 / 5; border: 1px solid var(--line); background: var(--bg-1); overflow: hidden; }
+.ev-card .e-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ev-card p { font-size: 0.76rem; color: var(--txt-2); line-height: 1.5; }
 @media (max-width: 1000px) { .ev-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .ev-grid { grid-template-columns: 1fr; } }
-
-/* market */
-.mkt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-.mkt-panel { border: 1px solid var(--line); background: var(--panel); padding: 1.8rem; }
-.mkt-panel h3 { font-family: var(--font-display); text-transform: uppercase; font-weight: 600; font-size: 1.5rem; margin-bottom: 1rem; }
-.mkt-panel ul { list-style: none; }
-.mkt-panel li { padding: 0.65rem 0; border-top: 1px solid var(--line); font-size: 0.82rem; color: var(--txt-2); }
-.mkt-panel li strong { color: var(--txt-1); }
-@media (max-width: 880px) { .mkt-grid { grid-template-columns: 1fr; } }
-.reg-note { margin-top: 1.4rem; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--txt-3); text-transform: uppercase; }
 
 /* founder strip */
 .founder-strip { display: flex; justify-content: space-between; align-items: center; gap: 2rem; border: 1px solid var(--line); background: var(--panel); padding: 2rem; flex-wrap: wrap; }
@@ -152,9 +136,9 @@ body { padding-top: var(--nav-h); }
 <a class="skip-link" href="#main">Skip to content</a>
 
 <div class="brief-banner" role="note">
-  <span>ELLIS DYNAMICS · PROGRAM BRIEFING · DOC ED-PB-26</span>
-  <span class="rel">RELEASE: PUBLIC · NO CONTROLLED INFORMATION</span>
-  <span>STAGE: PRE-FORMATION · FIRST HARDWARE IN DEVELOPMENT</span>
+  <span>ELLIS DYNAMICS · COMPANY BRIEFING</span>
+  <span class="rel">COUNTERMEASURE SYSTEMS · TAMPA, FL</span>
+  <span>EST. SUMMER 2026 · FIRST HARDWARE IN DEVELOPMENT</span>
 </div>
 
 <main id="main">
@@ -162,60 +146,31 @@ body { padding-top: var(--nav-h); }
 <!-- ═══ BRIEFING HERO ═══ -->
 <section id="brief-hero" aria-label="Ellis Dynamics">
   <canvas id="bh-canvas" aria-hidden="true"></canvas>
-  <div class="inner">
+  <div class="inner bh-grid">
+    <div>
     <span class="overline rv">Countermeasure Systems</span>
     <h1 class="ed-word" style="margin-top:1rem;"><span id="edw1">ELLIS</span><span class="row2" id="edw2">DYNAMICS</span></h1>
     <p class="ed-mission rv" data-rv-delay="0.15">
-      <strong>Protecting friendly platforms from electronic denial. Detecting and predicting hostile ones.</strong>
-      Modern reconnaissance and defense platforms fail exactly when they're needed most — GPS jammed or spoofed,
-      radio links suppressed. That's now standard practice in contested environments, not an edge case.
-      Ellis Dynamics exists to keep systems functioning through denial, and to find and track the threats causing it —
-      <strong>proven as working hardware, not claimed capability.</strong>
+      <strong>I'm building Ellis Dynamics — a countermeasure systems startup protecting friendly platforms from
+      electronic denial. Newly launched Summer 2026.</strong>
+      When GPS is jammed or spoofed and radio links are suppressed, platforms lose position and coordination at
+      the exact moment the mission depends on them. Ellis Dynamics builds hardware for that moment: an inertial
+      dead-reckoning navigation module that maintains position awareness through GPS denial, and a predictive
+      tracking and precision-pointing system that detects aerial threats and keeps sensors locked on them —
+      the tracking layer every counter-UAS defeat method depends on.
     </p>
-    <div class="stage-strip rv" data-rv-delay="0.3">
-      <span class="tag amb">STAGE: PRE-FORMATION</span>
-      <span class="tag amb">FIRST DELIVERABLE: IN DEVELOPMENT</span>
-      <span class="tag">SOLO FOUNDER · SELF-DIRECTED</span>
-      <span class="tag">NO CLAIMS WITHOUT HARDWARE</span>
+    </div>
+    <div class="ed-logo-panel rv" data-rv-delay="0.25">
+      <img src="resources/dynamics.png" alt="Ellis Dynamics logo">
     </div>
   </div>
 </section>
 
-<!-- ═══ 01 · OPERATIONAL ENVIRONMENT ═══ -->
-<section class="sec bsec" id="env" aria-label="Operational environment">
-  <div class="sec-head">
-    <div>
-      <span class="sec-id">01</span>
-      <span class="b-tag" style="display:block; margin-top:0.5rem;">Operational Environment</span>
-      <h2 class="sec-title">THE SIGNAL IS<br><em>THE FIRST CASUALTY.</em></h2>
-    </div>
-  </div>
-  <div class="b-two">
-    <div class="b-copy rv">
-      <p>Every modern platform assumes two things: it knows where it is, and it can talk to friendly systems.
-      In a contested environment, <strong>both assumptions are attacked directly</strong> — GPS jamming and spoofing
-      deny trusted position; RF jamming severs coordination and data links.</p>
-      <p>The result is a capability gap that senior defense and intelligence leaders return to constantly:
-      <strong>systems that perform flawlessly in the lab become blind and mute exactly when the mission depends on them.</strong></p>
-      <p>Try it yourself. Raise the jamming power and watch the link degrade — then note what has to happen next.
-      That "next" is where Ellis Dynamics operates.</p>
-    </div>
-    <div id="jam-demo" class="rv" data-rv-delay="0.15" data-cursor-label="INTERACT">
-      <canvas id="jam-canvas"></canvas>
-      <div class="jd-row">
-        <label for="jam-power">JAMMING POWER</label>
-        <input type="range" id="jam-power" min="0" max="100" value="0" aria-label="Jamming power simulation">
-        <span id="jam-status">LINK NOMINAL · SNR 32 dB</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 02 · MISSION DOMAINS ═══ -->
+<!-- ═══ 01 · MISSION DOMAINS ═══ -->
 <section class="sec bsec" id="domains" aria-label="Mission domains">
   <div class="sec-head">
     <div>
-      <span class="sec-id">02</span>
+      <span class="sec-id">01</span>
       <span class="b-tag" style="display:block; margin-top:0.5rem;">Mission Domains</span>
       <h2 class="sec-title">TWO DOMAINS.<br><em>ONE DISCIPLINE.</em></h2>
     </div>
@@ -256,11 +211,11 @@ body { padding-top: var(--nav-h); }
   </p>
 </section>
 
-<!-- ═══ 03 · CORE DISCIPLINE ═══ -->
+<!-- ═══ 02 · CORE DISCIPLINE ═══ -->
 <section class="sec bsec" id="discipline" aria-label="Core engineering discipline">
   <div class="sec-head">
     <div>
-      <span class="sec-id">03</span>
+      <span class="sec-id">02</span>
       <span class="b-tag" style="display:block; margin-top:0.5rem;">Core Engineering Discipline</span>
       <h2 class="sec-title">ROBOTICS · MECHATRONICS<br><em>· EMBEDDED SYSTEMS</em></h2>
     </div>
@@ -279,15 +234,15 @@ body { padding-top: var(--nav-h); }
   </div>
 </section>
 
-<!-- ═══ 04 · ROADMAP ═══ -->
+<!-- ═══ 03 · ROADMAP ═══ -->
 <section class="sec bsec" id="roadmap" aria-label="Roadmap">
   <div class="sec-head">
     <div>
-      <span class="sec-id">04</span>
+      <span class="sec-id">03</span>
       <span class="b-tag" style="display:block; margin-top:0.5rem;">Development Status</span>
       <h2 class="sec-title">WHERE THE PROGRAM<br><em>ACTUALLY STANDS.</em></h2>
     </div>
-    <p class="sec-desc rv">Each stage unlocks the next. Nothing goes public before it physically exists.</p>
+    <p class="sec-desc rv">Each stage unlocks the next.</p>
   </div>
   <div class="chain">
     <div class="chain-node now rv">
@@ -306,7 +261,7 @@ body { padding-top: var(--nav-h); }
       <span class="c-dot"></span>
       <span class="c-gate">GATE 3 · UNLOCKED BY GATE 1</span>
       <h4>Formalize the Company</h4>
-      <p>LLC registration and public brand presence — deliberately held until there is a demonstrable system to stand behind.</p>
+      <p>LLC registration and formal business structure — timed to follow the first demonstrable system.</p>
     </div>
     <div class="chain-node rv">
       <span class="c-dot"></span>
@@ -317,90 +272,53 @@ body { padding-top: var(--nav-h); }
   </div>
 </section>
 
-<!-- ═══ 05 · MARKET POSITION ═══ -->
-<section class="sec bsec" id="market" aria-label="Market position">
+<!-- ═══ 04 · IN THE WORKS ═══ -->
+<section class="sec bsec" id="evidence" aria-label="In the works">
   <div class="sec-head">
     <div>
-      <span class="sec-id">05</span>
-      <span class="b-tag" style="display:block; margin-top:0.5rem;">Market Position</span>
-      <h2 class="sec-title">TRACK FIRST.<br><em>DEFEAT LATER.</em></h2>
+      <span class="sec-id">04</span>
+      <span class="b-tag" style="display:block; margin-top:0.5rem;">Engineering Portfolio</span>
+      <h2 class="sec-title">IN THE <em>WORKS.</em></h2>
     </div>
-  </div>
-  <div class="mkt-grid">
-    <div class="mkt-panel rv">
-      <span class="overline">Near-Term Focus</span>
-      <h3>Detect-Track / Pointing</h3>
-      <ul>
-        <li><strong>Buildable now:</strong> detection and tracking-only systems require no special federal authorization to build or demonstrate — unlike active mitigation.</li>
-        <li><strong>Addressable market:</strong> military, critical infrastructure, airports — plus the newly authorized state, local, tribal, and territorial law-enforcement market under the SAFER SKIES Act (FY2026 NDAA), effective July 1, 2026.</li>
-        <li><strong>Demand signal:</strong> DHS and FBI recorded 600+ drone incursions into restricted airspace at U.S. World Cup host-city venues as of June 20, 2026.</li>
-        <li><strong>Mechanism-agnostic:</strong> foundational to the whole counter-UAS market regardless of which defeat method wins out.</li>
-      </ul>
-    </div>
-    <div class="mkt-panel rv" data-rv-delay="0.12">
-      <span class="overline dim">Long-Term Direction</span>
-      <h3>Mitigation / Defeat Systems</h3>
-      <ul>
-        <li><strong>Real, growing market</strong> — SAFER SKIES widened who is legally authorized to deploy defeat systems.</li>
-        <li><strong>Gated:</strong> formal Authorized Systems List approval, plus materially higher capital, testing, and liability requirements.</li>
-        <li><strong>Stated direction, not a near-term build.</strong> The Track layer being built now is the prerequisite either way.</li>
-      </ul>
-    </div>
-  </div>
-  <p class="reg-note rv">// REGULATORY ENVIRONMENT ACTIVELY LEGISLATED — DOD DOMESTIC C-UAS AUTHORITY SUNSETS DEC 31, 2026 ABSENT EXTENSION. FIGURES CURRENT AS OF JUL 2026.</p>
-</section>
-
-<!-- ═══ 06 · EVIDENCE OF EXECUTION ═══ -->
-<section class="sec bsec" id="evidence" aria-label="Evidence of execution">
-  <div class="sec-head">
-    <div>
-      <span class="sec-id">06</span>
-      <span class="b-tag" style="display:block; margin-top:0.5rem;">Evidence of Execution</span>
-      <h2 class="sec-title">THE COMPANY IS NEW.<br><em>THE DISCIPLINE ISN'T.</em></h2>
-    </div>
-    <p class="sec-desc rv">Bench-built, bench-validated, documented with measured outcomes — the engineering record Ellis Dynamics is built on.</p>
+    <p class="sec-desc rv">Bench-built, bench-validated, documented with measured outcomes.</p>
   </div>
   <div class="ev-grid">
-    <article class="ev-card rv" data-viz="imu">
+    <article class="ev-card rv">
       <span class="e-id">ED-TR-001 <span class="status-chip dev">ACTIVE</span></span>
       <h4>MEMS Inertial Drift Characterization</h4>
-      <canvas></canvas>
       <p>ESP32 / MPU-6050 strapdown arrays: quantifying bias, noise floor, and drift before Kalman integration. Anchored in Woodman (2007), ARL, and DARPA INS literature. Feeds the ED navigation module directly.</p>
     </article>
-    <article class="ev-card rv" data-viz="grid" data-rv-delay="0.06">
+    <article class="ev-card rv" data-rv-delay="0.06">
       <span class="e-id">PWR-2025-01 <span class="status-chip live">COMPLETE</span></span>
       <h4>Secure IIoT Grid Edge Monitor</h4>
-      <canvas></canvas>
+      <div class="e-img"><img src="resources/esp32.svg" alt="ESP32 development board" loading="lazy"></div>
       <p>FFT-based THD detection in sub-100 ms intervals, &lt;3% RMS error. AES-128 + MQTT TLS 1.2 telemetry validated end-to-end against NERC CIP guidance.</p>
     </article>
-    <article class="ev-card rv" data-viz="load" data-rv-delay="0.12">
+    <article class="ev-card rv" data-rv-delay="0.12">
       <span class="e-id">PWR-2025-02 <span class="status-chip live">COMPLETE</span></span>
       <h4>Smart Load-Shedding Controller</h4>
-      <canvas></canvas>
+      <div class="e-img"><img src="resources/esp32.svg" alt="ESP32 development board" loading="lazy"></div>
       <p>PWM trip logic holding stability within 10% of peak capacity; active RC filtering cut noise 35% — validated on digital oscilloscopes.</p>
     </article>
-    <article class="ev-card rv" data-viz="lab">
+    <article class="ev-card rv">
       <span class="e-id">INF-2026-01 <span class="status-chip live">ACTIVE</span></span>
       <h4>Enterprise Infrastructure Lab</h4>
-      <canvas></canvas>
       <p>Proxmox + pfSense multi-tier lab; MATLAB load-flow cutting modeled restoration time 22%; cascading-failure modeling across 500+ outage scenarios.</p>
     </article>
-    <article class="ev-card rv" data-viz="comms" data-rv-delay="0.06">
+    <article class="ev-card rv" data-rv-delay="0.06">
       <span class="e-id">ORBITAL-26 <span class="status-chip live">ACTIVE</span></span>
       <h4>Tactical Comms Hardware</h4>
-      <canvas></canvas>
       <p>IPC-A-610 Class 3 harness fabrication, EMI shielding, and fault isolation at Orbital Corporation — production-grade hands on the resilient-comms physical layer.</p>
     </article>
-    <article class="ev-card rv" data-viz="field" data-rv-delay="0.12">
+    <article class="ev-card rv" data-rv-delay="0.12">
       <span class="e-id">GNSI-DC-26 <span class="status-chip live">AFTER-ACTION</span></span>
       <h4>National Security Ecosystem</h4>
-      <canvas></canvas>
       <p>Pentagon, Capitol Hill, CNAS — 15+ senior officials including a former DIA Director. The institutional context these systems must survive. <a href="gnsi-dc.html" style="color:var(--red-lt)">Full after-action →</a></p>
     </article>
   </div>
 </section>
 
-<!-- ═══ 07 · FOUNDER / CONTACT ═══ -->
+<!-- ═══ 05 · FOUNDER / CONTACT ═══ -->
 <section class="sec bsec" id="founder" aria-label="Founder">
   <div class="founder-strip rv">
     <div class="f-copy">
@@ -421,8 +339,8 @@ body { padding-top: var(--nav-h); }
 </main>
 
 <footer class="cmd-footer microtext">
-  <span>© 2026 DONTAVIOUS ELLIS · ELLIS DYNAMICS — PRE-FORMATION</span>
-  <span>NO CONTROLLED INFORMATION · ALL CLAIMS GATED ON HARDWARE</span>
+  <span>© 2026 ELLIS DYNAMICS · FOUNDED BY DONTAVIOUS ELLIS</span>
+  <span>TAMPA, FL · EST. SUMMER 2026</span>
   <a href="index.html" data-route>RETURN TO COMMAND</a>
 </footer>
 
@@ -471,61 +389,6 @@ body { padding-top: var(--nav-h); }
       const sy = ((t * 0.12) % 1) * h;
       g.strokeStyle = 'rgba(226,24,43,0.18)';
       g.beginPath(); g.moveTo(0, sy); g.lineTo(w, sy); g.stroke();
-    }
-    draw();
-  })();
-
-  /* jamming demo */
-  (function jam() {
-    const cv = document.getElementById('jam-canvas');
-    const g = cv.getContext('2d');
-    const slider = document.getElementById('jam-power');
-    const status = document.getElementById('jam-status');
-    let jamP = 0;
-    slider.addEventListener('input', () => {
-      jamP = +slider.value / 100;
-      const snr = Math.round(32 - jamP * 40);
-      if (jamP < 0.35) { status.textContent = 'LINK NOMINAL · SNR ' + snr + ' dB'; status.style.color = 'var(--grn)'; }
-      else if (jamP < 0.7) { status.textContent = 'LINK DEGRADED · SNR ' + snr + ' dB'; status.style.color = 'var(--amb)'; }
-      else { status.textContent = 'LINK DENIED → INERTIAL FALLBACK'; status.style.color = 'var(--red-lt)'; CE.audio && CE.audio.deny(); }
-    });
-    let t = 0, w = 0, h = 0, vis = true;
-    function size() { w = cv.width = cv.offsetWidth * CE.dpr; h = cv.height = 160 * CE.dpr; }
-    size(); addEventListener('resize', size);
-    if (window.ResizeObserver) new ResizeObserver(size).observe(cv);
-    if (window.IntersectionObserver) new IntersectionObserver(es => { vis = es[0].isIntersecting; }).observe(cv);
-    function draw() {
-      if (!CE.reducedMotion) requestAnimationFrame(draw);
-      if (!vis) return;
-      t += 0.06;
-      g.clearRect(0, 0, w, h);
-      // clean carrier
-      g.strokeStyle = jamP < 0.7 ? 'rgba(63,214,140,0.9)' : 'rgba(226,24,43,0.9)';
-      g.lineWidth = 1.2 * CE.dpr;
-      g.beginPath();
-      for (let x = 0; x < w; x += 2) {
-        const carrier = Math.sin(x * 0.05 + t * 3) * h * 0.26;
-        const noise = (Math.random() - 0.5) * h * 0.85 * jamP;
-        const y = h / 2 + carrier * (1 - jamP * 0.8) + noise;
-        x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
-      }
-      g.stroke();
-      // noise floor indicator
-      g.fillStyle = 'rgba(226,24,43,' + jamP * 0.12 + ')';
-      g.fillRect(0, 0, w, h);
-      // DR fallback path appears when denied
-      if (jamP >= 0.7) {
-        g.strokeStyle = 'rgba(232,163,61,0.95)'; g.setLineDash([6, 5]);
-        g.beginPath();
-        for (let x = 0; x < w; x += 4) {
-          const y = h * 0.5 + Math.sin(x * 0.012 + t * 0.6) * h * 0.14;
-          x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
-        }
-        g.stroke(); g.setLineDash([]);
-        g.fillStyle = 'rgba(232,163,61,0.95)';
-        g.font = (10 * CE.dpr) + 'px JetBrains Mono';
-        g.fillText('INS / DEAD-RECKONING ESTIMATE', 12 * CE.dpr, 18 * CE.dpr);
-      }
     }
     draw();
   })();
@@ -611,92 +474,6 @@ body { padding-top: var(--nav-h); }
     draw();
   })();
 
-  /* evidence card canvases (reuse simple viz set) */
-  const vizFns = {
-    imu(g, w, h, t) {
-      g.strokeStyle = 'rgba(226,24,43,0.9)'; g.beginPath();
-      for (let x = 0; x <= w; x += 3) { const y = h / 2 + Math.sin(x * 0.05 + t * 2) * 6 + Math.sin(x * 0.013 + t * 0.4) * h * 0.22; x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
-      g.stroke();
-      g.strokeStyle = 'rgba(232,163,61,0.6)';
-      const px = ((t * 0.15) % 1) * w;
-      g.beginPath(); g.ellipse(px, h / 2, 8 + px / w * 12, 5 + px / w * 7, 0, 0, 7); g.stroke();
-    },
-    grid(g, w, h, t) {
-      g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
-      for (let x = 0; x < w; x += 2) { const y = h / 2 + Math.sin(x * 0.1 + t * 3) * h * 0.3 * Math.abs(Math.sin(x * 0.01)); x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
-      g.stroke();
-    },
-    load(g, w, h, t) {
-      g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
-      for (let x = 0; x < w; x += 2) { const duty = 0.3 + (Math.sin(t + x * 0.004) * 0.5 + 0.5) * 0.4; const y = ((x % 34) / 34 < duty) ? h * 0.3 : h * 0.72; x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
-      g.stroke();
-    },
-    lab(g, w, h, t) {
-      const nodes = [[0.12, 0.5], [0.35, 0.25], [0.35, 0.75], [0.6, 0.5], [0.85, 0.3], [0.85, 0.7]];
-      [[0,1],[0,2],[1,3],[2,3],[3,4],[3,5]].forEach(([a, b], i) => {
-        g.strokeStyle = 'rgba(154,161,171,0.3)';
-        g.beginPath(); g.moveTo(nodes[a][0] * w, nodes[a][1] * h); g.lineTo(nodes[b][0] * w, nodes[b][1] * h); g.stroke();
-        const p = ((t * 0.6 + i * 0.17) % 1);
-        g.fillStyle = 'rgba(232,163,61,0.9)';
-        g.fillRect(nodes[a][0] * w + (nodes[b][0] - nodes[a][0]) * w * p - 1.5, nodes[a][1] * h + (nodes[b][1] - nodes[a][1]) * h * p - 1.5, 3, 3);
-      });
-      nodes.forEach(n => { g.strokeStyle = 'rgba(226,24,43,0.7)'; g.strokeRect(n[0] * w - 4, n[1] * h - 4, 8, 8); });
-    },
-    comms(g, w, h, t) {
-      g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
-      for (let x = 0; x < w; x += 2) {
-        const jamZ = x > w * 0.35 && x < w * 0.6;
-        const y = h / 2 + Math.sin(x * 0.09 + t * 4) * h * 0.28 * (jamZ ? Math.random() : 1);
-        x === 0 ? g.moveTo(x, y) : g.lineTo(x, y);
-      }
-      g.stroke();
-      g.fillStyle = 'rgba(226,24,43,0.12)'; g.fillRect(w * 0.35, 0, w * 0.25, h);
-    },
-    field(g, w, h, t) {
-      g.strokeStyle = 'rgba(154,161,171,0.4)';
-      for (let i = 0; i < 4; i++) g.strokeRect(8 + i * 5, 8 + i * 5, w - 16 - i * 10, h - 16 - i * 10);
-      g.fillStyle = '#ff3448';
-      g.fillRect(w / 2 + Math.cos(t * 1.2) * w * 0.3 - 2, h / 2 + Math.sin(t * 1.2) * h * 0.28 - 2, 4, 4);
-    }
-  };
-  const cards = [];
-  document.querySelectorAll('.ev-card[data-viz]').forEach(el => {
-    const cv = el.querySelector('canvas'); if (cv) cards.push({ cv, fn: vizFns[el.dataset.viz] });
-  });
-  function size() {
-    cards.forEach(o => {
-      if (!o.cv.offsetWidth || !o.cv.offsetHeight) return;
-      o.cv.width = o.cv.offsetWidth * CE.dpr;
-      o.cv.height = o.cv.offsetHeight * CE.dpr;
-    });
-  }
-  size(); addEventListener('resize', size);
-  if (window.ResizeObserver) { const ro = new ResizeObserver(size); cards.forEach(o => ro.observe(o.cv)); }
-  if (window.IntersectionObserver) {
-    const io = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; }));
-    cards.forEach(o => io.observe(o.cv));
-  } else cards.forEach(o => { o.cv._vis = true; });
-  let vt = 0;
-  (function loop() {
-    if (!CE.reducedMotion) requestAnimationFrame(loop);
-    vt += 0.016;
-    cards.forEach(o => {
-      if (!o.cv._vis) return;                 // offscreen cards don't paint
-      const g = o.cv.getContext('2d');
-      g.setTransform(CE.dpr, 0, 0, CE.dpr, 0, 0);
-      g.clearRect(0, 0, o.cv.offsetWidth, o.cv.offsetHeight);
-      o.fn(g, o.cv.offsetWidth, o.cv.offsetHeight, vt);
-    });
-  })();
-
-  /* status board bars animate in */
-  document.querySelectorAll('.sb-bar i').forEach(bar => {
-    ScrollTrigger.create({
-      trigger: bar, start: 'top 85%',
-      onEnter: () => { bar.style.width = bar.dataset.w; }
-    });
-  });
-  if (CE.reducedMotion) document.querySelectorAll('.sb-bar i').forEach(b => b.style.width = b.dataset.w);
   document.documentElement.dataset.ceOk = '1';
   }
   if (window.CE && window.CE.onReady) window.CE.onReady(main);

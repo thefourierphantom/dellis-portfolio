@@ -163,7 +163,7 @@
     });
     nav.innerHTML =
       '<a class="cmd-brand" href="index.html" data-route>' +
-      '<svg class="brand-bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 1.5 L4.5 13.5 h5.4 L8.7 22.5 L19.5 9.5 h-6.2 Z" fill="var(--red)"/></svg>' +
+      '<img class="brand-bolt" src="resources/ed-mark.png" alt="Ellis Dynamics">' +
       '<span class="cmd-brand-txt"><span class="cmd-brand-name">Dontavious Ellis</span>' +
       '<span class="cmd-brand-sub">EE · Countermeasure Systems</span></span></a>' +
       '<nav class="cmd-links" aria-label="Primary">' + links + '</nav>';

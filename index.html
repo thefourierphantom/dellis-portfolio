@@ -3,17 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications</title>
-<meta name="description" content="Dontavious Ellis: USF Electrical Engineering student targeting defense industry roles. Building GPS-denied navigation systems, tactical communications hardware, resilient power infrastructure, and embedded systems for national security applications. Founder of Ellis Dynamics. Clearance eligible.">
+<title>Ellis Dynamics | GPS-Denied Navigation &amp; Counter-UAS Tracking</title>
+<meta name="description" content="Dontavious Ellis — defense electrical engineer at USF and founder of Ellis Dynamics, a countermeasure systems startup building GPS-denied inertial navigation, resilient communications, and predictive tracking for counter-UAS. EE intern at Orbital Corporation. Clearance eligible.">
 <link rel="canonical" href="https://dontaviousellis.com/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:site_name" content="Dontavious Ellis | Defense Electrical Engineer">
-<meta property="og:title" content="Dontavious Ellis | Defense Electrical Engineer · GPS-Denied Navigation · Tactical Communications">
-<meta property="og:description" content="USF Electrical Engineering student targeting defense industry roles. Founder of Ellis Dynamics. Clearance eligible.">
+<link rel="icon" type="image/png" sizes="512x512" href="resources/ed-mark.png">
+<link rel="apple-touch-icon" href="resources/ed-mark.png">
+<meta property="og:site_name" content="Ellis Dynamics · Dontavious Ellis">
+<meta property="og:title" content="Ellis Dynamics | GPS-Denied Navigation &amp; Counter-UAS Tracking">
+<meta property="og:description" content="Founded by Dontavious Ellis — defense electrical engineer at USF. Countermeasure systems: GPS-denied navigation, resilient communications, predictive tracking.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dontaviousellis.com/">
-<meta property="og:image" content="https://dontaviousellis.com/og/og-default.png">
+<meta property="og:image" content="https://dontaviousellis.com/resources/dynamics.png">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Person","@id":"https://dontaviousellis.com/#person","name":"Dontavious Ellis",
+  "url":"https://dontaviousellis.com/","image":"https://dontaviousellis.com/resources/profile.jpg",
+  "jobTitle":"Electrical Engineer — Defense Systems","affiliation":{"@type":"CollegeOrUniversity","name":"University of South Florida"},
+  "worksFor":{"@id":"https://dontaviousellis.com/#org"},
+  "knowsAbout":["GPS-denied navigation","Inertial navigation","Kalman filtering","Embedded systems","Tactical communications","Counter-UAS","Power systems"],
+  "sameAs":["https://www.linkedin.com/in/dontavious-ellis","https://github.com/thefourierphantom"]},
+ {"@type":"Organization","@id":"https://dontaviousellis.com/#org","name":"Ellis Dynamics",
+  "url":"https://dontaviousellis.com/projects.html","logo":"https://dontaviousellis.com/resources/ed-mark.png",
+  "image":"https://dontaviousellis.com/resources/dynamics.png","foundingDate":"2026",
+  "founder":{"@id":"https://dontaviousellis.com/#person"},
+  "description":"Countermeasure systems startup: GPS-denied inertial navigation, resilient communications, and predictive tracking for counter-UAS."}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -189,7 +205,8 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
 @media (max-width: 820px) { .work-grid { grid-template-columns: 1fr; } }
 
 /* in the field */
-.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.field-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+@media (max-width: 1100px) { .field-grid { grid-template-columns: repeat(2, 1fr); } }
 .field-card { border: 1px solid var(--line); background: var(--panel); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color .3s, transform .4s var(--ease-out); }
 .field-card:hover { border-color: var(--red-dim); transform: translateY(-4px); }
 .field-card .f-img { aspect-ratio: 16 / 8.5; overflow: hidden; border-bottom: 1px solid var(--line); position: relative; }
@@ -209,7 +226,8 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
 .proj-card .p-top { display: flex; justify-content: space-between; align-items: center; }
 .proj-card .p-cat { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.2em; color: var(--red-lt); text-transform: uppercase; }
 .proj-card h3 { font-size: 1.05rem; font-weight: 700; }
-.proj-card canvas { width: 100%; height: 76px; display: block; border: 1px solid var(--line); background: var(--bg-1); }
+.proj-card .p-img { aspect-ratio: 16 / 5; border: 1px solid var(--line); background: var(--bg-1); overflow: hidden; }
+.proj-card .p-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .proj-card p { font-size: 0.8rem; color: var(--txt-2); line-height: 1.6; }
 .proj-card .p-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
 @media (max-width: 900px) { .proj-grid { grid-template-columns: 1fr; } }
@@ -396,7 +414,7 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
         <span class="f-open">Open post →</span>
       </div>
     </a>
-    <a class="field-card rv" data-rv-delay="0.1" href="https://www.linkedin.com/in/dontavious-ellis" target="_blank" rel="noopener" data-cursor-label="VIEW POST">
+    <a class="field-card rv" data-rv-delay="0.08" href="https://www.linkedin.com/posts/usfgnsi_sofweek2026-nationalsecurity-specialoperations-activity-7463231294903316481-PXyj" target="_blank" rel="noopener" data-cursor-label="VIEW POST">
       <div class="f-img"><img src="resources/sof-week.jfif" alt="SOF Week 2026 — Tampa" loading="lazy"></div>
       <div class="f-body">
         <div class="f-meta"><span>SOF Week · Tampa</span><span>May 2026</span></div>
@@ -404,6 +422,46 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
         <p>SOF Week 2026 took over downtown Tampa. Special operations forces from around the globe, alongside
         the institutions, organizations, and companies that support them. On the ground with GNSI.</p>
         <span class="f-open">View post ↗</span>
+      </div>
+    </a>
+    <a class="field-card rv" data-rv-delay="0.16" href="https://www.linkedin.com/posts/dontavious-ellis_some-moments-do-not-need-a-full-briefing-activity-7461475560716713984-KRHW" target="_blank" rel="noopener" data-cursor-label="OPEN POST">
+      <div class="f-img"><img src="resources/lockheed.jfif" alt="Lockheed Martin — Crystal City" loading="lazy"></div>
+      <div class="f-body">
+        <div class="f-meta"><span>Lockheed Martin · DC</span><span>Spring 2026</span></div>
+        <h3>A Moment Outside Lockheed Martin</h3>
+        <p>During the GNSI DC Experience, I stood outside Lockheed Martin and took a picture. No tour. No briefing.
+        Just enough to understand the scale of the industry I am preparing to enter.</p>
+        <span class="f-open">Open post ↗</span>
+      </div>
+    </a>
+    <a class="field-card rv" href="https://www.linkedin.com/feed/update/urn:li:activity:7449479028035653633/" target="_blank" rel="noopener" data-cursor-label="OPEN POST">
+      <div class="f-img"><img src="resources/expo-2026.png" alt="USF Engineering Expo 2026" loading="lazy"></div>
+      <div class="f-body">
+        <div class="f-meta"><span>NSBE · Expo</span><span>2026 · USF Tampa</span></div>
+        <h3>USF Engineering Expo with NSBE</h3>
+        <p>Represented USF NSBE at the Engineering Expo. Showcased engineering pathways and chapter initiatives
+        to industry partners.</p>
+        <span class="f-open">Open post ↗</span>
+      </div>
+    </a>
+    <a class="field-card rv" data-rv-delay="0.08" href="https://www.linkedin.com/posts/dontavious-ellis_cyberbay2026-cybersecurity-dfir-activity-7439717196290854912-05UQ/" target="_blank" rel="noopener" data-cursor-label="OPEN POST">
+      <div class="f-img"><img src="resources/cyberbay2026.jpg" alt="Cyberbay 2026" loading="lazy"></div>
+      <div class="f-body">
+        <div class="f-meta"><span>Security Conference</span><span>2026 · Tampa, FL</span></div>
+        <h3>Cyberbay 2026</h3>
+        <p>Tampa-area security engineering conference. Defense professionals, students, and practitioners across
+        critical infrastructure sectors.</p>
+        <span class="f-open">Open post ↗</span>
+      </div>
+    </a>
+    <a class="field-card rv" data-rv-delay="0.16" href="https://www.linkedin.com/posts/dontavious-ellis_nsbe-engineeringstudents-studentleadership-activity-7439414519203893248-G9q5/" target="_blank" rel="noopener" data-cursor-label="OPEN POST">
+      <div class="f-img"><img src="resources/ptp.JPG" alt="Pathways to Priorities — NSBE USF" loading="lazy"></div>
+      <div class="f-body">
+        <div class="f-meta"><span>NSBE · Leadership</span><span>2026 · USF Tampa</span></div>
+        <h3>Pathways to Priorities</h3>
+        <p>NSBE USF career strategy event. Aligned early-career planning with long-term professional impact for
+        Black engineers at USF.</p>
+        <span class="f-open">Open post ↗</span>
       </div>
     </a>
   </div>
@@ -419,26 +477,25 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
     <p class="sec-desc rv">Hardware builds, power systems, embedded firmware, and infrastructure modeling — all documented with measurable outcomes and engineering rationale.</p>
   </div>
   <div class="proj-grid">
-    <a class="proj-card rv" href="projects.html#evidence" data-route data-viz="grid">
+    <a class="proj-card rv" href="projects.html#evidence" data-route>
       <div class="p-top"><span class="p-cat">Power Systems · Embedded</span><span class="status-chip live">COMPLETED</span></div>
       <h3>Secure IIoT Smart Grid Edge Monitor</h3>
-      <canvas></canvas>
+      <div class="p-img"><img src="resources/esp32.svg" alt="ESP32 development board" loading="lazy"></div>
       <p>ESP32 firmware with FFT-based THD detection in sub-100&nbsp;ms intervals, &lt;3% RMS error margin.
       AES-128 + MQTT TLS 1.2 over a NERC CIP-compliant telemetry pipeline validated end-to-end.</p>
       <div class="p-tags"><span class="tag">ESP32 Firmware</span><span class="tag">FFT / THD</span><span class="tag">AES-128 · TLS 1.2</span></div>
     </a>
-    <a class="proj-card rv" data-rv-delay="0.08" href="projects.html#evidence" data-route data-viz="load">
+    <a class="proj-card rv" data-rv-delay="0.08" href="projects.html#evidence" data-route>
       <div class="p-top"><span class="p-cat">Power Distribution · Hardware</span><span class="status-chip live">COMPLETED</span></div>
       <h3>Smart Load-Shedding &amp; Power Distribution Controller</h3>
-      <canvas></canvas>
+      <div class="p-img"><img src="resources/esp32.svg" alt="ESP32 development board" loading="lazy"></div>
       <p>PWM trip-logic holding system stability within 10% of peak capacity. Active RC filtering cut noise (Vpp)
       by 35%, bench-validated with digital oscilloscopes.</p>
       <div class="p-tags"><span class="tag">ESP32 · PWM</span><span class="tag">RC Conditioning</span><span class="tag">Current Sensing</span></div>
     </a>
-    <a class="proj-card rv" data-rv-delay="0.16" href="projects.html#evidence" data-route data-viz="lab">
+    <a class="proj-card rv" data-rv-delay="0.16" href="projects.html#evidence" data-route>
       <div class="p-top"><span class="p-cat">Infrastructure · Modeling</span><span class="status-chip dev">ACTIVE</span></div>
       <h3>Enterprise Infrastructure Home Lab</h3>
-      <canvas></canvas>
       <p>Proxmox + pfSense multi-tier lab. MATLAB load-flow simulations cut grid restoration time 22%. Cascading
       failure modeled across 7 infrastructure layers and 500+ outage scenarios.</p>
       <div class="p-tags"><span class="tag">MATLAB Load-Flow</span><span class="tag">Proxmox · VLAN</span><span class="tag">pfSense</span></div>
@@ -952,65 +1009,6 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
         });
       }
     }
-
-    /* ═══ PROJECT CARD CANVASES ═══ */
-    const vizFns = {
-      grid(g, w, h, t) {
-        g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
-        for (let x = 0; x < w; x += 2) { const y = h / 2 + Math.sin(x * 0.1 + t * 3) * h * 0.3 * Math.abs(Math.sin(x * 0.01)); x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
-        g.stroke();
-      },
-      load(g, w, h, t) {
-        g.strokeStyle = 'rgba(63,214,140,0.8)'; g.beginPath();
-        for (let x = 0; x < w; x += 2) { const duty = 0.3 + (Math.sin(t + x * 0.004) * 0.5 + 0.5) * 0.4; const y = ((x % 34) / 34 < duty) ? h * 0.3 : h * 0.72; x === 0 ? g.moveTo(x, y) : g.lineTo(x, y); }
-        g.stroke();
-      },
-      lab(g, w, h, t) {
-        const nodes = [[0.12, 0.5], [0.35, 0.25], [0.35, 0.75], [0.6, 0.5], [0.85, 0.3], [0.85, 0.7]];
-        [[0, 1], [0, 2], [1, 3], [2, 3], [3, 4], [3, 5]].forEach(([a, b], i) => {
-          g.strokeStyle = 'rgba(154,161,171,0.3)';
-          g.beginPath(); g.moveTo(nodes[a][0] * w, nodes[a][1] * h); g.lineTo(nodes[b][0] * w, nodes[b][1] * h); g.stroke();
-          const p = ((t * 0.6 + i * 0.17) % 1);
-          g.fillStyle = 'rgba(232,163,61,0.9)';
-          g.fillRect(nodes[a][0] * w + (nodes[b][0] - nodes[a][0]) * w * p - 1.5, nodes[a][1] * h + (nodes[b][1] - nodes[a][1]) * h * p - 1.5, 3, 3);
-        });
-        nodes.forEach(n => { g.strokeStyle = 'rgba(226,24,43,0.7)'; g.strokeRect(n[0] * w - 4, n[1] * h - 4, 8, 8); });
-      }
-    };
-    const cards = [];
-    document.querySelectorAll('[data-viz]').forEach(el => {
-      const cv = el.querySelector('canvas'); if (cv) cards.push({ cv, fn: vizFns[el.dataset.viz] || vizFns.grid });
-    });
-    function size() {
-      cards.forEach(o => {
-        if (!o.cv.offsetWidth || !o.cv.offsetHeight) return;   // layout not settled yet
-        o.cv.width = o.cv.offsetWidth * CE.dpr;
-        o.cv.height = o.cv.offsetHeight * CE.dpr;
-      });
-    }
-    size(); addEventListener('resize', size);
-    // Re-size when each canvas's own box changes — catches the 0×0 case
-    // when scripts run before layout settles on cached return visits.
-    if (window.ResizeObserver) {
-      const ro = new ResizeObserver(size);
-      cards.forEach(o => ro.observe(o.cv));
-    }
-    if (window.IntersectionObserver) {
-      const io = new IntersectionObserver(es => es.forEach(e => { e.target._vis = e.isIntersecting; }));
-      cards.forEach(o => io.observe(o.cv));
-    } else cards.forEach(o => { o.cv._vis = true; });
-    let vt = 0;
-    (function loop() {
-      if (!CE.reducedMotion) requestAnimationFrame(loop);
-      vt += 0.016;
-      cards.forEach(o => {
-        if (!o.cv._vis) return;               // offscreen cards don't paint
-        const g = o.cv.getContext('2d');
-        g.setTransform(CE.dpr, 0, 0, CE.dpr, 0, 0);
-        g.clearRect(0, 0, o.cv.offsetWidth, o.cv.offsetHeight);
-        o.fn(g, o.cv.offsetWidth, o.cv.offsetHeight, vt);
-      });
-    })();
 
     /* ═══ CONTACT HANDSHAKE ═══ */
     document.getElementById('hs-btn').addEventListener('click', () => {
