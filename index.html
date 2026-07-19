@@ -48,7 +48,8 @@ setTimeout(function () {
 /* intro overlay — jet flyby */
 #boot {
   position: fixed; inset: 0; z-index: 9500;
-  background: var(--bg-0);
+  /* night sky: deep zenith → hazy horizon band → dark ground */
+  background: linear-gradient(180deg, #020409 0%, #060c16 42%, #0d141f 66%, #141a24 74%, #060809 82%, #030405 100%);
   overflow: hidden;
 }
 #intro-canvas { position: absolute; inset: 0; }
@@ -69,7 +70,9 @@ setTimeout(function () {
   background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 55%, rgba(5,6,7,0.8) 100%); }
 
 /* hero */
-#hero { position: relative; min-height: 100vh; overflow: hidden; background: var(--bg-0); }
+#hero { position: relative; min-height: 100vh; overflow: hidden;
+  /* night sky behind the mission scene — matches the intro's world */
+  background: linear-gradient(180deg, #020409 0%, #060c16 40%, #0d141f 62%, #11161f 72%, #060809 84%, #030405 100%); }
 #hero-canvas { position: absolute; inset: 0; }
 #hero-canvas canvas { display: block; }
 .hero-vig { position: absolute; inset: 0; pointer-events: none;
@@ -292,7 +295,7 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
   </div>
   <div class="hud-readout hud-bl">
     <span class="row"><span id="hud-pos">28.0587°N · 82.4139°W</span><span id="hud-drift">σ 0.4 m</span></span>
-    <span>SCROLL = MISSION TIMELINE</span>
+    <span>ELLIS DYNAMICS · LIVE TRACK</span>
   </div>
   <div id="hud-warn" role="status"></div>
 
@@ -721,7 +724,7 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
       renderer.setSize(innerWidth, innerHeight);
       holder.appendChild(renderer.domElement);
       const scene = new THREE.Scene();
-      scene.fog = new THREE.FogExp2(0x050607, 0.01);
+      scene.fog = new THREE.FogExp2(0x050607, 0.0075);   // light haze — jet reads clearly from frame one
       const camera = new THREE.PerspectiveCamera(58, innerWidth / innerHeight, 0.1, 500);
       camera.position.set(0, 2.2, 7);
 
@@ -752,12 +755,60 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
       moon.lookAt(camera.position); moonHalo.lookAt(camera.position);
       scene.add(moon); scene.add(moonHalo);
 
-      // ground reference grid
-      const gGeo = new THREE.PlaneGeometry(400, 400, 36, 36);
-      gGeo.rotateX(-Math.PI / 2);
-      const ground = new THREE.Mesh(gGeo, new THREE.MeshBasicMaterial({ color: 0x39424d, wireframe: true, transparent: true, opacity: 0.16 }));
-      ground.position.y = -9;
-      scene.add(ground);
+      // terrain — moonlit landscape with real per-pixel ground detail
+      (function buildTerrain() {
+        const SEG = CE.lowPower ? 80 : 140;
+        const tGeo = new THREE.PlaneGeometry(760, 760, SEG, SEG);
+        tGeo.rotateX(-Math.PI / 2);
+        const tp = tGeo.attributes.position;
+        for (let i = 0; i < tp.count; i++) {
+          const x = tp.getX(i), z = tp.getZ(i);
+          // layered ridges; keep a flat corridor under the flight path
+          let h = Math.sin(x * 0.021 + 1.7) * Math.cos(z * 0.017 + 0.4) * 4.2
+                + Math.sin(x * 0.052 - 0.8) * Math.sin(z * 0.043 + 2.1) * 2.1
+                + Math.sin(x * 0.11 + z * 0.09) * 0.8;
+          const d = Math.hypot(x, z) / 380;
+          h *= 0.35 + d * 1.5;                       // hills grow toward the horizon
+          tp.setY(i, h);
+        }
+        tGeo.computeVertexNormals();
+        const groundTex = CE.groundTexture ? CE.groundTexture() : null;
+        const tMat = groundTex
+          ? (function () {
+              groundTex.repeat.set(14, 14);
+              if (renderer.capabilities.getMaxAnisotropy) groundTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+              return new THREE.MeshPhongMaterial({
+                color: 0xb9c3cf, map: groundTex, bumpMap: groundTex, bumpScale: 0.5,
+                specular: 0x1c242e, shininess: 14
+              });
+            })()
+          : new THREE.MeshPhongMaterial({ color: 0x151b22, specular: 0x232c36, shininess: 10 });
+        const terrain = new THREE.Mesh(tGeo, tMat);
+        terrain.position.y = -12;
+        scene.add(terrain);
+      })();
+
+      // drifting clouds — soft procedural sprites at altitude
+      const clouds = [];
+      (function buildClouds() {
+        const ccv = document.createElement('canvas');
+        ccv.width = ccv.height = 128;
+        const cg = ccv.getContext('2d');
+        const grad = cg.createRadialGradient(64, 64, 6, 64, 64, 62);
+        grad.addColorStop(0, 'rgba(190,205,225,0.55)');
+        grad.addColorStop(0.55, 'rgba(150,165,190,0.22)');
+        grad.addColorStop(1, 'rgba(150,165,190,0)');
+        cg.fillStyle = grad; cg.fillRect(0, 0, 128, 128);
+        const tex = new THREE.CanvasTexture(ccv);
+        for (let i = 0; i < (CE.lowPower ? 3 : 6); i++) {
+          const w2 = 90 + Math.random() * 120;
+          const cl = new THREE.Mesh(new THREE.PlaneGeometry(w2, w2 * 0.32),
+            new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.10 + Math.random() * 0.08, depthWrite: false }));
+          cl.position.set((Math.random() - 0.5) * 360, 26 + Math.random() * 40, -90 - Math.random() * 220);
+          cl.userData.drift = 0.6 + Math.random() * 0.9;
+          scene.add(cl); clouds.push(cl);
+        }
+      })();
 
       // atmosphere particles
       const P = CE.lowPower ? 250 : 550;
@@ -770,17 +821,6 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
       }
       pGeo.setAttribute('position', new THREE.BufferAttribute(pArr, 3));
       scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0x565e6a, size: 0.2, transparent: true, opacity: 0.5 })));
-
-      // speed streaks
-      const streaks = [];
-      for (let i = 0; i < (CE.lowPower ? 14 : 26); i++) {
-        const len = 6 + Math.random() * 10;
-        const ln = new THREE.Line(
-          new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, len)]),
-          new THREE.LineBasicMaterial({ color: 0x565e6a, transparent: true, opacity: 0.26 }));
-        ln.position.set((Math.random() - 0.5) * 60, Math.random() * 24 - 4, -Math.random() * 260);
-        scene.add(ln); streaks.push(ln);
-      }
 
       // wingtip vortex vapor — condensation streams as G comes on in the pull
       const VN = CE.lowPower ? 140 : 300;
@@ -803,17 +843,15 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
       scene.add(jet);
 
       const clock = new THREE.Clock();
-      const DUR = 4.6;
+      const DUR = 3.1;
       let raf, finished = false;
-      const look = new THREE.Vector3(0, 0, -120);
+      const look = new THREE.Vector3(0, 0, -90);
       const tmpLook = new THREE.Vector3();
 
-      // One continuous spline: long low approach with gentle weaving,
-      // flowing into a single smooth climbing arc past the camera.
+      // Tightened spline: opens with the jet already in view,
+      // one smooth pass flowing into the climbing arc past the camera.
       const PATH = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(-6, -1.6, -280),
-        new THREE.Vector3(5, -1.0, -190),
-        new THREE.Vector3(-3.5, -0.7, -100),
+        new THREE.Vector3(-3.5, -0.7, -110),
         new THREE.Vector3(2.2, -1.0, -36),
         new THREE.Vector3(1.4, -0.3, -10),
         new THREE.Vector3(1.7, 4.5, 2),
@@ -878,8 +916,8 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
         }
         vGeo.attributes.position.needsUpdate = true;
         vGeo.attributes.color.needsUpdate = true;
-        // world rush
-        streaks.forEach(st => { st.position.z += 2.2 + u * 3; if (st.position.z > 20) st.position.z = -260; });
+        // clouds drift slowly on the wind
+        clouds.forEach(cl => { cl.position.x += cl.userData.drift * 0.016; if (cl.position.x > 220) cl.position.x = -220; });
         // camera tracks the jet; shakes and widens as it sweeps past,
         // then pans up smoothly with the climb
         look.lerp(jet.position, 0.11);
@@ -907,7 +945,7 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
       endBoot(true);
     } else {
       try { introStop = runIntro(endBoot); } catch (e) { endBoot(true); }
-      setTimeout(() => endBoot(false), 8000); // hard failsafe
+      setTimeout(() => endBoot(false), 6000); // hard failsafe
     }
 
     /* ═══ HERO SCENE + HEADLINE ═══ */
