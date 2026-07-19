@@ -534,94 +534,125 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
 
     function buildJet() {
       const g = new THREE.Group();
-      const bodyMat = new THREE.MeshBasicMaterial({ color: 0x232930 });
-      const wingMat = new THREE.MeshBasicMaterial({ color: 0x2c333c, side: THREE.DoubleSide });
-      const edgeMat = new THREE.LineBasicMaterial({ color: 0xaeb6c0, transparent: true, opacity: 0.45 });
-      function add(geo, mat, edges) {
-        g.add(new THREE.Mesh(geo, mat));
-        if (edges !== false) g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 14), edgeMat));
-      }
-      // fuselage — smooth lathed body, tapering nose to tail (forward = +Z)
+      // lit materials — shading + specular glints instead of flat fills
+      const airMat = new THREE.MeshPhongMaterial({ color: 0x4a545f, specular: 0x76879c, shininess: 90 });
+      const darkMat = new THREE.MeshPhongMaterial({ color: 0x232a31, specular: 0x3c4654, shininess: 40 });
+      const canopyMat = new THREE.MeshPhongMaterial({ color: 0x0c141f, specular: 0x9fb4d8, shininess: 240 });
+
+      // fuselage — high-res area-ruled lathe (forward = +Z)
       const prof = [
-        [0.13, -2.05], [0.27, -1.55], [0.33, -0.7], [0.36, 0.1],
-        [0.33, 0.8], [0.24, 1.45], [0.11, 2.0], [0.0, 2.35]
+        [0.03, -2.16], [0.11, -2.02], [0.20, -1.72], [0.28, -1.3], [0.33, -0.8],
+        [0.36, -0.2], [0.365, 0.2], [0.34, 0.75], [0.27, 1.25], [0.18, 1.75],
+        [0.09, 2.1], [0.0, 2.38]
       ].map(p => new THREE.Vector2(p[0], p[1]));
-      const fus = new THREE.LatheGeometry(prof, 14);
+      const fus = new THREE.LatheGeometry(prof, 28);
       fus.rotateX(Math.PI / 2);                       // axis → Z, nose at +Z
-      add(fus, bodyMat, false);
-      g.add(new THREE.LineSegments(new THREE.EdgesGeometry(fus, 30), edgeMat));
-      // radome tip accent
-      const tip = new THREE.ConeGeometry(0.09, 0.4, 10); tip.rotateX(Math.PI / 2); tip.translate(0, 0, 2.32);
-      add(tip, new THREE.MeshBasicMaterial({ color: 0x8f1420 }), false);
-      // engine intakes flanking the fuselage
+      g.add(new THREE.Mesh(fus, airMat));
+      // radome — dielectric grey-black tip
+      const tip = new THREE.ConeGeometry(0.088, 0.4, 16); tip.rotateX(Math.PI / 2); tip.translate(0, 0, 2.36);
+      g.add(new THREE.Mesh(tip, new THREE.MeshPhongMaterial({ color: 0x161b21, specular: 0x2a3038, shininess: 30 })));
+      // dorsal spine fairing (avionics hump)
+      const spine = new THREE.SphereGeometry(0.3, 14, 10); spine.scale(0.55, 0.45, 2.4); spine.translate(0, 0.16, -0.1);
+      g.add(new THREE.Mesh(spine, airMat));
+      // canopy — glassy bubble with a hard specular hotspot
+      const can = new THREE.SphereGeometry(0.24, 20, 14); can.scale(0.72, 0.6, 2.0); can.translate(0, 0.31, 0.85);
+      g.add(new THREE.Mesh(can, canopyMat));
+      // intakes flanking the fuselage, with shadowed mouths
       [1, -1].forEach(s => {
-        const intake = new THREE.BoxGeometry(0.2, 0.26, 1.1);
-        intake.translate(s * 0.42, -0.06, -0.2);
-        add(intake, new THREE.MeshBasicMaterial({ color: 0x1a1f26 }));
+        const duct = new THREE.BoxGeometry(0.22, 0.3, 1.35);
+        duct.translate(s * 0.44, -0.06, -0.15);
+        g.add(new THREE.Mesh(duct, darkMat));
+        const mouth = new THREE.PlaneGeometry(0.2, 0.27);
+        mouth.translate(s * 0.44, -0.06, 0.531);
+        g.add(new THREE.Mesh(mouth, new THREE.MeshBasicMaterial({ color: 0x04060a })));
       });
-      // twin nozzles
-      [0.16, -0.16].forEach(x => {
-        const noz = new THREE.CylinderGeometry(0.15, 0.11, 0.4, 10);
-        noz.rotateX(Math.PI / 2); noz.translate(x, 0, -2.0);
-        add(noz, new THREE.MeshBasicMaterial({ color: 0x11141a }), false);
+      // twin nozzles — heat-tinted metal, dark throats
+      [0.17, -0.17].forEach(x => {
+        const noz = new THREE.CylinderGeometry(0.155, 0.12, 0.42, 14);
+        noz.rotateX(Math.PI / 2); noz.translate(x, 0, -2.05);
+        g.add(new THREE.Mesh(noz, new THREE.MeshPhongMaterial({ color: 0x2b2f36, specular: 0x94856a, shininess: 160 })));
+        const inner = new THREE.CircleGeometry(0.1, 12);
+        inner.translate(x, 0, -2.26);
+        g.add(new THREE.Mesh(inner, new THREE.MeshBasicMaterial({ color: 0x1a0b2e })));
       });
-      // canopy — bubble on the spine
-      const can = new THREE.SphereGeometry(0.22, 10, 8); can.scale(0.85, 0.6, 1.9); can.translate(0, 0.3, 0.7);
-      add(can, new THREE.MeshBasicMaterial({ color: 0x18202e }), false);
-      // wingtip stores
-      [2.25, -2.25].forEach(x => {
-        const rail = new THREE.CylinderGeometry(0.045, 0.045, 0.95, 8);
-        rail.rotateX(Math.PI / 2); rail.translate(x, -0.02, -0.75);
-        add(rail, new THREE.MeshBasicMaterial({ color: 0x3a424c }), false);
-        const mTip = new THREE.ConeGeometry(0.045, 0.16, 8);
-        mTip.rotateX(Math.PI / 2); mTip.translate(x, -0.02, -0.2);
-        add(mTip, new THREE.MeshBasicMaterial({ color: 0x8f1420 }), false);
-      });
-      // swept surfaces (triangle-pair trapezoids)
-      function surf(pts) {
-        const geo = new THREE.BufferGeometry();
-        geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pts), 3));
-        add(geo, wingMat, false);
-        g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 1), edgeMat));
+
+      // lifting surfaces — extruded with real thickness, not paper triangles
+      function surf(pts, th) {
+        const sh = new THREE.Shape();
+        sh.moveTo(pts[0][0], pts[0][1]);
+        for (let i = 1; i < pts.length; i++) sh.lineTo(pts[i][0], pts[i][1]);
+        const geo = new THREE.ExtrudeGeometry(sh, { depth: th, bevelEnabled: false });
+        geo.rotateX(Math.PI / 2);          // planform flat in XZ, thickness downward
+        g.add(new THREE.Mesh(geo, airMat));
       }
       [1, -1].forEach(s => {
-        // main delta wing
-        surf([s * 0.3, 0, 0.5,  s * 2.3, 0, -1.0,  s * 0.3, 0, -1.0,
-              s * 2.3, 0, -1.0,  s * 2.3, 0, -1.35,  s * 0.3, 0, -1.0]);
+        // main wing — LERX-blended delta
+        surf([[s * 0.34, 1.1], [s * 0.5, 0.4], [s * 2.35, -0.72], [s * 2.35, -1.02], [s * 0.34, -1.3]], 0.045);
         // horizontal stabilizer
-        surf([s * 0.28, 0.02, -1.05,  s * 1.15, 0.02, -1.7,  s * 0.28, 0.02, -1.6,
-              s * 1.15, 0.02, -1.7,  s * 1.15, 0.02, -1.88,  s * 0.28, 0.02, -1.6]);
-        // canted vertical tail
-        const piv = new THREE.Group();
-        const vt = new THREE.BufferGeometry();
-        vt.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
-          0, 0.05, -0.8,  0, 0.95, -1.5,  0, 0.05, -1.7,
-          0, 0.95, -1.5,  0, 0.95, -1.75,  0, 0.05, -1.7
-        ]), 3));
-        piv.add(new THREE.Mesh(vt, wingMat));
-        piv.add(new THREE.LineSegments(new THREE.EdgesGeometry(vt, 1), edgeMat));
-        piv.position.x = s * 0.26; piv.rotation.z = -s * 0.22;
-        g.add(piv);
+        surf([[s * 0.3, -1.15], [s * 1.22, -1.8], [s * 1.22, -1.98], [s * 0.3, -1.72]], 0.035);
+        // canted vertical tail (shape x = -z, extrude gives thickness in X)
+        const fin = new THREE.Shape();
+        fin.moveTo(0.68, 0.05); fin.lineTo(1.32, 0.98); fin.lineTo(1.58, 0.98); fin.lineTo(1.66, 0.05);
+        const fg = new THREE.ExtrudeGeometry(fin, { depth: 0.035, bevelEnabled: false });
+        fg.rotateY(Math.PI / 2);
+        const vt = new THREE.Mesh(fg, airMat);
+        vt.position.x = s * 0.28; vt.rotation.z = -s * 0.24;
+        g.add(vt);
       });
-      // twin purple afterburners
+      // wingtip rails + rounds
+      [2.35, -2.35].forEach(x => {
+        const rail = new THREE.CylinderGeometry(0.05, 0.05, 1.0, 10);
+        rail.rotateX(Math.PI / 2); rail.translate(x, -0.02, -0.62);
+        g.add(new THREE.Mesh(rail, darkMat));
+        const mTip = new THREE.ConeGeometry(0.05, 0.18, 10);
+        mTip.rotateX(Math.PI / 2); mTip.translate(x, -0.02, -0.03);
+        g.add(new THREE.Mesh(mTip, new THREE.MeshPhongMaterial({ color: 0x7e1220, specular: 0x553038, shininess: 50 })));
+      });
+
+      // nav lights: steady red (port) / green (starboard) + tail strobe
+      function beacon(color, x, y, z, r) {
+        const m = new THREE.Mesh(new THREE.SphereGeometry(r || 0.05, 8, 8),
+          new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95, blending: THREE.AdditiveBlending, depthWrite: false }));
+        m.position.set(x, y, z); g.add(m); return m;
+      }
+      g.userData.navL = beacon(0xff2b3a, -2.35, 0.02, -1.02);
+      g.userData.navR = beacon(0x2bff7a, 2.35, 0.02, -1.02);
+      g.userData.strobe = beacon(0xffffff, 0, 1.02, -1.5, 0.06);
+
+      // twin purple afterburners + shock diamonds + cast light
       g.userData.plumes = [];
-      [-0.16, 0.16].forEach(x => {
+      g.userData.diamonds = [];
+      [-0.17, 0.17].forEach(x => {
         const grp = new THREE.Group();
         function pc(r, h, color, op, z) {
-          const cg = new THREE.ConeGeometry(r, h, 8, 1, true); cg.rotateX(-Math.PI / 2);
+          const cg = new THREE.ConeGeometry(r, h, 10, 1, true); cg.rotateX(-Math.PI / 2);
           const m = new THREE.Mesh(cg, new THREE.MeshBasicMaterial({
             color, transparent: true, opacity: op,
             blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
           }));
           m.position.z = z; grp.add(m); return m;
         }
-        const outer = pc(0.15, 1.3, 0x7c3aed, 0.7, -2.85);
-        const mid = pc(0.1, 0.9, 0xa78bfa, 0.8, -2.65);
-        const core = pc(0.055, 0.5, 0xf1ecff, 0.95, -2.45);
+        const outer = pc(0.15, 1.35, 0x7c3aed, 0.7, -2.95);
+        const mid = pc(0.1, 0.95, 0xa78bfa, 0.8, -2.72);
+        const core = pc(0.055, 0.55, 0xf1ecff, 0.95, -2.5);
+        // shock diamonds inside the plume
+        for (let d = 0; d < 3; d++) {
+          const dm = new THREE.Mesh(new THREE.OctahedronGeometry(0.05 - d * 0.011),
+            new THREE.MeshBasicMaterial({ color: 0xf1ecff, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false }));
+          dm.scale.z = 2.4;
+          dm.position.z = -2.5 - d * 0.24;
+          grp.add(dm); g.userData.diamonds.push(dm);
+        }
         grp.position.x = x;
         g.add(grp);
         g.userData.plumes.push({ outer, mid, core });
       });
+      // the burners cast real light onto the tail surfaces
+      const burnLight = new THREE.PointLight(0x9a6bff, 1.5, 13, 2);
+      burnLight.position.set(0, 0, -2.6);
+      g.add(burnLight);
+      g.userData.burnLight = burnLight;
+
       g.scale.setScalar(1.15);
       return g;
     }
@@ -636,6 +667,33 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
       scene.fog = new THREE.FogExp2(0x050607, 0.01);
       const camera = new THREE.PerspectiveCamera(58, innerWidth / innerHeight, 0.1, 500);
       camera.position.set(0, 2.2, 7);
+
+      // lighting — cool moonlight key, faint ambient bounce, red horizon rim
+      scene.add(new THREE.HemisphereLight(0x3a4552, 0x05070a, 0.8));
+      const key = new THREE.DirectionalLight(0xbfd0e8, 1.05);
+      key.position.set(-40, 60, 30); scene.add(key);
+      const rim = new THREE.DirectionalLight(0xe2182b, 0.25);
+      rim.position.set(25, -8, -50); scene.add(rim);
+
+      // star field + moon (fog-exempt so the sky reads at distance)
+      const ST = CE.lowPower ? 160 : 380;
+      const sGeo = new THREE.BufferGeometry();
+      const sArr = new Float32Array(ST * 3);
+      for (let i = 0; i < ST; i++) {
+        sArr[i * 3] = (Math.random() - 0.5) * 700;
+        sArr[i * 3 + 1] = 20 + Math.random() * 260;
+        sArr[i * 3 + 2] = -420 + Math.random() * 300;
+      }
+      sGeo.setAttribute('position', new THREE.BufferAttribute(sArr, 3));
+      scene.add(new THREE.Points(sGeo, new THREE.PointsMaterial({ color: 0xaebdd2, size: 0.7, transparent: true, opacity: 0.75, fog: false })));
+      const moon = new THREE.Mesh(new THREE.CircleGeometry(11, 32),
+        new THREE.MeshBasicMaterial({ color: 0xd8e2f0, transparent: true, opacity: 0.9, fog: false }));
+      moon.position.set(-90, 120, -380);
+      const moonHalo = new THREE.Mesh(new THREE.CircleGeometry(20, 32),
+        new THREE.MeshBasicMaterial({ color: 0x8fa3c0, transparent: true, opacity: 0.12, blending: THREE.AdditiveBlending, depthWrite: false, fog: false }));
+      moonHalo.position.copy(moon.position); moonHalo.position.z -= 1;
+      moon.lookAt(camera.position); moonHalo.lookAt(camera.position);
+      scene.add(moon); scene.add(moonHalo);
 
       // ground reference grid
       const gGeo = new THREE.PlaneGeometry(400, 400, 36, 36);
@@ -666,6 +724,23 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
         ln.position.set((Math.random() - 0.5) * 60, Math.random() * 24 - 4, -Math.random() * 260);
         scene.add(ln); streaks.push(ln);
       }
+
+      // wingtip vortex vapor — condensation streams as G comes on in the pull
+      const VN = CE.lowPower ? 140 : 300;
+      const vPos = new Float32Array(VN * 3), vLife = new Float32Array(VN), vCol = new Float32Array(VN * 3);
+      for (let i = 0; i < VN; i++) vPos[i * 3 + 1] = -9999;
+      const vGeo = new THREE.BufferGeometry();
+      vGeo.setAttribute('position', new THREE.BufferAttribute(vPos, 3));
+      vGeo.setAttribute('color', new THREE.BufferAttribute(vCol, 3));
+      const vapor = new THREE.Points(vGeo, new THREE.PointsMaterial({
+        size: 0.34, vertexColors: true, transparent: true, opacity: 0.8,
+        blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
+      }));
+      scene.add(vapor);
+      let vCur = 0;
+      const tipL = new THREE.Vector3(-2.35, 0.02, -1.05),
+            tipR = new THREE.Vector3(2.35, 0.02, -1.05),
+            tmpTip = new THREE.Vector3();
 
       const jet = buildJet();
       scene.add(jet);
@@ -713,6 +788,39 @@ h1.glitching { animation: h-glitch 0.24s steps(2) infinite; }
           p.core.scale.set(1, 1, 0.8 + pl * 0.3);
           p.outer.material.opacity = 0.55 + Math.random() * 0.2;
         });
+        // shock diamonds flicker with the burn; burner light washes the tail
+        jet.userData.diamonds.forEach(dm => {
+          dm.material.opacity = Math.max(0, (0.45 + Math.random() * 0.4) * Math.min(burn - 0.4, 1.2));
+          dm.scale.z = 2.1 + Math.random() * 0.6;
+        });
+        jet.userData.burnLight.intensity = 0.9 + burn * 0.8 + Math.random() * 0.3;
+        // anti-collision strobe: double-flash every 1.3 s; navs steady
+        const bt = t % 1.3;
+        jet.userData.strobe.material.opacity = (bt < 0.06 || (bt > 0.14 && bt < 0.2)) ? 1 : 0;
+        // wingtip vapor spawn — rate follows climb-G
+        jet.updateMatrixWorld(true);
+        const gPull = Math.max(tanV.y, 0);
+        const vaporRate = (u > 0.15 ? 1 : 0) + Math.round(gPull * 5);
+        for (let k = 0; k < vaporRate; k++) {
+          [tipL, tipR].forEach(tp => {
+            const i = vCur; vCur = (vCur + 1) % VN;
+            tmpTip.copy(tp); jet.localToWorld(tmpTip);
+            vPos[i * 3] = tmpTip.x + (Math.random() - 0.5) * 0.06;
+            vPos[i * 3 + 1] = tmpTip.y + (Math.random() - 0.5) * 0.06;
+            vPos[i * 3 + 2] = tmpTip.z + (Math.random() - 0.5) * 0.06;
+            vLife[i] = 1;
+          });
+        }
+        for (let i = 0; i < VN; i++) {
+          if (vLife[i] > 0) {
+            vLife[i] -= 0.016;
+            const c = Math.max(vLife[i], 0) * (0.22 + gPull * 0.5);
+            vCol[i * 3] = c; vCol[i * 3 + 1] = c * 1.04; vCol[i * 3 + 2] = c * 1.12;
+            if (vLife[i] <= 0) vPos[i * 3 + 1] = -9999;
+          }
+        }
+        vGeo.attributes.position.needsUpdate = true;
+        vGeo.attributes.color.needsUpdate = true;
         // world rush
         streaks.forEach(st => { st.position.z += 2.2 + u * 3; if (st.position.z > 20) st.position.z = -260; });
         // camera tracks the jet; shakes and widens as it sweeps past,

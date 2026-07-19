@@ -145,62 +145,73 @@
     scene.add(planLine);
 
     /* ═══ MISSILE ═════════════════════════════════════════════════
-       Modeled along +Z (forward), so Object3D.lookAt() aims it.    */
+       Modeled along +Z (forward), so Object3D.lookAt() aims it.
+       The missile is lit (phong); the schematic world stays flat.  */
+    scene.add(new THREE.HemisphereLight(0x3a4552, 0x05070a, 0.75));
+    const keyLight = new THREE.DirectionalLight(0xc2d3ea, 1.0);
+    keyLight.position.set(-30, 55, 25);
+    scene.add(keyLight);
+
     const vehicle = new THREE.Group();
     const missile = new THREE.Group();
     vehicle.add(missile);
 
-    const bodyMat = new THREE.MeshBasicMaterial({ color: 0x232930 });
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0xaeb6c0, transparent: true, opacity: 0.5 });
-    const redMat = new THREE.MeshBasicMaterial({ color: 0x8f1420 });
+    const airMat = new THREE.MeshPhongMaterial({ color: 0x525b66, specular: 0x8194ab, shininess: 110 });
+    const finMat = new THREE.MeshPhongMaterial({ color: 0x3b434c, specular: 0x6b7b8f, shininess: 80 });
 
-    // airframe
-    const bodyGeo = new THREE.CylinderGeometry(0.20, 0.24, 2.0, 10);
-    bodyGeo.rotateX(Math.PI / 2);                       // +Y → +Z (nose-ward taper forward)
-    const body = new THREE.Mesh(bodyGeo, bodyMat);
-    missile.add(body);
-    missile.add(new THREE.LineSegments(new THREE.EdgesGeometry(bodyGeo, 12), edgeMat));
+    // airframe — continuous lathe: boat-tail → cylindrical body (forward = +Z)
+    const bodyProf = [
+      [0.155, -1.12], [0.205, -0.9], [0.22, -0.55], [0.22, 0.6], [0.215, 0.85], [0.19, 1.15]
+    ].map(p => new THREE.Vector2(p[0], p[1]));
+    const bodyGeo = new THREE.LatheGeometry(bodyProf, 24);
+    bodyGeo.rotateX(Math.PI / 2);
+    missile.add(new THREE.Mesh(bodyGeo, airMat));
 
-    // nose cone
-    const noseGeo = new THREE.ConeGeometry(0.20, 0.72, 10);
+    // ogive nose — painted seeker section, shares the seam at z 1.15
+    const noseProf = [
+      [0.19, 1.15], [0.15, 1.45], [0.095, 1.72], [0.045, 1.9], [0.0, 2.0]
+    ].map(p => new THREE.Vector2(p[0], p[1]));
+    const noseGeo = new THREE.LatheGeometry(noseProf, 24);
     noseGeo.rotateX(Math.PI / 2);
-    noseGeo.translate(0, 0, 1.36);
-    const nose = new THREE.Mesh(noseGeo, redMat);
-    missile.add(nose);
-    missile.add(new THREE.LineSegments(new THREE.EdgesGeometry(noseGeo, 12), edgeMat));
+    missile.add(new THREE.Mesh(noseGeo, new THREE.MeshPhongMaterial({ color: 0x7e1220, specular: 0x5a3038, shininess: 60 })));
 
-    // guidance band
-    const bandGeo = new THREE.CylinderGeometry(0.245, 0.245, 0.1, 10);
+    // raceway conduit along the spine
+    const race = new THREE.BoxGeometry(0.055, 0.04, 1.45);
+    race.translate(0, 0.235, -0.15);
+    missile.add(new THREE.Mesh(race, finMat));
+
+    // guidance band — thin emissive ring at the seeker seam
+    const bandGeo = new THREE.CylinderGeometry(0.226, 0.226, 0.07, 24);
     bandGeo.rotateX(Math.PI / 2);
-    bandGeo.translate(0, 0, 0.55);
+    bandGeo.translate(0, 0, 1.02);
     missile.add(new THREE.Mesh(bandGeo, new THREE.MeshBasicMaterial({ color: 0xe2182b })));
 
-    // nozzle
-    const nozGeo = new THREE.CylinderGeometry(0.24, 0.17, 0.22, 10);
+    // nozzle bell — heat-tinted metal + shadowed throat
+    const nozGeo = new THREE.CylinderGeometry(0.19, 0.145, 0.3, 20);
     nozGeo.rotateX(Math.PI / 2);
-    nozGeo.translate(0, 0, -1.1);
-    missile.add(new THREE.Mesh(nozGeo, new THREE.MeshBasicMaterial({ color: 0x11141a })));
+    nozGeo.translate(0, 0, -1.24);
+    missile.add(new THREE.Mesh(nozGeo, new THREE.MeshPhongMaterial({ color: 0x24282f, specular: 0x94856a, shininess: 150 })));
+    const throat = new THREE.CircleGeometry(0.13, 16);
+    throat.translate(0, 0, -1.385);
+    missile.add(new THREE.Mesh(throat, new THREE.MeshBasicMaterial({ color: 0x1a0b2e })));
 
-    // 4 tail fins + 4 small canards
-    function finSet(len, chord, zPos) {
+    // fins with real thickness (shape x = -z longitudinal, y = radial)
+    function addFins(pts) {
       for (let i = 0; i < 4; i++) {
         const pivot = new THREE.Group();
         pivot.rotation.z = i * Math.PI / 2 + Math.PI / 4;
-        const finGeo = new THREE.BufferGeometry();
-        // swept trapezoid fin in the Y-Z plane
-        const v = new Float32Array([
-          0, 0.24, zPos + chord * 0.5,   0, 0.24 + len, zPos + chord * 0.15,   0, 0.24, zPos - chord * 0.5,
-          0, 0.24 + len, zPos + chord * 0.15,   0, 0.24 + len, zPos - chord * 0.28,   0, 0.24, zPos - chord * 0.5
-        ]);
-        finGeo.setAttribute('position', new THREE.BufferAttribute(v, 3));
-        const fin = new THREE.Mesh(finGeo, new THREE.MeshBasicMaterial({ color: 0x2c333c, side: THREE.DoubleSide }));
-        pivot.add(fin);
-        pivot.add(new THREE.LineSegments(new THREE.EdgesGeometry(finGeo, 1), edgeMat));
+        const sh = new THREE.Shape();
+        sh.moveTo(pts[0][0], pts[0][1]);
+        for (let k = 1; k < pts.length; k++) sh.lineTo(pts[k][0], pts[k][1]);
+        const fg = new THREE.ExtrudeGeometry(sh, { depth: 0.032, bevelEnabled: false });
+        fg.rotateY(Math.PI / 2);           // into the fin plane, thickness along X
+        fg.translate(-0.016, 0, 0);
+        pivot.add(new THREE.Mesh(fg, finMat));
         missile.add(pivot);
       }
     }
-    finSet(0.42, 0.62, -0.72);   // tail fins
-    finSet(0.18, 0.3, 0.78);     // canards
+    addFins([[0.35, 0.2], [0.8, 0.66], [1.03, 0.66], [1.06, 0.2]]);        // tail fins
+    addFins([[-0.92, 0.2], [-0.74, 0.44], [-0.62, 0.44], [-0.6, 0.2]]);    // canards
 
     /* propulsion plume — layered flickering cones (additive) */
     const flameGrp = new THREE.Group();
@@ -238,6 +249,22 @@
     }));
     glow.position.z = -1.215;
     flameGrp.add(glow);
+
+    // shock diamonds inside the plume
+    const diamonds = [];
+    for (let d = 0; d < 3; d++) {
+      const dm = new THREE.Mesh(new THREE.OctahedronGeometry(0.062 - d * 0.013),
+        new THREE.MeshBasicMaterial({ color: 0xf1ecff, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false }));
+      dm.scale.z = 2.4;
+      dm.position.z = -1.6 - d * 0.26;
+      flameGrp.add(dm);
+      diamonds.push(dm);
+    }
+    // the plume casts real light — washes the tail section purple
+    const burnLight = new THREE.PointLight(0x9a6bff, 1.4, 11, 2);
+    burnLight.position.z = -1.8;
+    flameGrp.add(burnLight);
+
     missile.add(flameGrp);
 
     missile.scale.setScalar(1.15);
@@ -250,15 +277,19 @@
     vehicle.add(vRing);
 
     /* exhaust particle trail -------------------------------------- */
-    const TN = low ? 90 : 180;
+    const TN = low ? 90 : 200;
     const tPos = new Float32Array(TN * 3);
     const tVel = new Float32Array(TN * 3);
     const tLife = new Float32Array(TN);
+    const tLife0 = new Float32Array(TN);
+    const tCol = new Float32Array(TN * 3);
     for (let i = 0; i < TN; i++) { tPos[i * 3 + 1] = -9999; }
     const trailGeo = new THREE.BufferGeometry();
     trailGeo.setAttribute('position', new THREE.BufferAttribute(tPos, 3));
+    trailGeo.setAttribute('color', new THREE.BufferAttribute(tCol, 3));
+    // per-particle color = fade-out: hot purple at the nozzle, dying to black
     const trail = new THREE.Points(trailGeo, new THREE.PointsMaterial({
-      color: 0x8b5cf6, size: 0.42, transparent: true, opacity: 0.65,
+      size: 0.42, vertexColors: true, transparent: true, opacity: 0.8,
       blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true
     }));
     scene.add(trail);
@@ -404,6 +435,13 @@
       midFlame.material.opacity = 0.78 + throttle * 0.1;
       glow.scale.setScalar(0.85 + burn * 0.25 + Math.sin(time * 22) * 0.05);
       glow.lookAt(camera.position);
+      // shock diamonds spread with the burn and shimmer
+      diamonds.forEach((dm, i) => {
+        dm.position.z = -1.55 - i * 0.26 * burn;
+        dm.material.opacity = Math.max(0, burn - 0.5) * (0.5 + Math.random() * 0.35);
+        dm.scale.set(1, 1, 2.1 + Math.random() * 0.6);
+      });
+      burnLight.intensity = 0.8 + burn * 0.8 + Math.random() * 0.3;
 
       /* exhaust trail: spawn rate & velocity track the burn */
       const spawnN = Math.max(1, Math.round((low ? 1 : 2) + throttle * 1.6 + Math.max(accel, 0) * 2));
@@ -419,6 +457,7 @@
         tVel[i * 3 + 1] = -tan.y * vMag + (Math.random() - 0.5) * 0.9 + 0.4;
         tVel[i * 3 + 2] = -tan.z * vMag + (Math.random() - 0.5) * 0.9;
         tLife[i] = 0.55 + Math.random() * 0.5;
+        tLife0[i] = tLife[i];
       }
       for (let i = 0; i < TN; i++) {
         if (tLife[i] > 0) {
@@ -427,10 +466,13 @@
           tPos[i * 3 + 1] += tVel[i * 3 + 1] * dt;
           tPos[i * 3 + 2] += tVel[i * 3 + 2] * dt;
           tVel[i * 3] *= 0.955; tVel[i * 3 + 1] *= 0.955; tVel[i * 3 + 2] *= 0.955;
+          const f = Math.max(tLife[i] / tLife0[i], 0);
+          tCol[i * 3] = 0.55 * f; tCol[i * 3 + 1] = 0.36 * f; tCol[i * 3 + 2] = 0.97 * f;
           if (tLife[i] <= 0) tPos[i * 3 + 1] = -9999;
         }
       }
       trailGeo.attributes.position.needsUpdate = true;
+      trailGeo.attributes.color.needsUpdate = true;
 
       /* flown trail line */
       const n = Math.floor(S.t * 240);
